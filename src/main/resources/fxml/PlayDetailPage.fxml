@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXAudioSpectrum?>
+<?import com.leewyatt.rxcontrols.controls.RXLrcView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <RXLrcView fx:id="lrcView" layoutX="35.0" layoutY="14.0" prefHeight="360.0" prefWidth="680.0" styleClass="lrc-pane" tipString="" />
+      <RXAudioSpectrum fx:id="audioSpectrum" layoutX="35.0" layoutY="374.0" prefHeight="62.0" prefWidth="680.0" styleClass="spectrum-pane" />
+   </children>
+</AnchorPane>

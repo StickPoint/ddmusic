@@ -1,0 +1,29 @@
+#menuBtn {
+    -fx-font-size: 18px;
+    -fx-font-family:"Yahei Mono"
+}
+/**
+选中后的效果
+ */
+
+#menuPane-selection:pressed,
+#menuPane-selection:selected{
+    -fx-background-color: rgba(255, 255, 255, .15);
+}
+
+#menuPane-selection-little:pressed,
+#menuPane-selection-little:selected{
+    -fx-background-color: rgba(215, 0, 15);
+}
+/**
+鼠标放上的效果
+ */
+#menuPane-selection:hover
+{
+    -fx-background-color: rgba(243, 243, 243, 0.99);
+    -fx-effect: dropshadow(three-pass-box, #D9D9D9, 5.0,0,0, 0);
+    -fx-cursor: hand;
+}
+@font-face {
+    src: url('../font/monaco.ttf');
+}

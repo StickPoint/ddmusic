@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/entity/Album.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/entity/LocalMusic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/entity/NetsMusic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/entity/Singer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/RecentlyPlayListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/WelcomeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/WelcomeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/constriant/SystemCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/constriant/SystemCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/CodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/CodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/InfoEnums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/InfoEnums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/EncodingDetectUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/EncodingDetectUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SystemPropertiesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SystemPropertiesUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/ThreadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/ThreadUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/YamlUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/YamlUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/AccumulatePaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/AccumulatePaneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/HomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/MusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/MusicControlController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/PlayerComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/PlayerComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/router/PageEnums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/router/PageEnums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HomePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HomePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MusicControl.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MusicControl.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PlayerComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PlayerComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmsuic_search.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_close.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_fenge.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_max.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_meesage.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_menu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_menu_miniwindow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_menu_vectory.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_min.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_mine.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_myMusic_downloadManager.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_myMusic_favorite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_myMusic_history.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/ddmusic_myMusic_localMusic.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/shuxian.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\myMavenResource" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../software/maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\software\maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2FpznulcpXHT3zgcNICRlv456cu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="" />
+      <created>1665203993754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665203993754</updated>
+      <workItem from="1665203995208" duration="2283000" />
+      <workItem from="1665206554817" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
