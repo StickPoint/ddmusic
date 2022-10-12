@@ -5,6 +5,7 @@ import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.router.PageEnums;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -166,8 +167,8 @@ public class HomePageController {
 	 * 关闭home主页
 	 * @param mouseEvent 鼠标事件
 	 */
-    public void closeHomePage(@SuppressWarnings("exports") MouseEvent mouseEvent) {
-        LOGGER.log(Level.INFO,String.format("用户点击了关闭按钮，点击按钮的位置是：X-%s,Y-%s",mouseEvent.getX(),mouseEvent.getY()));
+    public void closeHomePage(MouseEvent mouseEvent) {
+        //LOGGER.log(Level.INFO,"用户点击了关闭按钮，点击按钮的位置是：X-{},Y-{}",mouseEvent.getScreenX(),mouseEvent.getScreenY());
         // 系统关闭
         System.exit(0);
     }
@@ -184,8 +185,9 @@ public class HomePageController {
            String name = event.getEventType().getName();
            LOGGER.log(Level.INFO,name);
            // TODO 这里应该是将他封装好然后传递两个参数然后进行展示
-           Parent load = SystemCache.FXML_LOAD_MAP.get(PageEnums.ACCUMULATE_PANE.getRouterId());
-           userInfoCardContext.getScene().setRoot(load);
+            FXMLLoader accumulateLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.ACCUMULATE_PANE.getRouterId());
+            Parent load = accumulateLoader.getRoot();
+            userInfoCardContext.getScene().setRoot(load);
            userInfoCardContext.show(findStage(),bounds.getMaxX() - 135,bounds.getMaxY() + 10);
        }else {
            userInfoCardContext.show(findStage(),bounds.getMaxX() - 135,bounds.getMaxY() + 10);

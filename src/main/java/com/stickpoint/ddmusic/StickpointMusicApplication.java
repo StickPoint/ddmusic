@@ -17,6 +17,8 @@ import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -29,7 +31,7 @@ import java.util.logging.Logger;
  * @date 2022/9/11
  * @description 欢迎页
  */
-public class WelcomeApplication extends Application {
+public class StickpointMusicApplication extends Application {
 	/**
 	 * 构建日志工具
 	 */
@@ -90,9 +92,9 @@ public class WelcomeApplication extends Application {
                 try {
                     HomePageStage home = new HomePageStage();
                     primaryStage.close();
-                    LOGGER.info("当前界面正在执行关闭操作~");
+                    LOGGER.info("界面已由欢迎页面跳转至主页面~");
                     home.show();
-                } catch (Throwable e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             });
@@ -111,13 +113,10 @@ public class WelcomeApplication extends Application {
         try {
             // 其他操作
             showApplicationInitsInfo("初始化目录...");
-            Thread.sleep(1500);
-//            showApplicationInitsInfo("初始化系统配置...");
-//            Thread.sleep(1500);
-//            showApplicationInitsInfo("版本检测...");
-//            Thread.sleep(3000);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
     }
 
@@ -165,30 +164,48 @@ public class WelcomeApplication extends Application {
      * 整个项目的fxml文件
      * 初始化，直接在这里进行 然后后续都使用缓存
      *
-     * @throws Exception if something goes wrong
      */
     @Override
-    public void init() throws Exception {
+    public void init() {
+        // 系统内部配置优先装载 （1）播放器状态初始化
+        SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent());
+
         // 装载FXML文件: （1）首页
         FXMLLoader homePageLoader = new FXMLLoader(PageEnums.HOMEPAGE.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.HOMEPAGE.getRouterId(),  homePageLoader.load());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.HOMEPAGE.getRouterId(),  homePageLoader);
         LOGGER.log(Level.INFO,"首页装载成功！");
-        //（2）播放组件
+        //（2）播放页面
         FXMLLoader playerComponentLoader = new FXMLLoader(PageEnums.PLAYER_COMPONENT.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.PLAYER_COMPONENT.getRouterId(), playerComponentLoader.load());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.PLAYER_COMPONENT.getRouterId(), playerComponentLoader);
         LOGGER.log(Level.INFO,"播放组件页面装载成功！");
-        //（3）累计统计情况额外组件
+        //（3）累计统计情况额外页面
         FXMLLoader accumulatePaneLoader = new FXMLLoader(PageEnums.ACCUMULATE_PANE.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.ACCUMULATE_PANE.getRouterId(), accumulatePaneLoader.load());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.ACCUMULATE_PANE.getRouterId(), accumulatePaneLoader);
         LOGGER.log(Level.INFO,"累计统计情况额外组件页面装载成功！");
-        //（4）播放控制组件
+        //（4）播放控制页面
         FXMLLoader musicControlLoader = new FXMLLoader(PageEnums.MUSIC_CONTROL.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.MUSIC_CONTROL.getRouterId(), musicControlLoader.load());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.MUSIC_CONTROL.getRouterId(), musicControlLoader);
         LOGGER.log(Level.INFO,"播放控制组件页面装载成功！");
-        
-        // （1）播放器状态初始化
-        SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), 
-    			InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent());
+        //（5）歌曲播放详情界面
+        FXMLLoader playDetailPage = new FXMLLoader(PageEnums.PLAY_DETAIL_PAGE.getPageSource());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.PLAY_DETAIL_PAGE.getRouterId(), playDetailPage);
+        //（6）近期播放列表页面--最近播放小页面
+        FXMLLoader recentlyPlayListLoader = new FXMLLoader(PageEnums.RECENTLY_PLAY_LIST.getPageSource());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.RECENTLY_PLAY_LIST.getRouterId(),recentlyPlayListLoader);
+        //（7）系统播放器额外组件-音量控制组件
+        FXMLLoader soundControlLoader = new FXMLLoader(getClass().getResource("/fxml/SoundControl.fxml"));
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.SOUND_CONTROL.getRouterId(),soundControlLoader);
+        // 装载完毕所有页面之后 将逐步进行页面的初始化操作
+        try {
+            homePageLoader.load();
+            playDetailPage.load();
+            accumulatePaneLoader.load();
+            musicControlLoader.load();
+            playerComponentLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**

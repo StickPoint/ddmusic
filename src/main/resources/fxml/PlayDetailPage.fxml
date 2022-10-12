@@ -4,10 +4,11 @@
 <?import com.leewyatt.rxcontrols.controls.RXLrcView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="playDetail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0"
+            stylesheets="@../css/playDetail.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.PlayDetailController">
    <children>
-      <RXLrcView fx:id="lrcView" layoutX="35.0" layoutY="14.0" prefHeight="360.0" prefWidth="680.0" styleClass="lrc-pane" tipString="" />
-      <RXAudioSpectrum fx:id="audioSpectrum" layoutX="35.0" layoutY="374.0" prefHeight="62.0" prefWidth="680.0" styleClass="spectrum-pane" />
+      <RXLrcView id="lrcView" fx:id="lrcView" layoutX="35.0" layoutY="14.0" prefHeight="360.0" prefWidth="680.0" styleClass="lrc-pane" tipString="" />
+      <RXAudioSpectrum id="audioSpectrum" fx:id="audioSpectrum" layoutX="35.0" layoutY="374.0" prefHeight="62.0" prefWidth="680.0" styleClass="spectrum-pane" />
    </children>
 </AnchorPane>

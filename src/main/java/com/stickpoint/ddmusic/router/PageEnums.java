@@ -3,7 +3,10 @@ package com.stickpoint.ddmusic.router;
 import com.stickpoint.ddmusic.page.AccumulatePaneController;
 import com.stickpoint.ddmusic.page.HomePageStage;
 import com.stickpoint.ddmusic.page.MusicControlController;
+import com.stickpoint.ddmusic.page.PlayDetailController;
 import com.stickpoint.ddmusic.page.PlayerComponentController;
+import com.stickpoint.ddmusic.page.RecentlyPlayListController;
+import com.stickpoint.ddmusic.page.SoundControlController;
 
 import java.net.URL;
 
@@ -29,27 +32,39 @@ public enum PageEnums {
     /**
      * 额外菜单面板--累计信息卡
      */
-    ACCUMULATE_PANE(AccumulatePaneController.class,AccumulatePaneController.class.getResource("/fxml/AccumulatePane.fxml"),"accumulatePane");
+    ACCUMULATE_PANE(AccumulatePaneController.class,AccumulatePaneController.class.getResource("/fxml/AccumulatePane.fxml"),"accumulatePane"),
+    /**
+     * 播放详情页面
+     */
+    PLAY_DETAIL_PAGE(PlayDetailController.class,PlayDetailController.class.getResource("/fxml/PlayDetailPage.fxml"),"playDetailPage"),
+    /**
+     * 最近播放页面--最近播放列表
+     */
+    RECENTLY_PLAY_LIST(RecentlyPlayListController.class,RecentlyPlayListController.class.getResource("/fxml/RecentLyPlayList.fxml"),"recentlyPlayList"),
+    /**
+     * 音量控制组件面板--控制音量
+     */
+    SOUND_CONTROL(SoundControlController.class,SoundControlController.class.getResource("/fxml/SoundControl.fxml"),"soundControl");
 
     /**
-     * 页面名称
+     * 页面/组件 名称
      */
     private final Class<?> pageType;
     /**
-     * 页面路由
+     * 页面/组件 路由
      */
     private final URL pageSource;
     /**
-     * 页面全名称
+     * 页面/组件 全名称
      */
     private final String routerId;
     
 	/**
 	 * 
 	 * 构建构造方法
-	 * @param pageType 页面类型，以页面的class来区分
-	 * @param pageSource 页面数据源URL，classpath下的文件
-	 * @param routerId 路由id，字符串，作为组件路由的关键key
+	 * @param pageType 页面/组件 类型，以页面的class来区分
+	 * @param pageSource 页面/组件 数据源URL，classpath下的文件
+	 * @param routerId 页面/组件 路由id，字符串，作为组件路由的关键key
 	 */
     PageEnums(Class<?> pageType, URL pageSource,String routerId){
         this.pageType = pageType;
@@ -62,8 +77,7 @@ public enum PageEnums {
 	 * @title: getPageType 
 	 * @description:
 	 * @return Class<?>
-	 * @throws
-	 */
+     */
     public Class<?> getPageType() {
         return pageType;
     }
@@ -73,8 +87,7 @@ public enum PageEnums {
 	 * @title: getPageSource 
 	 * @description:
 	 * @return URL
-	 * @throws
-	 */
+     */
     public URL getPageSource() {
         return pageSource;
     }
@@ -83,7 +96,6 @@ public enum PageEnums {
 	 * @title: getRouterId 方法名：getRouterId
 	 * @description: 此方法就是为了返回路由Id，页面的路由中，Id是唯一的。
 	 * @return String 返回的是一个字符串，也就是枚举对象的路由Id
-	 * @throws 不需要抛出任何异常信息
 	 */
     public String getRouterId() {
         return routerId;

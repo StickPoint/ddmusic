@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.utils
  */
-public class YamlUtils extends LinkedHashMap<String, String> {
+public class YamlUtil extends LinkedHashMap<String, String> {
 
     private static final long serialVersionUID = 702565982353979710L;
     
@@ -32,7 +32,7 @@ public class YamlUtils extends LinkedHashMap<String, String> {
      * 含参构造：构建一个YAML解析器
      * @param ymlFilePath 传入一个yaml文件的地址
      */
-    public YamlUtils(String ymlFilePath) {
+    public YamlUtil(String ymlFilePath) {
         if (Objects.isNull(ymlFilePath)) {
             // 传入的地址是空的
             LOGGER.log(Level.WARNING, CodeEnum.ERROR_PROPERTIES_CENTER_FILE_PATH_IS_NULL.getMessage());

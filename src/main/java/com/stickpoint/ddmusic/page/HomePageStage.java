@@ -2,12 +2,17 @@ package com.stickpoint.ddmusic.page;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.router.PageEnums;
+import javafx.collections.ObservableMap;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.IOException;
 import java.util.logging.Logger;
 
 /**
@@ -50,7 +55,11 @@ public class HomePageStage extends Stage {
         oldStageX = 0;
         //去掉面板的标题栏
         this.initStyle(StageStyle.TRANSPARENT);
-        Scene homePageScene = new Scene(SystemCache.FXML_LOAD_MAP.get(PageEnums.HOMEPAGE.getRouterId()), 950, 610);
+        Scene homePageScene = null;
+        // 在初始化init方法中load过之后，我们可以直接拿node了
+        FXMLLoader homepageLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.HOMEPAGE.getRouterId());
+        Parent parentNode = homepageLoader.getRoot();
+        homePageScene = new Scene(parentNode, 950, 610);
         this.setScene(homePageScene);
         // 设置Stage的任务栏Logo
         this.getIcons().add(new Image("https://sinsy.oss-cn-beijing.aliyuncs.com/img/ddmusic-logo.png"));
@@ -59,11 +68,7 @@ public class HomePageStage extends Stage {
         // 设置Stage监听
         this.mouseClickedToWindowsSlider(homePageScene);
         // 显示窗体拖拽轨迹
-        this.xProperty().addListener((observable, oldValue, newValue) -> log.info(String.format("当前窗口--X--轴历史坐标：%s，现在坐标%s",oldValue,newValue)));
-        this.yProperty().addListener((observable, oldValue, newValue) -> log.info(String.format("当前窗口--Y--轴历史坐标：%s，现在坐标%s",oldValue,newValue)));
-        // 初始化播放器
-        this.initPlayerComponent();
-    }
+   }
 
     /**
      * 鼠标按下事件控制窗口移动方法
@@ -86,20 +91,6 @@ public class HomePageStage extends Stage {
            this.setX(event.getScreenX() - oldScreenX + oldStageX);
            this.setY(event.getScreenY() - oldScreenY + oldStageY);
         });
-    }
-
-    /**
-     * 由于默认的组件位置是空白的一个AnchorPane 什么都没有
-     * 现在通过初始化组件的形式加载其他额外的FXML文件
-     * 初始化一个播放组件：
-     * （1）由于在软件刚初始化的时候，所有的FXML文件都被装载到了系统内部，所以可以直接读取
-     * （2）通过CSS-ID来选择器来选择组件
-     */
-    private void initPlayerComponent(){
-        Parent homePage = SystemCache.FXML_LOAD_MAP.get(PageEnums.HOMEPAGE.getRouterId());
-        AnchorPane homePagePlayer = (AnchorPane) homePage.lookup(InfoEnums.HOME_PAGE_PLAYER_CSS_ID.getInfoContent());
-        Parent playerComponentRootNode = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAYER_COMPONENT.getRouterId());
-        homePagePlayer.getChildren().add(playerComponentRootNode);
     }
 
 }

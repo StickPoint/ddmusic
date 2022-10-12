@@ -1,0 +1,27 @@
+.root {
+    -fx-background-color: null;
+    /*-base-hover-color: #1ECE9A;*/
+    -base-hover-color:  #D7000F;
+}
+
+
+/*-----------声音弹窗------------*/
+.sound-root {
+    -fx-background-color: null;
+}
+
+.sound-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+}
+
+.sound-slider .thumb,
+.sound-slider .track {
+    -fx-background-color: -base-hover-color;
+}
+
+.sound-slider .track {
+    -fx-min-width: 3;
+    -fx-pref-width: 3;
+    -fx-max-width: 3;
+}
