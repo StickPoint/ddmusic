@@ -1,0 +1,22 @@
+.rx-media-progress-bar {
+    /*进度条颜色*/
+    -rx-track-fill: #eaeaea;
+    /*缓冲进度条颜色*/
+    -rx-buffer-fill: #dadada;
+    /*当前播放进度条颜色*/
+    -rx-current-fill:  #D7000F;
+    /*圆圈按钮的颜色*/
+    -rx-thumb-fill: #D7000F;
+}
+
+.rx-media-progress-bar .thumb {
+    -fx-background-color: -rx-thumb-fill;
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(three-pass-box, #da5c5c, 5, 0.5, 0, 0);
+}
+
+.rx-media-progress-bar .thumb:hover {
+    -fx-scale-x: 1.18;
+    -fx-scale-y: 1.18;
+    -fx-effect: dropshadow(three-pass-box, #f57889, 5, 0.5, 0, 0);
+}

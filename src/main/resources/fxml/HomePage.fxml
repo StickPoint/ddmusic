@@ -37,7 +37,7 @@
             </HBox>
             <HBox layoutX="240.0" maxHeight="34.0" minHeight="24.0" prefHeight="34.0" prefWidth="250.0" style="-fx-background-radius: 15; -fx-background-color: rgba(255,255,255,0.17);" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="3.0">
                <children>
-                  <TextField maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="215.0" promptText="请输入待搜索的 音乐 | 歌手 | 歌单" style="-fx-background-color: transparent; -fx-prompt-text-fill: rgba(255,255,255,0.82); -fx-text-fill: rgba(255,255,255,0.82);">
+                  <TextField maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="215.0" promptText="请输入待搜索的 音乐 | 歌手 | 歌单" style="-fx-background-color: v; -fx-prompt-text-fill: rgba(255,255,255,0.82); -fx-text-fill: rgba(255,255,255,0.82);">
                      <HBox.margin>
                         <Insets bottom="2.0" left="3.0" />
                      </HBox.margin>

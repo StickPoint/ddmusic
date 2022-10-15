@@ -29,17 +29,33 @@ public enum InfoEnums {
      */
     APP_ENV_VERSION("app.env.version"),
     /**
+     * 音乐播放控制组件的播放与暂停按钮的fx:id
+     */
+    MUSIC_CONTROL_PLAY_OR_PAUSE_FX_ID("playerPauseOrGoon"),
+    /**
+     * 歌词fx:id
+     */
+    MUSIC_DETAIL_LRC_VIEW("lrcView"),
+    /**
+     * 频谱fx:id
+     */
+    MUSIC_DETAIL_AUDIO_SPECTRUM("audioSpectrum"),
+    /**
      * 主页播放器控件CssId
      */
-    HOME_PAGE_PLAYER_CSS_ID("#homePagePlayer"),
+    HOME_PAGE_PLAYER_FX_ID("homePagePlayer"),
     /**
      * 播放器的CssId
      */
-    PLAY_COMPONENT_CSS_ID("#playerComponent"),
+    PLAY_COMPONENT_FX_ID("playerComponent"),
     /**
      * 音乐播放组件-CssId
      */
-    MUSIC_CONTROL_CSS_ID("#musicControl"),
+    MUSIC_CONTROL_FX_ID("musicControl"),
+    /**
+     * HomePage主页：centerView 中心展示区域
+     */
+    HOME_PAGE_CENTER_VIEW_FX_ID("centerView"),
     /**
      * 音乐播放组件-Id
      */
@@ -67,7 +83,13 @@ public enum InfoEnums {
 	/**
 	 * 音乐暂停播放状态: music:player:status:pause
 	 */
-	MUSIC_PLAY_STATUS_PAUSE_VALUE("music:player:status:pause");
+	MUSIC_PLAY_STATUS_PAUSE_VALUE("music:player:status:pause"),
+    /**
+     * 内置音乐播放器ID
+     */
+    MUSIC_INNER_PLAYER_ID("ddmusic:inner:component:player")
+
+    ;
 	
     /**
      * 提示信息
@@ -87,7 +109,6 @@ public enum InfoEnums {
 	 * @title: getInfoContent 方法名getInfoContent
 	 * @description: 返回枚举信息的message
 	 * @return String 返回当前枚举的message信息
-	 * @throws 不需要抛出任何异常
 	 */
     public String getInfoContent() {
         return infoContent;
