@@ -3,6 +3,7 @@ package com.stickpoint.ddmusic.page;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * description: SoundControlController
@@ -19,4 +20,5 @@ public class SoundControlController {
 
     @FXML
     public Label soundNum;
+    public AnchorPane soundControl;
 }

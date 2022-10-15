@@ -87,9 +87,9 @@ public enum InfoEnums {
     /**
      * 内置音乐播放器ID
      */
-    MUSIC_INNER_PLAYER_ID("ddmusic:inner:component:player")
+    MUSIC_INNER_PLAYER_ID("ddmusic:inner:component:player"),
 
-    ;
+    RECENTLY_PLAYLIST_PANE_FX_ID("recentlyPlayListPane");
 	
     /**
      * 提示信息

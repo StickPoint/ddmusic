@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane fx:controller="com.stickpoint.ddmusic.page.SoundControlController" prefHeight="160.0" prefWidth="60.0" styleClass="sound-root" stylesheets="@../css/soundControl.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="soundControl" fx:controller="com.stickpoint.ddmusic.page.SoundControlController" prefHeight="160.0" prefWidth="60.0" styleClass="sound-root" stylesheets="@../css/soundControl.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle fill="WHITE" height="20.0" layoutX="19.0" layoutY="136.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="20.0" />
       <AnchorPane prefHeight="142.0" prefWidth="50.0" styleClass="sound-pane" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">

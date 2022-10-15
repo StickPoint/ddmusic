@@ -1,11 +1,18 @@
 package com.stickpoint.ddmusic.page;
 
+import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.router.PageEnums;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.MouseEvent;
 
 import java.io.File;
+import java.util.Objects;
 
 /**
  * @author puye(0303)
@@ -17,6 +24,28 @@ public class RecentlyPlayListController {
 
     @FXML
     public ListView<File> recentlyPlayList;
+
+    private ContextMenu recentlyPlayListPopup;
+
+    @FXML
+    public void initialize(){
+
+    }
+
+    /**
+     * 获得最近播放的菜单组件
+     * @return 返回一个最近播放
+     */
+    public ContextMenu getRecentlyPlayListPopup(){
+        // 因为这个contextMenu是一直存在的 只能在空的状态下去进行设置
+        if (Objects.isNull(recentlyPlayListPopup)) {
+            recentlyPlayListPopup = new ContextMenu(new SeparatorMenuItem());
+            FXMLLoader recentlyPlayListLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.RECENTLY_PLAY_LIST.getRouterId());
+            Parent recentlyPlayListPopupNode = recentlyPlayListLoader.getRoot();
+            recentlyPlayListPopup.getScene().setRoot(recentlyPlayListPopupNode);
+        }
+        return recentlyPlayListPopup;
+    }
 
     /**
      * 一键清除所有最近播放
