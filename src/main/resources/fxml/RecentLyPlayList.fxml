@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="com.stickpoint.ddmusic.page.RecentlyPlayListController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="320.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="recentlyPlayListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="320.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.RecentlyPlayListController">
    <children>
-      <VBox prefHeight="350.0" prefWidth="320.0">
+      <VBox prefHeight="350.0" prefWidth="320.0" style="-fx-border-color: gray;">
          <children>
-            <AnchorPane maxWidth="320.0" minWidth="320.0" prefHeight="100.0" prefWidth="320.0" style="-fx-border-width: 0.1; -fx-border-color: gray;">
+            <AnchorPane maxWidth="320.0" minWidth="320.0" prefHeight="100.0" prefWidth="320.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="11.0" layoutY="11.0" text="最 近 播 放" textAlignment="CENTER">
                      <font>

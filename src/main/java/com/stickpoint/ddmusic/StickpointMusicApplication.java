@@ -160,7 +160,6 @@ public class StickpointMusicApplication extends Application {
      * （4）网络初始化
      * （5）db初始化
      * （6）日志初始化
-     *
      * 整个项目的fxml文件
      * 初始化，直接在这里进行 然后后续都使用缓存
      *
@@ -201,6 +200,7 @@ public class StickpointMusicApplication extends Application {
             playDetailPage.load();
             accumulatePaneLoader.load();
             musicControlLoader.load();
+            recentlyPlayListLoader.load();
             playerComponentLoader.load();
         } catch (IOException e) {
             e.printStackTrace();

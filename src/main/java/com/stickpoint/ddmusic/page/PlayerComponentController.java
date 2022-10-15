@@ -23,6 +23,7 @@ import javafx.collections.ObservableMap;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ContextMenu;
@@ -37,6 +38,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioSpectrumListener;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 /**
@@ -138,10 +141,10 @@ public class PlayerComponentController {
     @SuppressWarnings("unused")
     private Slider soundSlider;
 
-    private MusicControlController musicControlController;
+    private RecentlyPlayListController recentlyPlayListController;
 
     public PlayerComponentController(){
-        this.musicControlController = new MusicControlController();
+        this.recentlyPlayListController = new RecentlyPlayListController();
     }
 
     /**
@@ -191,9 +194,9 @@ public class PlayerComponentController {
             // 初始化根节点
             soundRoot = soundControlLoader.load();
             // 通过fx:id获得内部node 注意这里不是通过css-id的lookup方法获得的node节点
-            ObservableMap<String, Object> namespace = soundControlLoader.getNamespace();
-            soundSlider = (Slider) namespace.get("soundSlider");
-            Label soundNumLabel = (Label) namespace.get("soundNum");
+            ObservableMap<String, Object> soundControlNamespace = soundControlLoader.getNamespace();
+            soundSlider = (Slider) soundControlNamespace.get("soundSlider");
+            Label soundNumLabel = (Label) soundControlNamespace.get("soundNum");
             soundNumLabel.textProperty().bind(soundSlider.valueProperty().asString("%.0f%%"));
             //声音滑块改变时,改变player的音量
             soundSlider.valueProperty().addListener((ob, ov, nv) -> {
@@ -222,7 +225,7 @@ public class PlayerComponentController {
         FXMLLoader playerDetailLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
         ObservableMap<String, Object> playerDetailLoaderNamespace = playerDetailLoader.getNamespace();
         RXLrcView lrcView = (RXLrcView) playerDetailLoaderNamespace.get(InfoEnums.MUSIC_DETAIL_LRC_VIEW.getInfoContent());
-        String lrcPath = "D:\\myProject\\myOpenSource\\ddmusic\\src\\main\\resources\\media\\jar-of-love.lrc";
+        String lrcPath = "D:\\developData\\codeData\\desktopApp\\ddmusic\\src\\main\\resources\\media\\jar-of-love.lrc";
         File lrcFile = new File(lrcPath);
         boolean exists = lrcFile.exists();
         if (exists) {
@@ -244,7 +247,6 @@ public class PlayerComponentController {
         player.currentTimeProperty().addListener(durationChangeListener);
         //如果播放完当前歌曲, 自动播放下一首
         //player.setOnEndOfMedia(this::playNextMusic);
-        //musicControlController.startOrPausePlay(player);
         //player.play();
     }
 
@@ -307,10 +309,10 @@ public class PlayerComponentController {
             ObservableMap<String, Object> musicControlNamespace = musicControlLoader.getNamespace();
             musicControl = (HBox) musicControlNamespace.get(InfoEnums.MUSIC_CONTROL_FX_ID.getInfoContent());
 		}else {
-			infoSliderArea.getChildren().add(musicControl);
 			LOGGER.log(Level.INFO,"当前对象存在！");
-		}
-    	FadeIn fadeIn = new FadeIn(infoSliderArea);
+        }
+        infoSliderArea.getChildren().add(musicControl);
+        FadeIn fadeIn = new FadeIn(infoSliderArea);
     	fadeIn.play();
     }
     
@@ -341,5 +343,25 @@ public class PlayerComponentController {
         FXMLLoader playerComponentLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAYER_COMPONENT.getRouterId());
         ObservableMap<String, Object> playerComponentLoaderNamespace = playerComponentLoader.getNamespace();
         homePagePlayer.getChildren().addAll((Node) playerComponentLoaderNamespace.get(InfoEnums.PLAY_COMPONENT_FX_ID.getInfoContent()));
+    }
+
+    /**
+     * 当监听到点击了音量调节按钮之后的操作
+     */
+    @FXML
+    public void onSoundPopupAction() {
+        Bounds bounds = playerVolume.localToScreen(playerVolume.getBoundsInLocal());
+        Stage hBoxStage = (Stage) playerComponent.getScene().getWindow();
+        soundPopup.show(hBoxStage, bounds.getMinX() - 20, bounds.getMinY() - 165);
+    }
+
+    /**
+     * 显示最近播放
+     */
+    public void showRecentlyPlayList() {
+        Bounds bounds = playerRecentlyList.localToScreen(playerRecentlyList.getBoundsInLocal());
+        Stage hBoxStage = (Stage) playerComponent.getScene().getWindow();
+        ContextMenu playListPopup = recentlyPlayListController.getRecentlyPlayListPopup();
+        playListPopup.show(hBoxStage, bounds.getMinX() - 292, bounds.getMinY() - 376);
     }
 }
