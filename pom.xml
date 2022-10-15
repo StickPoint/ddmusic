@@ -45,10 +45,17 @@
 		    <artifactId>AnimateFX</artifactId>
 		    <version>1.2.3</version>
 		</dependency>
+        <!--  这个CSS效果暂时没哟用到-->
+<!--        <dependency>-->
+<!--            <groupId>io.github.mkpaz</groupId>-->
+<!--            <artifactId>atlantafx-base</artifactId>-->
+<!--            <version>1.0.0</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
         <dependency>
-            <groupId>io.github.mkpaz</groupId>
-            <artifactId>atlantafx-base</artifactId>
-            <version>1.0.0</version>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.16.1.1</version>
         </dependency>
     </dependencies>
     <build>

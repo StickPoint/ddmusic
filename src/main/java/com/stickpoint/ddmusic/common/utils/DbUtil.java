@@ -19,9 +19,10 @@ public class DbUtil {
 
     static {
         try {
-           Connection connection =  DriverManager.getConnection("jdbc:sqlite:dbs/xwf.db");
+            Class<?> derbyEmbedDriver = Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            Connection connection =  DriverManager.getConnection("jdbc:derby:ddmusic;create=true;");
            state = connection.createStatement();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -30,14 +31,6 @@ public class DbUtil {
      * 初始化本地数据库
      */
     public static void initLocalDateBase(){
-        try {
-            state.executeUpdate("drop table if exists `dd_user`");
-            state.executeUpdate("drop table if exists `dd_localMusic`");
-            state.executeUpdate("drop table if exists `dd_neteasy`");
-            state.executeUpdate("drop table if exists `dd_singer`");
-            state.executeUpdate("drop table if exists `dd_album`");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 }

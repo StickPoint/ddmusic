@@ -4,42 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/entity/vo/MusicListCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/CaptchaCodeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/DbUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/FxPngUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/CacheNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/PlayDetailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/SoundControlController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/local.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/playDetail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/playerComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/soundControl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/SoundControl.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/123.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/media/Andalusia.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/media/Jar-of-love.lrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/media/jar-of-love.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/5/755e5760156465f4798561642c6a0df2a3991ac2" beforeDir="false" />
+    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDMusic 0002 新版本更新&#10;（1）新增工具类&#10;（2）新规划项目结构">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/component/SpBadge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/WelcomeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/StickpointMusicApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/constriant/SystemCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/constriant/SystemCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/InfoEnums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/InfoEnums.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SystemPropertiesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SystemPropertiesUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/YamlUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/YamlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/HomePageStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/HomePageStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/MusicControlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/MusicControlController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/PlayerComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/PlayerComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/router/PageEnums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/router/PageEnums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/DbUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HomePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HomePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PlayDetailPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PlayDetailPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PlayerComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PlayerComponent.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,13 +60,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/css" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
@@ -219,8 +191,20 @@
       <workItem from="1665539035820" duration="1946000" />
       <workItem from="1665547026695" duration="5941000" />
       <workItem from="1665553361222" duration="216000" />
-      <workItem from="1665565275329" duration="6354000" />
+      <workItem from="1665565275329" duration="7533000" />
+      <workItem from="1665624454549" duration="1094000" />
+      <workItem from="1665652709953" duration="1718000" />
+      <workItem from="1665710133041" duration="688000" />
+      <workItem from="1665736545736" duration="2136000" />
     </task>
+    <task id="LOCAL-00001" summary="DDMusic 0002 新版本更新&#10;（1）新增页面优化&#10;（2）新增播放详情页面&#10;（3）新增歌词解析&#10;（4）新增歌词显示&#10;（5）新增歌曲进度条&#10;（6）新增全局加载方式">
+      <created>1665571877427</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665571877427</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +221,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="DDMusic 0002 新版本更新&#10;（1）新增页面优化&#10;（2）新增播放详情页面&#10;（3）新增歌词解析&#10;（4）新增歌词显示&#10;（5）新增歌曲进度条&#10;（6）新增全局加载方式" />
+    <MESSAGE value="DDMusic 0002 新版本更新&#10;（1）新增工具类&#10;（2）新规划项目结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="DDMusic 0002 新版本更新&#10;（1）新增工具类&#10;（2）新规划项目结构" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,7 +8,8 @@ open module com.stickpoint.ddmusic {
     requires rxcontrols;
 	requires javafx.base;
 	requires java.sql;
-	requires atlantafx.base;
+	requires org.apache.derby.commons;
+	requires org.apache.derby.engine;
     exports com.stickpoint.ddmusic;
     exports com.stickpoint.ddmusic.page;
 }
