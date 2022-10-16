@@ -113,7 +113,7 @@
          <children>
             <VBox id="leftMenu" maxHeight="520.0" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: white;">
                <children>
-                  <VBox fx:id="myMusicContainer" onMouseClicked="#changeBackgroundStyle" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/main-windows-menuItem.css">
+                  <VBox fx:id="myMusicContainer" onMouseClicked="#changeBackgroundStyle" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/homeStageMenu.css">
                      <children>
                         <Pane id="leftTabMenu">
                            <children>
