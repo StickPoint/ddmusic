@@ -1,0 +1,13 @@
+
+/**
+鼠标放上的效果
+ */
+#menuPane-selection:hover
+{
+    -fx-background-color: rgba(243, 243, 243, 0.99);
+    -fx-effect: dropshadow(three-pass-box, #D9D9D9, 5.0,0,0, 0);
+    -fx-cursor: hand;
+}
+
+
+

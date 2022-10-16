@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 
 /**
  * @author fntp
- * @version v0.0.1
+ * @version v0.0.3
  * @date 2022/9/11
  * @description 欢迎页
  */
@@ -64,13 +64,13 @@ public class StickpointMusicApplication extends Application {
     public void start(@SuppressWarnings("exports") Stage primaryStage) throws URISyntaxException {
         Media welcomeVideo = new Media(Objects.requireNonNull(getClass().getResource("/media/ddmusic.mp4")).toURI().toString());
         MediaPlayer player = new MediaPlayer(welcomeVideo);
-        MediaView imageView = new MediaView(player);
+        MediaView mediaView = new MediaView(player);
         loadingMessage = new Label();
         loadingMessage.setTextFill(Color.WHITE);
         AnchorPane.setRightAnchor(loadingMessage, 10.0);
         AnchorPane.setBottomAnchor(loadingMessage, 10.0);
         AnchorPane page = new AnchorPane();
-        page.getChildren().addAll(imageView , loadingMessage);
+        page.getChildren().addAll(mediaView , loadingMessage);
         primaryStage.setTitle("顶点音乐");
         primaryStage.setScene(new Scene(page));
         primaryStage.setWidth(700);
@@ -82,8 +82,8 @@ public class StickpointMusicApplication extends Application {
         // 欢迎页开始展示了之后，开始剪裁欢迎页的视频尺寸大小
         player.play();
         player.setOnReady(() -> {
-            imageView.setFitWidth(primaryStage.getWidth());
-            imageView.setFitHeight(primaryStage.getHeight());
+            mediaView.setFitWidth(primaryStage.getWidth());
+            mediaView.setFitHeight(primaryStage.getHeight());
         });
         ExecutorService pool = ThreadUtil.getPool();
         pool.submit(() -> {
@@ -91,7 +91,7 @@ public class StickpointMusicApplication extends Application {
             Platform.runLater(() -> {
                 try {
                     HomePageStage home = new HomePageStage();
-                    primaryStage.close();
+                    primaryStage.hide();
                     LOGGER.info("界面已由欢迎页面跳转至主页面~");
                     home.show();
                 } catch (Exception e) {
@@ -168,7 +168,6 @@ public class StickpointMusicApplication extends Application {
     public void init() {
         // 系统内部配置优先装载 （1）播放器状态初始化
         SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent());
-
         // 装载FXML文件: （1）首页
         FXMLLoader homePageLoader = new FXMLLoader(PageEnums.HOMEPAGE.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.HOMEPAGE.getRouterId(),  homePageLoader);

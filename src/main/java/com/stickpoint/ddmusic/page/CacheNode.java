@@ -14,8 +14,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * @PackageName com.stickpoint.ddmusic.page
  */
 public interface CacheNode {
+
     /**
      * 内置音乐播放器缓存
      */
     Map<String, MediaPlayer> INNER_PLAYER_CACHE = new ConcurrentHashMap<>(1);
+
 }

@@ -40,7 +40,7 @@ public enum PageEnums {
     /**
      * 最近播放页面--最近播放列表
      */
-    RECENTLY_PLAY_LIST(RecentlyPlayListController.class,RecentlyPlayListController.class.getResource("/fxml/RecentLyPlayList.fxml"),"recentlyPlayList"),
+    RECENTLY_PLAY_LIST(RecentlyPlayListController.class,RecentlyPlayListController.class.getResource("/fxml/RecentlyPlayList.fxml"),"recentlyPlayList"),
     /**
      * 音量控制组件面板--控制音量
      */
