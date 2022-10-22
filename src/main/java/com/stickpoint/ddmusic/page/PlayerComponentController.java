@@ -143,8 +143,11 @@ public class PlayerComponentController {
 
     private RecentlyPlayListController recentlyPlayListController;
 
+    private MusicControlController musicControlController;
+
     public PlayerComponentController(){
         this.recentlyPlayListController = new RecentlyPlayListController();
+        this.musicControlController = new MusicControlController();
     }
 
     /**
@@ -245,7 +248,8 @@ public class PlayerComponentController {
         playerProgressBar.durationProperty().bind(player.getMedia().durationProperty());
         //播放器的进度修改监听器
         player.currentTimeProperty().addListener(durationChangeListener);
-        //如果播放完当前歌曲, 自动播放下一首
+        //如果播放完当前歌曲, 我们这里暂停播放 (1)播放器暂停 （2）ui显示
+        player.setOnEndOfMedia(() -> musicControlController.startOrPausePlay(CacheNode.INNER_PLAYER_CACHE.get("player")));
         //player.setOnEndOfMedia(this::playNextMusic);
         //player.play();
     }
