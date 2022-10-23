@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<AnchorPane stylesheets="@../css/musicControl.css" id="playControlPane" fx:id="playControlPane" maxHeight="50.0" prefHeight="50.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.MusicControlController">
+   <children>
+      <HBox fx:id="musicControl" prefHeight="50.0" prefWidth="175.0">
+         <children>
+            <Region id="playerLeft" fx:id="playerLeft" prefHeight="30.0" prefWidth="30.0" rotate="180.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Region>
+            <Region id="playerPauseOrGoon" fx:id="playerPauseOrGoon" onMouseClicked="#startOrPausePlay" prefHeight="30.0" prefWidth="30.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="12.5" right="12.5" top="10.0" />
+               </HBox.margin>
+            </Region>
+            <Region id="playerRight" fx:id="playerRight" prefHeight="30.0" prefWidth="30.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </HBox.margin>
+            </Region>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

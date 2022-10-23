@@ -191,7 +191,7 @@ public class StickpointMusicApplication extends Application {
         FXMLLoader recentlyPlayListLoader = new FXMLLoader(PageEnums.RECENTLY_PLAY_LIST.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.RECENTLY_PLAY_LIST.getRouterId(),recentlyPlayListLoader);
         //（7）系统播放器额外组件-音量控制组件
-        FXMLLoader soundControlLoader = new FXMLLoader(getClass().getResource("/fxml/SoundControl.fxml"));
+        FXMLLoader soundControlLoader = new FXMLLoader(getClass().getResource("/fxml/soundControl.fxml"));
         SystemCache.FXML_LOAD_MAP.put(PageEnums.SOUND_CONTROL.getRouterId(),soundControlLoader);
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         try {

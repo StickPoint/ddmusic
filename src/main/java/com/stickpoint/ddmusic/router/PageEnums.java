@@ -20,31 +20,31 @@ public enum PageEnums {
     /**
      * 播放音乐组件
      */
-    PLAYER_COMPONENT(PlayerComponentController.class, PlayerComponentController.class.getResource("/fxml/PlayerComponent.fxml"),"playerComponent"),
+    PLAYER_COMPONENT(PlayerComponentController.class, PlayerComponentController.class.getResource("/fxml/playerComponent.fxml"),"playerComponent"),
     /**
      * 音乐播放控制组件：暂停开始、上一曲下一曲组件。
      */
-    MUSIC_CONTROL(MusicControlController.class,MusicControlController.class.getResource("/fxml/MusicControl.fxml"),"musicControl"),
+    MUSIC_CONTROL(MusicControlController.class,MusicControlController.class.getResource("/fxml/musicControl.fxml"),"musicControl"),
     /**
      * Home首页-页面
      */
-    HOMEPAGE(HomePageStage.class, HomePageStage.class.getResource("/fxml/HomePage.fxml"),"homePage"),
+    HOMEPAGE(HomePageStage.class, HomePageStage.class.getResource("/fxml/homePage.fxml"),"homePage"),
     /**
      * 额外菜单面板--累计信息卡
      */
-    ACCUMULATE_PANE(AccumulatePaneController.class,AccumulatePaneController.class.getResource("/fxml/AccumulatePane.fxml"),"accumulatePane"),
+    ACCUMULATE_PANE(AccumulatePaneController.class,AccumulatePaneController.class.getResource("/fxml/accumulatePane.fxml"),"accumulatePane"),
     /**
      * 播放详情页面
      */
-    PLAY_DETAIL_PAGE(PlayDetailController.class,PlayDetailController.class.getResource("/fxml/PlayDetailPage.fxml"),"playDetailPage"),
+    PLAY_DETAIL_PAGE(PlayDetailController.class,PlayDetailController.class.getResource("/fxml/playDetailPage.fxml"),"playDetailPage"),
     /**
      * 最近播放页面--最近播放列表
      */
-    RECENTLY_PLAY_LIST(RecentlyPlayListController.class,RecentlyPlayListController.class.getResource("/fxml/RecentlyPlayList.fxml"),"recentlyPlayList"),
+    RECENTLY_PLAY_LIST(RecentlyPlayListController.class,RecentlyPlayListController.class.getResource("/fxml/recentlyPlayList.fxml"),"recentlyPlayList"),
     /**
      * 音量控制组件面板--控制音量
      */
-    SOUND_CONTROL(SoundControlController.class,SoundControlController.class.getResource("/fxml/SoundControl.fxml"),"soundControl");
+    SOUND_CONTROL(SoundControlController.class,SoundControlController.class.getResource("/fxml/soundControl.fxml"),"soundControl");
 
     /**
      * 页面/组件 名称

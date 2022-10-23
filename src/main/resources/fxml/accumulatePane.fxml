@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane id="accumulatePane" fx:id="accumulatePane" prefHeight="100.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.AccumulatePaneController" stylesheets="@../css/accumulatePane.css">
+   <children>
+      <Pane id="mainPage" prefHeight="100.0" prefWidth="222.0">
+         <children>
+            <VBox layoutX="83.0" layoutY="10.0" prefHeight="80.0" prefWidth="125.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label id="accumulateMinute" fx:id="accumulateMinute" lineSpacing="4.0" prefHeight="40.0" prefWidth="125.0" text="Hi！今日已经听歌累计时长$minutes$分钟！" wrapText="true" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label id="accumulateDate" fx:id="accumulateDate" lineSpacing="4.0" prefHeight="40.0" prefWidth="125.0" text="顶点音乐已经陪伴了您621天" underline="true" wrapText="true" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Region id="accumulateLogo" layoutX="16.0" layoutY="25.0" maxHeight="50.0" prefHeight="50.0" prefWidth="50.0"/>
+         </children>
+      </Pane>
+   </children>
+</Pane>

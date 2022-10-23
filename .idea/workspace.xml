@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDMusic 0002 新版本更新&#10;（1）新增工具类&#10;（2）新规划项目结构">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/component/SpBadge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDMusic 0006 UI及项目更新&#10;（1）更新了项目结构&#10;（2）更新了项目CSS美化体系&#10;（3）更新了首页菜单栏&#10;（4）更新轮播图&#10;（5）更新首页推荐菜单按钮">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/accumulatePane.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/musicControl.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/DbUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/accumulatePane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/accumulatePane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/musicControl.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/musicControl.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -36,15 +37,22 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$PROJECT_DIR$/../../../myMavenResource/org/openjfx/javafx-graphics/17.0.2/javafx-graphics-17.0.2-sources.jar!/javafx/scene/canvas/GraphicsContext.java" root0="SKIP_INSPECTION" />
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+        <option value="dev" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\myMavenResource" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../software/maven/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="D:\software\maven\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="mavenHome" value="E:/software/development/Maven" />
+        <option name="userSettingsFile" value="E:\software\development\Maven\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -56,29 +64,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/css" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/developData/codeData/desktopApp/ddmusic/src/main/resources/css&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  }
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\developData\codeData\desktopApp\ddmusic\src\main\resources\css" />
       <recent name="D:\myProject\myOpenSource\ddmusic\src\main\resources\css" />
       <recent name="D:\myProject\myOpenSource\ddmusic\src\main\resources\media" />
       <recent name="D:\myProject\myOpenSource\ddmusic\src\main\resources\fxml" />
       <recent name="D:\myProject\myOpenSource\ddmusic\src\main\resources" />
-      <recent name="D:\myProject\myOpenSource\ddmusic\src\main\java\com\stickpoint\ddmusic\common\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\myProject\myOpenSource\ddmusic\src\main\resources\img" />
@@ -127,6 +132,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RecentlyMusicListItem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stickpoint.ddmusic.page.RecentlyMusicListItem" />
+      <module name="ddmusic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stickpoint.ddmusic.page.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StickpointMusicApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stickpoint.ddmusic.StickpointMusicApplication" />
       <module name="ddmusic" />
@@ -140,26 +158,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VerifyCodeUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stickpoint.ddmusic.common.utils.VerifyCodeUtil" />
-      <module name="ddmusic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.stickpoint.ddmusic.common.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.StickpointMusicApplication" />
+        <item itemvalue="Application.RecentlyMusicListItem" />
+        <item itemvalue="Application.ImageTest" />
         <item itemvalue="Application.FxPngUtil" />
         <item itemvalue="Application.CaptchaCodeUtil" />
-        <item itemvalue="Application.ImageTest" />
-        <item itemvalue="Application.VerifyCodeUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -196,6 +201,20 @@
       <workItem from="1665652709953" duration="1718000" />
       <workItem from="1665710133041" duration="688000" />
       <workItem from="1665736545736" duration="2136000" />
+      <workItem from="1665809254415" duration="20376000" />
+      <workItem from="1665842343466" duration="70000" />
+      <workItem from="1665884977851" duration="930000" />
+      <workItem from="1665885932617" duration="2549000" />
+      <workItem from="1665889371868" duration="3543000" />
+      <workItem from="1665907694875" duration="4025000" />
+      <workItem from="1665923772068" duration="24000" />
+      <workItem from="1666011110876" duration="1876000" />
+      <workItem from="1666099571127" duration="2055000" />
+      <workItem from="1666271798218" duration="261000" />
+      <workItem from="1666272790514" duration="1073000" />
+      <workItem from="1666417302395" duration="1942000" />
+      <workItem from="1666491664168" duration="13528000" />
+      <workItem from="1666613257604" duration="2836000" />
     </task>
     <task id="LOCAL-00001" summary="DDMusic 0002 新版本更新&#10;（1）新增页面优化&#10;（2）新增播放详情页面&#10;（3）新增歌词解析&#10;（4）新增歌词显示&#10;（5）新增歌曲进度条&#10;（6）新增全局加载方式">
       <created>1665571877427</created>
@@ -204,7 +223,35 @@
       <option name="project" value="LOCAL" />
       <updated>1665571877427</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="DDMusic 0003 新版本更新&#10;（1）修复鼠标移入bug&#10;（2）新增音量调节服务&#10;（3）新增最近播放列表">
+      <created>1665822149812</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665822149813</updated>
+    </task>
+    <task id="LOCAL-00003" summary="DDMusic 0004 新版本更新&#10;（1）菜单按钮点击不生效bug&#10;（2）新增最近播放列表服务">
+      <created>1665909674001</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665909674001</updated>
+    </task>
+    <task id="LOCAL-00004" summary="DDMusic 0005 版本UI更新&#10;（1）更新顶点音乐UI&#10;（2）修复了音乐播放不自动暂停的问题&#10;（3）修复了音乐暂停UI界面刷新的问题">
+      <created>1666417664515</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666417664515</updated>
+    </task>
+    <task id="LOCAL-00005" summary="DDMusic 0006 UI及项目更新&#10;（1）更新了项目结构&#10;（2）更新了项目CSS美化体系&#10;（3）更新了首页菜单栏&#10;（4）更新轮播图&#10;（5）更新首页推荐菜单按钮">
+      <created>1666531083640</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666531083640</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,12 +267,22 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DDMusic 0002 新版本更新&#10;（1）新增页面优化&#10;（2）新增播放详情页面&#10;（3）新增歌词解析&#10;（4）新增歌词显示&#10;（5）新增歌曲进度条&#10;（6）新增全局加载方式" />
     <MESSAGE value="DDMusic 0002 新版本更新&#10;（1）新增工具类&#10;（2）新规划项目结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="DDMusic 0002 新版本更新&#10;（1）新增工具类&#10;（2）新规划项目结构" />
+    <MESSAGE value="DDMusic 0003 新版本更新&#10;（1）修复鼠标移入bug&#10;（2）新增音量调节服务&#10;（3）新增最近播放列表" />
+    <MESSAGE value="DDMusic 0004 新版本更新&#10;（1）菜单按钮点击不生效bug&#10;（2）新增最近播放列表服务" />
+    <MESSAGE value="DDMusic 0005 版本UI更新&#10;（1）更新顶点音乐UI&#10;（2）修复了音乐播放不自动暂停的问题&#10;（3）修复了音乐暂停UI界面刷新的问题" />
+    <MESSAGE value="DDMusic 0006 UI及项目更新&#10;（1）更新了项目结构&#10;（2）更新了项目CSS美化体系&#10;（3）更新了首页菜单栏&#10;（4）更新轮播图&#10;（5）更新首页推荐菜单按钮" />
+    <option name="LAST_COMMIT_MESSAGE" value="DDMusic 0006 UI及项目更新&#10;（1）更新了项目结构&#10;（2）更新了项目CSS美化体系&#10;（3）更新了首页菜单栏&#10;（4）更新轮播图&#10;（5）更新首页推荐菜单按钮" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="recentlyPlayListPopup" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
