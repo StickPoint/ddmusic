@@ -2,6 +2,7 @@ package com.stickpoint.ddmusic;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.utils.ThreadUtil;
+import com.stickpoint.ddmusic.page.FindMusicController;
 import com.stickpoint.ddmusic.page.HomePageStage;
 import com.stickpoint.ddmusic.router.PageEnums;
 import javafx.application.Application;
@@ -194,7 +195,10 @@ public class StickpointMusicApplication extends Application {
         FXMLLoader soundControlLoader = new FXMLLoader(getClass().getResource("/fxml/soundControl.fxml"));
         SystemCache.FXML_LOAD_MAP.put(PageEnums.SOUND_CONTROL.getRouterId(),soundControlLoader);
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
+        FXMLLoader findMusicLoader = new FXMLLoader(PageEnums.FIND_MUSIC.getPageSource());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.FIND_MUSIC.getRouterId(), findMusicLoader);
         try {
+            findMusicLoader.load();
             homePageLoader.load();
             playDetailPage.load();
             accumulatePaneLoader.load();

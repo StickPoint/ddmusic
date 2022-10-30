@@ -122,7 +122,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" fx:id="musicCenter" prefHeight="40.0" prefWidth="200.0">
@@ -133,7 +133,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" fx:id="hotMusic" prefHeight="40.0" prefWidth="200.0">
@@ -144,7 +144,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" fx:id="shareCenter" prefHeight="40.0" prefWidth="200.0">
@@ -155,7 +155,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" fx:id="shareCenter1" prefHeight="40.0" prefWidth="200.0">
@@ -166,7 +166,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                      </children>
@@ -180,7 +180,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" fx:id="myMusicLocalMusic" prefHeight="40.0" prefWidth="200.0">
@@ -191,7 +191,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" fx:id="myMusicFavorite" prefHeight="40.0" prefWidth="200.0">
@@ -202,7 +202,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" fx:id="myMusicPlayHistory" prefHeight="40.0" prefWidth="200.0">
@@ -213,7 +213,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                      </children>
@@ -227,7 +227,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                         <Pane id="menuPane-selection" prefHeight="40.0" prefWidth="200.0">
@@ -238,7 +238,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@/css/main-windows-menuItem.css" />
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
                      </children>

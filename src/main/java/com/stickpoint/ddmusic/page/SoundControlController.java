@@ -17,7 +17,6 @@ public class SoundControlController {
 
     @FXML
     public Slider soundSlider;
-
     @FXML
     public Label soundNum;
     public AnchorPane soundControl;

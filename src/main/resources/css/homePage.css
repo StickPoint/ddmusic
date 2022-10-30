@@ -32,7 +32,7 @@
 导航栏顶部搜索-文本输入框样式
  */
 #border-pane-top-hBox-search-text-field {
-    -fx-background-color: v;
+    -fx-background-color: transparent;
     -fx-prompt-text-fill: rgba(255,255,255,0.82);
     -fx-text-fill: rgba(255,255,255,0.82);
 }
@@ -152,6 +152,6 @@
 #anchorPane-vBox-leftMenu-menu-myMusicListContainer #menuPane-selection:hover
 {
     -fx-background-color: rgba(243, 243, 243, 0.99);
-    -fx-effect: dropshadow(three-pass-box, #D9D9D9, 5.0,0,0, 0);
+    -fx-effect: dropshadow(three-pass-box, #a9a8a8, 5.0,0,0, 0);
     -fx-cursor: hand;
 }

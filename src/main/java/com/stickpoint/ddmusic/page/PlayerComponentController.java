@@ -39,7 +39,6 @@ import javafx.scene.media.AudioSpectrumListener;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 /**
@@ -128,7 +127,6 @@ public class PlayerComponentController {
     /**
      * 音乐播放器-控制组件
      */
-    @SuppressWarnings("unused")
     private HBox musicControl;
     /**
      * 音量调节组件
@@ -141,9 +139,9 @@ public class PlayerComponentController {
     @SuppressWarnings("unused")
     private Slider soundSlider;
 
-    private RecentlyPlayListController recentlyPlayListController;
+    private final RecentlyPlayListController recentlyPlayListController;
 
-    private MusicControlController musicControlController;
+    private final MusicControlController musicControlController;
 
     public PlayerComponentController(){
         this.recentlyPlayListController = new RecentlyPlayListController();
@@ -302,19 +300,13 @@ public class PlayerComponentController {
      */
     @FXML
     void showMusicControl() {
-    	infoSliderArea.getChildren().clear();
-    	// TODO 使用timeLine动画效果实现这个切换过程    	
-    	if (Objects.isNull(musicControl)) {
-    		// 如果说 musicControl是一个空的对象，从系统Cache中取
-			LOGGER.log(Level.WARNING,CodeEnum.EXCEPTION_NULL_POINTER.getMessage());
-	    	// 初始化加载音乐播放组件
-            FXMLLoader musicControlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
-            // 获得初始化的音乐播放控制组件节点
-            ObservableMap<String, Object> musicControlNamespace = musicControlLoader.getNamespace();
-            musicControl = (HBox) musicControlNamespace.get(InfoEnums.MUSIC_CONTROL_FX_ID.getInfoContent());
-		}else {
-			LOGGER.log(Level.INFO,"当前对象存在！");
-        }
+        infoSliderArea.getChildren().clear();
+        // 初始化加载音乐播放组件
+        FXMLLoader musicControlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
+        // 获得初始化的音乐播放控制组件节点
+        ObservableMap<String, Object> musicControlNamespace = musicControlLoader.getNamespace();
+        musicControl = (HBox) musicControlNamespace.get(InfoEnums.MUSIC_CONTROL_FX_ID.getInfoContent());
+        infoSliderArea.getChildren().clear();
         infoSliderArea.getChildren().add(musicControl);
         FadeIn fadeIn = new FadeIn(infoSliderArea);
     	fadeIn.play();
@@ -327,6 +319,7 @@ public class PlayerComponentController {
     @FXML
     void showMusicGeneralInfo() {
     	infoSliderArea.getChildren().clear();
+        infoSliderArea.setCacheShape(true);
     	infoSliderArea.getChildren().add(musicGeneralInfo);
     	FadeIn fadeIn = new FadeIn(infoSliderArea);
     	fadeIn.play();

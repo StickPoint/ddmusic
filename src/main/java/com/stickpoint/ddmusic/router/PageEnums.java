@@ -1,12 +1,6 @@
 package com.stickpoint.ddmusic.router;
 
-import com.stickpoint.ddmusic.page.AccumulatePaneController;
-import com.stickpoint.ddmusic.page.HomePageStage;
-import com.stickpoint.ddmusic.page.MusicControlController;
-import com.stickpoint.ddmusic.page.PlayDetailController;
-import com.stickpoint.ddmusic.page.PlayerComponentController;
-import com.stickpoint.ddmusic.page.RecentlyPlayListController;
-import com.stickpoint.ddmusic.page.SoundControlController;
+import com.stickpoint.ddmusic.page.*;
 
 import java.net.URL;
 
@@ -17,6 +11,10 @@ import java.net.URL;
  * @description
  */
 public enum PageEnums {
+    /**
+     * 发现音乐组件
+     */
+    FIND_MUSIC(FindMusicController.class,FindMusicController.class.getResource("/fxml/findMusic.fxml"),"findMusic"),
     /**
      * 播放音乐组件
      */

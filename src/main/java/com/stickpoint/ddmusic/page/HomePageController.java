@@ -27,6 +27,7 @@ import java.util.logging.Logger;
  * @author fntp
  */
 public class HomePageController {
+    public VBox onlineMusicContainer;
     @FXML
     private StackPane centerView;
     @SuppressWarnings("exports")
@@ -102,6 +103,14 @@ public class HomePageController {
     @FXML
     public void initialize(){
         changeBackgroundStyle();
+        showFindMusic();
+    }
+
+    private void showFindMusic(){
+        FXMLLoader fxmlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.FIND_MUSIC.getRouterId());
+        Parent root = fxmlLoader.getRoot();
+        centerView.getChildren().add(root);
+        root.toFront();
     }
 
     /**

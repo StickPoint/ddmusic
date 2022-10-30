@@ -1,0 +1,71 @@
+.rx-carousel{
+    -fx-background-color: white;
+    -fx-border-width: 0;
+}
+
+.rx-carousel .root-pane{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.rx-carousel .nav-pane .nav-bar .nav-button {
+    -fx-background-color: rgb(192, 192, 192);
+    -fx-cursor: hand;
+    -fx-pref-width: 5;
+    -fx-min-width: 5;
+    -fx-pref-height: 2;
+    -fx-min-height: 2;
+    -fx-background-radius: 2;
+}
+
+.rx-carousel .nav-pane .nav-bar .nav-button:hover {
+    -fx-background-color: rgb(255, 0, 0);
+}
+
+.rx-carousel .nav-pane .nav-bar .nav-button:selected {
+    /*-fx-background-color: rgb(255, 147, 147);*/
+    -fx-background-color: rgb(255, 0, 0);
+    -fx-pref-height: 5;
+    -fx-min-height: 5;
+}
+
+/*
+ *设置滚动滑动容器
+*/
+.scroll-pane {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-background-color: white;
+    -fx-hbar-policy : never;
+}
+
+.scroll-pane .scroll-bar:vertical .track-background{
+    -fx-background-color: transparent;
+    -fx-border-color:derive(transparent,80%);
+}
+
+.scroll-pane .scroll-bar:vertical .decrement-button{
+    -fx-background-color: transparent;
+    -fx-border-color:transparent;
+    -fx-opacity: 0;
+}
+
+.scroll-pane .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color:derive(transparent,80%);
+}
+
+.scroll-pane .scroll-bar:vertical .thumb{
+    -fx-background-color: rgba(164, 164, 164, 0.33);
+    -fx-border-color:derive(transparent,80%);
+}
+
+.scroll-pane .scroll-bar:vertical .increment-button {
+    -fx-background-color: transparent;
+    -fx-border-color:transparent;
+    -fx-opacity: 0;
+}
+
+.scroll-pane .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
