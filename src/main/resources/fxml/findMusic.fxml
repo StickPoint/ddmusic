@@ -39,7 +39,8 @@
                   </RXLineButton>
                </children>
             </Pane>
-         </children></HBox>
+         </children>
+      </HBox>
       <ScrollPane fx:id="scrollPane" layoutY="60.0" maxHeight="470.0" minHeight="440.0" onMouseEntered="#showSlider" onMouseExited="#hideSlider" prefHeight="440.0" prefWidth="750.0">
          <content>
             <AnchorPane fx:id="centerPane" prefHeight="570.0" prefWidth="749.0" style="-fx-background-insets: 0; -fx-background-color: transparent;">
