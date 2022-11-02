@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane id="accumulatePane" fx:id="accumulatePane" prefHeight="100.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.AccumulatePaneController" stylesheets="@../css/accumulatePane.css">
+<Pane id="accumulatePane" fx:id="accumulatePane" prefHeight="100.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.AccumulatePaneController" stylesheets="@../css/accumulatePane.css">
    <children>
       <Pane id="mainPage" prefHeight="100.0" prefWidth="222.0">
          <children>

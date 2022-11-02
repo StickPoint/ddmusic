@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/findMusic.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.FindMusicController">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/findMusic.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.FindMusicController">
    <children>
       <HBox fx:id="indexMenuBar" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0" style="-fx-border-color: transparent; -fx-border-width: 0;">
          <children>

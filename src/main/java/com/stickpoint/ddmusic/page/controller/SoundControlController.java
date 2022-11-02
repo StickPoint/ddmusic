@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

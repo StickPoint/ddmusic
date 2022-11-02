@@ -1,6 +1,7 @@
-package com.stickpoint.ddmusic.router;
+package com.stickpoint.ddmusic.page.enums;
 
 import com.stickpoint.ddmusic.page.*;
+import com.stickpoint.ddmusic.page.controller.*;
 
 import java.net.URL;
 

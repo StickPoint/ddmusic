@@ -1,10 +1,9 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.controller;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.leewyatt.rxcontrols.controls.RXAudioSpectrum;
@@ -13,10 +12,10 @@ import com.leewyatt.rxcontrols.controls.RXLrcView;
 import com.leewyatt.rxcontrols.controls.RXMediaProgressBar;
 import com.leewyatt.rxcontrols.pojo.LrcDoc;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
-import com.stickpoint.ddmusic.common.enums.CodeEnum;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.utils.EncodingDetectUtil;
-import com.stickpoint.ddmusic.router.PageEnums;
+import com.stickpoint.ddmusic.page.CacheNode;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
 import animatefx.animation.FadeIn;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableMap;

@@ -1,7 +1,7 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.controller;
 
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
-import com.stickpoint.ddmusic.router.PageEnums;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

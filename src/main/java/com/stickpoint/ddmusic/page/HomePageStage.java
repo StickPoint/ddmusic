@@ -1,18 +1,13 @@
 package com.stickpoint.ddmusic.page;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
-import com.stickpoint.ddmusic.common.enums.InfoEnums;
-import com.stickpoint.ddmusic.router.PageEnums;
-import javafx.collections.ObservableMap;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
 import java.util.logging.Logger;
 
 /**

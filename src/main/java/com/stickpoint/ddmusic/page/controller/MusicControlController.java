@@ -1,10 +1,11 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.controller;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
-import com.stickpoint.ddmusic.router.PageEnums;
+import com.stickpoint.ddmusic.page.CacheNode;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

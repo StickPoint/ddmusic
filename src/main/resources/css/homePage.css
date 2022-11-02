@@ -152,6 +152,6 @@
 #anchorPane-vBox-leftMenu-menu-myMusicListContainer #menuPane-selection:hover
 {
     -fx-background-color: rgba(243, 243, 243, 0.99);
-    -fx-effect: dropshadow(three-pass-box, #a9a8a8, 5.0,0,0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(169, 168, 168, 0.41), 1.0,0,0, 0);
     -fx-cursor: hand;
 }

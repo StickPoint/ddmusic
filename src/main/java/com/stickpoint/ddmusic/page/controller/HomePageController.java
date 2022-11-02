@@ -1,8 +1,8 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.controller;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
-import com.stickpoint.ddmusic.router.PageEnums;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -146,7 +146,7 @@ public class HomePageController {
             node.styleProperty().unbind();
             // 然后手动设置效果无法绑定，因为点击事件是针对特定的node的不是固定的所以手动绑定设置css样式
             node.setStyle ("-fx-background-color: rgba(243, 243, 243, 0.99);" +
-                    "    -fx-effect: dropshadow(three-pass-box, #D9D9D9, 5.0,0,0, 0);"+
+                    "-fx-effect: dropshadow(three-pass-box, rgba(169, 168, 168, 0.41), 1.0,0,0, 0);"+
                     "    -fx-cursor: hand;");
             Pane currentNode = (Pane) node;
             // 获取菜单子节点

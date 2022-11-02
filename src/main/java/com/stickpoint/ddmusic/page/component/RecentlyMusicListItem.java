@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.component;
 
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import javafx.fxml.FXML;

@@ -1,11 +1,11 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.controller;
 
 import com.leewyatt.rxcontrols.animation.carousel.AnimAround;
 import com.leewyatt.rxcontrols.controls.RXCarousel;
 import com.leewyatt.rxcontrols.controls.RXLineButton;
 import com.leewyatt.rxcontrols.pane.RXCarouselPane;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
-import com.stickpoint.ddmusic.router.PageEnums;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
