@@ -12,6 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.8.2</junit.version>
+        <open-jfx-version>17.0.2</open-jfx-version>
     </properties>
     <repositories>
         <repository>
@@ -23,17 +24,17 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17.0.2</version>
+            <version>${open-jfx-version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.2</version>
+            <version>${open-jfx-version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
-            <version>17.0.2</version>
+            <version>${open-jfx-version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.leewyatt</groupId>
@@ -45,17 +46,31 @@
 		    <artifactId>AnimateFX</artifactId>
 		    <version>1.2.3</version>
 		</dependency>
-        <!--  这个CSS效果暂时没哟用到-->
-<!--        <dependency>-->
-<!--            <groupId>io.github.mkpaz</groupId>-->
-<!--            <artifactId>atlantafx-base</artifactId>-->
-<!--            <version>1.0.0</version>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.4.4</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
             <version>10.16.1.1</version>
+        </dependency>
+        <!--  支持模块化的JSON工具，孩子太不容易了,,,,我操了，阿里巴巴这帮傻逼就他妈java8用到死傻逼东西-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10</version>
         </dependency>
     </dependencies>
     <build>

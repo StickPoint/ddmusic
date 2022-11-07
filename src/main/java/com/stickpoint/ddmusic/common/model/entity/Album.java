@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.common.entity;
+package com.stickpoint.ddmusic.common.model.entity;
 import java.net.URL;
 import java.util.Date;
 import java.util.Objects;

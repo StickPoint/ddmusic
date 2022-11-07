@@ -1,7 +1,7 @@
 package com.stickpoint.ddmusic.page.enums;
 
-import com.stickpoint.ddmusic.page.*;
 import com.stickpoint.ddmusic.page.controller.*;
+import com.stickpoint.ddmusic.page.stage.HomePageStage;
 
 import java.net.URL;
 

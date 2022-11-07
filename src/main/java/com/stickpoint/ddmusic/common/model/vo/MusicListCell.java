@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.common.entity.vo;
+package com.stickpoint.ddmusic.common.model.vo;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

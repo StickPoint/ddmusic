@@ -2,7 +2,7 @@ package com.stickpoint.ddmusic;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.utils.ThreadUtil;
-import com.stickpoint.ddmusic.page.HomePageStage;
+import com.stickpoint.ddmusic.page.stage.HomePageStage;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -17,13 +17,12 @@ import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author fntp
@@ -35,7 +34,7 @@ public class StickpointMusicApplication extends Application {
 	/**
 	 * 构建日志工具
 	 */
-    private static final Logger LOGGER = Logger.getGlobal();
+    private static final Logger log = LoggerFactory.getLogger(StickpointMusicApplication.class);
 
     /**
      * 加载信息
@@ -92,7 +91,7 @@ public class StickpointMusicApplication extends Application {
                 try {
                     HomePageStage home = new HomePageStage();
                     primaryStage.hide();
-                    LOGGER.info("界面已由欢迎页面跳转至主页面~");
+                    log.info("界面已由欢迎页面跳转至主页面~");
                     home.show();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -171,19 +170,19 @@ public class StickpointMusicApplication extends Application {
         // 装载FXML文件: （1）首页
         FXMLLoader homePageLoader = new FXMLLoader(PageEnums.HOMEPAGE.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.HOMEPAGE.getRouterId(),  homePageLoader);
-        LOGGER.log(Level.INFO,"首页装载成功！");
+        log.info("首页装载成功！");
         //（2）播放页面
         FXMLLoader playerComponentLoader = new FXMLLoader(PageEnums.PLAYER_COMPONENT.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.PLAYER_COMPONENT.getRouterId(), playerComponentLoader);
-        LOGGER.log(Level.INFO,"播放组件页面装载成功！");
+        log.info("播放组件页面装载成功！");
         //（3）累计统计情况额外页面
         FXMLLoader accumulatePaneLoader = new FXMLLoader(PageEnums.ACCUMULATE_PANE.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.ACCUMULATE_PANE.getRouterId(), accumulatePaneLoader);
-        LOGGER.log(Level.INFO,"累计统计情况额外组件页面装载成功！");
+        log.info("累计统计情况额外组件页面装载成功！");
         //（4）播放控制页面
         FXMLLoader musicControlLoader = new FXMLLoader(PageEnums.MUSIC_CONTROL.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.MUSIC_CONTROL.getRouterId(), musicControlLoader);
-        LOGGER.log(Level.INFO,"播放控制组件页面装载成功！");
+        log.info("播放控制组件页面装载成功！");
         //（5）歌曲播放详情界面
         FXMLLoader playDetailPage = new FXMLLoader(PageEnums.PLAY_DETAIL_PAGE.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.PLAY_DETAIL_PAGE.getRouterId(), playDetailPage);

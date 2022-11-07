@@ -1,18 +1,14 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.CodeEnum;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * description: YamlUtils
@@ -24,9 +20,13 @@ import java.util.logging.Logger;
  */
 public class YamlUtil extends LinkedHashMap<String, String> {
 
+    @Serial
     private static final long serialVersionUID = 702565982353979710L;
-    
-	private static final Logger LOGGER = SystemCache.logger;
+
+    /**
+     * 构建日志工具
+     */
+    private static final Logger log = LoggerFactory.getLogger(SystemPropertiesUtil.class);
 
     /**
      * 含参构造：构建一个YAML解析器
@@ -35,7 +35,7 @@ public class YamlUtil extends LinkedHashMap<String, String> {
     public YamlUtil(String ymlFilePath) {
         if (Objects.isNull(ymlFilePath)) {
             // 传入的地址是空的
-            LOGGER.log(Level.WARNING, CodeEnum.ERROR_PROPERTIES_CENTER_FILE_PATH_IS_NULL.getMessage());
+            log.info( CodeEnum.ERROR_PROPERTIES_CENTER_FILE_PATH_IS_NULL.getMessage());
             return;
         }
         this.load(ymlFilePath);
@@ -109,7 +109,7 @@ public class YamlUtil extends LinkedHashMap<String, String> {
                 }
             }
         } catch (IOException e) {
-            LOGGER.log(Level.WARNING,e.getMessage(),e);
+            log.info(e.getMessage(),e);
             e.printStackTrace();
         }
     }

@@ -15,40 +15,36 @@ public class EncodingDetectUtil {
 
     public static String detect(String path) {
         BytesEncodingDetect s = new BytesEncodingDetect();
-        String fileCode = BytesEncodingDetect.javaname[s.detectEncoding(new File(path))];
-        return fileCode;
+        return BytesEncodingDetect.javaname[s.detectEncoding(new File(path))];
     }
 
     public static String detect(File file) {
         BytesEncodingDetect s = new BytesEncodingDetect();
-        String fileCode = BytesEncodingDetect.javaname[s.detectEncoding(file)];
-        return fileCode;
+        return BytesEncodingDetect.javaname[s.detectEncoding(file)];
     }
 
     public static String detect(byte[] contents) {
         BytesEncodingDetect s = new BytesEncodingDetect();
-        String fileCode = BytesEncodingDetect.javaname[s.detectEncoding(contents)];
-        return fileCode;
+        return BytesEncodingDetect.javaname[s.detectEncoding(contents)];
     }
 
     public static String detect(URL url) {
         BytesEncodingDetect s = new BytesEncodingDetect();
-        String fileCode = BytesEncodingDetect.javaname[s.detectEncoding(url)];
-        return fileCode;
+        return BytesEncodingDetect.javaname[s.detectEncoding(url)];
     }
 
 
     static class BytesEncodingDetect extends Encoding {
 
-        int GBFreq[][];
+        int[][] GBFreq;
 
-        int GBKFreq[][];
+        int[][] GBKFreq;
 
-        int Big5Freq[][];
+        int[][] Big5Freq;
 
-        int Big5PFreq[][];
+        int[][] Big5PFreq;
 
-        int EUC_TWFreq[][];
+        int[][] EUC_TWFreq;
 
         int KRFreq[][];
 

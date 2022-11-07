@@ -1,5 +1,6 @@
-package com.stickpoint.ddmusic.page;
+package com.stickpoint.ddmusic.page.stage;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author fntp
@@ -32,9 +33,9 @@ public class HomePageStage extends Stage {
      */
     private double oldScreenY;
     /**
-     * 初始化一个日志对象
+     * 构建日志工具
      */
-    private static final Logger log = Logger.getGlobal();
+    private static final Logger log = LoggerFactory.getLogger(SystemPropertiesUtil.class);
 
     /**
      * Creates a new instance of decorated {@code Stage}.
@@ -50,7 +51,7 @@ public class HomePageStage extends Stage {
         oldStageX = 0;
         //去掉面板的标题栏
         this.initStyle(StageStyle.TRANSPARENT);
-        Scene homePageScene = null;
+        Scene homePageScene;
         // 在初始化init方法中load过之后，我们可以直接拿node了
         FXMLLoader homepageLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.HOMEPAGE.getRouterId());
         Parent parentNode = homepageLoader.getRoot();
@@ -61,6 +62,7 @@ public class HomePageStage extends Stage {
         // 设置居中显示场景
         this.centerOnScreen();
         // 设置Stage监听
+        log.info("场景监听部署完毕~");
         this.mouseClickedToWindowsSlider(homePageScene);
         // 显示窗体拖拽轨迹
    }
