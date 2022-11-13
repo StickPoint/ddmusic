@@ -5,6 +5,7 @@ import com.leewyatt.rxcontrols.controls.RXCarousel;
 import com.leewyatt.rxcontrols.controls.RXLineButton;
 import com.leewyatt.rxcontrols.pane.RXCarouselPane;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -17,7 +18,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
@@ -30,7 +32,10 @@ import java.util.Objects;
  * @Version: 1.0
  */
 public class FindMusicController {
-
+    /**
+     * 日志对象
+     */
+    private static final Logger log = LoggerFactory.getLogger(FindMusicController.class);
     public RXCarousel sceneryCarousel;
     public RXLineButton recommend;
     public HBox indexMenuBar;
@@ -38,6 +43,10 @@ public class FindMusicController {
     public RXLineButton recommend2;
     public ScrollPane scrollPane;
     public AnchorPane centerPane;
+    /**
+     * 发现音乐页面根节点
+     */
+    public AnchorPane findMusicRootNode;
 
     @FXML
     public void initialize() throws URISyntaxException {
@@ -53,6 +62,15 @@ public class FindMusicController {
         AnimAround animAround = new AnimAround(true);
         sceneryCarousel.setCarouselAnimation(animAround);
         recommend.setStyle("-fx-font-size: 18px");
+        showFindMusic();
+    }
+
+    /**
+     * 初始化让发现音乐在最前面
+     */
+    private void showFindMusic(){
+        ScrollPane finaMusicMenu = ScrollPaneComponent.createCommonScrollPaneRoot(findMusicRootNode);
+        SystemCache.CENTER_VIEW_PAGE_LIST.add(finaMusicMenu);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.stickpoint.ddmusic.page.controller;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
+import com.stickpoint.ddmusic.StickpointMusicApplication;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
@@ -16,11 +17,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -68,7 +69,7 @@ public class HomePageController {
 	/**
      * 日志工具
      */
-    private static final Logger LOGGER = SystemCache.logger;
+    private static final Logger log = LoggerFactory.getLogger(StickpointMusicApplication.class);
     /**
      * 首页面板-mainPage
      */
@@ -103,14 +104,15 @@ public class HomePageController {
     @FXML
     public void initialize(){
         changeBackgroundStyle();
-        showFindMusic();
+        initSystemMenuList();
     }
 
-    private void showFindMusic(){
-        FXMLLoader fxmlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.FIND_MUSIC.getRouterId());
-        Parent root = fxmlLoader.getRoot();
-        centerView.getChildren().add(root);
-        root.toFront();
+    /**
+     * 首页初始化的时候将首页的StackPane装载进入系统缓存中
+     * 供给系统后续页面切换使用
+     */
+    private void initSystemMenuList() {
+        SystemCache.CACHE_NODE.put(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent(),centerView);
     }
 
     /**
@@ -207,7 +209,7 @@ public class HomePageController {
         if (Objects.isNull(userInfoCardContext)){
            userInfoCardContext = new ContextMenu(new SeparatorMenuItem());
            String name = event.getEventType().getName();
-           LOGGER.log(Level.INFO,name);
+           log.info(name);
            // TODO 这里应该是将他封装好然后传递两个参数然后进行展示
             FXMLLoader accumulateLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.ACCUMULATE_PANE.getRouterId());
             Parent load = accumulateLoader.getRoot();

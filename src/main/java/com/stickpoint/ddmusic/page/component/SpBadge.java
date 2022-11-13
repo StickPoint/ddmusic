@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.component;
+package com.stickpoint.ddmusic.page.component;
 
 import javafx.animation.FadeTransition;
 import javafx.beans.DefaultProperty;

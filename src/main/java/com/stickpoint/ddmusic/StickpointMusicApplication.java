@@ -7,10 +7,12 @@ import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -195,9 +197,10 @@ public class StickpointMusicApplication extends Application {
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         FXMLLoader findMusicLoader = new FXMLLoader(PageEnums.FIND_MUSIC.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.FIND_MUSIC.getRouterId(), findMusicLoader);
+        // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
-            findMusicLoader.load();
             homePageLoader.load();
+            findMusicLoader.load();
             playDetailPage.load();
             accumulatePaneLoader.load();
             musicControlLoader.load();
@@ -206,7 +209,13 @@ public class StickpointMusicApplication extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        // 等到所有的子页面都加载完毕了然后再统一添加到StackPane中，避免出现多层View在同一层显示的Bug
+        StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
+        centerView.getChildren().addAll(SystemCache.CENTER_VIEW_PAGE_LIST);
+        Node findMusicPage = centerView.getChildren().filtered(node -> InfoEnums.FIND_MUSIC_SCROLL_PANE_CSS_ID.getInfoContent().equals(node.getId()))
+                .get(InfoEnums.INDEX_ZERO.getNumberInfo());
+        // 初始化的时候让他在最前面
+        findMusicPage.toFront();
     }
 
     /**

@@ -30,42 +30,7 @@
 }
 
 /*
- *设置滚动滑动容器
+ * 设置滚动滑动容器
+ * 2022-11-13 由于设置了全局通用的scrollPane-common样式
+ * 此样式暂时去掉
 */
-.scroll-pane {
-    -fx-padding: 0;
-    -fx-background-insets: 0;
-    -fx-background-color: white;
-    -fx-hbar-policy : never;
-}
-
-.scroll-pane .scroll-bar:vertical .track-background{
-    -fx-background-color: transparent;
-    -fx-border-color:derive(transparent,80%);
-}
-
-.scroll-pane .scroll-bar:vertical .decrement-button{
-    -fx-background-color: transparent;
-    -fx-border-color:transparent;
-    -fx-opacity: 0;
-}
-
-.scroll-pane .scroll-bar:vertical .track{
-    -fx-background-color: transparent;
-    -fx-border-color:derive(transparent,80%);
-}
-
-.scroll-pane .scroll-bar:vertical .thumb{
-    -fx-background-color: rgba(164, 164, 164, 0.33);
-    -fx-border-color:derive(transparent,80%);
-}
-
-.scroll-pane .scroll-bar:vertical .increment-button {
-    -fx-background-color: transparent;
-    -fx-border-color:transparent;
-    -fx-opacity: 0;
-}
-
-.scroll-pane .scroll-bar:vertical{
-    -fx-background-color:transparent;
-}

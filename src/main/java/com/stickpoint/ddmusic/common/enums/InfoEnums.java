@@ -53,7 +53,7 @@ public enum InfoEnums {
      */
     MUSIC_CONTROL_FX_ID("musicControl"),
     /**
-     * HomePage主页：centerView 中心展示区域
+     * HomePage主页：centerView 中心展示区域 JavaFX-ID
      */
     HOME_PAGE_CENTER_VIEW_FX_ID("centerView"),
     /**
@@ -100,7 +100,26 @@ public enum InfoEnums {
      * 内置音乐播放器ID
      */
     MUSIC_INNER_PLAYER_ID("ddmusic:inner:component:player"),
-
+    /**
+     * 发现音乐主页
+     * TODO 这里需要注意，如果修改了发现音乐页面的根节点的id，这里就是需要修改的
+     */
+    FIND_MUSIC_SCROLL_PANE_CSS_ID("findMusic"),
+    /**
+     * 根节点 播放详情
+     */
+    ROOT_NODE_PLAY_DETAIL_CSS_ID("playDetail"),
+    /**
+     *
+     */
+    ROOT_NODE_PLAY_DETAIL_FX_ID("playDetailRootNode"),
+    /**
+     * 通用下标枚举 0
+     */
+    INDEX_ZERO(0),
+    /**
+     * 最近播放列表容器Pane的JavaFX-ID
+     */
     RECENTLY_PLAYLIST_PANE_FX_ID("recentlyPlayListPane");
 	
     /**
@@ -108,12 +127,20 @@ public enum InfoEnums {
      */
     private final String infoContent;
 
+    private final Integer infoNumber;
+
     /**
      * 构造方法
      * @param infoContent 提示信息内容
      */
     InfoEnums(String infoContent) {
         this.infoContent = infoContent;
+        this.infoNumber = null;
+    }
+
+    InfoEnums(Integer infoNumber) {
+        this.infoContent = null;
+        this.infoNumber = infoNumber;
     }
     
 	/**
@@ -125,4 +152,6 @@ public enum InfoEnums {
     public String getInfoContent() {
         return infoContent;
     }
+
+    public Integer getNumberInfo(){ return infoNumber; }
 }

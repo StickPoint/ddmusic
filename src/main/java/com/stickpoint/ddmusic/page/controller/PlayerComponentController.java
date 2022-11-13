@@ -14,7 +14,6 @@ import com.leewyatt.rxcontrols.pojo.LrcDoc;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.utils.EncodingDetectUtil;
-import com.stickpoint.ddmusic.page.CacheNode;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import animatefx.animation.FadeIn;
 import javafx.beans.value.ChangeListener;
@@ -219,7 +218,7 @@ public class PlayerComponentController {
             disposeMediaPlayer();
         }
         player = new MediaPlayer(new Media(Objects.requireNonNull(getClass().getResource("/media/jar-of-love.mp3")).toString()));
-        CacheNode.INNER_PLAYER_CACHE.put("player",player);
+        SystemCache.INNER_PLAYER_CACHE.put("player",player);
         player.setVolume(soundSlider.getValue() / 100);
         //设置歌词
         FXMLLoader playerDetailLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
@@ -246,7 +245,7 @@ public class PlayerComponentController {
         //播放器的进度修改监听器
         player.currentTimeProperty().addListener(durationChangeListener);
         //如果播放完当前歌曲, 我们这里暂停播放 (1)播放器暂停 （2）ui显示
-        player.setOnEndOfMedia(() -> musicControlController.startOrPausePlay(CacheNode.INNER_PLAYER_CACHE.get("player")));
+        player.setOnEndOfMedia(() -> musicControlController.startOrPausePlay(SystemCache.INNER_PLAYER_CACHE.get("player")));
         //player.setOnEndOfMedia(this::playNextMusic);
         //player.play();
     }

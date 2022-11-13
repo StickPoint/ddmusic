@@ -1,20 +1,19 @@
 package com.stickpoint.ddmusic.page.controller;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
-import com.stickpoint.ddmusic.page.CacheNode;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.MediaPlayer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @BelongsProject: ddmusic
@@ -44,7 +43,7 @@ public class MusicControlController {
 	/**
      * 日志工具
      */
-    private static final Logger LOGGER = SystemCache.logger;
+	private static final Logger log = LoggerFactory.getLogger(MusicControlController.class);
 
     /**
 	 * TODO 注意我这里没有考虑使用ToggleButton：
@@ -58,18 +57,20 @@ public class MusicControlController {
      */
     @FXML
     void startOrPausePlay() {
-		FXMLLoader homePageLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.HOMEPAGE.getRouterId());
-		FXMLLoader playDetailLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
-		Parent playDetailLoaderRootNode = playDetailLoader.getRoot();
-		ObservableMap<String, Object> homePageLoaderNamespace = homePageLoader.getNamespace();
-		StackPane centerView = (StackPane) homePageLoaderNamespace.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
+		// 从系统缓存节点中取出所有界面共享区域stackPane
+		StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
     	// 首先获得当前按钮的style样式，基于此然后进行修改
     	String currentStyle = playerPauseOrGoon.getStyle();
     	// 当前播放器播放按钮状态
-    	LOGGER.log(Level.INFO,currentStyle);
+		log.info(currentStyle);
     	// 然后紧接着获得当前系统音乐播放按钮的播放状态
     	String currentMusicPlayerStatus = (String) SystemCache.SYS_INNER_PROPERTIES.get(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent());
-    	LOGGER.log(Level.INFO,"当前系统音乐播放控制组件中，播放按钮的状态是：{0}",currentMusicPlayerStatus);
+    	log.info("当前系统音乐播放控制组件中，播放按钮的状态是：{}",currentMusicPlayerStatus);
+		Node playDetail = centerView.getChildren().filtered(node -> InfoEnums.ROOT_NODE_PLAY_DETAIL_CSS_ID.getInfoContent().equals(node.getId()))
+				.get(InfoEnums.INDEX_ZERO.getNumberInfo());
+		if (Objects.isNull(playDetail)) {
+			log.error("点击播放或者是暂停播放的时候，界面出现丢失情况，播放详情界面丢失不见");
+		}
     	// 播放状态
     	if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_GOON_VALUE.getInfoContent())) {
     		// 如果是播放状态，那么就修改成暂停状态
@@ -79,8 +80,12 @@ public class MusicControlController {
         	currentStyle = currentStyle.replace(InfoEnums.MUSIC_PLAY_STATUS_GOON_SVG_PATH.getInfoContent(),
         			InfoEnums.MUSIC_PLAY_STATUS_PAUSE_SVG_PATH.getInfoContent());
         	playerPauseOrGoon.setStyle(currentStyle);
-        	CacheNode.INNER_PLAYER_CACHE.get("player").pause();
-			centerView.getChildren().remove(playDetailLoaderRootNode);
+        	SystemCache.INNER_PLAYER_CACHE.get("player").pause();
+			// 暂停了之后，将播放详情页面放到后台去展示
+			for (Node child : centerView.getChildren()) {
+				child.toBack();
+			}
+			Objects.requireNonNull(playDetail).toBack();
     	}else if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent())){
     		// 如果是暂停状态，那么就修改成播放状态
         	SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), 
@@ -91,13 +96,13 @@ public class MusicControlController {
             			InfoEnums.MUSIC_PLAY_STATUS_GOON_SVG_PATH.getInfoContent());
         		playerPauseOrGoon.setStyle(currentStyle);
         	}
-			CacheNode.INNER_PLAYER_CACHE.get("player").play();
-			centerView.getChildren().add(playDetailLoaderRootNode);
+			SystemCache.INNER_PLAYER_CACHE.get("player").play();
+			Objects.requireNonNull(playDetail).toFront();
     	}
     	// 切换后播放器播放按钮状态
     	playerPauseOrGoon.setStyle(currentStyle);
     	// 记录日志
-		LOGGER.log(Level.INFO,"音乐播放组件的播放按钮点击后的最终样式是：{0}",currentStyle);
+		log.info("音乐播放组件的播放按钮点击后的最终样式是：{}",currentStyle);
     }
 
 	/**
@@ -113,10 +118,10 @@ public class MusicControlController {
 		// 首先获得当前按钮的style样式，基于此然后进行修改
 		String currentStyle = playerPauseOrGoon.getStyle();
 		// 当前播放器播放按钮状态
-		LOGGER.log(Level.INFO,currentStyle);
+		log.info(currentStyle);
 		// 然后紧接着获得当前系统音乐播放按钮的播放状态
 		String currentMusicPlayerStatus = (String) SystemCache.SYS_INNER_PROPERTIES.get(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent());
-		LOGGER.log(Level.INFO,"当前系统音乐播放控制组件中，播放按钮的状态是：{0}",currentMusicPlayerStatus);
+		log.info("当前系统音乐播放控制组件中，播放按钮的状态是：{}",currentMusicPlayerStatus);
 		// 播放状态
 		if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_GOON_VALUE.getInfoContent())) {
 			// 如果是播放状态，那么就修改成暂停状态
@@ -142,7 +147,7 @@ public class MusicControlController {
 		// 切换后播放器播放按钮状态
 		playerPauseOrGoon.setStyle(currentStyle);
 		// 记录日志
-		LOGGER.log(Level.INFO,"音乐播放组件的播放按钮点击后的最终样式是：{0}",currentStyle);
+		log.info("音乐播放组件的播放按钮点击后的最终样式是：{}",currentStyle);
 	}
     
 }

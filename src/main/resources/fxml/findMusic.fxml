@@ -2,13 +2,12 @@
 
 <?import com.leewyatt.rxcontrols.controls.RXCarousel?>
 <?import com.leewyatt.rxcontrols.controls.RXLineButton?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/findMusic.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.FindMusicController">
+<AnchorPane id="findMusic" fx:id="findMusicRootNode" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/findMusic.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.FindMusicController">
    <children>
       <HBox fx:id="indexMenuBar" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="750.0" style="-fx-border-color: transparent; -fx-border-width: 0;">
          <children>
@@ -41,14 +40,10 @@
             </Pane>
          </children>
       </HBox>
-      <ScrollPane fx:id="scrollPane" layoutY="60.0" maxHeight="470.0" minHeight="440.0" onMouseEntered="#showSlider" onMouseExited="#hideSlider" prefHeight="440.0" prefWidth="750.0">
-         <content>
-            <AnchorPane fx:id="centerPane" prefHeight="570.0" prefWidth="749.0" style="-fx-background-insets: 0; -fx-background-color: transparent;">
-               <children>
-                  <RXCarousel fx:id="sceneryCarousel" maxHeight="250.0" maxWidth="749.0" minHeight="250.0" minWidth="749.0" prefHeight="250.0" prefWidth="749.0" showTime="5000.0ms" />
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
+      <AnchorPane fx:id="centerPane" layoutX="1.0" layoutY="52.0" prefHeight="485.0" prefWidth="749.0" style="-fx-background-insets: 0; -fx-background-color: transparent;">
+         <children>
+            <RXCarousel fx:id="sceneryCarousel" maxHeight="250.0" maxWidth="749.0" minHeight="250.0" minWidth="749.0" prefHeight="250.0" prefWidth="749.0" showTime="5000.0ms" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
