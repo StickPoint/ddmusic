@@ -8,6 +8,9 @@ open module com.stickpoint.ddmusic {
     requires org.apache.derby.commons;
     requires org.apache.derby.engine;
     requires com.google.gson;
+    requires okhttps;
+    requires okhttps.gson;
+    requires data.core;
     // 下面的依赖全是javafx依赖
     requires javafx.graphics;
     requires javafx.controls;
@@ -15,5 +18,7 @@ open module com.stickpoint.ddmusic {
     requires javafx.media;
     requires javafx.base;
     requires java.sql;
+    // 配置SPI机制下的HttpConfig封装
+    provides com.ejlchina.okhttps.Config with com.stickpoint.ddmusic.common.config.DdMusicHttpConfig;
     exports com.stickpoint.ddmusic;
 }

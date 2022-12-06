@@ -29,37 +29,38 @@ import java.util.Objects;
  */
 public class HomePageController {
     public VBox onlineMusicContainer;
+    public Pane findMusic;
+    public Pane hotMusic;
+    public Pane shareCenter;
+    public Pane radioCenter;
+    public VBox myMusicListContainer;
     @FXML
     private StackPane centerView;
-    @SuppressWarnings("exports")
+
 	@FXML
     public Pane myMusicPlayHistory;
-    @SuppressWarnings("exports")
+
 	@FXML
     public Pane myMusicFavorite;
-    @SuppressWarnings("exports")
-	@FXML
-    public Pane myMusicDownloadManager;
-    @SuppressWarnings("exports")
 	@FXML
     public Pane myMusicLocalMusic;
-    @SuppressWarnings("exports")
+
 	@FXML
     public VBox myMusicContainer;
     /**
      * 关闭主窗口按钮
      */
-    @SuppressWarnings("exports")
+
 	@FXML
     public Region homePageClose;
     /**
      * 节点缓存集合
      */
     private static final List<Node> NODE_LIST = new ArrayList<>();
-    @SuppressWarnings("exports")
+
 	@FXML
     public HBox userInfoContainer;
-    @SuppressWarnings("exports")
+
 	@FXML
     public AnchorPane homePagePlayer;
     /**
@@ -73,18 +74,18 @@ public class HomePageController {
     /**
      * 首页面板-mainPage
      */
-    @SuppressWarnings("exports")
+
 	@FXML
     public BorderPane mainPage;
     /**
      * 额外菜单面板
      */
-    @SuppressWarnings("exports")
+
 	public ContextMenu userInfoCardContext;
     /**
      * 用户图像
      */
-    @SuppressWarnings("exports")
+
 	@FXML
     public RXAvatar userAvatar;
     /**
@@ -103,7 +104,7 @@ public class HomePageController {
 
     @FXML
     public void initialize(){
-        changeBackgroundStyle();
+        changeMyMusicMenuBackgroundStyle();
         initSystemMenuList();
     }
 
@@ -120,7 +121,7 @@ public class HomePageController {
      * 按钮点击事件
      */
     @FXML
-    public void changeBackgroundStyle() {
+    public void changeMyMusicMenuBackgroundStyle() {
         ObservableList<Node> myMusicContainerChildren = myMusicContainer.getChildren ();
         // 第一个菜单不参与高亮显示
         myMusicContainerChildren.forEach (node -> node.setOnMouseClicked (event -> {
@@ -136,7 +137,7 @@ public class HomePageController {
      * @param node 节点
      */
     @FXML
-    public void setMenuPaneSelectedBackgroundStyle(@SuppressWarnings("exports") Node node){
+    public void setMenuPaneSelectedBackgroundStyle(Node node){
         if (node.getId().equals(InfoEnums.LEFT_TAB_MENU.getInfoContent())){
             // 如果是菜单的话那就点击了按压了，hover也没有效果
             node.styleProperty().unbind();

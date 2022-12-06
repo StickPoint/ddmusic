@@ -1,13 +1,13 @@
 package com.stickpoint.ddmusic;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
 import com.stickpoint.ddmusic.common.utils.ThreadUtil;
 import com.stickpoint.ddmusic.page.stage.HomePageStage;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -37,6 +37,10 @@ public class StickpointMusicApplication extends Application {
 	 * 构建日志工具
 	 */
     private static final Logger log = LoggerFactory.getLogger(StickpointMusicApplication.class);
+    /**
+     * 系统配置加载工具
+     */
+    private static final SystemPropertiesUtil SYSTEM_PROPERTIES_UTIL = new SystemPropertiesUtil();
 
     /**
      * 加载信息
@@ -114,6 +118,7 @@ public class StickpointMusicApplication extends Application {
         try {
             // 其他操作
             showApplicationInitsInfo("初始化目录...");
+            SYSTEM_PROPERTIES_UTIL.loadProperties();
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -200,8 +205,8 @@ public class StickpointMusicApplication extends Application {
         // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
             homePageLoader.load();
-            findMusicLoader.load();
             playDetailPage.load();
+            findMusicLoader.load();
             accumulatePaneLoader.load();
             musicControlLoader.load();
             recentlyPlayListLoader.load();
@@ -212,10 +217,6 @@ public class StickpointMusicApplication extends Application {
         // 等到所有的子页面都加载完毕了然后再统一添加到StackPane中，避免出现多层View在同一层显示的Bug
         StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
         centerView.getChildren().addAll(SystemCache.CENTER_VIEW_PAGE_LIST);
-        Node findMusicPage = centerView.getChildren().filtered(node -> InfoEnums.FIND_MUSIC_SCROLL_PANE_CSS_ID.getInfoContent().equals(node.getId()))
-                .get(InfoEnums.INDEX_ZERO.getNumberInfo());
-        // 初始化的时候让他在最前面
-        findMusicPage.toFront();
     }
 
     /**

@@ -25,6 +25,10 @@ public enum InfoEnums {
      */
     FILE_PATH_HEADER("http"),
     /**
+     * Http请求前缀
+     */
+    HTTP_REQUEST_PROTOCOL("http://"),
+    /**
      * app系统配置版本
      */
     APP_ENV_VERSION("app.env.version"),
@@ -117,6 +121,62 @@ public enum InfoEnums {
      * 通用下标枚举 0
      */
     INDEX_ZERO(0),
+    /**
+     * 音乐播放器远程服务状态
+     */
+    APP_NETWORK_STATUS_OK(200),
+    /**
+     * 应用软件通用的分隔符号
+     */
+    APP_PROPERTIES_COMMON_SYMBOL_SPLIT(","),
+    /**
+     * 网易云请求前缀
+     */
+    API_NET_EASY_URL_PREFIX("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
+    /**
+     * 网易云歌曲歌词-基础地址
+     */
+    API_NET_EASY_URL_GET_LYRIC("api.sourceList.wpMusicApi.platform.neteasy.getLyric"),
+    /**
+     * 顶点音乐请求的一级baseUrl
+     */
+    API_DDMUSIC_SOURCE_LIST_WP_MUSIC_HOST("api.sourceList.wpMusicApi.host"),
+    /**
+     * 顶点音乐请求的二级baseUrl
+     * api.sourceList.wpMusicApi.prefix
+     */
+    API_DDMUSIC_SOURCE_LIST_WP_MUSIC_PREFIX("api.sourceList.wpMusicApi.prefix"),
+    /**
+     * WP_Music基础服务请求-网易云音乐基础前缀地址
+     * api.sourceList.wpMusicApi.platform.neteasy.prefix
+     */
+    NETEASY_PREFIX("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
+    /**
+     * WP_Music基础服务请求-网易云搜索音乐接口地址
+     * api.sourceList.wpMusicApi.platform.neteasy.getSearch
+     */
+    NETEASY_GET_SEARCH("api.sourceList.wpMusicApi.platform.neteasy.getSearch"),
+    /**
+     * WP_Music基础服务请求端口
+     * api.sourceList.wpMusicApi.por
+     */
+    API_DDMUSIC_BASE_WP_MUSIC_PORT("api.sourceList.wpMusicApi.port"),
+    /**
+     * WP_Music基础服务请求前缀
+     */
+    API_DDMUSIC_BASE_WP_MUSIC_PREFIX("api.sourceList.wpMusicApi.prefix"),
+    /**
+     * myFreeMusic服务状态
+     */
+    API_DDMUSIC_MY_FREE_MUSIC_STATUS("api.sourceList.myFreeMusic.status"),
+    /**
+     * WP_MUSIC服务状态
+     */
+    API_DDMUSIC_WP_MUSIC_STATUS("api.sourceList.wpMusicApi.status"),
+    /**
+     * 网易云音乐资源篇平台前缀
+     */
+    API_DDMUSIC_BASE_WP_MUSIC_PLATFORM_NET_EASY("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
     /**
      * 最近播放列表容器Pane的JavaFX-ID
      */

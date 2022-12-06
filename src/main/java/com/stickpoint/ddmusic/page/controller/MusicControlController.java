@@ -3,6 +3,7 @@ import java.util.Objects;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
+import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -82,9 +83,7 @@ public class MusicControlController {
         	playerPauseOrGoon.setStyle(currentStyle);
         	SystemCache.INNER_PLAYER_CACHE.get("player").pause();
 			// 暂停了之后，将播放详情页面放到后台去展示
-			for (Node child : centerView.getChildren()) {
-				child.toBack();
-			}
+
 			Objects.requireNonNull(playDetail).toBack();
     	}else if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent())){
     		// 如果是暂停状态，那么就修改成播放状态
@@ -98,6 +97,7 @@ public class MusicControlController {
         	}
 			SystemCache.INNER_PLAYER_CACHE.get("player").play();
 			Objects.requireNonNull(playDetail).toFront();
+			log.info(centerView.getChildren().toString());
     	}
     	// 切换后播放器播放按钮状态
     	playerPauseOrGoon.setStyle(currentStyle);

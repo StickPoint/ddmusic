@@ -1,6 +1,4 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.StickpointMusicApplication;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelFormat;
 import javafx.scene.image.PixelReader;
@@ -124,7 +122,7 @@ public class FxPngUtil extends Object {
     /** The compression level. */
     protected int compressionLevel;
 
-    private static final Logger log = LoggerFactory.getLogger(StickpointMusicApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(FxPngUtil.class);
 
     /**
      * Class constructor specifying Image to encode, and whether to encode alpha.

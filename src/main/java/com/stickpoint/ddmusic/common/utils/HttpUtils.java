@@ -1,16 +1,14 @@
 package com.stickpoint.ddmusic.common.utils;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.List;
+import com.ejlchina.okhttps.HTTP;
+import com.ejlchina.okhttps.HttpCall;
+import com.ejlchina.okhttps.HttpResult;
+import com.ejlchina.okhttps.OkHttps;
+import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.Objects;
+
 
 /**
  * @BelongsProject: ddmusic
@@ -22,123 +20,70 @@ import java.util.stream.Collectors;
  */
 public class HttpUtils {
     /**
-     * 向指定URL发送GET方法的请求
-     *
-     * @param url   发送请求的URL
-     * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
-     * @return URL 所代表远程资源的响应结果
+     * 系统Http请求工具日志
      */
-    public static String sendGet(String url, String param) {
-        String result = "";
-        BufferedReader in = null;
-        try {
-            String urlNameString = url + "?" + param;
-            URLConnection connection = getUrlConnection(urlNameString);
-            // 建立实际的连接
-            connection.connect();
-            // 获取所有响应头字段
-            Map<String, List<String>> map = connection.getHeaderFields();
-            // 遍历所有的响应头字段
-            for (String key : map.keySet()) {
-                System.out.println(key + "--->" + map.get(key));
-            }
-            // 定义 BufferedReader输入流来读取URL的响应
-            in = new BufferedReader(new InputStreamReader(
-                    connection.getInputStream()));
-            String line;
-            while ((line = in.readLine()) != null) {
-                result += line;
-            }
-        } catch (Exception e) {
-            System.out.println("发送GET请求出现异常！" + e);
-            e.printStackTrace();
-        }
-        // 使用finally块来关闭输入流
-        finally {
-            try {
-                if (in != null) {
-                    in.close();
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+    private static final Logger log = LoggerFactory.getLogger(HttpUtils.class);
+    /**
+     * 系统Http请求工具类实例
+     */
+    private static HttpUtils INSTANCE;
+    /**
+     * 系统Http请求对象
+     */
+    private static final HTTP HTTP = OkHttps.getHttp();
+
+    /**
+     * 私有化构造，启用单例模式
+     */
+    private HttpUtils() { }
+
+    /**
+     * 获得系统HttpUtils对象实例
+     * @return 返回一个HttpUtils请求对象
+     */
+    public static HttpUtils getInstance() {
+        if (Objects.isNull(INSTANCE)) {
+            synchronized (HttpUtils.class) {
+                log.info("初始化加载HttpIUtils工具类对象");
+                INSTANCE = new HttpUtils();
             }
         }
-        return result;
+        return INSTANCE;
     }
 
     /**
-     * 向指定 URL 发送POST方法的请求
-     *
-     * @param url   发送请求的 URL
-     * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
-     * @return 所代表远程资源的响应结果
+     * 进行基础的常见的Get请求
+     * @param requestUrl 请求地址
+     * @param requestParams 请求参数
+     * @return 返回一个请求的最终json响应字符串
      */
-    public static String sendPost(String url, String param) {
-        PrintWriter out = null;
-        BufferedReader in = null;
-        StringBuilder result = new StringBuilder();
-        try {
-            URLConnection conn = getUrlConnection(url);
-            // 发送POST请求必须设置如下两行
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            // 获取URLConnection对象对应的输出流
-            out = new PrintWriter(conn.getOutputStream());
-            // 发送请求参数
-            out.print(param);
-            // flush输出流的缓冲
-            out.flush();
-            // 定义BufferedReader输入流来读取URL的响应
-            in = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream()));
-            String line;
-            while ((line = in.readLine()) != null) {
-                result.append(line);
-            }
-        } catch (Exception e) {
-            System.out.println("发送 POST 请求出现异常！" + e);
-            e.printStackTrace();
-        }
-        //使用finally块来关闭输出流、输入流
-        finally {
-            try {
-                if (out != null) {
-                    out.close();
-                }
-                if (in != null) {
-                    in.close();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return result.toString();
+    public String doNormalGet(String requestUrl, Map<String, String> requestParams){
+        HttpCall httpCall = HTTP.async(requestUrl) .addUrlPara(requestParams).get();
+        HttpResult httpResult = httpCall.getResult();
+        return getResponse(httpResult);
     }
 
-    private static URLConnection getUrlConnection(String url) throws IOException {
-        URL realUrl = new URL(url);
-        // 打开和URL之间的连接
-        URLConnection conn = realUrl.openConnection();
-        // 设置通用的请求属性
-        conn.setRequestProperty("accept", "*/*");
-        conn.setRequestProperty("connection", "Keep-Alive");
-        conn.setRequestProperty("user-agent",
-                "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-        return conn;
+    public String doAbsoluteGet(String requestUrl) {
+        HttpCall httpCall = HTTP.async(requestUrl).get();
+        HttpResult result = httpCall.getResult();
+        return getResponse(result);
     }
 
-    private static String post(String urlStr, String data) throws IOException {
-        URL url = new URL(urlStr);
-        HttpURLConnection httpurlconnection = (HttpURLConnection) url.openConnection();
-        httpurlconnection.setRequestMethod("POST");
-        httpurlconnection.setRequestProperty("Accept", "application/json");
-        httpurlconnection.setDoOutput(true);
-        DataOutputStream wr = new DataOutputStream(httpurlconnection.getOutputStream());
-        wr.writeBytes(data);
-        wr.flush();
-        wr.close();
-        InputStream inputStream = httpurlconnection.getInputStream();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        return bufferedReader.lines().parallel().collect(Collectors.joining(System.lineSeparator()));
+    /**
+     * 封装内部的返回基本响应的方法
+     * @param httpResult httpResult 请求结果对象
+     * @return 返回一个相应的字符串内容
+     */
+    private String getResponse(HttpResult httpResult) {
+        String responseStr = null;
+        if (InfoEnums.APP_NETWORK_STATUS_OK.getNumberInfo() == httpResult.getStatus()) {
+            responseStr = httpResult.getBody().toString();
+        }
+        if (Objects.nonNull(responseStr)) {
+            // 说明Http请求成功存在响应
+            return responseStr;
+        }
+        return null;
     }
+
 }

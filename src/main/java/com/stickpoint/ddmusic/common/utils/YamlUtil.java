@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.common.enums.CodeEnum;
+import com.stickpoint.ddmusic.common.enums.DDMusicExceptionEnum;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +35,7 @@ public class YamlUtil extends LinkedHashMap<String, String> {
     public YamlUtil(String ymlFilePath) {
         if (Objects.isNull(ymlFilePath)) {
             // 传入的地址是空的
-            log.info( CodeEnum.ERROR_PROPERTIES_CENTER_FILE_PATH_IS_NULL.getMessage());
+            log.info( DDMusicExceptionEnum.ERROR_PROPERTIES_CENTER_FILE_PATH_IS_NULL.getMessage());
             return;
         }
         this.load(ymlFilePath);

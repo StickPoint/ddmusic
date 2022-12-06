@@ -70,6 +70,7 @@ public class FindMusicController {
      */
     private void showFindMusic(){
         ScrollPane finaMusicMenu = ScrollPaneComponent.createCommonScrollPaneRoot(findMusicRootNode);
+        finaMusicMenu.toFront();
         SystemCache.CENTER_VIEW_PAGE_LIST.add(finaMusicMenu);
     }
 

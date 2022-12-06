@@ -1,15 +1,12 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.StickpointMusicApplication;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.Serial;
 import java.util.Objects;
 import java.util.Properties;
-import java.util.logging.Level;
 
 /**
  * description: SystemPropertiesUtil

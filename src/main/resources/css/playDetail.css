@@ -1,5 +1,7 @@
-.spectrum-pane,
-.lrc-pane {
+#playDetail {
+    -fx-background-color: white;
+}
+.spectrum-pane,  .lrc-pane {
     -fx-border-width: 0;
 }
 

@@ -1,4 +1,6 @@
 package com.stickpoint.ddmusic.common.model.entity;
+import java.io.Serial;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.Date;
 import java.util.Objects;
@@ -11,7 +13,9 @@ import java.util.Objects;
  * @Author puye(0303)
  * @PackageName com.stickpoint.ddmusic.common.entity
  */
-public class Album {
+public class Album implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -3704887836732694914L;
     /**
      * 专辑名称
      */
