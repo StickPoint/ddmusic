@@ -5,51 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDMusic 0013 系统更新&#10;（1）更新项目启动系统加载远程配置&#10;（2）更新本地远程配置加载工具&#10;（3）更新Http请求封装工具&#10;（4）更新网易云搜索请求&#10;（5）更新系统SPI机制加载">
-      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/config/DdMusicHttpConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/coolDog/Classmap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/coolDog/CoolDogMusicEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/coolDog/Qualitymap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/coolDog/Singers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/coolDog/TransParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/DdMusicEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Album.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Artist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/vo/RequestBaseInfoVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/NetEasyMusicServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.ejlchina.okhttps.Config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/StickpointMusicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/StickpointMusicApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/CodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/DDMusicExceptionEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/InfoEnums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/enums/InfoEnums.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/NetsMusic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Al.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Ar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/ChargeInfoList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/FreeTrialPrivilege.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/H.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/L.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/M.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/NetEasyMusicEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/NetEasyMusicEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Privilege.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Sq.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/IMusicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/IMusicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/FxPngUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/FxPngUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/HttpUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SystemPropertiesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SystemPropertiesUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/YamlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/YamlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/FindMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/FindMusicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/MusicControlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/MusicControlController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/playDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/playDetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/homePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stickpoint/ddmuisc/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stickpoint/ddmuisc/MyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +258,7 @@
       <workItem from="1669118364894" duration="591000" />
       <workItem from="1669533858913" duration="4250000" />
       <workItem from="1669723781605" duration="4331000" />
-      <workItem from="1670333480094" duration="2843000" />
+      <workItem from="1670333480094" duration="3157000" />
     </task>
     <task id="LOCAL-00001" summary="DDMusic 0002 新版本更新&#10;（1）新增页面优化&#10;（2）新增播放详情页面&#10;（3）新增歌词解析&#10;（4）新增歌词显示&#10;（5）新增歌曲进度条&#10;（6）新增全局加载方式">
       <created>1665571877427</created>
@@ -381,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668334156952</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="DDMusic 0013 系统更新&#10;（1）更新项目启动系统加载远程配置&#10;（2）更新本地远程配置加载工具&#10;（3）更新Http请求封装工具&#10;（4）更新网易云搜索请求&#10;（5）更新系统SPI机制加载">
+      <created>1670336424146</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670336424146</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
