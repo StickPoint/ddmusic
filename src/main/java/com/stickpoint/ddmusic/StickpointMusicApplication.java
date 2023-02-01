@@ -118,8 +118,9 @@ public class StickpointMusicApplication extends Application {
         try {
             // 其他操作
             showApplicationInitsInfo("初始化目录...");
+            log.info("开始加载系统核心配置参数数据");
             SYSTEM_PROPERTIES_UTIL.loadProperties();
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
@@ -199,9 +200,10 @@ public class StickpointMusicApplication extends Application {
         //（7）系统播放器额外组件-音量控制组件
         FXMLLoader soundControlLoader = new FXMLLoader(getClass().getResource("/fxml/soundControl.fxml"));
         SystemCache.FXML_LOAD_MAP.put(PageEnums.SOUND_CONTROL.getRouterId(),soundControlLoader);
-        // 装载完毕所有页面之后 将逐步进行页面的初始化操作
+        // （8）软件系统首页：发现音乐页面
         FXMLLoader findMusicLoader = new FXMLLoader(PageEnums.FIND_MUSIC.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.FIND_MUSIC.getRouterId(), findMusicLoader);
+        // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
             homePageLoader.load();

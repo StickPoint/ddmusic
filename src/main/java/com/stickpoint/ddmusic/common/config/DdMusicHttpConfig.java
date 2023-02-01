@@ -3,7 +3,6 @@ import com.ejlchina.okhttps.Config;
 import com.ejlchina.okhttps.HTTP;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
-
 import java.util.Objects;
 
 /**
@@ -32,7 +31,7 @@ public class DdMusicHttpConfig implements Config {
         String prefix = null;
         String port = null;
         // 如果说服务状态是ok的，也就是说当前服务请求可以使用wpMusic
-        if (requestServerStatus==InfoEnums.APP_PROPERTIES_STATUS_OK.getNumberInfo()) {
+        if (requestServerStatus==InfoEnums.APP_PROPERTIES_STATUS_OK_INT.getNumberInfo()) {
             // 获取当前基础服务的主机地址
             requestBaseHosts = (String) SystemCache.APP_PROPERTIES
                     .get(InfoEnums.API_DDMUSIC_SOURCE_LIST_WP_MUSIC_HOST.getInfoContent());
@@ -45,7 +44,7 @@ public class DdMusicHttpConfig implements Config {
         }else {
             requestServerStatus = (int) SystemCache.APP_PROPERTIES
                     .get(InfoEnums.API_DDMUSIC_MY_FREE_MUSIC_STATUS.getInfoContent());
-            if(requestServerStatus == InfoEnums.APP_PROPERTIES_STATUS_OK.getNumberInfo()) {
+            if(requestServerStatus == InfoEnums.APP_PROPERTIES_STATUS_OK_INT.getNumberInfo()) {
                 requestBaseHosts = (String) SystemCache.APP_PROPERTIES.get("api.sourceList.myFreeMusic.host");
                 prefix =(String) SystemCache.APP_PROPERTIES.get("api.sourceList.myFreeMusic.prefix");
                 port =(String) SystemCache.APP_PROPERTIES.get("api.sourceList.myFreeMusic.port");

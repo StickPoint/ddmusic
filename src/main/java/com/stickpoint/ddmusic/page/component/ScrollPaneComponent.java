@@ -32,6 +32,8 @@ public class ScrollPaneComponent {
         try {
             // 滑动pane容器设置样式
             scrollPane.getStylesheets().add(Objects.requireNonNull(ScrollPaneComponent.class.getResource("/css/scrollPane-common.css")).toURI().toString());
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
             // 界面初始化默认仪表盘在最前显示
             scrollPane.toFront();
             // 监听鼠标移入移出
@@ -53,7 +55,7 @@ public class ScrollPaneComponent {
         });
         scrollPane.addEventHandler(MouseEvent.MOUSE_ENTERED,event -> {
             log.info("当前鼠标移动策略：{}", scrollPane.getVbarPolicy().name());
-            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         });
     }
 }

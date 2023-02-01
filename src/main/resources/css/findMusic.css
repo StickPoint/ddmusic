@@ -29,6 +29,11 @@
     -fx-min-height: 5;
 }
 
+.rx-carousel .root-pane .carousel-subscene,
+.rx-carousel .root-pane .effect-pane {
+    -fx-border-radius: 20;
+}
+
 /*
  * 设置滚动滑动容器
  * 2022-11-13 由于设置了全局通用的scrollPane-common样式

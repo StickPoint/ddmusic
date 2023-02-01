@@ -1,10 +1,20 @@
 package com.stickpoint.ddmuisc;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.stickpoint.ddmusic.common.model.entity.DdMusicEntity;
 import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntity;
+import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
+import com.stickpoint.ddmusic.common.service.IMusicService;
+import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
 import com.stickpoint.ddmusic.common.utils.HttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -43,9 +53,15 @@ public class MyTest {
         if (Objects.nonNull(data)) {
             log.info(data.toString());
             List<NetEasyMusicEntity> ps = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntity>>(){}.getType());
-            ps.forEach(item->{
-                log.info(item.toString());
-            });
+            ps.forEach(item-> log.info(item.toString()));
         }
+    }
+
+    @Test
+    public void testSearchMusic() {
+        IMusicService musicService = new NetEasyMusicServiceImpl();
+        RequestBaseInfoVO requestBaseInfoVO = new RequestBaseInfoVO();
+        requestBaseInfoVO.setSearchKey("夜间巡航");
+        List<? extends DdMusicEntity> searchMusicList = musicService.searchMusicList(requestBaseInfoVO);
     }
 }

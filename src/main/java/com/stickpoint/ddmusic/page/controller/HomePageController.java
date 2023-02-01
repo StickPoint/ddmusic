@@ -5,6 +5,7 @@ import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,6 @@ import java.util.Objects;
  * @author fntp
  */
 public class HomePageController {
-    public VBox onlineMusicContainer;
     public Pane findMusic;
     public Pane hotMusic;
     public Pane shareCenter;
@@ -126,7 +126,7 @@ public class HomePageController {
         // 第一个菜单不参与高亮显示
         myMusicContainerChildren.forEach (node -> node.setOnMouseClicked (event -> {
             // 前面都是一直在获取元素 获取到了 直接调用API 原子动作分割
-            setMenuPaneSelectedBackgroundStyle (node);
+            setMenuPaneSelectedBackgroundStyle (node,myMusicContainer.getChildren());
         }));
     }
 
@@ -137,14 +137,14 @@ public class HomePageController {
      * @param node 节点
      */
     @FXML
-    public void setMenuPaneSelectedBackgroundStyle(Node node){
+    public void setMenuPaneSelectedBackgroundStyle(Node node,ObservableList<Node> childrenList){
         if (node.getId().equals(InfoEnums.LEFT_TAB_MENU.getInfoContent())){
             // 如果是菜单的话那就点击了按压了，hover也没有效果
             node.styleProperty().unbind();
             node.setStyle(null);
         }else{
             // 否则不是菜单按钮，那么直接点击就好了
-            NODE_LIST.addAll (myMusicContainer.getChildren ());
+            NODE_LIST.addAll (childrenList);
             // 外层节点 先解除绑定的css效果
             node.styleProperty().unbind();
             // 然后手动设置效果无法绑定，因为点击事件是针对特定的node的不是固定的所以手动绑定设置css样式

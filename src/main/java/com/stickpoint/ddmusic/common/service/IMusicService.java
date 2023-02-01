@@ -33,5 +33,11 @@ public interface IMusicService {
      */
     DdMusicEntity getMusicUrlByMusicBaseInfo(RequestBaseInfoVO baseInfo);
 
+    /**
+     * 获得网易云推荐音乐列表
+     * @return 返回一个网易云推荐音乐列表
+     */
+    List<? extends DdMusicEntity> getWyRecommendedMusicList();
+
 
 }

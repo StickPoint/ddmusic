@@ -32,9 +32,10 @@ public class SystemPropertiesUtil extends Properties {
      */
     public void loadProperties(){
         try {
+            log.info("正在加载系统核心参数数据");
             this.load(this.getClass().getClassLoader().getResourceAsStream("sys.properties"));
-            log.info("数据加载成功");
-            SystemCache.APP_PROPERTIES.putAll(new YamlUtil(this.getProperty("applicationProperties")));
+            log.info("系统核心参数数据加载成功");
+            SystemCache.APP_PROPERTIES.putAll(new YamlUtil(this.getProperty(InfoEnums.APP_PROPERTIES_LOCAL_NAME.getInfoContent())));
         } catch (IOException e) {
             log.info(e.getMessage(),e);
         }

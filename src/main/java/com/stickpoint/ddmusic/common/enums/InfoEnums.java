@@ -157,6 +157,11 @@ public enum InfoEnums {
      */
     NETEASY_GET_SEARCH("api.sourceList.wpMusicApi.platform.neteasy.getSearch"),
     /**
+     * WP_Music基础服务请求-网易云每日推荐音乐接口地址
+     * api.sourceList.wpMusicApi.platform.neteasy.getRecommend
+     */
+    NETEASY_GET_RECOMMEND("api.sourceList.wpMusicApi.platform.neteasy.getRecommend"),
+    /**
      * WP_Music基础服务请求端口
      * api.sourceList.wpMusicApi.por
      */
@@ -174,9 +179,17 @@ public enum InfoEnums {
      */
     API_DDMUSIC_WP_MUSIC_STATUS("api.sourceList.wpMusicApi.status"),
     /**
+     * 音乐状态 被比较的值 是一个常量枚举
+     */
+    APP_PROPERTIES_STATUS_OK_INT(200),
+    /**
      * 网易云音乐资源篇平台前缀
      */
     API_DDMUSIC_BASE_WP_MUSIC_PLATFORM_NET_EASY("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
+    /**
+     *
+     */
+    APP_PROPERTIES_LOCAL_NAME("applicationProperties"),
     /**
      * 最近播放列表容器Pane的JavaFX-ID
      */

@@ -101,6 +101,30 @@ public class NetEasyMusicServiceImpl implements IMusicService {
         return null;
     }
 
+    /**
+     * 获得网易云推荐音乐列表
+     *
+     * @return 返回一个网易云推荐音乐列表
+     */
+    @Override
+    public List<? extends DdMusicEntity> getWyRecommendedMusicList() {
+        // 获得网易云音乐请求的基础地址
+        String netEasyGetRecommendRequestUrl = (String) SystemCache.APP_PROPERTIES
+                .get(InfoEnums.NETEASY_GET_RECOMMEND.getInfoContent());
+        // 拼接网易云音乐搜索音乐接口地址
+        StringBuilder requestUrl = getBaseUrl().append(netEasyGetRecommendRequestUrl);
+        // 获得网易云音乐当前请求的结果，是一个json数据，需要装换为Object对象
+        String netEasyGetRecommendResult = HTTP.doAbsoluteGet(requestUrl.toString());
+        Gson gson = new Gson();
+        List<NetEasyMusicEntity> resp = null;
+        if (Objects.nonNull(netEasyGetRecommendResult)) {
+            log.info(netEasyGetRecommendResult.toString());
+            resp = gson.fromJson(netEasyGetRecommendResult, new TypeToken<List<NetEasyMusicEntity>>() {
+            }.getType());
+        }
+        return resp;
+    }
+
     private StringBuilder appendParam(StringBuilder requestUrl,RequestBaseInfoVO baseInfo) {
         if (Objects.isNull(baseInfo.getSearchKey())) {
             // 如果搜索的关键词存在的话，那么直接请求传递参数
