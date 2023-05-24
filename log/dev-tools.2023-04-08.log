@@ -1,0 +1,42 @@
+16:36:52.337 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+16:36:52.339 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+16:36:52.340 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+16:36:52.340 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+16:36:54.689 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+16:36:54.690 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+16:36:54.692 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+16:36:56.106 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+16:36:56.120 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+16:37:19.897 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:30.097 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:30.254 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:32.846 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:33.029 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:33.045 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:33.827 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:33.949 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:37.059 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:37.145 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:37.314 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:37.742 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:38.646 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:49.874 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:50.454 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:50.621 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:50.667 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:50.866 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:51.888 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:52.166 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:37:53.115 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - -fx-shape: "M692.224 495.616 692.224 495.616 692.224 495.616c-4.096-4.096-4.096-4.096-4.096-4.096l-258.048-147.456 0 0c-4.096-4.096-8.192-4.096-12.288-4.096-12.288 0-20.48 8.192-20.48 20.48l0 303.104c0 12.288 8.192 20.48 20.48 20.48 4.096 0 8.192 0 12.288-4.096l0 0 258.048-147.456c0 0 0 0 0 0l4.096 0 0 0c4.096-4.096 8.192-8.192 8.192-16.384S696.32 499.712 692.224 495.616zM438.272 630.784 438.272 393.216l208.896 118.784L438.272 630.784zM512 98.304C282.624 98.304 98.304 282.624 98.304 512s184.32 413.696 413.696 413.696c229.376 0 413.696-184.32 413.696-413.696S741.376 98.304 512 98.304zM512 888.832c-208.896 0-376.832-167.936-376.832-376.832 0-208.896 167.936-376.832 376.832-376.832 208.896 0 376.832 167.936 376.832 376.832C888.832 720.896 720.896 888.832 512 888.832z"; -fx-background-color: gray;
+16:37:53.115 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 当前系统音乐播放控制组件中，播放按钮的状态是：music:player:status:pause
+16:37:53.119 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - [ScrollPane[id=findMusic, styleClass=scroll-pane], AnchorPane[id=playDetail]]
+16:37:53.119 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 音乐播放组件的播放按钮点击后的最终样式是：-fx-shape: "M512 1024C228.266667 1024 0 795.733333 0 512S228.266667 0 512 0s512 228.266667 512 512-228.266667 512-512 512z m0-42.666667c260.266667 0 469.333333-209.066667 469.333333-469.333333S772.266667 42.666667 512 42.666667 42.666667 251.733333 42.666667 512s209.066667 469.333333 469.333333 469.333333z m-106.666667-682.666666c12.8 0 21.333333 8.533333 21.333334 21.333333v384c0 12.8-8.533333 21.333333-21.333334 21.333333s-21.333333-8.533333-21.333333-21.333333V320c0-12.8 8.533333-21.333333 21.333333-21.333333z m213.333334 0c12.8 0 21.333333 8.533333 21.333333 21.333333v384c0 12.8-8.533333 21.333333-21.333333 21.333333s-21.333333-8.533333-21.333334-21.333333V320c0-12.8 8.533333-21.333333 21.333334-21.333333z"; -fx-background-color: gray;
+16:38:00.346 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - -fx-shape: "M512 1024C228.266667 1024 0 795.733333 0 512S228.266667 0 512 0s512 228.266667 512 512-228.266667 512-512 512z m0-42.666667c260.266667 0 469.333333-209.066667 469.333333-469.333333S772.266667 42.666667 512 42.666667 42.666667 251.733333 42.666667 512s209.066667 469.333333 469.333333 469.333333z m-106.666667-682.666666c12.8 0 21.333333 8.533333 21.333334 21.333333v384c0 12.8-8.533333 21.333333-21.333334 21.333333s-21.333333-8.533333-21.333333-21.333333V320c0-12.8 8.533333-21.333333 21.333333-21.333333z m213.333334 0c12.8 0 21.333333 8.533333 21.333333 21.333333v384c0 12.8-8.533333 21.333333-21.333333 21.333333s-21.333333-8.533333-21.333334-21.333333V320c0-12.8 8.533333-21.333333 21.333334-21.333333z"; -fx-background-color: gray;
+16:38:00.346 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 当前系统音乐播放控制组件中，播放按钮的状态是：music:player:status:goon
+16:38:00.380 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 音乐播放组件的播放按钮点击后的最终样式是：-fx-shape: "M692.224 495.616 692.224 495.616 692.224 495.616c-4.096-4.096-4.096-4.096-4.096-4.096l-258.048-147.456 0 0c-4.096-4.096-8.192-4.096-12.288-4.096-12.288 0-20.48 8.192-20.48 20.48l0 303.104c0 12.288 8.192 20.48 20.48 20.48 4.096 0 8.192 0 12.288-4.096l0 0 258.048-147.456c0 0 0 0 0 0l4.096 0 0 0c4.096-4.096 8.192-8.192 8.192-16.384S696.32 499.712 692.224 495.616zM438.272 630.784 438.272 393.216l208.896 118.784L438.272 630.784zM512 98.304C282.624 98.304 98.304 282.624 98.304 512s184.32 413.696 413.696 413.696c229.376 0 413.696-184.32 413.696-413.696S741.376 98.304 512 98.304zM512 888.832c-208.896 0-376.832-167.936-376.832-376.832 0-208.896 167.936-376.832 376.832-376.832 208.896 0 376.832 167.936 376.832 376.832C888.832 720.896 720.896 888.832 512 888.832z"; -fx-background-color: gray;
+16:38:00.924 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:38:03.502 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:38:04.690 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:38:08.175 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:38:09.246 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:38:09.526 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER

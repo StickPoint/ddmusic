@@ -1,11 +1,11 @@
-package com.stickpoint.ddmusic.common.model.coolDog;
+package com.stickpoint.ddmusic.common.model.cooldog;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * @BelongsProject: ddmusic
- * @BelongsPackage: com.stickpoint.ddmusic.common.model.coolDog
+ * @BelongsPackage: com.stickpoint.ddmusic.common.model.cooldog
  * @Author: fntp
  * @CreateTime: 2022-11-19  17:01
  * @Description: TODO

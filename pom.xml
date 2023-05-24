@@ -13,6 +13,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.8.2</junit.version>
         <open-jfx-version>17.0.2</open-jfx-version>
+        <okhttps-version>4.0.1</okhttps-version>
+        <animatefx-version>1.2.4</animatefx-version>
+        <rxcontroller-version>11.0.2</rxcontroller-version>
     </properties>
     <repositories>
         <repository>
@@ -39,12 +42,12 @@
         <dependency>
             <groupId>com.github.leewyatt</groupId>
             <artifactId>rxcontrols</artifactId>
-            <version>11.0.2</version>
+            <version>${rxcontroller-version}</version>
         </dependency>
         <dependency>
 		    <groupId>io.github.typhon0</groupId>
 		    <artifactId>AnimateFX</artifactId>
-		    <version>1.2.3</version>
+		    <version>${animatefx-version}</version>
 		</dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -61,12 +64,6 @@
             <artifactId>logback-core</artifactId>
             <version>1.4.4</version>
         </dependency>
-        <!--  derby数据库暂时未启用      -->
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.16.1.1</version>
-        </dependency>
         <!--  支持模块化的JSON工具，孩子太不容易了,,,,我操了，阿里巴巴这帮傻逼就他妈java8用到死傻逼东西-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -79,10 +76,16 @@
             <artifactId>okhttps-gson</artifactId>
             <version>3.5.2</version>
         </dependency>
+        <!--  引入lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>RELEASE</version>
+            <version>7.7.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

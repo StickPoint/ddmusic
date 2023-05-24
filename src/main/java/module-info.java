@@ -1,12 +1,10 @@
 open module com.stickpoint.ddmusic {
     // 第三方依赖
-    requires AnimateFX;
+    requires animatefx;
     requires rxcontrols;
     requires ch.qos.logback.classic;
     requires ch.qos.logback.core;
     requires org.slf4j;
-    requires org.apache.derby.commons;
-    requires org.apache.derby.engine;
     requires com.google.gson;
     requires okhttps;
     requires okhttps.gson;
@@ -18,6 +16,7 @@ open module com.stickpoint.ddmusic {
     requires javafx.media;
     requires javafx.base;
     requires java.sql;
+    requires lombok;
     // 配置SPI机制下的HttpConfig封装
     provides com.ejlchina.okhttps.Config with com.stickpoint.ddmusic.common.config.DdMusicHttpConfig;
     exports com.stickpoint.ddmusic;

@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.common.model.coolDog;
+package com.stickpoint.ddmusic.common.model.cooldog;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * @BelongsProject: ddmusic
- * @BelongsPackage: com.stickpoint.ddmusic.common.model.coolDog
+ * @BelongsPackage: com.stickpoint.ddmusic.common.model.cooldog
  * @Author: fntp
  * @CreateTime: 2022-11-19  16:59
  * @Description: TODO
