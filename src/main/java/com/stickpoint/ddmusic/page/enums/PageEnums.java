@@ -41,10 +41,13 @@ public enum PageEnums {
      */
     RECENTLY_PLAY_LIST(RecentlyPlayListController.class,RecentlyPlayListController.class.getResource("/fxml/recentlyPlayList.fxml"),"recentlyPlayList"),
     /**
+     * 搜索音乐结果
+     */
+    SEARCH_RESULT_PAGE(SearchMusicResultController.class,SearchMusicResultController.class.getResource("/fxml/searchMusicResult.fxml"),"searchMusicResult"),
+    /**
      * 音量控制组件面板--控制音量
      */
     SOUND_CONTROL(SoundControlController.class,SoundControlController.class.getResource("/fxml/soundControl.fxml"),"soundControl");
-
     /**
      * 页面/组件 名称
      */
@@ -57,9 +60,9 @@ public enum PageEnums {
      * 页面/组件 全名称
      */
     private final String routerId;
-    
+
 	/**
-	 * 
+	 *
 	 * 构建构造方法
 	 * @param pageType 页面/组件 类型，以页面的class来区分
 	 * @param pageSource 页面/组件 数据源URL，classpath下的文件
@@ -70,20 +73,20 @@ public enum PageEnums {
         this.pageSource = pageSource;
         this.routerId = routerId;
     }
-    
+
 	/**
-	 * 
-	 * @title: getPageType 
+	 *
+	 * @title: getPageType
 	 * @description:
 	 * @return Class<?>
      */
     public Class<?> getPageType() {
         return pageType;
     }
-    
+
 	/**
-	 * 
-	 * @title: getPageSource 
+	 *
+	 * @title: getPageSource
 	 * @description:
 	 * @return URL
      */
@@ -91,7 +94,7 @@ public enum PageEnums {
         return pageSource;
     }
 	/**
-	 * 
+	 *
 	 * @title: getRouterId 方法名：getRouterId
 	 * @description: 此方法就是为了返回路由Id，页面的路由中，Id是唯一的。
 	 * @return String 返回的是一个字符串，也就是枚举对象的路由Id

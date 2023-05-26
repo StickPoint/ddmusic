@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.common.model.neteasy;
-import com.stickpoint.ddmusic.common.model.entity.DdMusicEntity;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -14,7 +14,7 @@ import java.util.Objects;
  * @Description: TODO
  * @Version: 1.0
  */
-public class NetEasyMusicEntity extends DdMusicEntity implements Serializable {
+public class NetEasyMusicEntityAbstract extends AbstractDdMusicEntity implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 3085656316138757278L;
@@ -80,7 +80,7 @@ public class NetEasyMusicEntity extends DdMusicEntity implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        NetEasyMusicEntity that = (NetEasyMusicEntity) o;
+        NetEasyMusicEntityAbstract that = (NetEasyMusicEntityAbstract) o;
         return id == that.id && name.equals(that.name);
     }
     @Override

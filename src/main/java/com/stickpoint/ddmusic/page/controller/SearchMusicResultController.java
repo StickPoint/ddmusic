@@ -1,11 +1,13 @@
 package com.stickpoint.ddmusic.page.controller;
-import com.stickpoint.ddmusic.common.model.entity.DdMusicEntity;
-import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntity;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
+import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntityAbstract;
+import com.stickpoint.ddmusic.common.model.table.MusicOperationCellData;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -36,78 +38,31 @@ public class SearchMusicResultController {
     public TableColumn ddAlbum;
     @FXML
     public TableColumn searchIndex;
-
-    private List<NetEasyMusicEntity> musicList;
-
-    private static final IMusicService musicService = new NetEasyMusicServiceImpl();
-
     @FXML
-    private TableView<DdMusicEntity> myTable;
+    private TableView<AbstractDdMusicEntity> myTable;
 
     @FXML
     public void initialize() {
-        initData();
-        initTableData();
+
     }
 
-    public void initData() {
-        // 获得数据
-        if (Objects.isNull(musicList)) {
-            RequestBaseInfoVO requestBaseInfoVO = new RequestBaseInfoVO();
-            requestBaseInfoVO.setSearchKey("夜间巡航");
-            // 获得搜索后的音乐列表
-            List<? extends DdMusicEntity> searchMusicList = musicService.searchMusicList(requestBaseInfoVO);
-            // 启动新的UI线程 刷新音乐列表UI
-
-        }
-    }
-
-    /** wangyiyunyinyuebofang
-     * 时间算法 时间分割算法 将网易云的隐藏歌曲时间进行提取然后计算时分秒
-     * 最大单位是时 其次是分 其次是秒
-     * @param sourceData
-     * @return
+    /**
+     * 初始化数据
+     * @param listData 传入一个list集合数据
      */
-    private static String getTimes(String sourceData) {
-        long playTime = Long.parseLong(sourceData);
-        long second = playTime / 1000;
-        long hour=second/3600;
-        long minite=second%3600/60;
-        long sec=second%60;
-        StringBuilder timeResult = new StringBuilder();
-        if (hour>0){
-            timeResult.append(hour).append("：").append(minite).append("：").append(sec);
-        }else if (minite>0){
-            if (minite>=10){
-                if (sec>=10){
-                    timeResult.append(minite).append("：").append(sec);
-                }else {
-                    timeResult.append(minite).append("：0").append(sec);
-                }
-            }else {
-                if (sec>=10){
-                    timeResult.append("0").append(minite).append("：").append(sec);
-                }else {
-                    timeResult.append("0").append(minite).append("：0").append(sec);
-                }
-            }
-        }else if (sec>0){
-            if (sec>=10) {
-                timeResult.append("00：").append(sec);
-            }else {
-                timeResult.append("00：0").append(sec);
-            }
-        }
-        return timeResult.toString();
-    }
-
-    public void initTableData () {
-        ObservableList<DdMusicEntity> items = myTable.getItems();
+    public void initTableData (List<? extends AbstractDdMusicEntity> listData) {
+        myTable.getItems().clear();
+        ObservableList<AbstractDdMusicEntity> items = myTable.getItems();
+        // 专辑
         ddAlbum.setCellValueFactory(new PropertyValueFactory<>("ddAlbum"));
+        // 艺术家
         ddArtists.setCellValueFactory(new PropertyValueFactory<>("ddArtists"));
+        // 顶点编号
         ddNumber.setCellValueFactory(new PropertyValueFactory<>("ddNumber"));
+        // 音乐时间时长
         ddTimes.setCellValueFactory(new PropertyValueFactory<>("ddTimes"));
+        // 音乐标题
         ddTitle.setCellValueFactory(new PropertyValueFactory<>("ddTitle"));
-        items.addAll(musicList);
+        items.addAll(listData);
     }
 }

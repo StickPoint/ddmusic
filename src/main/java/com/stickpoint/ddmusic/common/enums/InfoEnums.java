@@ -9,6 +9,18 @@ package com.stickpoint.ddmusic.common.enums;
  */
 public enum InfoEnums {
     /**
+     * search任务线程池名称
+     */
+    THREAD_POLL_NAME_SEARCH("searchThreadPoll"),
+    /**
+     * download任务线程池名称
+     */
+    THREAD_POLL_NAME_DOWNLOAD("downloadThreadPoll"),
+    /**
+     * other任务线程池名称
+     */
+    THREAD_POLL_NAME_OTHER("otherThreadPoll"),
+    /**
      * 左边菜单栏-菜单-不可按-名字标签：leftTabMenu
      */
     LEFT_TAB_MENU("leftTabMenu"),
@@ -179,6 +191,10 @@ public enum InfoEnums {
      */
     API_DDMUSIC_WP_MUSIC_STATUS("api.sourceList.wpMusicApi.status"),
     /**
+     * ddmusic初始化spi机制加载之后默认的base地址，默认以这个为基准
+     */
+    API_FINAL_REQUEST_BASE_URL("app.finalRequestBaseUrl"),
+    /**
      * 音乐状态 被比较的值 是一个常量枚举
      */
     APP_PROPERTIES_STATUS_OK_INT(200),
@@ -194,7 +210,7 @@ public enum InfoEnums {
      * 最近播放列表容器Pane的JavaFX-ID
      */
     RECENTLY_PLAYLIST_PANE_FX_ID("recentlyPlayListPane");
-	
+
     /**
      * 提示信息
      */
@@ -215,9 +231,9 @@ public enum InfoEnums {
         this.infoContent = null;
         this.infoNumber = infoNumber;
     }
-    
+
 	/**
-	 * 
+	 *
 	 * @title: getInfoContent 方法名getInfoContent
 	 * @description: 返回枚举信息的message
 	 * @return String 返回当前枚举的message信息

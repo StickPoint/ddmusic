@@ -1,5 +1,7 @@
 package com.stickpoint.ddmusic.common.model.vo;
 
+import lombok.Builder;
+
 import java.io.Serial;
 import java.io.Serializable;
 

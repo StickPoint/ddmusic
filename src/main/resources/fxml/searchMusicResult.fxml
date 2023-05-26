@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="searchResult" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/searchMusicResult.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.TestMusicSearchListController">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane fx:id="searchResult" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/searchMusicResult.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.SearchMusicResultController">
    <children>
       <AnchorPane id="search-result-header" prefHeight="60.0" prefWidth="750.0">
          <children>
@@ -138,9 +139,9 @@
       </AnchorPane>
       <TableView id="search-result-table" fx:id="myTable" layoutY="120.0" prefHeight="590.0" prefWidth="750.0">
         <columns>
-            <TableColumn fx:id="ddNumber" minWidth="0.0" prefWidth="57.0" text="序号" />
-          <TableColumn fx:id="ddTitle" prefWidth="161.60000610351562" text="标题" />
-          <TableColumn fx:id="ddArtists" minWidth="0.0" prefWidth="178.4000244140625" text="歌手" />
+           <TableColumn fx:id="ddNumber" minWidth="0.0" prefWidth="57.0" text="序号" />
+            <TableColumn fx:id="ddTitle" prefWidth="161.60000610351562" text="标题" />
+            <TableColumn fx:id="ddArtists" minWidth="0.0" prefWidth="178.4000244140625" text="歌手" />
             <TableColumn fx:id="ddAlbum" minWidth="0.0" prefWidth="145.60003662109375" text="专辑" />
             <TableColumn fx:id="ddTimes" minWidth="0.0" prefWidth="100.7999267578125" text="时长" />
             <TableColumn fx:id="searchIndex" minWidth="0.0" prefWidth="109.60009765625" text="歌曲选项" />

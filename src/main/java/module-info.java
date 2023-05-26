@@ -1,6 +1,7 @@
 import com.stickpoint.ddmusic.common.config.DdmusicSpiMonitor;
 import com.stickpoint.ddmusic.common.config.DdMusicHttpConfig;
 open module com.stickpoint.ddmusic {
+    uses DdmusicSpiMonitor;
     // 第三方依赖
     requires animatefx;
     requires rxcontrols;
@@ -8,7 +9,6 @@ open module com.stickpoint.ddmusic {
     requires ch.qos.logback.core;
     requires org.slf4j;
     requires com.google.gson;
-    requires data.core;
     // 下面的依赖全是javafx依赖
     requires javafx.graphics;
     requires javafx.controls;

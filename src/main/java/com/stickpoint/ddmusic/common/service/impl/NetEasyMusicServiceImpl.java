@@ -7,15 +7,17 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
-import com.stickpoint.ddmusic.common.model.entity.DdMusicEntity;
-import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntity;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
+import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntityAbstract;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.utils.HttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @BelongsProject: ddmusic
@@ -36,27 +38,27 @@ public class NetEasyMusicServiceImpl implements IMusicService {
      * 初始化api请求的基础地址
      */
     private StringBuilder getBaseUrl() {
-        // Http请求前缀
-        StringBuilder httpPrefix = new StringBuilder((String) SystemCache.APP_PROPERTIES
-                .get(InfoEnums.HTTP_REQUEST_PROTOCOL.getInfoContent()));
-        // 第一步 获得主机地址
-        String baseHost = (String) SystemCache.APP_PROPERTIES
-                .get(InfoEnums.API_DDMUSIC_SOURCE_LIST_WP_MUSIC_HOST.getInfoContent());
-        // 第二步 获得前缀
-        String baseUrlPrefix = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.
-                API_DDMUSIC_SOURCE_LIST_WP_MUSIC_PREFIX.getInfoContent());
-        // 第三步 获得音乐平台
-        String neteasyUrl = (String) SystemCache.APP_PROPERTIES
-                .get(InfoEnums.NETEASY_PREFIX.getInfoContent());
-        // 第四部 拼接baseUrl
-        return httpPrefix.append(baseHost).append(baseUrlPrefix).append(neteasyUrl);
+        StringBuilder baseBuilder = new StringBuilder(InfoEnums.HTTP_REQUEST_PROTOCOL.getInfoContent());
+        String baseRequestUrl = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.API_FINAL_REQUEST_BASE_URL.getInfoContent());
+        if (Objects.nonNull(baseRequestUrl)){
+            baseBuilder.append(baseRequestUrl);
+        }else {
+            // 第一步 获得主机地址
+            String baseHost = (String) SystemCache.APP_PROPERTIES
+                    .get(InfoEnums.API_DDMUSIC_SOURCE_LIST_WP_MUSIC_HOST.getInfoContent());
+            // 第二步 获得前缀
+            String baseUrlPrefix = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.
+                    API_DDMUSIC_SOURCE_LIST_WP_MUSIC_PREFIX.getInfoContent());
+            // 第四部 拼接baseUrl
+            return baseBuilder.append(baseHost).append(baseUrlPrefix);
+        }
+        return baseBuilder;
     }
-
-    private static final HttpUtils HTTP = HttpUtils.getInstance();
 
     /**
      * 搜索音乐列表
      * 根据不同的实现类去做不同的具体的实现
+     * 默认首先搜索的肯定是网易云的音乐
      *
      * @param baseInfo 基础信息
      *                 musicKey 音乐搜索关键字
@@ -65,25 +67,25 @@ public class NetEasyMusicServiceImpl implements IMusicService {
      * @return 返回一个搜索的音乐列表结果
      */
     @Override
-    public List<? extends DdMusicEntity> searchMusicList(RequestBaseInfoVO baseInfo) {
-        // 获得网易云音乐请求的基础地址
-        String netEasyMusicSearchBaseUrl = (String) SystemCache.APP_PROPERTIES
-                .get(InfoEnums.NETEASY_GET_SEARCH.getInfoContent());
+    public List<? extends AbstractDdMusicEntity> searchMusicList(RequestBaseInfoVO baseInfo) {
+        // 获得网易云音乐请求的前缀地址
+        String netEasyPrefixUrl = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.NETEASY_PREFIX.getInfoContent());
+        String netEasyMusicSearchUrl = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.NETEASY_GET_SEARCH.getInfoContent());
         // 拼接网易云音乐搜索音乐接口地址
-        StringBuilder requestUrl = getBaseUrl().append(netEasyMusicSearchBaseUrl);
+        StringBuilder finalRequestUrl = getBaseUrl().append(netEasyPrefixUrl).append(netEasyMusicSearchUrl);
         // 然后装载当前网易云音乐请求所传递的参数数据，然后获得最终的请求地址
-        StringBuilder finalRequestUrl = appendParam(requestUrl, baseInfo);
+        Map<String, Object> paramMap = appendParam(baseInfo);
         // 获得网易云音乐当前请求的结果，是一个json数据，需要装换为Object对象
-        String netEasyMusicSearchResult = HTTP.doAbsoluteGet(finalRequestUrl.toString());
+        String netEasyMusicSearchResult = HttpUtils.doGetWithParams(finalRequestUrl.toString(),paramMap);
         // 转为GSON对象进行解析
         JsonElement jsonElement = JsonParser.parseString(netEasyMusicSearchResult);
         JsonObject asJsonObject = jsonElement.getAsJsonObject();
         JsonObject reqJson = asJsonObject.getAsJsonObject("result");
         JsonArray data = reqJson.getAsJsonArray("songs");
-        List<NetEasyMusicEntity> resp = null;
+        List<NetEasyMusicEntityAbstract> resp = null;
         if (Objects.nonNull(data)) {
             log.info(data.toString());
-            resp = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntity>>(){}.getType());
+            resp = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntityAbstract>>(){}.getType());
         }
         return resp;
     }
@@ -97,7 +99,7 @@ public class NetEasyMusicServiceImpl implements IMusicService {
      * @return 返回一个音乐
      */
     @Override
-    public DdMusicEntity getMusicUrlByMusicBaseInfo(RequestBaseInfoVO baseInfo) {
+    public AbstractDdMusicEntity getMusicUrlByMusicBaseInfo(RequestBaseInfoVO baseInfo) {
         return null;
     }
 
@@ -107,39 +109,40 @@ public class NetEasyMusicServiceImpl implements IMusicService {
      * @return 返回一个网易云推荐音乐列表
      */
     @Override
-    public List<? extends DdMusicEntity> getWyRecommendedMusicList() {
+    public List<? extends AbstractDdMusicEntity> getWyRecommendedMusicList() {
         // 获得网易云音乐请求的基础地址
         String netEasyGetRecommendRequestUrl = (String) SystemCache.APP_PROPERTIES
                 .get(InfoEnums.NETEASY_GET_RECOMMEND.getInfoContent());
         // 拼接网易云音乐搜索音乐接口地址
         StringBuilder requestUrl = getBaseUrl().append(netEasyGetRecommendRequestUrl);
         // 获得网易云音乐当前请求的结果，是一个json数据，需要装换为Object对象
-        String netEasyGetRecommendResult = HTTP.doAbsoluteGet(requestUrl.toString());
+        String netEasyGetRecommendResult = HttpUtils.doAbsoluteGet(requestUrl.toString());
         Gson gson = new Gson();
-        List<NetEasyMusicEntity> resp = null;
+        List<NetEasyMusicEntityAbstract> resp = null;
         if (Objects.nonNull(netEasyGetRecommendResult)) {
             log.info(netEasyGetRecommendResult);
-            resp = gson.fromJson(netEasyGetRecommendResult, new TypeToken<List<NetEasyMusicEntity>>() {
+            resp = gson.fromJson(netEasyGetRecommendResult, new TypeToken<List<NetEasyMusicEntityAbstract>>() {
             }.getType());
         }
         return resp;
     }
 
-    private StringBuilder appendParam(StringBuilder requestUrl,RequestBaseInfoVO baseInfo) {
-        if (Objects.isNull(baseInfo.getSearchKey())) {
+    private Map<String,Object> appendParam(RequestBaseInfoVO baseInfo) {
+        Map<String,Object> paramMap = new ConcurrentHashMap<>();
+        if (Objects.nonNull(baseInfo.getSearchKey())) {
             // 如果搜索的关键词存在的话，那么直接请求传递参数
-            requestUrl.append("?key=").append(baseInfo.getSearchKey());
+            paramMap.put("key",baseInfo.getSearchKey());
         }
-        if (Objects.isNull(baseInfo.getPageNumber())) {
+        if (Objects.nonNull(baseInfo.getPageNumber())) {
             // 如果设置了页码与页面偏移量
-            requestUrl.append("&offset=").append(baseInfo.getPageNumber());
+            paramMap.put("offset=", baseInfo.getPageNumber());
         }
-        if (Objects.isNull(baseInfo.getPageSize())) {
-            requestUrl.append("&limit=").append(baseInfo.getPageSize());
+        if (Objects.nonNull(baseInfo.getPageSize())) {
+            paramMap.put("limit", baseInfo.getPageSize());
         }
-        if (Objects.isNull(baseInfo.getType())) {
-            requestUrl.append("&type=").append(baseInfo.getType());
+        if (Objects.nonNull(baseInfo.getType())) {
+            paramMap.put("type", baseInfo.getType());
         }
-        return requestUrl;
+        return paramMap;
     }
 }

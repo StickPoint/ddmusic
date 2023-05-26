@@ -13,7 +13,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.8.2</junit.version>
         <open-jfx-version>17.0.2</open-jfx-version>
-        <okhttps-version>4.0.1</okhttps-version>
         <animatefx-version>1.2.4</animatefx-version>
         <rxcontroller-version>11.0.2</rxcontroller-version>
     </properties>
@@ -69,12 +68,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
-        <dependency>
-            <groupId>com.ejlchina</groupId>
-            <artifactId>okhttps-gson</artifactId>
-            <version>3.5.2</version>
         </dependency>
         <!--  引入lombok-->
         <dependency>

@@ -11,6 +11,4 @@ public interface DdmusicSpiMonitor {
      */
     void loadRemoteProperties();
 
-
-
 }

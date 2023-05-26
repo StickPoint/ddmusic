@@ -3,7 +3,14 @@ import com.leewyatt.rxcontrols.controls.RXAvatar;
 import com.stickpoint.ddmusic.StickpointMusicApplication;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
+import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
+import com.stickpoint.ddmusic.common.service.IMusicService;
+import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
+import com.stickpoint.ddmusic.common.thread.DdThreadCenter;
+import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +19,9 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.MediaPlayer;
@@ -22,17 +31,39 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.Callable;
 
 /**
  *
  * @author fntp
  */
 public class HomePageController {
+
+    @FXML
     public Pane findMusic;
+
+    @FXML
     public Pane hotMusic;
+
+    @FXML
     public Pane shareCenter;
+
+    @FXML
     public Pane radioCenter;
+
+    @FXML
     public VBox myMusicListContainer;
+    /**
+     * 搜索按钮
+     */
+    @FXML
+    public Region search;
+    /**
+     * 搜索的关键字
+     */
+    @FXML
+    public TextField searchKey;
+
     @FXML
     private StackPane centerView;
 
@@ -41,15 +72,16 @@ public class HomePageController {
 
 	@FXML
     public Pane myMusicFavorite;
+
 	@FXML
     public Pane myMusicLocalMusic;
 
 	@FXML
     public VBox myMusicContainer;
+
     /**
      * 关闭主窗口按钮
      */
-
 	@FXML
     public Region homePageClose;
     /**
@@ -73,7 +105,6 @@ public class HomePageController {
     /**
      * 首页面板-mainPage
      */
-
 	@FXML
     public BorderPane mainPage;
     /**
@@ -93,6 +124,10 @@ public class HomePageController {
     @SuppressWarnings("unused")
 	private MediaPlayer player;
 
+    private IMusicService musicService;
+
+    private DdThreadCenter threadCenter;
+
     /**
      * 初始化的时候，初始化音乐播放组件
      */
@@ -105,6 +140,8 @@ public class HomePageController {
     public void initialize(){
         changeMyMusicMenuBackgroundStyle();
         initSystemMenuList();
+        this.musicService = new NetEasyMusicServiceImpl();
+        this.threadCenter = new DdThreadCenter("顶点音乐");
     }
 
     /**
@@ -235,5 +272,49 @@ public class HomePageController {
      */
     private Stage findStage() {
         return (Stage) mainPage.getScene().getWindow();
+    }
+
+    /**
+     * 执行音乐搜索
+     */
+    @FXML
+    public void doSearch(){
+        // 首先看看当前页面是不是在最上面
+        // 从系统缓存节点中取出所有界面共享区域stackPane
+        StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
+        // 取出搜索结果页面
+        FXMLLoader searchResultLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.SEARCH_RESULT_PAGE.getRouterId());
+        SearchMusicResultController searchMusicResultController = searchResultLoader.getController();
+        // 初始化的时候加载过
+        AnchorPane rootNode = searchResultLoader.getRoot();
+        // 看看当前最前面的是不是搜索结果
+        Node frontNode = centerView.getChildren().get(centerView.getChildren().size() - 1);
+        if (frontNode.getId().equals(rootNode.getId())){
+            // 如果id一致，那么说明当前搜索结果页面是在最上面，只需要刷新Data就可以了
+            log.info("当前页面{}未切换，刷新Data数据！",frontNode.getId());
+            flushData(searchMusicResultController);
+        }else {
+            // 不一致就是表示当前搜索页面不在最上面 先切换页面 再刷新data
+            ScrollPane searchMusicResultScrollPane = ScrollPaneComponent.createCommonScrollPaneRoot(rootNode);
+            centerView.getChildren().add(searchMusicResultScrollPane);
+            searchMusicResultScrollPane.toFront();
+            // 刷新数据
+            flushData(searchMusicResultController);
+        }
+    }
+
+    private void flushData(SearchMusicResultController searchMusicResultController){
+        // 获取当前搜索的字符串
+        if (Objects.nonNull(searchKey.getText())) {
+            RequestBaseInfoVO requestInfo = new RequestBaseInfoVO();
+            requestInfo.setSearchKey(searchKey.getText());
+            // 执行搜索
+            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> musicService.searchMusicList(requestInfo);
+            List<? extends AbstractDdMusicEntity> abstractDdMusicEntities = threadCenter.doDdMusicSearchTask(searchResultList);
+            // 刷新UI
+            Platform.runLater(()->{
+                searchMusicResultController.initTableData(abstractDdMusicEntities);
+            });
+        }
     }
 }

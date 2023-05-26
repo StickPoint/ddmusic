@@ -1,6 +1,8 @@
 package com.stickpoint.ddmusic.common.config;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.Objects;
 
 /**
@@ -8,10 +10,14 @@ import java.util.Objects;
  * @BelongsPackage: com.stickpoint.ddmusic.common.config
  * @Author: fntp
  * @CreateTime: 2022-11-19  22:24
- * @Description: TODO
  * @Version: 1.0
  */
 public class DdMusicHttpConfig implements DdmusicSpiMonitor {
+
+    /**
+     * SPI加载初始化日志
+     */
+    private static final Logger log = LoggerFactory.getLogger(DdMusicHttpConfig.class);
 
     /**
      * 在这里对 HTTP.Builder 做一些自定义的配置
@@ -21,9 +27,10 @@ public class DdMusicHttpConfig implements DdmusicSpiMonitor {
      */
     @Override
     public void loadRemoteProperties() {
+        log.info("系统配置已启动加载");
         // 首先读取系统加载的远程配置数据
-        int requestServerStatus = (int) SystemCache.APP_PROPERTIES
-                .get(InfoEnums.API_DDMUSIC_WP_MUSIC_STATUS.getInfoContent());
+        int requestServerStatus =  Integer.parseInt(String.valueOf(SystemCache.APP_PROPERTIES
+                .get(InfoEnums.API_DDMUSIC_WP_MUSIC_STATUS.getInfoContent())));;
         String requestBaseHosts = null;
         String prefix = null;
         String port = null;
@@ -49,9 +56,11 @@ public class DdMusicHttpConfig implements DdmusicSpiMonitor {
         }
         if (Objects.nonNull(requestBaseHosts)) {
             String[] hosts = requestBaseHosts.split(InfoEnums.APP_PROPERTIES_COMMON_SYMBOL_SPLIT.getInfoContent());
-            String requestUrl = hosts[0].concat(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent())
-                    .concat(port).concat(prefix);
-            // 设置系统缓存的默认请求路径
+            String requestUrl = hosts[0].concat(port).concat(prefix);
+            // 设置系统全局缓存的默认请求路径
+            SystemCache.APP_PROPERTIES.put(InfoEnums.API_FINAL_REQUEST_BASE_URL.getInfoContent(),requestUrl);
         }
+        // TODO 当没有远程提供的音乐请求基础地址的时候，需要对用户进行告知，比如服务器维护中，诸如此类
+        log.info("远程核心系统配置加载完毕");
     }
 }

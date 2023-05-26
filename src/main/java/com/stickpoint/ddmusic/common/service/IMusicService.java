@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.common.service;
-import com.stickpoint.ddmusic.common.model.entity.DdMusicEntity;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import java.util.List;
 
@@ -22,7 +22,7 @@ public interface IMusicService {
      *  pageSize 一页多少条数据
      * @return 返回一个搜索的音乐列表结果
      */
-    List<? extends DdMusicEntity> searchMusicList(RequestBaseInfoVO baseInfo);
+    List<? extends AbstractDdMusicEntity> searchMusicList(RequestBaseInfoVO baseInfo);
 
     /**
      * 根据音乐基础信息获得音乐播放地址
@@ -31,13 +31,13 @@ public interface IMusicService {
      * @param baseInfo 基础信息
      * @return 返回一个音乐
      */
-    DdMusicEntity getMusicUrlByMusicBaseInfo(RequestBaseInfoVO baseInfo);
+    AbstractDdMusicEntity getMusicUrlByMusicBaseInfo(RequestBaseInfoVO baseInfo);
 
     /**
      * 获得网易云推荐音乐列表
      * @return 返回一个网易云推荐音乐列表
      */
-    List<? extends DdMusicEntity> getWyRecommendedMusicList();
+    List<? extends AbstractDdMusicEntity> getWyRecommendedMusicList();
 
 
 }

@@ -1,4 +1,5 @@
 package com.stickpoint.ddmusic;
+import com.stickpoint.ddmusic.common.config.DdmusicSpiMonitor;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
@@ -24,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
+import java.util.ServiceLoader;
 import java.util.concurrent.ExecutorService;
 
 /**
@@ -41,7 +43,6 @@ public class StickpointMusicApplication extends Application {
      * 系统配置加载工具
      */
     private static final SystemPropertiesUtil SYSTEM_PROPERTIES_UTIL = new SystemPropertiesUtil();
-
     /**
      * 加载信息
      */
@@ -118,9 +119,11 @@ public class StickpointMusicApplication extends Application {
         try {
             // 其他操作
             showApplicationInitsInfo("初始化目录...");
-            log.info("开始加载系统核心配置参数数据");
+            log.info("开始加载本地系统核心配置参数数据");
             SYSTEM_PROPERTIES_UTIL.loadProperties();
-            Thread.sleep(1000);
+            log.info("开始加载加载远程系统配置");
+            loadRemoteProperties();
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
@@ -203,6 +206,9 @@ public class StickpointMusicApplication extends Application {
         // （8）软件系统首页：发现音乐页面
         FXMLLoader findMusicLoader = new FXMLLoader(PageEnums.FIND_MUSIC.getPageSource());
         SystemCache.FXML_LOAD_MAP.put(PageEnums.FIND_MUSIC.getRouterId(), findMusicLoader);
+        // （9）搜索音乐结果页面
+        FXMLLoader searchMusicResultLoader = new FXMLLoader(PageEnums.SEARCH_RESULT_PAGE.getPageSource());
+        SystemCache.FXML_LOAD_MAP.put(PageEnums.SEARCH_RESULT_PAGE.getRouterId(),searchMusicResultLoader);
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
@@ -213,12 +219,23 @@ public class StickpointMusicApplication extends Application {
             musicControlLoader.load();
             recentlyPlayListLoader.load();
             playerComponentLoader.load();
+            searchMusicResultLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
         // 等到所有的子页面都加载完毕了然后再统一添加到StackPane中，避免出现多层View在同一层显示的Bug
         StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
         centerView.getChildren().addAll(SystemCache.CENTER_VIEW_PAGE_LIST);
+    }
+
+    /**
+     * 加载远程系统配置
+     */
+    private static void loadRemoteProperties(){
+        ServiceLoader<DdmusicSpiMonitor> s = ServiceLoader.load(DdmusicSpiMonitor.class);
+        for (DdmusicSpiMonitor search : s) {
+            search.loadRemoteProperties();
+        }
     }
 
     /**
