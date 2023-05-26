@@ -118,7 +118,7 @@ public class NetEasyMusicServiceImpl implements IMusicService {
         Gson gson = new Gson();
         List<NetEasyMusicEntity> resp = null;
         if (Objects.nonNull(netEasyGetRecommendResult)) {
-            log.info(netEasyGetRecommendResult.toString());
+            log.info(netEasyGetRecommendResult);
             resp = gson.fromJson(netEasyGetRecommendResult, new TypeToken<List<NetEasyMusicEntity>>() {
             }.getType());
         }

@@ -1,9 +1,13 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.common.enums.DDMusicExceptionEnum;
+import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Serial;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.LinkedHashMap;
@@ -26,7 +30,7 @@ public class YamlUtil extends LinkedHashMap<String, String> {
     /**
      * 构建日志工具
      */
-    private static final Logger log = LoggerFactory.getLogger(SystemPropertiesUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(YamlUtil.class);
 
     /**
      * 含参构造：构建一个YAML解析器
@@ -35,7 +39,7 @@ public class YamlUtil extends LinkedHashMap<String, String> {
     public YamlUtil(String ymlFilePath) {
         if (Objects.isNull(ymlFilePath)) {
             // 传入的地址是空的
-            log.info( DDMusicExceptionEnum.ERROR_PROPERTIES_CENTER_FILE_PATH_IS_NULL.getMessage());
+            log.info( DdMusicExceptionEnums.ERROR_PROPERTIES_CENTER_FILE_PATH_IS_NULL.getMessage());
             return;
         }
         this.load(ymlFilePath);

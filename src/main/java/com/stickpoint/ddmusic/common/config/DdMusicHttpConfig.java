@@ -1,6 +1,4 @@
 package com.stickpoint.ddmusic.common.config;
-import com.ejlchina.okhttps.Config;
-import com.ejlchina.okhttps.HTTP;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import java.util.Objects;
@@ -13,17 +11,16 @@ import java.util.Objects;
  * @Description: TODO
  * @Version: 1.0
  */
-public class DdMusicHttpConfig implements Config {
+public class DdMusicHttpConfig implements DdmusicSpiMonitor {
 
     /**
      * 在这里对 HTTP.Builder 做一些自定义的配置
      * 这里的自定义配置都是加载来自于云端的数据
      * 通过Gitee进行自动化的修改的，可以通过轮训的方式方法进行自动刷新系统配置
      * 或者是通过手动的方式进行刷新系统配置
-     * @param builder Http构建者对象
      */
     @Override
-    public void with(HTTP.Builder builder) {
+    public void loadRemoteProperties() {
         // 首先读取系统加载的远程配置数据
         int requestServerStatus = (int) SystemCache.APP_PROPERTIES
                 .get(InfoEnums.API_DDMUSIC_WP_MUSIC_STATUS.getInfoContent());
@@ -54,7 +51,7 @@ public class DdMusicHttpConfig implements Config {
             String[] hosts = requestBaseHosts.split(InfoEnums.APP_PROPERTIES_COMMON_SYMBOL_SPLIT.getInfoContent());
             String requestUrl = hosts[0].concat(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent())
                     .concat(port).concat(prefix);
-            builder.baseUrl(requestUrl);
+            // 设置系统缓存的默认请求路径
         }
     }
 }
