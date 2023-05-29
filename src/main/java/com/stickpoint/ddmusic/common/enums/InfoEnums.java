@@ -199,6 +199,26 @@ public enum InfoEnums {
      */
     APP_PROPERTIES_STATUS_OK_INT(200),
     /**
+     * 音乐平台 网易云
+     */
+    APP_PLATFORM_NAME_NET_EASY("netEasy"),
+    /**
+     * 音乐平台 酷我
+     */
+    APP_PLATFORM_NAME_KU_WO("kuwo"),
+    /**
+     * 音乐平台 酷狗
+     */
+    APP_PLATFORM_NAME_KU_GOU("kugou"),
+    /**
+     * 音乐平台 咪咕
+     */
+    APP_PLATFORM_NAME_MI_GU("migu"),
+    /**
+     * 音乐平台 企鹅
+     */
+    APP_PLATFORM_NAME_QQ("qq"),
+    /**
      * 网易云音乐资源篇平台前缀
      */
     API_DDMUSIC_BASE_WP_MUSIC_PLATFORM_NET_EASY("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
@@ -243,4 +263,18 @@ public enum InfoEnums {
     }
 
     public Integer getNumberInfo(){ return infoNumber; }
+
+    /**
+     * 根据状态码获取信息
+     * @param infoContent 内容
+     * @return 信息
+     */
+    public static String getContentByInfo(String infoContent) {
+        for (InfoEnums infoEnums : InfoEnums.values()) {
+            if (infoEnums.getInfoContent().equals(infoContent)) {
+                return infoEnums.getInfoContent();
+            }
+        }
+        return null;
+    }
 }

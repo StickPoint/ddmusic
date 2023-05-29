@@ -29,6 +29,15 @@ public class RequestBaseInfoVO implements Serializable {
 
     private String searchKey;
     /**
+     * 平台类型
+     * 网易云 netEasy
+     * 酷我 kuwo
+     * 酷狗 kugou
+     * 咪咕 migu
+     * 企鹅 qq
+     */
+    private String platform;
+    /**
      * 通用参数名称 type类型
      * 在网易云请求中：
      *  1: 单曲, 10: 专辑, 100: 歌手, 1000: 歌单, 1002: 用户, 1004: MV, 1006: 歌词, 1009: 电台, 1014: 视频
@@ -155,14 +164,30 @@ public class RequestBaseInfoVO implements Serializable {
         this.searchKey = searchKey;
     }
 
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
     @Override
     public String toString() {
         return "RequestBaseInfoVO{" +
-                "musicId='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", musicQualityLevel='" + musicQualityLevel + '\'' +
                 ", pageNumber='" + pageNumber + '\'' +
                 ", pageSize='" + pageSize + '\'' +
                 ", searchKey='" + searchKey + '\'' +
+                ", platform='" + platform + '\'' +
+                ", type=" + type +
+                ", wid='" + wid + '\'' +
+                ", r='" + r + '\'' +
+                ", sortType=" + sortType +
+                ", cursor=" + cursor +
+                ", pid='" + pid + '\'' +
+                ", data='" + data + '\'' +
                 '}';
     }
 }
