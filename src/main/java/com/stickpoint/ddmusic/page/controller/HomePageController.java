@@ -101,7 +101,7 @@ public class HomePageController {
 	/**
      * 日志工具
      */
-    private static final Logger log = LoggerFactory.getLogger(StickpointMusicApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(HomePageController.class);
     /**
      * 首页面板-mainPage
      */
@@ -286,7 +286,7 @@ public class HomePageController {
         FXMLLoader searchResultLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.SEARCH_RESULT_PAGE.getRouterId());
         SearchMusicResultController searchMusicResultController = searchResultLoader.getController();
         // 初始化的时候加载过
-        AnchorPane rootNode = searchResultLoader.getRoot();
+        VBox rootNode = searchResultLoader.getRoot();
         // 看看当前最前面的是不是搜索结果
         Node frontNode = centerView.getChildren().get(centerView.getChildren().size() - 1);
         if (frontNode.getId().equals(rootNode.getId())){
@@ -312,9 +312,7 @@ public class HomePageController {
             Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> musicService.searchMusicList(requestInfo);
             List<? extends AbstractDdMusicEntity> abstractDdMusicEntities = threadCenter.doDdMusicSearchTask(searchResultList);
             // 刷新UI
-            Platform.runLater(()->{
-                searchMusicResultController.initTableData(abstractDdMusicEntities);
-            });
+            Platform.runLater(()-> searchMusicResultController.initTableData(abstractDdMusicEntities));
         }
     }
 }

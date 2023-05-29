@@ -16,7 +16,8 @@ open module com.stickpoint.ddmusic {
     requires javafx.media;
     requires javafx.base;
     requires java.sql;
-    requires lombok;
+    requires org.kordamp.ikonli.antdesignicons;
+    requires org.kordamp.ikonli.javafx;
     // 配置SPI机制下的HttpConfig封装
     provides DdmusicSpiMonitor  with DdMusicHttpConfig;
     exports com.stickpoint.ddmusic;

@@ -12,6 +12,7 @@ import java.util.Date;
  * @Description: TODO
  * @Version: 1.0
  */
+@SuppressWarnings("unused")
 public abstract class AbstractDdMusicEntity implements Serializable {
 
     @Serial

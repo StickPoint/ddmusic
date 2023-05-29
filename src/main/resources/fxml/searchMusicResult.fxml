@@ -2,17 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<AnchorPane fx:id="searchResult" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/searchMusicResult.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.SearchMusicResultController">
+<?import javafx.scene.layout.AnchorPane?>
+<VBox fx:id="rootPane" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/searchMusicResult.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.SearchMusicResultController">
    <children>
       <AnchorPane id="search-result-header" prefHeight="60.0" prefWidth="750.0">
          <children>
@@ -137,7 +135,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <TableView id="search-result-table" fx:id="myTable" layoutY="120.0" prefHeight="590.0" prefWidth="750.0">
+      <TableView id="search-result-table" fx:id="myTable" layoutY="119.0" prefHeight="590.0" prefWidth="750.0">
         <columns>
            <TableColumn fx:id="ddNumber" minWidth="0.0" prefWidth="57.0" text="序号" />
             <TableColumn fx:id="ddTitle" prefWidth="161.60000610351562" text="标题" />
@@ -147,6 +145,5 @@
             <TableColumn fx:id="searchIndex" minWidth="0.0" prefWidth="109.60009765625" text="歌曲选项" />
         </columns>
       </TableView>
-      <Pagination layoutY="710.0" prefHeight="40.0" prefWidth="750.0" />
    </children>
-</AnchorPane>
+</VBox>

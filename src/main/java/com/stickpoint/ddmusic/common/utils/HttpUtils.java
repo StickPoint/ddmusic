@@ -2,7 +2,6 @@ package com.stickpoint.ddmusic.common.utils;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
-import lombok.experimental.UtilityClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
@@ -23,7 +22,6 @@ import java.util.Map.Entry;
  * @author fntp
  */
 @SuppressWarnings("unused")
-@UtilityClass
 public class HttpUtils {
     /**
      * 系统Http请求工具日志

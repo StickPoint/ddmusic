@@ -1,18 +1,15 @@
 package com.stickpoint.ddmusic.page.controller;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
-import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntityAbstract;
-import com.stickpoint.ddmusic.common.model.table.MusicOperationCellData;
-import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
-import com.stickpoint.ddmusic.common.service.IMusicService;
-import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
+import com.stickpoint.ddmusic.page.component.DdmusicPagination;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * description： TestMusicSearchListController
@@ -23,6 +20,10 @@ import java.util.Objects;
  * @PackageName test
  */
 public class SearchMusicResultController {
+    /**
+     * 日志工具
+     */
+    private static final Logger log = LoggerFactory.getLogger(SearchMusicResultController.class);
     /**
      * 后续使用的过程中，将会entity的基本数据类型全部换成支持双向绑定的Properties类型
      */
@@ -38,12 +39,17 @@ public class SearchMusicResultController {
     public TableColumn ddAlbum;
     @FXML
     public TableColumn searchIndex;
+    /**
+     * 根容器
+     */
+    public VBox rootPane;
+
     @FXML
     private TableView<AbstractDdMusicEntity> myTable;
 
     @FXML
     public void initialize() {
-
+        initializePagination();
     }
 
     /**
@@ -64,5 +70,19 @@ public class SearchMusicResultController {
         // 音乐标题
         ddTitle.setCellValueFactory(new PropertyValueFactory<>("ddTitle"));
         items.addAll(listData);
+    }
+
+    private void initializePagination() {
+        DdmusicPagination pagination = new DdmusicPagination(100, 1);
+        pagination.pageIndexProperty().addListener((observable, oldValue, newValue) -> log.info("当前音乐搜索结果页码发生变化：{}", newValue));
+        pagination.setPrefWidth(750);
+        pagination.setMaxWidth(750);
+        pagination.setMinWidth(750);
+        pagination.setPrefHeight(40);
+        pagination.setMaxHeight(40);
+        pagination.setMinHeight(40);
+        pagination.setLayoutY(710);
+        pagination.setLayoutY(0);
+        rootPane.getChildren().add(pagination);
     }
 }

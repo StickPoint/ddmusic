@@ -15,6 +15,7 @@
         <open-jfx-version>17.0.2</open-jfx-version>
         <animatefx-version>1.2.4</animatefx-version>
         <rxcontroller-version>11.0.2</rxcontroller-version>
+        <kordamp.ikonli.version>12.3.1</kordamp.ikonli.version>
     </properties>
     <repositories>
         <repository>
@@ -69,17 +70,15 @@
             <artifactId>gson</artifactId>
             <version>2.10</version>
         </dependency>
-        <!--  引入lombok-->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.26</version>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>${kordamp.ikonli.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.7.0</version>
-            <scope>test</scope>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-antdesignicons-pack</artifactId>
+            <version>${kordamp.ikonli.version}</version>
         </dependency>
     </dependencies>
     <build>
