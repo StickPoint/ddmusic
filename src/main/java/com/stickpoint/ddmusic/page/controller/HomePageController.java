@@ -1,6 +1,5 @@
 package com.stickpoint.ddmusic.page.controller;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
-import com.stickpoint.ddmusic.StickpointMusicApplication;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
@@ -94,10 +93,6 @@ public class HomePageController {
 
 	@FXML
     public AnchorPane homePagePlayer;
-    /**
-     * 音乐播放组件
-     */
-    public PlayerComponentController playerComponentController;
 	/**
      * 日志工具
      */
@@ -110,12 +105,10 @@ public class HomePageController {
     /**
      * 额外菜单面板
      */
-
 	public ContextMenu userInfoCardContext;
     /**
      * 用户图像
      */
-
 	@FXML
     public RXAvatar userAvatar;
     /**
@@ -127,14 +120,6 @@ public class HomePageController {
     private IMusicService musicService;
 
     private DdThreadCenter threadCenter;
-
-    /**
-     * 初始化的时候，初始化音乐播放组件
-     */
-    public HomePageController() {
-        // 初始化音乐播放组件
-        playerComponentController = new PlayerComponentController();
-    }
 
     @FXML
     public void initialize(){
@@ -160,10 +145,10 @@ public class HomePageController {
     public void changeMyMusicMenuBackgroundStyle() {
         ObservableList<Node> myMusicContainerChildren = myMusicContainer.getChildren ();
         // 第一个菜单不参与高亮显示
-        myMusicContainerChildren.forEach (node -> node.setOnMouseClicked (event -> {
-            // 前面都是一直在获取元素 获取到了 直接调用API 原子动作分割
-            setMenuPaneSelectedBackgroundStyle (node,myMusicContainer.getChildren());
-        }));
+        // 前面都是一直在获取元素 获取到了 直接调用API 原子动作分割
+        myMusicContainerChildren.forEach (node ->
+                node.setOnMouseClicked (event ->
+                        setMenuPaneSelectedBackgroundStyle (node,myMusicContainer.getChildren())));
     }
 
     /**

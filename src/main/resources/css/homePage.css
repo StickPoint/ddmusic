@@ -1,8 +1,19 @@
+/*
+ * 首页样式
+ * 首页圆角
+ */
+.root-Pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
 /**
 导航栏总体样式
  */
 #border-pane-top {
     -fx-background-color: #D7000F;
+    -fx-background-radius: 15px 15px 0 0;
+    -fx-border-radius: 15px 15px 0 0;
 }
 
 /**
@@ -155,3 +166,4 @@
     -fx-effect: dropshadow(three-pass-box, rgba(169, 168, 168, 0.41), 1.0,0,0, 0);
     -fx-cursor: hand;
 }
+

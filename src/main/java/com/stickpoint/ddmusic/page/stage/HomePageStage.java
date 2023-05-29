@@ -1,6 +1,5 @@
 package com.stickpoint.ddmusic.page.stage;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
-import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,7 +34,7 @@ public class HomePageStage extends Stage {
     /**
      * 构建日志工具
      */
-    private static final Logger log = LoggerFactory.getLogger(SystemPropertiesUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(HomePageStage.class);
 
     /**
      * Creates a new instance of decorated {@code Stage}.

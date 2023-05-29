@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
-import java.util.logging.Logger;
-
 import com.leewyatt.rxcontrols.controls.RXAudioSpectrum;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
 import com.leewyatt.rxcontrols.controls.RXLrcView;
@@ -48,7 +46,7 @@ import javafx.util.Duration;
  * @Version: 1.0
  */
 public class PlayerComponentController {
-	
+
 	/**
 	 * 歌曲概况信息与播放控制组件可滑动区域
 	 */
@@ -105,10 +103,6 @@ public class PlayerComponentController {
     @SuppressWarnings("exports")
 	public Label playerSongName;
     /**
-     * 初始化一个日志对象
-     */
-    private static final Logger LOGGER = Logger.getGlobal();
-    /**
      * 音乐播放器的Root组件
      */
     @SuppressWarnings("exports")
@@ -118,10 +112,6 @@ public class PlayerComponentController {
      */
     @SuppressWarnings("unused")
     private MediaPlayer player;
-    /**
-     * 播放时间字符串显示格式格式化
-     */
-    private final SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
     /**
      * 音乐播放器-控制组件
      */
@@ -136,15 +126,6 @@ public class PlayerComponentController {
      */
     @SuppressWarnings("unused")
     private Slider soundSlider;
-
-    private final RecentlyPlayListController recentlyPlayListController;
-
-    private final MusicControlController musicControlController;
-
-    public PlayerComponentController(){
-        this.recentlyPlayListController = new RecentlyPlayListController();
-        this.musicControlController = new MusicControlController();
-    }
 
     /**
      * 额外组件加载的位置
@@ -245,9 +226,9 @@ public class PlayerComponentController {
         //播放器的进度修改监听器
         player.currentTimeProperty().addListener(durationChangeListener);
         //如果播放完当前歌曲, 我们这里暂停播放 (1)播放器暂停 （2）ui显示
+        FXMLLoader musicControlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
+        MusicControlController musicControlController = musicControlLoader.getController();
         player.setOnEndOfMedia(() -> musicControlController.startOrPausePlay(SystemCache.INNER_PLAYER_CACHE.get("player")));
-        //player.setOnEndOfMedia(this::playNextMusic);
-        //player.play();
     }
 
     /**
@@ -265,6 +246,7 @@ public class PlayerComponentController {
      * 将音乐播放时间进行动态刷新显示
      */
     private void changeTimeLabel(Duration duration) {
+        SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
         String currentTime = sdf.format(duration.toMillis());
         String bufferedTimer = sdf.format(player.getBufferProgressTime().toMillis());
         playerTimeLabel.setText(currentTime+ " / "+bufferedTimer);
@@ -309,7 +291,7 @@ public class PlayerComponentController {
         FadeIn fadeIn = new FadeIn(infoSliderArea);
     	fadeIn.play();
     }
-    
+
     /**
      * 监听鼠标移出音乐播放控制组件内部
      * 然后执行动画效果展示歌曲播放简况信息
@@ -356,6 +338,8 @@ public class PlayerComponentController {
     public void showRecentlyPlayList() {
         Bounds bounds = playerRecentlyList.localToScreen(playerRecentlyList.getBoundsInLocal());
         Stage hBoxStage = (Stage) playerComponent.getScene().getWindow();
+        FXMLLoader recentlyPlayListLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.RECENTLY_PLAY_LIST.getRouterId());
+        RecentlyPlayListController recentlyPlayListController = recentlyPlayListLoader.getController();
         ContextMenu playListPopup = recentlyPlayListController.getRecentlyPlayListPopup();
         playListPopup.show(hBoxStage, bounds.getMinX() - 292, bounds.getMinY() - 376);
     }

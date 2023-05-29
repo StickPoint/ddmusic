@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox id="playerComponent" fx:id="playerComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0" stylesheets="@../css/playerComponent.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.PlayerComponentController">
+<HBox id="root-pane" fx:id="playerComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0" styleClass="root-pane" stylesheets="@../css/playerComponent.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.PlayerComponentController">
    <children>
       <AnchorPane onMouseEntered="#showMusicControl" onMouseExited="#showMusicGeneralInfo" prefHeight="70.0" prefWidth="250.0">
          <children>
