@@ -12,7 +12,7 @@ public class NetEasyUtil {
      * @param sourceData 传入原来的时间
      * @return 返回
      */
-    private static String getTimes(String sourceData) {
+    public static String getTimes(String sourceData) {
         long playTime = Long.parseLong(sourceData);
         long second = playTime / 1000;
         long hour=second/3600;

@@ -7,7 +7,8 @@
 }
 
 #search-result-header {
-    -fx-background-color: rgba(190, 190, 190, 0.84);
+    /*-fx-background-color: rgb(230,230,230);*/
+    -fx-background-color: rgb(255,255,255);
 }
 
 #optionTopPane {
@@ -20,86 +21,48 @@
     -fx-background-color: transparent;
 }
 
-#optionMenuLittleItem {
+#optionMenuLittleItem1 {
     -fx-background-color: red;
     -fx-pref-width: 65;
 }
 
-/*common - for table*/
-/* 表身 */
-/*.table-view .table-cell{*/
-/*    -fx-border-color: transparent;*/
-/*    -fx-padding: 2 0 2 10px;*/
-/*}*/
-/*.table-row-cell:hover {*/
-/*    -fx-background-color: #93f9b911;*/
-/*    -fx-text-background-color: red;*/
-/*}*/
-/*.table-row-cell:odd{*/
-/*    -fx-background-color: #93f9b911;*/
-/*    -fx-background-insets: 0, 0 0 1 0;*/
-/*    -fx-padding: 0.0em;*/
-/*}*/
-/*.table-row-cell:even{*/
-/*    -fx-background-color: #1dbbdd11;*/
-/*    -fx-background-insets: 0, 0 0 1 0;*/
-/*    -fx-padding: 0.0em;*/
-/*}*/
-
-/*.table-view .table-cell{*/
-/*    -fx-border-color: transparent;*/
-/*    -fx-padding: 2 0 2 10px;*/
-/*}*/
-/*.table-row-cell:hover {*/
-/*    -fx-background-color: #93f9b911;*/
-/*    -fx-text-background-color: red;*/
-/*}*/
-/*.table-row-cell:odd{*/
-/*    -fx-background-color: #93f9b911;*/
-/*    -fx-background-insets: 0, 0 0 1 0;*/
-/*    -fx-padding: 0.0em;*/
-/*}*/
-/*.table-row-cell:even{*/
-/*    -fx-background-color: #1dbbdd11;*/
-/*    -fx-background-insets: 0, 0 0 1 0;*/
-/*    -fx-padding: 0.0em;*/
-/*}*/
-
-/*.table-view .virtual-flow .scroll-bar:vertical,*/
-/*.table-view .virtual-flow .scroll-bar:vertical .track,*/
-/*.table-view .virtual-flow .scroll-bar:vertical .track-background,*/
-/*.table-view .virtual-flow .scroll-bar:horizontal,*/
-/*.table-view .virtual-flow .scroll-bar:horizontal .track,*/
-/*.table-view .virtual-flow .scroll-bar:horizontal .track-background {*/
-/*    -fx-background-color: transparent;*/
-/*}*/
-
-/*.table-view .virtual-flow .scroll-bar .increment-button,*/
-/*.table-view .virtual-flow .scroll-bar .decrement-button {*/
-/*    -fx-opacity: 0;*/
-/*    -fx-padding: 2;*/
-/*}*/
-
-/*.table-view .virtual-flow .scroll-bar:vertical .thumb{*/
-/*    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);*/
-/*}*/
-/*.table-view .virtual-flow .scroll-bar:horizontal .thumb {*/
-/*    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);*/
-/*}*/
-
-/*.table-row-cell:highlighted {*/
-/*    -fx-background-color: #81c483;*/
-/*    -fx-background-radius: 15px;*/
-/*}*/
-
 .table-view,.table-view .column-header-background,
 .table-view .column-header-background > *, .table-view .table-column{-fx-background-color: transparent;}
-.table-view .nested-column-header{-fx-background-color:rgb(230,230,230);-fx-pref-height:40px;}
-.table-view .table-column .label{-fx-alignment:center-left;-fx-text-fill:rgb(106,85,102);}
-.table-cell{-fx-border-width: 0;-fx-text-fill:rgb(106,85,102);-fx-font-size: 16px;-fx-alignment:center-left;}
-.table-row-cell{-fx-background-color: transparent;-fx-cell-size:40px;}
-.table-row-cell:hover{-fx-background-color: rgba(228,228,228,0.5);}
-.table-row-cell:selected{-fx-background-color:rgba(228,228,228,0.7);}
-.table-row-cell:empty{-fx-background-color: transparent;}
-.table-view .placeholder .label{-fx-text-fill:rgb(106,85,102);-fx-font-size:18px;-fx-alignment:center-left;}
-.table-view .scroll-bar:horizontal{-fx-pref-height:0;visibility:collapse;}
+/*.table-view .nested-column-header{-fx-background-color:rgb(230,230,230);-fx-pref-height:40px;}*/
+.table-view .nested-column-header{
+    -fx-background-color:rgb(255,255,255);
+    -fx-pref-height:40px;
+}
+.table-view .table-column .label{
+    -fx-alignment:center-left;
+    -fx-text-fill:rgb(106,85,102);
+}
+.table-cell{
+    -fx-border-width: 0;
+    -fx-text-fill:rgb(106,85,102);
+    -fx-font-size: 16px;-fx-alignment:center-left;
+}
+.table-row-cell{
+    -fx-background-color: white;
+    -fx-cell-size:40px;
+}
+.table-row-cell:hover{
+    -fx-background-color: rgba(228,228,228,0.5);
+}
+.table-row-cell:selected{
+    -fx-background-color:rgba(228,228,228,0.7);
+}
+.table-row-cell:empty{
+    -fx-background-color: transparent;
+}
+.table-view .placeholder .label{
+    -fx-text-fill:rgb(106,85,102);
+    -fx-font-size:18px;
+    -fx-alignment:center-left;
+}
+.table-view .scroll-bar:horizontal{
+    -fx-pref-height:0;visibility:collapse;
+}
+.table-view .placeholder {
+    -fx-background-color: white;
+}

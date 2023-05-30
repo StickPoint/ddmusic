@@ -8,12 +8,17 @@ import com.google.gson.reflect.TypeToken;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
+import com.stickpoint.ddmusic.common.model.neteasy.Album;
+import com.stickpoint.ddmusic.common.model.neteasy.Artist;
 import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntityAbstract;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.utils.HttpUtils;
+import com.stickpoint.ddmusic.common.utils.NetEasyUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -82,12 +87,30 @@ public class NetEasyMusicServiceImpl implements IMusicService {
         JsonObject asJsonObject = jsonElement.getAsJsonObject();
         JsonObject reqJson = asJsonObject.getAsJsonObject("result");
         JsonArray data = reqJson.getAsJsonArray("songs");
-        List<NetEasyMusicEntityAbstract> resp = null;
+        List<NetEasyMusicEntityAbstract> ps = Collections.emptyList();
         if (Objects.nonNull(data)) {
-            log.info(data.toString());
-            resp = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntityAbstract>>(){}.getType());
+            ps = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntityAbstract>>(){}.getType());
+            List<NetEasyMusicEntityAbstract> finalPs = ps;
+            ps.forEach(item-> {
+                item.setDdNumber(String.valueOf(finalPs.indexOf(item)));
+                log.info(String.valueOf(item));
+            });
+            finalPs.forEach(item->{
+                item.setDdTitle(item.getName());
+                Album al = item.getAl();
+                item.setDdAlbum(al.getName());
+                List<Artist> ar = item.getAr();
+                StringBuilder artistName = new StringBuilder();
+                for (Artist artist : ar) {
+                    artistName.append(artist.getName());
+                    artistName.append(",");
+                }
+                String artistsNameResult = artistName.append("#").toString().replace(",#", "");
+                item.setDdArtists(artistsNameResult);
+                item.setDdTimes(NetEasyUtil.getTimes(item.getDt()));
+            });
         }
-        return resp;
+        return ps;
     }
 
     /**

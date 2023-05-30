@@ -1,4 +1,5 @@
 package com.stickpoint.ddmusic.common.model.neteasy;
+import com.stickpoint.ddmusic.common.annotation.TableColumnField;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 
 import java.io.Serial;
@@ -30,6 +31,32 @@ public class NetEasyMusicEntityAbstract extends AbstractDdMusicEntity implements
      * 专辑 album al
      */
     private Album al;
+
+    private String dt;
+
+    @TableColumnField("序号")
+    private String ddNumber;
+
+    @TableColumnField("标题")
+    private String ddTitle;
+
+    @TableColumnField("歌手")
+    private String ddArtists;
+
+    @TableColumnField("专辑")
+    private String ddAlbum;
+
+    @TableColumnField("时长")
+    private String ddTimes;
+
+    public String getDt() {
+        return dt;
+    }
+
+    public void setDt(String dt) {
+        this.dt = dt;
+    }
+
     /**
      * 艺术家歌唱者
      */
@@ -57,13 +84,53 @@ public class NetEasyMusicEntityAbstract extends AbstractDdMusicEntity implements
     }
 
     @Override
-    public String toString() {
-        return "NetEasyMusicEntity{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", al=" + al +
-                ", ar=" + ar +
-                '}';
+    public String getDdNumber() {
+        return ddNumber;
+    }
+
+    @Override
+    public void setDdNumber(String ddNumber) {
+        this.ddNumber = ddNumber;
+    }
+
+    @Override
+    public String getDdTitle() {
+        return ddTitle;
+    }
+
+    @Override
+    public void setDdTitle(String ddTitle) {
+        this.ddTitle = ddTitle;
+    }
+
+    @Override
+    public String getDdArtists() {
+        return ddArtists;
+    }
+
+    @Override
+    public void setDdArtists(String ddArtists) {
+        this.ddArtists = ddArtists;
+    }
+
+    @Override
+    public String getDdAlbum() {
+        return ddAlbum;
+    }
+
+    @Override
+    public void setDdAlbum(String ddAlbum) {
+        this.ddAlbum = ddAlbum;
+    }
+
+    @Override
+    public String getDdTimes() {
+        return ddTimes;
+    }
+
+    @Override
+    public void setDdTimes(String ddTimes) {
+        this.ddTimes = ddTimes;
     }
 
     public Album getAl() {

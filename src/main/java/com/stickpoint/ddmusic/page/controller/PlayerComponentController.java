@@ -1,6 +1,10 @@
 package com.stickpoint.ddmusic.page.controller;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
@@ -205,8 +209,8 @@ public class PlayerComponentController {
         FXMLLoader playerDetailLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
         ObservableMap<String, Object> playerDetailLoaderNamespace = playerDetailLoader.getNamespace();
         RXLrcView lrcView = (RXLrcView) playerDetailLoaderNamespace.get(InfoEnums.MUSIC_DETAIL_LRC_VIEW.getInfoContent());
-        String lrcPath = "D:\\developData\\codeData\\desktopApp\\ddmusic\\src\\main\\resources\\media\\jar-of-love.lrc";
-        File lrcFile = new File(lrcPath);
+        URL resource = PlayerComponentController.class.getResource("/media/jar-of-love.lrc");
+        File lrcFile = new File(resource.getPath());
         boolean exists = lrcFile.exists();
         if (exists) {
             try {

@@ -213,7 +213,7 @@ public class DdThreadCenter implements ThreadFactory {
     @Override
     public Thread newThread(Runnable r) {
         // 当新的线程创建的时候，记录日志
-        Thread thread = new Thread(r, "ddmusic-thread"+threadName+"-No" + mThreadNum.getAndIncrement());
+        Thread thread = new Thread(r, "ddmusic-thread-"+threadName+"-No" + mThreadNum.getAndIncrement());
         log.info("ddmusic {} thread has been created",thread.getName());
         return thread;
     }

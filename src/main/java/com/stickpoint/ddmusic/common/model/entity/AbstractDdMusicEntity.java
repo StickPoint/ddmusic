@@ -1,5 +1,7 @@
 package com.stickpoint.ddmusic.common.model.entity;
 
+import com.stickpoint.ddmusic.common.annotation.TableColumnField;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
@@ -20,7 +22,20 @@ public abstract class AbstractDdMusicEntity implements Serializable {
     /**
      * 数字ID 排序用的
      */
+    @TableColumnField("序号")
     private String ddNumber;
+
+    @TableColumnField("标题")
+    private String ddTitle;
+
+    @TableColumnField("歌手")
+    private String ddArtists;
+
+    @TableColumnField("专辑")
+    private String ddAlbum;
+
+    @TableColumnField("时长")
+    private String ddTimes;
     /**
      * 顶点音乐乐库唯一id
      */
@@ -32,13 +47,7 @@ public abstract class AbstractDdMusicEntity implements Serializable {
 
     private Date updateTime;
 
-    private String ddAlbum;
 
-    private String ddArtists;
-
-    private String ddTimes;
-
-    private String ddTitle;
 
     public String getDdTitle() {
         return ddTitle;
