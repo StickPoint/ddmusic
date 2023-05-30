@@ -12,9 +12,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import java.util.concurrent.Callable;
 
 /**
- * @author 组件作者 LiChenFei
- * Gitee <a href="https://gitee.com/lichenfei_fei/chenfei-fxui">组件作者主页</a>
- * 本项目只对原项目提出一些修改以及编码规范，组件版权归原作者所有，学习参考使用，已注明出处
+ * @author LiChenFei
  */
 @SuppressWarnings("unused")
 public class DdmusicPaginationSkin extends SkinBase<DdmusicPagination> {

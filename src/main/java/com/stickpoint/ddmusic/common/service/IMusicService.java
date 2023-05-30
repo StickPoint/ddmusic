@@ -39,5 +39,7 @@ public interface IMusicService {
      */
     List<? extends AbstractDdMusicEntity> getWyRecommendedMusicList();
 
+    List<>
+
 
 }

@@ -8,14 +8,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author 组件作者 LiChenFei
- * Gitee <a href="https://gitee.com/lichenfei_fei/chenfei-fxui">组件作者主页</a>
- * 本项目只对原项目提出一些修改以及编码规范，组件版权归原作者所有，学习参考使用，已注明出处
+ *
+ * @author puye(0303)
  */
 @SuppressWarnings("unused")
 public class DdmusicPagination extends Control {
 
     private static final String STYLE_SHEET = DdMusicFxUtils.getResourceExternalForm("/css/ddmusic-pagination.css");
+
     private static final String STYLE_CLASS = "ddmusic-pagination";
     /**
      * 统计页数

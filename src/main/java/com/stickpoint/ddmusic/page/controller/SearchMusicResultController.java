@@ -83,6 +83,7 @@ public class SearchMusicResultController {
         pagination.setMinHeight(40);
         pagination.setLayoutY(710);
         pagination.setLayoutY(0);
+        pagination.getStylesheets().add("-fx-background-color:white;");
         rootPane.getChildren().add(pagination);
     }
 }

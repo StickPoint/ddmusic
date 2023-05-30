@@ -3,8 +3,7 @@
  * 首页圆角
  */
 .root-Pane {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+    -fx-background-color: white;
 }
 
 /**
@@ -165,5 +164,12 @@
     -fx-background-color: rgba(243, 243, 243, 0.99);
     -fx-effect: dropshadow(three-pass-box, rgba(169, 168, 168, 0.41), 1.0,0,0, 0);
     -fx-cursor: hand;
+}
+
+#homePagePlayer {
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-background-radius: 0 0 15px 15px;
+    -fx-border-radius: 0 0 15px 15px;
 }
 
