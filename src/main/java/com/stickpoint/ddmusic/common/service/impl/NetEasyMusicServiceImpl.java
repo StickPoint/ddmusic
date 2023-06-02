@@ -168,4 +168,6 @@ public class NetEasyMusicServiceImpl implements IMusicService {
         }
         return paramMap;
     }
+
+    public  List<>
 }
