@@ -13,10 +13,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -37,8 +34,30 @@ public class HttpUtils {
      * 系统Http请求工具类实例
      */
     private static HttpUtils instance;
+    /**
+     * 写超时时间
+     */
     private static final Integer WRITE_TIME_OUT = 10000;
+    /**
+     * 读超时时间
+     */
     private static final Integer READ_TIME_OUT = 10000;
+    /**
+     * 字节长度
+     */
+    private static final Integer BYTE_SIZE = 1024;
+    /**
+     * url编码中%23表示 #
+     */
+    private static final String SIGN_JIN = "%23";
+    /**
+     * Http文件上传响应编码201
+     */
+    private static final Integer HTTP_CODE_201 = 201;
+    /**
+     * Http文件上传响应编码202
+     */
+    private static final Integer HTTP_CODE_202 = 202;
 
     public static String doAbsoluteGet(String requestUrl){
         Map<String,String> headerMap = new LinkedHashMap<>();
@@ -249,6 +268,274 @@ public class HttpUtils {
             conn.disconnect();
         }
         return result.toString();
+    }
+
+    /**
+     * 文件上传服务
+     * @param file 传入一个文件
+     * @param url 文件上传地址
+     * @param tdnum 文件上传的时间戳
+     * @param filename 文件名称
+     * @throws Exception 抛出一个潜在的异常
+     */
+    //public static void binupfile(File file, String url, int tdnum, String filename) throws Exception {
+    //    HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+    //    conn.setChunkedStreamingMode(0);
+    //    conn.setRequestProperty("Content-Length",String.valueOf(file.length()));
+    //    conn.setRequestProperty("Content-Type", "application/octet-stream");
+    //    conn.setRequestProperty("Origin", "https://img.mediy.cn");
+    //    conn.setRequestProperty("Host", "mediycn-my.sharepoint.com");
+    //    conn.setRequestProperty("Referer", "https://img.mediy.cn/");
+    //    conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+    //    conn.setRequestMethod("PUT");
+    //    conn.connect();
+    //    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+    //        InputStream is = conn.getInputStream();
+    //        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+    //        StringBuilder response = new StringBuilder();
+    //        String line;
+    //        while ((line = br.readLine()) != null) {
+    //            response.append(line);
+    //        }
+    //        br.close();
+    //        is.close();
+    //        conn.disconnect();
+    //        long newstartsize = 0;
+    //        long asize = 0;
+    //        long totalSize = file.length();
+    //        String html = response.toString();
+    //        String[] ranges = html.split("-");
+    //        if (ranges.length > 0) {
+    //            newstartsize = Long.parseLong(ranges[0]);
+    //        }
+    //        long startTime = System.currentTimeMillis();
+    //        if (newstartsize == 0) {
+    //            log.info("开始于：{} " , startTime);
+    //        } else {
+    //            log.info("上次上传 {} 本次开始于：{}" ,sizeFormat(newstartsize), startTime);
+    //        }
+    //        // chunk size, max 60M. 每小块上传大小，最大60M，微软建议10M
+    //        long chunksize = 5L * BYTE_SIZE * BYTE_SIZE;
+    //        if (totalSize > (long) BYTE_SIZE * BYTE_SIZE * BYTE_SIZE) {
+    //            chunksize = 10L * BYTE_SIZE * BYTE_SIZE;
+    //        }
+    //        byte[] buffer = new byte[(int) chunksize];
+    //        FileInputStream fis = new FileInputStream(file);
+    //        long skip = fis.skip(newstartsize);
+    //        log.warn("文件上传已跳过：{}",skip);
+    //        // 跳过已上传的部分
+    //        String result;
+    //        while ((asize + chunksize) < totalSize) {
+    //            fis.read(buffer);
+    //            asize += chunksize;
+    //            HttpURLConnection conn2 = (HttpURLConnection) new URL(url).openConnection();
+    //            conn2.setRequestMethod("PUT");
+    //            conn2.setRequestProperty("Content-Length",String.valueOf(file.length()));
+    //            conn2.setRequestProperty("Content-Type", "application/octet-stream");
+    //            conn2.setRequestProperty("Content-Range", "bytes " + (newstartsize + asize - chunksize) + "-" +
+    //                    (newstartsize + asize - 1) + "/" + totalSize);
+    //            conn2.setDoOutput(true);
+    //            conn2.getOutputStream().write(buffer);
+    //            conn2.connect();
+    //            if (conn2.getResponseCode() == 201 || conn2.getResponseCode() == 202) {
+    //                conn2.disconnect();
+    //                long endTime = System.currentTimeMillis();
+    //                log.info("结束于：{}" , endTime);
+    //                if (newstartsize == 0) {
+    //                   log.info("平均速度：{} /s" , sizeFormat(totalSize * 1000 / (endTime - startTime)));
+    //                } else {
+    //                    log.info("本次平均速度：{} /s" ,sizeFormat((totalSize - newstartsize) * 1000 / (endTime - startTime)));
+    //                }
+    //                break;
+    //            } else {
+    //                conn2.disconnect();
+    //                fis.skip(-1 * chunksize);
+    //            }
+    //        }
+    //
+    //        if (asize + chunksize >= totalSize) {
+    //            fis.read(buffer, 0, (int) (totalSize - asize));
+    //            asize = totalSize;
+    //            HttpURLConnection conn2 = (HttpURLConnection) new URL(url).openConnection();
+    //            conn2.setRequestMethod("PUT");
+    //            conn2.setRequestProperty("Content-Type", "application/octet-stream");
+    //            conn2.setRequestProperty("Content-Range", "bytes " + (newstartsize + asize - chunksize) + "-" +
+    //                    (newstartsize + asize - 1) + "/" + totalSize);
+    //            conn2.setDoOutput(true);
+    //            conn2.getOutputStream().write(buffer, 0, (int) (totalSize - asize));
+    //            conn2.connect();
+    //            if (conn2.getResponseCode() == HTTP_CODE_201 || conn2.getResponseCode() == HTTP_CODE_202) {
+    //                conn2.disconnect();
+    //                long endTime = System.currentTimeMillis();
+    //                log.info("结束于：{}" ,endTime);
+    //                if (newstartsize == 0) {
+    //                    log.info("平均速度：{} /s" , sizeFormat(totalSize * 1000 / (endTime - startTime)));
+    //                } else {
+    //                    log.info("平均速度：{} /s" , sizeFormat((totalSize - newstartsize) * 1000 / (endTime - startTime)));
+    //                }
+    //            } else {
+    //                conn2.disconnect();
+    //            }
+    //        }
+    //        fis.close();
+    //    } else {
+    //        if (filename.contains(SIGN_JIN)) {
+    //            log.info("目录或文件名含有#，上传失败。");
+    //        } else {
+    //            InputStream is = conn.getErrorStream();
+    //            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+    //            StringBuilder response = new StringBuilder();
+    //            String line;
+    //            while ((line = br.readLine()) != null) {
+    //                response.append(line);
+    //            }
+    //            br.close();
+    //            is.close();
+    //            conn.disconnect();
+    //            log.info(response.toString());
+    //        }
+    //    }
+    //}
+
+    public static void chunkedUploadFile(File file, String url, int tdnum, String filename) throws Exception {
+        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+        //conn.setRequestProperty("Content-Type", "application/octet-stream");
+        conn.setRequestProperty("Origin", "https://img.mediy.cn");
+        conn.setRequestProperty("Host", "mediycn-my.sharepoint.com");
+        conn.setRequestProperty("Referer", "https://img.mediy.cn/");
+        conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+        conn.setRequestMethod("PUT");
+        conn.setChunkedStreamingMode(0);
+        conn.setDoOutput(true);
+        conn.connect();
+
+        if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            InputStream is = conn.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                response.append(line);
+            }
+            br.close();
+            is.close();
+            conn.disconnect();
+            long newStartSize = 0;
+            long aSize = 0;
+            long totalSize = file.length();
+            String html = response.toString();
+            String[] ranges = html.split("-");
+            if (ranges.length > 0) {
+                newStartSize = Long.parseLong(ranges[0]);
+            }
+            long startTime = System.currentTimeMillis();
+            if (newStartSize == 0) {
+                log.info("开始于：{} ", startTime);
+            } else {
+                log.info("上次上传 {} 本次开始于：{}", sizeFormat(newStartSize), startTime);
+            }
+
+            // chunk size, max 60M. 每小块上传大小，最大60M，微软建议10M
+            long chunkSize = 5L * BYTE_SIZE * BYTE_SIZE;
+            if (totalSize > (long) BYTE_SIZE * BYTE_SIZE * BYTE_SIZE) {
+                chunkSize = 10L * BYTE_SIZE * BYTE_SIZE;
+            }
+            byte[] buffer = new byte[(int) chunkSize];
+            FileInputStream fis = new FileInputStream(file);
+            long skip = fis.skip(newStartSize);
+            log.warn("文件上传已跳过：{}", skip);
+
+            // 跳过已上传的部分
+            String result;
+            while ((aSize + chunkSize) < totalSize) {
+                fis.read(buffer);
+                aSize += chunkSize;
+                HttpURLConnection conn2 = (HttpURLConnection) new URL(url).openConnection();
+                conn2.setRequestMethod("PUT");
+                conn2.setRequestProperty("Content-Type", "application/octet-stream");
+                conn2.setRequestProperty("Content-Range", "bytes " + (newStartSize + aSize - chunkSize) + "-" +
+                        (newStartSize + aSize - 1) + "/" + totalSize);
+                conn2.setDoOutput(true);
+                conn2.getOutputStream().write(buffer);
+                conn2.connect();
+                if (conn2.getResponseCode() == 201 || conn2.getResponseCode() == 202) {
+                    conn2.disconnect();
+                    long endTime = System.currentTimeMillis();
+                    log.info("结束于：{}", endTime);
+                    if (newStartSize == 0) {
+                        log.info("平均速度：{} /s", sizeFormat(totalSize * 1000 / (endTime - startTime)));
+                    } else {
+                        log.info("本次平均速度：{} /s", sizeFormat((totalSize - newStartSize) * 1000 / (endTime - startTime)));
+                    }
+                    break;
+                } else {
+                    conn2.disconnect();
+                    fis.skip(-1 * chunkSize);
+                }
+            }
+
+            if (aSize + chunkSize >= totalSize) {
+                fis.read(buffer, 0, (int) (totalSize - aSize));
+                aSize = totalSize;
+                HttpURLConnection conn2 = (HttpURLConnection) new URL(url).openConnection();
+                conn2.setRequestMethod("PUT");
+                conn2.setRequestProperty("Content-Type", "application/octet-stream");
+                conn2.setRequestProperty("Content-Range", "bytes " + (newStartSize + aSize - chunkSize) + "-" +
+                        (newStartSize + aSize - 1) + "/" + totalSize);
+                conn2.setDoOutput(true);
+                conn2.getOutputStream().write(buffer, 0, (int) (totalSize - aSize));
+                conn2.connect();
+                if (conn2.getResponseCode() == HTTP_CODE_201 || conn2.getResponseCode() == HTTP_CODE_202) {
+                    conn2.disconnect();
+                    long endTime = System.currentTimeMillis();
+                    log.info("结束于：{}", endTime);
+                    if (newStartSize == 0) {
+                        log.info("平均速度：{} /s", sizeFormat(totalSize * 1000 / (endTime - startTime)));
+                    } else {
+                        log.info("平均速度：{} /s", sizeFormat((totalSize - newStartSize) * 1000 / (endTime - startTime)));
+                    }
+                } else {
+                    conn2.disconnect();
+                }
+            }
+            fis.close();
+        } else {
+            if (filename.contains(SIGN_JIN)) {
+                log.info("目录或文件名含有#，上传失败。");
+            } else {
+                InputStream is = conn.getErrorStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    response.append(line);
+                }
+                br.close();
+                is.close();
+                conn.disconnect();
+                log.info(response.toString());
+            }
+        }
+    }
+
+
+
+
+    /**
+     * 长度格式化
+     * @param size 传入一个fileLength格式化文件长度描述
+     * @return 返回一个文件长度格式化后的结果
+     */
+    private static String sizeFormat(long size) {
+        if (size < BYTE_SIZE) {
+            return size + "B";
+        } else if (size < (long) BYTE_SIZE * BYTE_SIZE) {
+            return (size / BYTE_SIZE) + "KB";
+        } else if (size < (long) BYTE_SIZE * BYTE_SIZE * BYTE_SIZE) {
+            return (size / BYTE_SIZE / BYTE_SIZE) + "MB";
+        } else {
+            return (size / BYTE_SIZE / BYTE_SIZE / BYTE_SIZE) + "GB";
+        }
     }
 
 }
