@@ -6,8 +6,10 @@ import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
-import com.stickpoint.ddmusic.common.thread.DdThreadCenter;
+import com.stickpoint.ddmusic.common.thread.DdThreadPollCenter;
+import com.stickpoint.ddmusic.page.component.DdMusicTray;
 import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
+import com.stickpoint.ddmusic.page.enums.AppEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
@@ -27,6 +29,11 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -49,6 +56,11 @@ public class HomePageController {
 
     @FXML
     public Pane radioCenter;
+    /**
+     * 最小化按纽
+     */
+    @FXML
+    private Region minSize;
 
     @FXML
     public VBox myMusicListContainer;
@@ -119,14 +131,18 @@ public class HomePageController {
 
     private IMusicService musicService;
 
-    private DdThreadCenter threadCenter;
+    private DdThreadPollCenter threadCenter;
 
     @FXML
     public void initialize(){
         changeMyMusicMenuBackgroundStyle();
         initSystemMenuList();
         this.musicService = new NetEasyMusicServiceImpl();
-        this.threadCenter = new DdThreadCenter("顶点音乐");
+        this.threadCenter = new DdThreadPollCenter("顶点音乐");
+        // 初始化
+        initInnerComponent();
+        // 初始化监听
+        initMinSizeAddListener();
     }
 
     /**
@@ -233,7 +249,7 @@ public class HomePageController {
            String name = event.getEventType().getName();
            log.info(name);
            // TODO 这里应该是将他封装好然后传递两个参数然后进行展示
-            FXMLLoader accumulateLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.ACCUMULATE_PANE.getRouterId());
+            FXMLLoader accumulateLoader = SystemCache.PAGE_MAP.get(PageEnums.ACCUMULATE_PANE.getRouterId());
             Parent load = accumulateLoader.getRoot();
             userInfoCardContext.getScene().setRoot(load);
            userInfoCardContext.show(findStage(),bounds.getMaxX() - 135,bounds.getMaxY() + 10);
@@ -268,7 +284,7 @@ public class HomePageController {
         // 从系统缓存节点中取出所有界面共享区域stackPane
         StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
         // 取出搜索结果页面
-        FXMLLoader searchResultLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.SEARCH_RESULT_PAGE.getRouterId());
+        FXMLLoader searchResultLoader = SystemCache.PAGE_MAP.get(PageEnums.SEARCH_RESULT_PAGE.getRouterId());
         SearchMusicResultController searchMusicResultController = searchResultLoader.getController();
         // 初始化的时候加载过
         VBox rootNode = searchResultLoader.getRoot();
@@ -299,5 +315,47 @@ public class HomePageController {
             // 刷新UI
             Platform.runLater(()-> searchMusicResultController.initTableData(abstractDdMusicEntities));
         }
+    }
+
+    /**
+     * 初始化系统托盘
+     */
+    private void initInnerComponent() {
+        FXMLLoader sysTrayLoader = SystemCache.PAGE_MAP.get(PageEnums.SYSTEM_TRAY.getRouterId());
+        Region region = sysTrayLoader.getRoot();
+        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/min.png"));
+        Platform.runLater(() -> {
+            DdMusicTray myTray = new DdMusicTray(image,AppEnums.APPLICATION_NAME.getInfoValue(),region);
+            SystemCache.NODE_MAP.put(AppEnums.APPLICATION_TRAY.getInfoValue(), myTray);
+            log.info("系统托盘初始化成功！");
+        });
+    }
+
+    /**
+     * 点击了最小化按钮的点击监听事件
+     * TODO 注意 此处有大坑 Platform.setImplicitExit(false);
+     *
+     *  方法的执行意义是告诉 JavaFX 平台，当用户关闭主窗口时，
+     *  不要自动退出应用程序。这样做的目的是为了实现将主页面隐藏到系统托盘，
+     *  并在系统托盘中显示应用图标和菜单的功能，因为如果应用程序在关闭主窗口时自动退出，
+     *  那么就无法在系统托盘中继续显示应用程序的图标和菜单了。
+     *  需要注意的是，当需要退出应用程序时，必须手动调用 Platform.exit() 方法来退出程序。
+     */
+    private void initMinSizeAddListener() {
+        minSize.setOnMouseClicked(event -> {
+            DdMusicTray myTray = (DdMusicTray) SystemCache.NODE_MAP.get(AppEnums.APPLICATION_TRAY.getInfoValue());
+            try {
+                SystemTray.getSystemTray().remove(myTray);
+                SystemTray.getSystemTray().add(myTray);
+            } catch (Exception e) {
+                log.error(e.getMessage());
+            }
+            // 最后将主页面隐藏 Finally, hide the main page
+            Stage mainStage = (Stage) SystemCache.NODE_MAP.get(AppEnums.APPLICATION_MAIN_STAGE.getInfoValue());
+            // 不退出主程序
+            Platform.setImplicitExit(false);
+            // 主界面先关闭
+            mainStage.close();
+        });
     }
 }

@@ -66,7 +66,7 @@
                      </HBox.margin>
                   </RXAvatar>
                </children></HBox>
-            <HBox layoutX="740.0" maxHeight="34.0" prefHeight="34.0" prefWidth="196.0" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="3.0">
+            <HBox layoutX="770.0" maxHeight="34.0" prefHeight="34.0" prefWidth="172.0" AnchorPane.topAnchor="3.0">
                <children>
                   <Region id="border-pane-top-hBox-message-region" maxHeight="17.0" maxWidth="21.0" prefHeight="17.0" prefWidth="21.0">
                      <HBox.margin>
@@ -83,14 +83,9 @@
                         <Insets bottom="6.0" left="10.0" top="15.0" />
                      </HBox.margin>
                   </Region>
-                  <Region id="border-pane-top-hBox-hide-region" maxHeight="19.0" prefHeight="19.0" prefWidth="19.0">
+                  <Region id="border-pane-top-hBox-hide-region" fx:id="minSize" maxHeight="19.0" prefHeight="19.0" prefWidth="19.0">
                      <HBox.margin>
                         <Insets left="10.0" top="6.0" />
-                     </HBox.margin>
-                  </Region>
-                  <Region id="border-pane-top-hBox-min-region" maxHeight="1.0" prefHeight="1.0" prefWidth="17.0">
-                     <HBox.margin>
-                        <Insets bottom="14.0" left="12.0" top="15.0" />
                      </HBox.margin>
                   </Region>
                   <Region id="border-pane-top-hBox-close-region" fx:id="homePageClose" maxHeight="17.0" onMouseClicked="#closeHomePage" prefHeight="17.0" prefWidth="17.0">

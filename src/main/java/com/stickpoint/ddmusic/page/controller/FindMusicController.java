@@ -11,17 +11,13 @@ import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +29,7 @@ import java.util.Objects;
  * @BelongsPackage: com.sinsy.mydemo
  * @Author: fntp
  * @CreateTime: 2022-10-20  21:15
- * @Description: TODO
+ * @Description:
  * @Version: 1.0
  */
 public class FindMusicController {
@@ -41,12 +37,36 @@ public class FindMusicController {
      * 日志对象
      */
     private static final Logger log = LoggerFactory.getLogger(FindMusicController.class);
+    /**
+     * 发现音乐首页轮播图
+     */
     public RXCarousel sceneryCarousel;
+    /**
+     * 顶部线条按纽 后续可能会更换
+     * 推荐一
+     */
     public RXLineButton recommend;
+    /**
+     * HBox组件
+     */
     public HBox indexMenuBar;
+    /**
+     * 顶部线条按纽 后续可能会更换
+     * 推荐二
+     */
     public RXLineButton recommend1;
+    /**
+     * 顶部线条按纽 后续可能会更换
+     * 推荐三
+     */
     public RXLineButton recommend2;
+    /**
+     * 滚动容器
+     */
     public ScrollPane scrollPane;
+    /**
+     * 中央容器
+     */
     public AnchorPane centerPane;
     /**
      * 发现音乐页面根节点
@@ -93,7 +113,7 @@ public class FindMusicController {
      */
     @FXML
     public void selectMenu(MouseEvent mouseEvent) {
-        FXMLLoader findMusicLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.FIND_MUSIC.getRouterId());
+        FXMLLoader findMusicLoader = SystemCache.PAGE_MAP.get(PageEnums.FIND_MUSIC.getRouterId());
         ObservableMap<String, Object> namespace = findMusicLoader.getNamespace();
         if (Objects.isNull(indexMenuBar)) {
             indexMenuBar = (HBox) namespace.get("indexMenuBar");
@@ -110,13 +130,25 @@ public class FindMusicController {
         menuButton.setStyle("-fx-font-size: 20px;");
     }
 
+    /**
+     * 原本设计想动态监听鼠标移入与移除动作同步更新UI动作，现在暂时先不用了
+     * 后续如果样式不够美观，需要通过拖动条引导用户拖动就需要放开这个对拖动条的样式控制
+     * 现在采用的方案是直接将拖动条全局隐藏了
+     */
     @FXML
+    @SuppressWarnings("unused")
     public void showSlider() {
         Node lookup = scrollPane.lookup(".scroll-bar:vertical");
         lookup.setStyle("");
     }
 
+    /**
+     * 原本设计想动态监听鼠标移入与移除动作同步更新UI动作，现在暂时先不用了
+     * 后续如果样式不够美观，需要通过拖动条引导用户拖动就需要放开这个对拖动条的样式控制
+     * 现在采用的方案是直接将拖动条全局隐藏了
+     */
     @FXML
+    @SuppressWarnings("unused")
     public void hideSlider() {
         Node lookup = scrollPane.lookup(".scroll-bar:vertical");
         lookup.setStyle("-fx-opacity:0;");
@@ -124,6 +156,18 @@ public class FindMusicController {
 
     /**
      * 初始化顶点音乐的顶点推荐列表的样式
+     * 2023-06-15 忽略的代码：
+     *             SnapshotParameters parameters = new SnapshotParameters();
+     *             parameters.setFill(Color.TRANSPARENT);
+     *             WritableImage image = imageView.snapshot(parameters, null);
+     *             // remove the rounding clip so that our effect can show through.
+     *             imageView.setClip(null);
+     *             // apply a shadow effect.
+     *             imageView.setEffect(new DropShadow(20, Color.BLACK));
+     *             // store the rounded image in the imageView.
+     *             imageView.setImage(image);
+     *             【插眼】
+     *             这段代码主要是为了修改推荐列表的显示样式，但是没有达到预期效果，暂时先不改动这里的样式，后续有机会在优化把
      * @param hBox 一个box列表
      */
     private void initDdMusicRecommendListStyle(HBox hBox) {
@@ -139,15 +183,7 @@ public class FindMusicController {
             clip.setArcWidth(20);
             clip.setArcHeight(20);
             imageView.setClip(clip);
-//            SnapshotParameters parameters = new SnapshotParameters();
-//            parameters.setFill(Color.TRANSPARENT);
-//            WritableImage image = imageView.snapshot(parameters, null);
-//            // remove the rounding clip so that our effect can show through.
-//            imageView.setClip(null);
-//            // apply a shadow effect.
-//            imageView.setEffect(new DropShadow(20, Color.BLACK));
-//            // store the rounded image in the imageView.
-//            imageView.setImage(image);
+            log.info("初始化推荐歌单成功~");
         });
     }
 }

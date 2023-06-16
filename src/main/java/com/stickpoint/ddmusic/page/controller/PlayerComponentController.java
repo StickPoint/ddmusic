@@ -1,9 +1,6 @@
 package com.stickpoint.ddmusic.page.controller;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
@@ -174,7 +171,7 @@ public class PlayerComponentController {
         Parent soundRoot = null;
         try {
             // 系统初始化的时候已经装载了这个数据，因此现在拿来用就可以了
-            FXMLLoader soundControlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.SOUND_CONTROL.getRouterId());
+            FXMLLoader soundControlLoader = SystemCache.PAGE_MAP.get(PageEnums.SOUND_CONTROL.getRouterId());
             // 初始化根节点
             soundRoot = soundControlLoader.load();
             // 通过fx:id获得内部node 注意这里不是通过css-id的lookup方法获得的node节点
@@ -206,7 +203,7 @@ public class PlayerComponentController {
         SystemCache.INNER_PLAYER_CACHE.put("player",player);
         player.setVolume(soundSlider.getValue() / 100);
         //设置歌词
-        FXMLLoader playerDetailLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
+        FXMLLoader playerDetailLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
         ObservableMap<String, Object> playerDetailLoaderNamespace = playerDetailLoader.getNamespace();
         RXLrcView lrcView = (RXLrcView) playerDetailLoaderNamespace.get(InfoEnums.MUSIC_DETAIL_LRC_VIEW.getInfoContent());
         URL resource = PlayerComponentController.class.getResource("/media/jar-of-love.lrc");
@@ -230,7 +227,7 @@ public class PlayerComponentController {
         //播放器的进度修改监听器
         player.currentTimeProperty().addListener(durationChangeListener);
         //如果播放完当前歌曲, 我们这里暂停播放 (1)播放器暂停 （2）ui显示
-        FXMLLoader musicControlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
+        FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
         MusicControlController musicControlController = musicControlLoader.getController();
         player.setOnEndOfMedia(() -> musicControlController.startOrPausePlay(SystemCache.INNER_PLAYER_CACHE.get("player")));
     }
@@ -239,7 +236,7 @@ public class PlayerComponentController {
      * 频谱数据发生改变的时候,修改频谱可视化组件的数据
      */
     private final AudioSpectrumListener audioSpectrumListener = (timestamp, duration, magnitudes, phases) -> {
-        FXMLLoader pageDetailLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
+        FXMLLoader pageDetailLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
         ObservableMap<String, Object> playerDetailLoaderNamespace = pageDetailLoader.getNamespace();
         RXAudioSpectrum audioSpectrum = (RXAudioSpectrum) playerDetailLoaderNamespace.get(InfoEnums.MUSIC_DETAIL_AUDIO_SPECTRUM.getInfoContent());
         audioSpectrum.setMagnitudes(magnitudes);
@@ -286,7 +283,7 @@ public class PlayerComponentController {
     void showMusicControl() {
         infoSliderArea.getChildren().clear();
         // 初始化加载音乐播放组件
-        FXMLLoader musicControlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
+        FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
         // 获得初始化的音乐播放控制组件节点
         ObservableMap<String, Object> musicControlNamespace = musicControlLoader.getNamespace();
         musicControl = (HBox) musicControlNamespace.get(InfoEnums.MUSIC_CONTROL_FX_ID.getInfoContent());
@@ -318,10 +315,10 @@ public class PlayerComponentController {
      * （2）通过CSS-ID来选择器来选择组件
      */
     private void initPlayerComponent(){
-        FXMLLoader homePageLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.HOMEPAGE.getRouterId());
+        FXMLLoader homePageLoader = SystemCache.PAGE_MAP.get(PageEnums.HOMEPAGE.getRouterId());
         ObservableMap<String, Object> homePageNamespace = homePageLoader.getNamespace();
         AnchorPane homePagePlayer = (AnchorPane) homePageNamespace.get(InfoEnums.HOME_PAGE_PLAYER_FX_ID.getInfoContent());
-        FXMLLoader playerComponentLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.PLAYER_COMPONENT.getRouterId());
+        FXMLLoader playerComponentLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAYER_COMPONENT.getRouterId());
         ObservableMap<String, Object> playerComponentLoaderNamespace = playerComponentLoader.getNamespace();
         homePagePlayer.getChildren().addAll((Node) playerComponentLoaderNamespace.get(InfoEnums.PLAY_COMPONENT_FX_ID.getInfoContent()));
     }
@@ -342,7 +339,7 @@ public class PlayerComponentController {
     public void showRecentlyPlayList() {
         Bounds bounds = playerRecentlyList.localToScreen(playerRecentlyList.getBoundsInLocal());
         Stage hBoxStage = (Stage) playerComponent.getScene().getWindow();
-        FXMLLoader recentlyPlayListLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.RECENTLY_PLAY_LIST.getRouterId());
+        FXMLLoader recentlyPlayListLoader = SystemCache.PAGE_MAP.get(PageEnums.RECENTLY_PLAY_LIST.getRouterId());
         RecentlyPlayListController recentlyPlayListController = recentlyPlayListLoader.getController();
         ContextMenu playListPopup = recentlyPlayListController.getRecentlyPlayListPopup();
         playListPopup.show(hBoxStage, bounds.getMinX() - 292, bounds.getMinY() - 376);

@@ -27,7 +27,7 @@ public class MusicControlController {
 
     @FXML
     private HBox musicControl;
-	
+
     @FXML
     private AnchorPane playControlPane;
 
@@ -39,7 +39,7 @@ public class MusicControlController {
 
     @FXML
     private Region playerRight;
-    
+
 	/**
      * 日志工具
      */
@@ -74,7 +74,7 @@ public class MusicControlController {
     	// 播放状态
     	if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_GOON_VALUE.getInfoContent())) {
     		// 如果是播放状态，那么就修改成暂停状态
-        	SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), 
+        	SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(),
         			InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent());
         	// 获得当前按钮的style样式之后，修改SystemCache的值，然后修改按钮样式
         	currentStyle = currentStyle.replace(InfoEnums.MUSIC_PLAY_STATUS_GOON_SVG_PATH.getInfoContent(),
@@ -86,7 +86,7 @@ public class MusicControlController {
 			Objects.requireNonNull(playDetail).toBack();
     	}else if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent())){
     		// 如果是暂停状态，那么就修改成播放状态
-        	SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), 
+        	SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(),
         			InfoEnums.MUSIC_PLAY_STATUS_GOON_VALUE.getInfoContent());
         	// 获得当前按钮的style样式之后，修改SystemCache的值，然后修改按钮样式
         	if(currentStyle.contains(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_SVG_PATH.getInfoContent())) {
@@ -110,7 +110,7 @@ public class MusicControlController {
 	 */
 	public void startOrPausePlay(MediaPlayer player){
 		if (Objects.isNull(playerPauseOrGoon)){
-			FXMLLoader musicControlLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
+			FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
 			ObservableMap<String, Object> musicControlLoaderNamespace = musicControlLoader.getNamespace();
 			playerPauseOrGoon = (Region) musicControlLoaderNamespace.get(InfoEnums.MUSIC_CONTROL_PLAY_OR_PAUSE_FX_ID.getInfoContent());
 		}
@@ -148,5 +148,5 @@ public class MusicControlController {
 		// 记录日志
 		log.info("音乐播放组件的播放按钮点击后的最终样式是：{}",currentStyle);
 	}
-    
+
 }

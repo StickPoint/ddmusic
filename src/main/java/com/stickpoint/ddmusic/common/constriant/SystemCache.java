@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @BelongsPackage: io.github.ddmusic.common.constriant
  * @Author: fntp
  * @CreateTime: 2022-09-17  11:38
- * @Description: TODO 
+ * @Description: TODO
  * @Version: 1.0
  */
 public interface SystemCache {
@@ -24,11 +24,11 @@ public interface SystemCache {
      * （此功能需要启动全局自动刷新，如果禁用全局配置自动刷新需要通过手动刷新配置中心）
      */
     Map<String, Object> APP_PROPERTIES = new ConcurrentHashMap<>(30);
-    
+
     /**
      * 系统内部加载的所有页面
      */
-    Map<String,FXMLLoader> FXML_LOAD_MAP = new ConcurrentHashMap<>(30);
+    Map<String,FXMLLoader> PAGE_MAP = new ConcurrentHashMap<>(30);
 
     /**
      * 应用内部全局配置，不由外部决定
@@ -49,6 +49,12 @@ public interface SystemCache {
      * 因此需要将他存在内存中，不进行二次创建，并且避免被系统回收内存
      */
     Map<String, Node> CACHE_NODE = new ConcurrentHashMap<>(1);
+
+    /**
+     * 系统托盘缓存
+     * 将系统托盘与系统主页之间来回切换
+     */
+    Map<String,Object> NODE_MAP = new ConcurrentHashMap<>(1);
 
     /**
      * 内置音乐播放器缓存

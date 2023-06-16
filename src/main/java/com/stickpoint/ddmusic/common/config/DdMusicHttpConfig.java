@@ -30,7 +30,7 @@ public class DdMusicHttpConfig implements DdmusicSpiMonitor {
         log.info("系统配置已启动加载");
         // 首先读取系统加载的远程配置数据
         int requestServerStatus =  Integer.parseInt(String.valueOf(SystemCache.APP_PROPERTIES
-                .get(InfoEnums.API_DDMUSIC_WP_MUSIC_STATUS.getInfoContent())));;
+                .get(InfoEnums.API_DDMUSIC_WP_MUSIC_STATUS.getInfoContent())));
         String requestBaseHosts = null;
         String prefix = null;
         String port = null;

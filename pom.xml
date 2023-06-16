@@ -40,6 +40,11 @@
             <version>${open-jfx-version}</version>
         </dependency>
         <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>${open-jfx-version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.leewyatt</groupId>
             <artifactId>rxcontrols</artifactId>
             <version>${rxcontroller-version}</version>

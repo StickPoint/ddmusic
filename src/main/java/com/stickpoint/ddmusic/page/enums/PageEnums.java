@@ -1,8 +1,15 @@
 package com.stickpoint.ddmusic.page.enums;
 
-import com.stickpoint.ddmusic.page.controller.*;
+import com.stickpoint.ddmusic.page.controller.AccumulatePaneController;
+import com.stickpoint.ddmusic.page.controller.FindMusicController;
+import com.stickpoint.ddmusic.page.controller.MusicControlController;
+import com.stickpoint.ddmusic.page.controller.PlayDetailController;
+import com.stickpoint.ddmusic.page.controller.PlayerComponentController;
+import com.stickpoint.ddmusic.page.controller.RecentlyPlayListController;
+import com.stickpoint.ddmusic.page.controller.SearchMusicResultController;
+import com.stickpoint.ddmusic.page.controller.SoundControlController;
+import com.stickpoint.ddmusic.page.controller.SystemTrayController;
 import com.stickpoint.ddmusic.page.stage.HomePageStage;
-
 import java.net.URL;
 
 /**
@@ -44,6 +51,10 @@ public enum PageEnums {
      * 搜索音乐结果
      */
     SEARCH_RESULT_PAGE(SearchMusicResultController.class,SearchMusicResultController.class.getResource("/fxml/searchMusicResult.fxml"),"searchMusicResult"),
+    /**
+     * 系统托盘
+     */
+    SYSTEM_TRAY(SystemTrayController.class, SystemTrayController.class.getResource("/fxml/systemTray.fxml"),"systemTray"),
     /**
      * 音量控制组件面板--控制音量
      */

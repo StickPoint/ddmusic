@@ -18,7 +18,7 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
  * @Version: 1.0
  */
 @SuppressWarnings("unused")
-public class DdThreadCenter implements ThreadFactory {
+public class DdThreadPollCenter implements ThreadFactory {
 
     /**
      * 线程名称
@@ -28,7 +28,7 @@ public class DdThreadCenter implements ThreadFactory {
     /**
      * 顶点音乐线程日志对象
      */
-    private static final Logger log = LoggerFactory.getLogger(DdThreadCenter.class);
+    private static final Logger log = LoggerFactory.getLogger(DdThreadPollCenter.class);
 
     /**
      * 记录顶点音乐线程创建个数
@@ -53,7 +53,7 @@ public class DdThreadCenter implements ThreadFactory {
      * 创建顶点线程工厂的时候实现传参
      * @param threadName 传递一个线程名称
      */
-    public DdThreadCenter(String threadName) {
+    public DdThreadPollCenter(String threadName) {
         this.threadName = threadName;
         // （1）下载最多五个线程
         int downloadExecutorPollSize = 5;

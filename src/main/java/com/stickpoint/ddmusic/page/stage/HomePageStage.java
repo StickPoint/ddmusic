@@ -1,5 +1,6 @@
 package com.stickpoint.ddmusic.page.stage;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.page.enums.AppEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -52,7 +53,7 @@ public class HomePageStage extends Stage {
         this.initStyle(StageStyle.TRANSPARENT);
         Scene homePageScene;
         // 在初始化init方法中load过之后，我们可以直接拿node了
-        FXMLLoader homepageLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.HOMEPAGE.getRouterId());
+        FXMLLoader homepageLoader = SystemCache.PAGE_MAP.get(PageEnums.HOMEPAGE.getRouterId());
         Parent parentNode = homepageLoader.getRoot();
         homePageScene = new Scene(parentNode, 950, 610);
         this.setScene(homePageScene);
@@ -62,8 +63,14 @@ public class HomePageStage extends Stage {
         this.centerOnScreen();
         // 设置Stage监听
         log.info("场景监听部署完毕~");
-        this.mouseClickedToWindowsSlider(homePageScene);
         // 显示窗体拖拽轨迹
+        this.mouseClickedToWindowsSlider(homePageScene);
+        this.setOnCloseRequest(event -> {
+            if(this.isIconified()){
+                this.setIconified(false);
+            }
+        });
+        SystemCache.NODE_MAP.put(AppEnums.APPLICATION_MAIN_STAGE.getInfoValue(),this);
    }
 
     /**

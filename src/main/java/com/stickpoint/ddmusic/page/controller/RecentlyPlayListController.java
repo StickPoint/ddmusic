@@ -40,7 +40,7 @@ public class RecentlyPlayListController {
         // 因为这个contextMenu是一直存在的 只能在空的状态下去进行设置
         if (Objects.isNull(recentlyPlayListPopup)) {
             recentlyPlayListPopup = new ContextMenu(new SeparatorMenuItem());
-            FXMLLoader recentlyPlayListLoader = SystemCache.FXML_LOAD_MAP.get(PageEnums.RECENTLY_PLAY_LIST.getRouterId());
+            FXMLLoader recentlyPlayListLoader = SystemCache.PAGE_MAP.get(PageEnums.RECENTLY_PLAY_LIST.getRouterId());
             Parent recentlyPlayListPopupNode = recentlyPlayListLoader.getRoot();
             recentlyPlayListPopup.getScene().setRoot(recentlyPlayListPopupNode);
         }

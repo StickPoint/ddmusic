@@ -96,12 +96,13 @@ public class StickpointMusicApplication extends Application {
             initApplication();
             Platform.runLater(() -> {
                 try {
-                    HomePageStage home = new HomePageStage();
-                    primaryStage.hide();
+                    HomePageStage homePageStage = new HomePageStage();
+                    primaryStage.close();
+                    homePageStage.show();
+                    // 跳转到主页面之后，需要将主页面存入缓存节点中
                     log.info("界面已由欢迎页面跳转至主页面~");
-                    home.show();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error(e.getMessage());
                 }
             });
         });
@@ -180,38 +181,42 @@ public class StickpointMusicApplication extends Application {
         SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent());
         // 装载FXML文件: （1）首页
         FXMLLoader homePageLoader = new FXMLLoader(PageEnums.HOMEPAGE.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.HOMEPAGE.getRouterId(),  homePageLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.HOMEPAGE.getRouterId(),  homePageLoader);
         log.info("首页装载成功！");
         //（2）播放页面
         FXMLLoader playerComponentLoader = new FXMLLoader(PageEnums.PLAYER_COMPONENT.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.PLAYER_COMPONENT.getRouterId(), playerComponentLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.PLAYER_COMPONENT.getRouterId(), playerComponentLoader);
         log.info("播放组件页面装载成功！");
         //（3）累计统计情况额外页面
         FXMLLoader accumulatePaneLoader = new FXMLLoader(PageEnums.ACCUMULATE_PANE.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.ACCUMULATE_PANE.getRouterId(), accumulatePaneLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.ACCUMULATE_PANE.getRouterId(), accumulatePaneLoader);
         log.info("累计统计情况额外组件页面装载成功！");
         //（4）播放控制页面
         FXMLLoader musicControlLoader = new FXMLLoader(PageEnums.MUSIC_CONTROL.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.MUSIC_CONTROL.getRouterId(), musicControlLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.MUSIC_CONTROL.getRouterId(), musicControlLoader);
         log.info("播放控制组件页面装载成功！");
         //（5）歌曲播放详情界面
         FXMLLoader playDetailPage = new FXMLLoader(PageEnums.PLAY_DETAIL_PAGE.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.PLAY_DETAIL_PAGE.getRouterId(), playDetailPage);
+        SystemCache.PAGE_MAP.put(PageEnums.PLAY_DETAIL_PAGE.getRouterId(), playDetailPage);
         //（6）近期播放列表页面--最近播放小页面
         FXMLLoader recentlyPlayListLoader = new FXMLLoader(PageEnums.RECENTLY_PLAY_LIST.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.RECENTLY_PLAY_LIST.getRouterId(),recentlyPlayListLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.RECENTLY_PLAY_LIST.getRouterId(),recentlyPlayListLoader);
         //（7）系统播放器额外组件-音量控制组件
         FXMLLoader soundControlLoader = new FXMLLoader(getClass().getResource("/fxml/soundControl.fxml"));
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.SOUND_CONTROL.getRouterId(),soundControlLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.SOUND_CONTROL.getRouterId(),soundControlLoader);
         // （8）软件系统首页：发现音乐页面
         FXMLLoader findMusicLoader = new FXMLLoader(PageEnums.FIND_MUSIC.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.FIND_MUSIC.getRouterId(), findMusicLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.FIND_MUSIC.getRouterId(), findMusicLoader);
         // （9）搜索音乐结果页面
         FXMLLoader searchMusicResultLoader = new FXMLLoader(PageEnums.SEARCH_RESULT_PAGE.getPageSource());
-        SystemCache.FXML_LOAD_MAP.put(PageEnums.SEARCH_RESULT_PAGE.getRouterId(),searchMusicResultLoader);
+        SystemCache.PAGE_MAP.put(PageEnums.SEARCH_RESULT_PAGE.getRouterId(),searchMusicResultLoader);
+        // （10）系统托盘页面
+        FXMLLoader systemTrayFxmlLoader = new FXMLLoader(PageEnums.SYSTEM_TRAY.getPageSource());
+        SystemCache.PAGE_MAP.put(PageEnums.SYSTEM_TRAY.getRouterId(),systemTrayFxmlLoader);
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
+            systemTrayFxmlLoader.load();
             homePageLoader.load();
             playDetailPage.load();
             findMusicLoader.load();
@@ -229,6 +234,7 @@ public class StickpointMusicApplication extends Application {
     }
 
     /**
+     * SPI机制记载远程配置
      * 加载远程系统配置
      */
     private static void loadRemoteProperties(){
