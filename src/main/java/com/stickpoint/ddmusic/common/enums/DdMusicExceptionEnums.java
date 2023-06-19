@@ -41,6 +41,7 @@ public enum DdMusicExceptionEnums {
     ERROR_REQUEST(20014, "请求异常，请检查方法及参数是否符合要求!"),
     ERROR_PARAM_NULL(20015, "参数[%s]不能为空"),
     ERROR_PARAM_ERROR(20016, "请求参数错误[%s]"),
+    ERROR_FILE_UPLOAD(20017, "文件上传失败,无法获取文件上传URL链接"),
     // 201xx 用户管理
     ERROR_TOKEN_INVALID(20101, "token异常"),
     ERROR_JWT_TOKEN_CHECK(20102, "JWT格式验证失败"),

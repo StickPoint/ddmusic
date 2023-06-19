@@ -7,15 +7,12 @@ import java.security.MessageDigest;
 
 /**
  * @author puye(0303)
- * @since 2023/6/16
+ * @since 2023/6/19
  */
-public class SecurityUtil {
+public class FileUtil {
 
-    /**
-     * 安全工具类
-     */
-    private SecurityUtil() {
-        throw new IllegalStateException("Utility class");
+    private FileUtil() throws IllegalAccessException {
+        throw new IllegalAccessException("DdMusicFxUtils is not initialized");
     }
 
     /**
@@ -47,5 +44,4 @@ public class SecurityUtil {
             return null;
         }
     }
-
 }

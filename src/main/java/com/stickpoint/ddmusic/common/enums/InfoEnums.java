@@ -37,6 +37,10 @@ public enum InfoEnums {
      */
     FILE_PATH_HEADER("http"),
     /**
+     * 文件上传地址
+     */
+    FILE_UPLOAD_URL("uploadUrl"),
+    /**
      * Http请求前缀
      */
     HTTP_REQUEST_PROTOCOL("http://"),
@@ -133,6 +137,9 @@ public enum InfoEnums {
      * 通用下标枚举 0
      */
     INDEX_ZERO(0),
+    COMMON_NUMBER_5(5),
+    COMMON_NUMBER_10(10),
+    COMMON_NUMBER_200(200),
     /**
      * 音乐播放器远程服务状态
      */

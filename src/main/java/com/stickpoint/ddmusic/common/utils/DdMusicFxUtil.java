@@ -1,6 +1,4 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
-import javafx.fxml.FXMLLoader;
 
 import java.net.URL;
 import java.util.Objects;
@@ -9,9 +7,9 @@ import java.util.Objects;
  * @author puye(0303)
  * @since 2023/5/29
  */
-public class DdMusicFxUtils {
+public class DdMusicFxUtil {
 
-    private DdMusicFxUtils() throws IllegalAccessException {
+    private DdMusicFxUtil() throws IllegalAccessException {
         throw new IllegalAccessException("DdMusicFxUtils is not initialized");
     }
 
@@ -23,7 +21,7 @@ public class DdMusicFxUtils {
      * toExternalForm() 方法则是将 URL 地址转换为字符串形式
      */
     public static String getResourceExternalForm(String relativePath){
-        URL resource = DdMusicFxUtils.class.getResource(relativePath);
+        URL resource = DdMusicFxUtil.class.getResource(relativePath);
         if (Objects.nonNull(resource)) {
            return resource.toExternalForm();
         }

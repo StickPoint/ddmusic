@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.page.component;
-import com.stickpoint.ddmusic.common.utils.DdMusicFxUtils;
+import com.stickpoint.ddmusic.common.utils.DdMusicFxUtil;
 import com.stickpoint.ddmusic.page.skin.DdmusicPaginationSkin;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -14,7 +14,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class DdmusicPagination extends Control {
 
-    private static final String STYLE_SHEET = DdMusicFxUtils.getResourceExternalForm("/css/ddmusic-pagination.css");
+    private static final String STYLE_SHEET = DdMusicFxUtil.getResourceExternalForm("/css/ddmusic-pagination.css");
 
     private static final String STYLE_CLASS = "ddmusic-pagination";
     /**
