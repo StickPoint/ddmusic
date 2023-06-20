@@ -1,6 +1,4 @@
 package com.stickpoint.ddmusic.common.model.entity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
 import java.io.File;
 
 /**
@@ -13,31 +11,37 @@ public class DdMusicFileInfo {
     /**
      * 上传的文件名
      */
-    private StringProperty upBigFileName;
+    private String upBigFileName;
     /**
      * 文件大小
      */
-    private IntegerProperty fileSize;
+    private long fileSize;
     /**
      * 文件上次修改时间
      */
-    private StringProperty fileLastModified;
+    private String fileLastModified;
     /**
      * 文件md5
      * 主要是为了实现秒传
      */
-    private StringProperty fileMd5;
+    private String fileMd5;
     /**
      * 原始File对象
      */
     private File originalFile;
-
+    /**
+     * 文件地址
+     */
+    private String filePath;
     /**
      * 文件下载地址
      */
     private String fileDownloadUrl;
 
-    public DdMusicFileInfo(StringProperty upBigFileName, IntegerProperty fileSize, StringProperty fileLastModified, StringProperty fileMd5, File originalFile) {
+    public DdMusicFileInfo() {
+    }
+
+    public DdMusicFileInfo(String upBigFileName, long fileSize, String fileLastModified, String fileMd5, File originalFile) {
         this.upBigFileName = upBigFileName;
         this.fileSize = fileSize;
         this.fileLastModified = fileLastModified;
@@ -49,7 +53,7 @@ public class DdMusicFileInfo {
         this.originalFile = originalFile;
     }
 
-    public DdMusicFileInfo(StringProperty upBigFileName, IntegerProperty fileSize, StringProperty fileLastModified, StringProperty fileMd5) {
+    public DdMusicFileInfo(String upBigFileName, long fileSize, String fileLastModified, String fileMd5) {
         this.upBigFileName = upBigFileName;
         this.fileSize = fileSize;
         this.fileLastModified = fileLastModified;
@@ -57,35 +61,35 @@ public class DdMusicFileInfo {
     }
 
     public String getUpBigFileName() {
-        return upBigFileName.get();
+        return upBigFileName;
     }
 
     public void setUpBigFileName(String upBigFileName) {
-        this.upBigFileName.set(upBigFileName);
+        this.upBigFileName=upBigFileName;
     }
 
-    public int getFileSize() {
-        return fileSize.get();
+    public long getFileSize() {
+        return fileSize;
     }
 
-    public void setFileSize(int fileSize) {
-        this.fileSize.set(fileSize);
+    public void setFileSize(long fileSize) {
+        this.fileSize=fileSize;
     }
 
     public String getFileLastModified() {
-        return fileLastModified.get();
+        return fileLastModified;
     }
 
     public void setFileLastModified(String fileLastModified) {
-        this.fileLastModified.set(fileLastModified);
+        this.fileLastModified=fileLastModified;
     }
 
     public String getFileMd5() {
-        return fileMd5.get();
+        return fileMd5;
     }
 
     public void setFileMd5(String fileMd5) {
-        this.fileMd5.set(fileMd5);
+        this.fileMd5=fileMd5;
     }
 
     public File getOriginalFile() {
@@ -104,6 +108,14 @@ public class DdMusicFileInfo {
         this.fileDownloadUrl = fileDownloadUrl;
     }
 
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
     @Override
     public String toString() {
         return "DdMusicFileInfo{" +
@@ -112,6 +124,7 @@ public class DdMusicFileInfo {
                 ", fileLastModified=" + fileLastModified +
                 ", fileMd5=" + fileMd5 +
                 ", originalFile=" + originalFile +
+                ", filePath='" + filePath + '\'' +
                 ", fileDownloadUrl='" + fileDownloadUrl + '\'' +
                 '}';
     }

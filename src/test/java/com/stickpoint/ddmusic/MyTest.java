@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @BelongsProject: ddmusic
- * @BelongsPackage: com.stickpoint.ddmuisc
+ * @BelongsPackage: com.stickpoint.ddmusic
  * @Author: fntp
  * @CreateTime: 2022-11-02  22:19
  * @Description: TODO
@@ -69,7 +69,7 @@ public class MyTest {
 
     @Test
     public void testCheckFile(){
-        String resultUrl = HttpUtils.uploadFile("E:\\desktop\\抽奖图片\\myZip.tar");
+        String resultUrl = HttpUtils.uploadFile("E:\\desktop\\卢锡安.jpg");
         log.info(resultUrl);
     }
 

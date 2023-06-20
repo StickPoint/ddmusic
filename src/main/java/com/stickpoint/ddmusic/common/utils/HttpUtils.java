@@ -1,7 +1,10 @@
 package com.stickpoint.ddmusic.common.utils;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
+import com.stickpoint.ddmusic.common.model.entity.DdMusicFileInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
@@ -37,7 +40,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-
 
 /**
  * @author fntp
@@ -317,6 +319,14 @@ public class HttpUtils {
         }
     }
 
+    /**
+     * 分块读取文件
+     * @param file 传入一个文件Path
+     * @param offset 偏移量
+     * @param chunkSize 分块容量一般建议10MB
+     * @return 返回一个分块后的加载的字节数组数据 实际就是二进制数据
+     * @throws IOException 抛出一个io异常
+     */
     private static byte[] readChunk(Path file, long offset, int chunkSize) throws IOException {
         try (RandomAccessFile raf = new RandomAccessFile(file.toFile(), "r")) {
             raf.seek(offset);
@@ -357,6 +367,7 @@ public class HttpUtils {
      * 这里返回的url地址分为两种
      * （1）一种是直接文件上传之后，返回的文件下载地址；
      * （2）一种是文件上传之后，发现文件存在之后，返回的拼接的文件地址；
+     * 2023-06更新 当前方案所有上传任务结束之后都是返回的文件地址，不从预览地址去下载文件
      */
     public static String uploadFile(String filePath){
         // 第一步先检测：检测待上传的文件是否存在：
@@ -366,8 +377,9 @@ public class HttpUtils {
             long totalSize = targetFile.length();
             String fileDownloadUrl = null;
             try {
-                String checkResult = checkFileIfExist(filePath);
-                log.info(checkResult);
+                DdMusicFileInfo fileInfo = new DdMusicFileInfo();
+                fileInfo.setFilePath(filePath);
+                String checkResult = checkFileIfExist(fileInfo);
                 if (Objects.isNull(checkResult)){
                     throw new DdmusicException(DdMusicExceptionEnums.FAILED);
                 }
@@ -401,13 +413,25 @@ public class HttpUtils {
                             while (true) {
                                 if(Objects.isNull(uploadRes)) {
                                     // 文件已经上传完毕
-                                    return null;
+                                    String upBigFileName = fileInfo.getUpBigFileName();
+                                    if (Objects.nonNull(upBigFileName)) {
+                                        return FILE_SERVER_PREFIX.concat(upBigFileName);
+                                    }
+                                    // 文件上传完毕，但是文件名填充失败
+                                    throw new DdmusicException(DdMusicExceptionEnums.ERROR_FILE_UPLOAD_FILE_NAME_ERROR);
                                 }
                                 // 创建Matcher对象
                                 Matcher matcherSize = sizeOfRegex.matcher(uploadRes);
                                 if(matcherSize.find()) {
                                     log.warn(uploadRes);
-                                    return uploadRes;
+                                    JsonElement jsonElement = JsonParser.parseString(uploadRes);
+                                    if (jsonElement.isJsonObject()) {
+                                        JsonElement downloadJson = jsonElement.getAsJsonObject().get("@content.downloadUrl");
+                                        if (Objects.nonNull(downloadJson)) {
+                                            return downloadJson.getAsString();
+                                        }
+                                    }
+                                    throw new DdmusicException(DdMusicExceptionEnums.ERROR_IS_NOT_JSON);
                                 }
                                 // 创建Matcher对象
                                 Matcher sizeOfMatcher = regexSize.matcher(uploadRes);
@@ -518,7 +542,6 @@ public class HttpUtils {
         return responseBody;
     }
 
-
     /**
      * 读取文件的扩展名
      * @param str 传入一个文件名
@@ -600,18 +623,17 @@ public class HttpUtils {
         return responseBody;
     }
 
-
     /**
      * 获取文件的上传地址
-     * @param filePath 本地文件的路径，绝对路径
+     * @param fileInfo 先看本地文件的路径，绝对路径
      * @return 接口返回的数据，"__null__"代表访问失败
      * @throws IOException IO异常
      * @throws InterruptedException 中断异常
      * @throws URISyntaxException URI异常
      */
-    private static String checkFileIfExist(String filePath) throws IOException, InterruptedException, URISyntaxException {
+    private static String checkFileIfExist(DdMusicFileInfo fileInfo) throws IOException, InterruptedException, URISyntaxException {
         String url = "https://img.mediy.cn/?action=upbigfile";
-        File file = new File(filePath);
+        File file = new File(fileInfo.getFilePath());
         long filesize;
         long fileLastModified;
         if (file.exists()) {
@@ -623,14 +645,18 @@ public class HttpUtils {
             log.info("File not found.");
             return "File not found";
         }
-        String hexHash = FileUtil.getFileMd5(filePath);
-        String[] split = filePath.split("\\\\");
+        String hexHash = FileUtil.getFileMd5(fileInfo.getFilePath());
+        String[] split = fileInfo.getFilePath().split("\\\\");
         String ext = split[split.length - 1];
         String[] starry = ext.split("\\.");
         String fileMd5 = URLEncoder.encode(starry[0], StandardCharsets.UTF_8) + "_" + hexHash;
         String upBigFileName = fileMd5 + getExtension(ext);
         // 构建请求参数
         Map<String, String> formData = new HashMap<>(5);
+        fileInfo.setFileMd5(fileMd5);
+        fileInfo.setUpBigFileName(upBigFileName);
+        fileInfo.setFileSize(filesize);
+        fileInfo.setFileLastModified(String.valueOf(fileLastModified));
         formData.put("upbigfilename", upBigFileName);
         formData.put("filesize", "" + filesize);
         formData.put("fileLastModified", "" + fileLastModified);
@@ -683,6 +709,7 @@ public class HttpUtils {
         }
        return null;
     }
+
     /**
      * 构建form-data的请求体
      * @param formData 请求的键值对
@@ -701,5 +728,4 @@ public class HttpUtils {
         builder.append("--").append(boundary).append("--").append("\r\n");
         return HttpRequest.BodyPublishers.ofString(builder.toString(), StandardCharsets.UTF_8);
     }
-
 }
