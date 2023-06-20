@@ -3,6 +3,7 @@ package com.stickpoint.ddmusic.page.enums;
 import com.stickpoint.ddmusic.page.controller.AccumulatePaneController;
 import com.stickpoint.ddmusic.page.controller.FindMusicController;
 import com.stickpoint.ddmusic.page.controller.MusicControlController;
+import com.stickpoint.ddmusic.page.controller.MusicOptionsController;
 import com.stickpoint.ddmusic.page.controller.PlayDetailController;
 import com.stickpoint.ddmusic.page.controller.PlayerComponentController;
 import com.stickpoint.ddmusic.page.controller.RecentlyPlayListController;
@@ -55,6 +56,10 @@ public enum PageEnums {
      * 系统托盘
      */
     SYSTEM_TRAY(SystemTrayController.class, SystemTrayController.class.getResource("/fxml/systemTray.fxml"),"systemTray"),
+    /**
+     * 音乐搜索之后单曲操作按钮四个按钮
+     */
+    MUSIC_SEARCH_RESULT_OPTIONS(MusicOptionsController.class, MusicOptionsController.class.getResource("/fxml/musicOptions.fxml"),"musicOptions"),
     /**
      * 音量控制组件面板--控制音量
      */

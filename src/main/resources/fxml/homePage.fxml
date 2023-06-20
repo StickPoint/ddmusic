@@ -52,7 +52,7 @@
                   </Region>
                </children>
             </HBox>
-            <HBox fx:id="userInfoContainer" layoutX="706.0" layoutY="3.0" maxHeight="34.0" maxWidth="34.0" minHeight="34.0" minWidth="34.0" prefHeight="34.0" prefWidth="34.0">
+            <HBox fx:id="userInfoContainer" layoutX="740.0" layoutY="3.0" maxHeight="34.0" maxWidth="34.0" minHeight="34.0" minWidth="34.0" prefHeight="34.0" prefWidth="34.0">
                <children>
                   <RXAvatar fx:id="userAvatar" maxHeight="22.0" maxWidth="22.0" minHeight="22.0" minWidth="22.0" onMouseEntered="#showUserInfoCard" onMouseExited="#closeUserInfoCard" prefHeight="22.0" prefWidth="22.0">
                      <image>

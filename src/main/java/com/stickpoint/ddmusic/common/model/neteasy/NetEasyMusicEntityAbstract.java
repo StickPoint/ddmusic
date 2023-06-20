@@ -1,5 +1,4 @@
 package com.stickpoint.ddmusic.common.model.neteasy;
-import com.stickpoint.ddmusic.common.annotation.TableColumnField;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 
 import java.io.Serial;
@@ -34,21 +33,6 @@ public class NetEasyMusicEntityAbstract extends AbstractDdMusicEntity implements
 
     private String dt;
 
-    @TableColumnField("序号")
-    private String ddNumber;
-
-    @TableColumnField("标题")
-    private String ddTitle;
-
-    @TableColumnField("歌手")
-    private String ddArtists;
-
-    @TableColumnField("专辑")
-    private String ddAlbum;
-
-    @TableColumnField("时长")
-    private String ddTimes;
-
     public String getDt() {
         return dt;
     }
@@ -81,56 +65,6 @@ public class NetEasyMusicEntityAbstract extends AbstractDdMusicEntity implements
 
     public void setAr(List<Artist> ar) {
         this.ar = ar;
-    }
-
-    @Override
-    public String getDdNumber() {
-        return ddNumber;
-    }
-
-    @Override
-    public void setDdNumber(String ddNumber) {
-        this.ddNumber = ddNumber;
-    }
-
-    @Override
-    public String getDdTitle() {
-        return ddTitle;
-    }
-
-    @Override
-    public void setDdTitle(String ddTitle) {
-        this.ddTitle = ddTitle;
-    }
-
-    @Override
-    public String getDdArtists() {
-        return ddArtists;
-    }
-
-    @Override
-    public void setDdArtists(String ddArtists) {
-        this.ddArtists = ddArtists;
-    }
-
-    @Override
-    public String getDdAlbum() {
-        return ddAlbum;
-    }
-
-    @Override
-    public void setDdAlbum(String ddAlbum) {
-        this.ddAlbum = ddAlbum;
-    }
-
-    @Override
-    public String getDdTimes() {
-        return ddTimes;
-    }
-
-    @Override
-    public void setDdTimes(String ddTimes) {
-        this.ddTimes = ddTimes;
     }
 
     public Album getAl() {

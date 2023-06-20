@@ -3,7 +3,7 @@ import com.stickpoint.ddmusic.common.config.DdmusicSpiMonitor;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
-import com.stickpoint.ddmusic.common.utils.ThreadUtil;
+import com.stickpoint.ddmusic.common.thread.ThreadUtil;
 import com.stickpoint.ddmusic.page.stage.HomePageStage;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.application.Application;
@@ -213,6 +213,9 @@ public class StickpointMusicApplication extends Application {
         // （10）系统托盘页面
         FXMLLoader systemTrayFxmlLoader = new FXMLLoader(PageEnums.SYSTEM_TRAY.getPageSource());
         SystemCache.PAGE_MAP.put(PageEnums.SYSTEM_TRAY.getRouterId(),systemTrayFxmlLoader);
+        // (11) 音乐操作按钮
+        FXMLLoader musicOptionsFxmlLoader = new FXMLLoader(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getPageSource());
+        SystemCache.PAGE_MAP.put(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getRouterId(),musicOptionsFxmlLoader);
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
@@ -224,6 +227,7 @@ public class StickpointMusicApplication extends Application {
             musicControlLoader.load();
             recentlyPlayListLoader.load();
             playerComponentLoader.load();
+            musicOptionsFxmlLoader.load();
             searchMusicResultLoader.load();
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,12 +1,16 @@
 package com.stickpoint.ddmusic.page.controller;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
-import com.stickpoint.ddmusic.page.component.DdmusicPagination;
+import com.stickpoint.ddmusic.page.component.MusicOptionsCell;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
@@ -38,7 +42,9 @@ public class SearchMusicResultController {
     @FXML
     public TableColumn ddAlbum;
     @FXML
-    public TableColumn searchIndex;
+    public TableColumn options;
+    @FXML
+    public Label searchedMusicName;
     /**
      * 根容器
      */
@@ -49,7 +55,6 @@ public class SearchMusicResultController {
 
     @FXML
     public void initialize() {
-        initializePagination();
     }
 
     /**
@@ -69,21 +74,8 @@ public class SearchMusicResultController {
         ddTimes.setCellValueFactory(new PropertyValueFactory<>("ddTimes"));
         // 音乐标题
         ddTitle.setCellValueFactory(new PropertyValueFactory<>("ddTitle"));
-        items.addAll(listData);
-    }
+        // 操作
 
-    private void initializePagination() {
-        DdmusicPagination pagination = new DdmusicPagination(100, 1);
-        pagination.pageIndexProperty().addListener((observable, oldValue, newValue) -> log.info("当前音乐搜索结果页码发生变化：{}", newValue));
-        pagination.setPrefWidth(750);
-        pagination.setMaxWidth(750);
-        pagination.setMinWidth(750);
-        pagination.setPrefHeight(40);
-        pagination.setMaxHeight(40);
-        pagination.setMinHeight(40);
-        pagination.setLayoutY(710);
-        pagination.setLayoutY(0);
-        pagination.getStylesheets().add("-fx-background-color:white;");
-        rootPane.getChildren().add(pagination);
+        items.addAll(listData);
     }
 }

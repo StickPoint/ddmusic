@@ -1,19 +1,14 @@
 package com.stickpoint.ddmusic.page.controller;
 import com.leewyatt.rxcontrols.animation.carousel.AnimAround;
 import com.leewyatt.rxcontrols.controls.RXCarousel;
-import com.leewyatt.rxcontrols.controls.RXLineButton;
 import com.leewyatt.rxcontrols.pane.RXCarouselPane;
 import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
-import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -41,25 +36,6 @@ public class FindMusicController {
      * 发现音乐首页轮播图
      */
     public RXCarousel sceneryCarousel;
-    /**
-     * 顶部线条按纽 后续可能会更换
-     * 推荐一
-     */
-    public RXLineButton recommend;
-    /**
-     * HBox组件
-     */
-    public HBox indexMenuBar;
-    /**
-     * 顶部线条按纽 后续可能会更换
-     * 推荐二
-     */
-    public RXLineButton recommend1;
-    /**
-     * 顶部线条按纽 后续可能会更换
-     * 推荐三
-     */
-    public RXLineButton recommend2;
     /**
      * 滚动容器
      */
@@ -92,7 +68,6 @@ public class FindMusicController {
         paneList.add(rxCarouselPane4);
         AnimAround animAround = new AnimAround(true);
         sceneryCarousel.setCarouselAnimation(animAround);
-        recommend.setStyle("-fx-font-size: 18px");
         showFindMusic();
         // 初始化推荐歌单的列表样式
         initDdMusicRecommendListStyle(ddmusicRecommend);
@@ -105,29 +80,6 @@ public class FindMusicController {
         ScrollPane finaMusicMenu = ScrollPaneComponent.createCommonScrollPaneRoot(findMusicRootNode);
         finaMusicMenu.toFront();
         SystemCache.CENTER_VIEW_PAGE_LIST.add(finaMusicMenu);
-    }
-
-    /**
-     * 创建一个选择菜单的方法
-     * @param mouseEvent 点击事件
-     */
-    @FXML
-    public void selectMenu(MouseEvent mouseEvent) {
-        FXMLLoader findMusicLoader = SystemCache.PAGE_MAP.get(PageEnums.FIND_MUSIC.getRouterId());
-        ObservableMap<String, Object> namespace = findMusicLoader.getNamespace();
-        if (Objects.isNull(indexMenuBar)) {
-            indexMenuBar = (HBox) namespace.get("indexMenuBar");
-        }
-        ObservableList<Node> childrenList = indexMenuBar.getChildren();
-        childrenList.forEach(item-> {
-            Pane pane = (Pane) item;
-            RXLineButton node = (RXLineButton) pane.getChildren().get(0);
-            node.setStyle("-fx-font-size: 16px");
-
-        });
-        // 首先获得当前被点击的node 然后根据当前被点击的node进行设置
-        RXLineButton menuButton = (RXLineButton) mouseEvent.getSource();
-        menuButton.setStyle("-fx-font-size: 20px;");
     }
 
     /**

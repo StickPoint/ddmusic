@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.common.utils;
+package com.stickpoint.ddmusic.common.thread;
 import com.stickpoint.ddmusic.common.notion.Info;
 import java.io.Serial;
 import java.io.Serializable;

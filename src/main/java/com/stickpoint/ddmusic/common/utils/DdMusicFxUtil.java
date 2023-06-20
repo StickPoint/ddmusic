@@ -7,6 +7,7 @@ import java.util.Objects;
  * @author puye(0303)
  * @since 2023/5/29
  */
+@SuppressWarnings("unused")
 public class DdMusicFxUtil {
 
     private DdMusicFxUtil() throws IllegalAccessException {

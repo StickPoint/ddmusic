@@ -5,7 +5,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.net.URISyntaxException;
 import java.util.Objects;
 
@@ -19,7 +18,12 @@ import java.util.Objects;
  */
 public class ScrollPaneComponent {
 
+    private ScrollPaneComponent() throws IllegalAccessException {
+        throw new IllegalAccessException("ScrollPaneComponent is not enable to be multiple");
+    }
+
     private static final Logger log = LoggerFactory.getLogger(ScrollPaneComponent.class);
+
     /**
      * 基于根节点构建滑动容器
      * 原理就是根据传入的根节点创建一个可滑动的pane，这个scrollPane使用根节点的id作为唯一识别id
@@ -38,6 +42,28 @@ public class ScrollPaneComponent {
             scrollPane.toFront();
             // 监听鼠标移入移出
             scrollPaneMouseEventStyleChange(scrollPane);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return scrollPane;
+    }
+
+    /**
+     * 基于根节点构建滑动容器
+     * 原理就是根据传入的根节点创建一个可滑动的pane，这个scrollPane使用根节点的id作为唯一识别id
+     * @param rootNode 根节点
+     * @return 返回一个滑动容器
+     */
+    public static ScrollPane createSearchResultScrollPaneRoot(Parent rootNode){
+        ScrollPane scrollPane = new ScrollPane(rootNode);
+        scrollPane.setId(rootNode.getId());
+        try {
+            // 滑动pane容器设置样式
+            scrollPane.getStylesheets().add(Objects.requireNonNull(ScrollPaneComponent.class.getResource("/css/scrollPane-search-result.css")).toURI().toString());
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            // 界面初始化默认仪表盘在最前显示
+            scrollPane.toFront();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

@@ -1,56 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.leewyatt.rxcontrols.controls.RXCarousel?>
-<?import com.leewyatt.rxcontrols.controls.RXLineButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="findMusic" fx:id="findMusicRootNode" prefHeight="859.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/ddmusic-findMusic.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.FindMusicController">
+<AnchorPane id="findMusic" fx:id="findMusicRootNode" prefHeight="859.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/ddmusic-findMusic.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.FindMusicController">
    <children>
-      <HBox fx:id="indexMenuBar" alignment="BOTTOM_CENTER" prefHeight="40.0" prefWidth="750.0" style="-fx-border-color: transparent; -fx-border-width: 0;">
-         <children>
-            <Pane prefHeight="40.0" prefWidth="120.0">
-               <children>
-                  <RXLineButton fx:id="recommend" alignment="BOTTOM_CENTER" onMouseClicked="#selectMenu" prefHeight="40.0" prefWidth="120.0" text="发现顶点" textAlignment="CENTER">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </RXLineButton>
-               </children>
-            </Pane>
-            <Pane prefHeight="40.0" prefWidth="120.0">
-               <children>
-                  <RXLineButton fx:id="recommend1" alignment="BOTTOM_CENTER" onMouseClicked="#selectMenu" prefHeight="40.0" prefWidth="120.0" text="排行榜单">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </RXLineButton>
-               </children>
-            </Pane>
-            <Pane prefHeight="40.0" prefWidth="120.0">
-               <children>
-                  <RXLineButton fx:id="recommend2" alignment="BOTTOM_CENTER" onMouseClicked="#selectMenu" prefHeight="40.0" prefWidth="120.0" text="顶点最新">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </RXLineButton>
-               </children>
-            </Pane>
-         </children>
-      </HBox>
-      <AnchorPane fx:id="centerPane" layoutY="52.0" prefHeight="210.0" prefWidth="750.0" style="-fx-background-insets: 0; -fx-background-color: transparent;">
+      <AnchorPane fx:id="centerPane" layoutY="12.0" prefHeight="210.0" prefWidth="750.0" style="-fx-background-insets: 0; -fx-background-color: transparent;">
          <children>
             <RXCarousel fx:id="sceneryCarousel" maxHeight="210.0" maxWidth="750.0" minHeight="210.0" minWidth="750.0" prefHeight="210.0" prefWidth="750.0" showTime="5000.0ms" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="262.0" prefHeight="199.0" prefWidth="750.0" style="-fx-background-color: white;">
+      <AnchorPane layoutY="222.0" prefHeight="199.0" prefWidth="750.0" style="-fx-background-color: white;">
          <children>
             <VBox prefHeight="199.0" prefWidth="750.0">
                <children>
@@ -175,7 +142,256 @@
                </children>
             </VBox>
          </children></AnchorPane>
-      <AnchorPane layoutY="461.0" prefHeight="199.0" prefWidth="750.0" style="-fx-background-color: orange;" />
-      <AnchorPane layoutY="660.0" prefHeight="199.0" prefWidth="750.0" style="-fx-background-color: skyblue;" />
+      <AnchorPane layoutY="439.0" prefHeight="199.0" prefWidth="750.0">
+         <children>
+            <VBox prefHeight="199.0" prefWidth="750.0">
+               <children>
+                  <Label text="顶点推荐">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="ddmusicRecommend1" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
+                     <children>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets top="13.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+      <AnchorPane layoutY="660.0" prefHeight="199.0" prefWidth="750.0">
+         <children>
+            <VBox prefHeight="199.0" prefWidth="750.0">
+               <children>
+                  <Label text="顶点推荐">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="ddmusicRecommend11" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
+                     <children>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
+                           <children>
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <image>
+                                    <Image url="@../img/ddmusic_recommoned.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="顶点官方-每日推荐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="6.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets top="13.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

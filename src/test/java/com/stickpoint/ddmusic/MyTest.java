@@ -69,7 +69,7 @@ public class MyTest {
 
     @Test
     public void testCheckFile(){
-        String resultUrl = HttpUtils.uploadFile("E:\\desktop\\卢锡安.jpg");
+        String resultUrl = HttpUtils.uploadFile("E:\\desktop\\1685600534019.jpg");
         log.info(resultUrl);
     }
 

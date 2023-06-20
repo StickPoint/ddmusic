@@ -7,6 +7,7 @@ import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
 import com.stickpoint.ddmusic.common.thread.DdThreadPollCenter;
+import com.stickpoint.ddmusic.common.thread.ThreadUtil;
 import com.stickpoint.ddmusic.page.component.DdMusicTray;
 import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
 import com.stickpoint.ddmusic.page.enums.AppEnums;
@@ -24,13 +25,17 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.awt.AWTException;
 import java.awt.Image;
 import java.awt.SystemTray;
 import java.awt.Toolkit;
@@ -38,6 +43,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.function.Consumer;
 
 /**
  *
@@ -131,14 +138,11 @@ public class HomePageController {
 
     private IMusicService musicService;
 
-    private DdThreadPollCenter threadCenter;
-
     @FXML
     public void initialize(){
         changeMyMusicMenuBackgroundStyle();
         initSystemMenuList();
         this.musicService = new NetEasyMusicServiceImpl();
-        this.threadCenter = new DdThreadPollCenter("顶点音乐");
         // 初始化
         initInnerComponent();
         // 初始化监听
@@ -286,6 +290,10 @@ public class HomePageController {
         // 取出搜索结果页面
         FXMLLoader searchResultLoader = SystemCache.PAGE_MAP.get(PageEnums.SEARCH_RESULT_PAGE.getRouterId());
         SearchMusicResultController searchMusicResultController = searchResultLoader.getController();
+        // 使用Property属性绑定上数据
+        if (!searchMusicResultController.searchedMusicName.textProperty().isBound()) {
+            searchMusicResultController.searchedMusicName.textProperty().bindBidirectional(searchKey.textProperty());
+        }
         // 初始化的时候加载过
         VBox rootNode = searchResultLoader.getRoot();
         // 看看当前最前面的是不是搜索结果
@@ -296,7 +304,7 @@ public class HomePageController {
             flushData(searchMusicResultController);
         }else {
             // 不一致就是表示当前搜索页面不在最上面 先切换页面 再刷新data
-            ScrollPane searchMusicResultScrollPane = ScrollPaneComponent.createCommonScrollPaneRoot(rootNode);
+            ScrollPane searchMusicResultScrollPane = ScrollPaneComponent.createSearchResultScrollPaneRoot(rootNode);
             centerView.getChildren().add(searchMusicResultScrollPane);
             searchMusicResultScrollPane.toFront();
             // 刷新数据
@@ -311,9 +319,8 @@ public class HomePageController {
             requestInfo.setSearchKey(searchKey.getText());
             // 执行搜索
             Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> musicService.searchMusicList(requestInfo);
-            List<? extends AbstractDdMusicEntity> abstractDdMusicEntities = threadCenter.doDdMusicSearchTask(searchResultList);
             // 刷新UI
-            Platform.runLater(()-> searchMusicResultController.initTableData(abstractDdMusicEntities));
+            DdThreadPollCenter.doDdMusicSearchTask(searchResultList, searchMusicResultController::initTableData);
         }
     }
 
@@ -334,7 +341,6 @@ public class HomePageController {
     /**
      * 点击了最小化按钮的点击监听事件
      * TODO 注意 此处有大坑 Platform.setImplicitExit(false);
-     *
      *  方法的执行意义是告诉 JavaFX 平台，当用户关闭主窗口时，
      *  不要自动退出应用程序。这样做的目的是为了实现将主页面隐藏到系统托盘，
      *  并在系统托盘中显示应用图标和菜单的功能，因为如果应用程序在关闭主窗口时自动退出，

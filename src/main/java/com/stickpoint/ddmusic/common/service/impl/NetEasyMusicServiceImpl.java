@@ -15,6 +15,8 @@ import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.utils.HttpUtils;
 import com.stickpoint.ddmusic.common.utils.NetEasyUtil;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
+import javafx.scene.layout.AnchorPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,11 +93,12 @@ public class NetEasyMusicServiceImpl implements IMusicService {
         if (Objects.nonNull(data)) {
             ps = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntityAbstract>>(){}.getType());
             List<NetEasyMusicEntityAbstract> finalPs = ps;
+            AnchorPane rootNode = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getRouterId()).getRoot();
             ps.forEach(item-> {
                 item.setDdNumber(String.valueOf(finalPs.indexOf(item)));
                 log.info(String.valueOf(item));
             });
-            finalPs.forEach(item->{
+            ps.forEach(item->{
                 item.setDdTitle(item.getName());
                 Album al = item.getAl();
                 item.setDdAlbum(al.getName());
@@ -108,6 +111,7 @@ public class NetEasyMusicServiceImpl implements IMusicService {
                 String artistsNameResult = artistName.append("#").toString().replace(",#", "");
                 item.setDdArtists(artistsNameResult);
                 item.setDdTimes(NetEasyUtil.getTimes(item.getDt()));
+                item.setOptions(rootNode);
             });
         }
         return ps;

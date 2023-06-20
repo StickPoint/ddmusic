@@ -40,8 +40,15 @@
 .table-cell{
     -fx-border-width: 0;
     -fx-text-fill:rgb(106,85,102);
-    -fx-font-size: 16px;-fx-alignment:center-left;
+    -fx-font-size: 13px;
+    -fx-alignment:center-left;
 }
+
+/* 第一列数据整体居中不靠左*/
+.first-column .table-cell{
+    -fx-alignment:center;
+}
+
 .table-row-cell{
     -fx-background-color: white;
     -fx-cell-size:40px;
