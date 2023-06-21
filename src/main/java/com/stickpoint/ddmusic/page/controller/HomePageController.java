@@ -304,9 +304,8 @@ public class HomePageController {
             flushData(searchMusicResultController);
         }else {
             // 不一致就是表示当前搜索页面不在最上面 先切换页面 再刷新data
-            ScrollPane searchMusicResultScrollPane = ScrollPaneComponent.createSearchResultScrollPaneRoot(rootNode);
-            centerView.getChildren().add(searchMusicResultScrollPane);
-            searchMusicResultScrollPane.toFront();
+            centerView.getChildren().add(rootNode);
+            rootNode.toFront();
             // 刷新数据
             flushData(searchMusicResultController);
         }

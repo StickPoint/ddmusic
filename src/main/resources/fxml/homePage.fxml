@@ -37,7 +37,7 @@
             </HBox>
             <HBox id="border-pane-top-hBox-search" layoutX="269.0" layoutY="3.0" maxHeight="34.0" minHeight="24.0" prefHeight="34.0" prefWidth="250.0" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="3.0">
                <children>
-                  <TextField id="border-pane-top-hBox-search-text-field" fx:id="searchKey" maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="215.0" promptText="请输入待搜索的 音乐 | 歌手 | 歌单" style="">
+                  <TextField id="border-pane-top-hBox-search-text-field" fx:id="searchKey" maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="215.0" promptText="请输入待搜索的 音乐 | 歌手 | 专辑" style="">
                      <HBox.margin>
                         <Insets bottom="2.0" left="3.0" />
                      </HBox.margin>

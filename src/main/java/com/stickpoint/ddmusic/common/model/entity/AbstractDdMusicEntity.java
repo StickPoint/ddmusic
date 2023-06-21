@@ -1,9 +1,6 @@
 package com.stickpoint.ddmusic.common.model.entity;
 
 import com.stickpoint.ddmusic.common.annotation.TableColumnField;
-import javafx.scene.Node;
-
-import java.beans.Transient;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
@@ -38,9 +35,6 @@ public abstract class AbstractDdMusicEntity implements Serializable {
 
     @TableColumnField("时长")
     private String ddTimes;
-
-    @TableColumnField("操作")
-    private transient Node options;
     /**
      * 顶点音乐乐库唯一id
      */
@@ -51,14 +45,6 @@ public abstract class AbstractDdMusicEntity implements Serializable {
     private Date createTime;
 
     private Date updateTime;
-
-    public Node getOptions() {
-        return options;
-    }
-
-    public void setOptions(Node options) {
-        this.options = options;
-    }
 
     public String getDdTitle() {
         return ddTitle;

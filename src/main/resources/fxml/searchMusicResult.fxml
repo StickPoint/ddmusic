@@ -145,12 +145,12 @@
       </AnchorPane>
       <TableView id="search-result-table" fx:id="myTable" layoutY="119.0" prefHeight="630.0" prefWidth="750.0">
         <columns>
-           <TableColumn fx:id="ddNumber" editable="false" minWidth="0.0" prefWidth="57.0" style="-fx-alignment: center;" styleClass="first-column" text="   序号" />
-            <TableColumn fx:id="ddTitle" editable="false" prefWidth="161.60000610351562" sortable="false" text="标题" />
-            <TableColumn fx:id="ddArtists" editable="false" minWidth="0.0" prefWidth="178.4000244140625" sortable="false" text="歌手" />
-            <TableColumn fx:id="ddAlbum" editable="false" minWidth="0.0" prefWidth="145.60003662109375" sortable="false" text="专辑" />
-            <TableColumn fx:id="ddTimes" editable="false" minWidth="0.0" prefWidth="100.7999267578125" sortable="false" text="时长" />
-            <TableColumn fx:id="options" editable="false" minWidth="0.0" prefWidth="109.60009765625" sortable="false" text="歌曲选项" />
+           <TableColumn fx:id="ddNumber" editable="false" minWidth="0.0" prefWidth="63.0" style="-fx-alignment: center;" styleClass="first-column" text="   序号" />
+            <TableColumn fx:id="ddTitle" editable="false" prefWidth="156.0" sortable="false" text="标题" />
+            <TableColumn fx:id="ddArtists" editable="false" minWidth="0.0" prefWidth="162.0" sortable="false" text="歌手" />
+            <TableColumn fx:id="ddAlbum" editable="false" minWidth="0.0" prefWidth="145.0" sortable="false" text="专辑" />
+            <TableColumn fx:id="ddTimes" editable="false" minWidth="0.0" prefWidth="104.0" sortable="false" text="时长" />
+            <TableColumn fx:id="options" editable="false" minWidth="0.0" prefWidth="125.0" sortable="false" text="歌曲选项" />
         </columns>
       </TableView>
    </children>

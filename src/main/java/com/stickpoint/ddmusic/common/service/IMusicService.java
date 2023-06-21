@@ -13,31 +13,5 @@ import java.util.List;
  */
 public interface IMusicService {
 
-    /**
-     * 搜索音乐列表
-     * 根据不同的实现类去做不同的具体的实现
-     * @param baseInfo 基础信息
-      *  musicKey 音乐搜索关键字
-     *  pageNumber 页码
-     *  pageSize 一页多少条数据
-     * @return 返回一个搜索的音乐列表结果
-     */
-    List<? extends AbstractDdMusicEntity> searchMusicList(RequestBaseInfoVO baseInfo);
-
-    /**
-     * 根据音乐基础信息获得音乐播放地址
-     *  musicId 传入一个音乐id
-     *  musicQualityLevel 传入一个音乐
-     * @param baseInfo 基础信息
-     * @return 返回一个音乐
-     */
-    AbstractDdMusicEntity getMusicUrlByMusicBaseInfo(RequestBaseInfoVO baseInfo);
-
-    /**
-     * 获得网易云推荐音乐列表
-     * @return 返回一个网易云推荐音乐列表
-     */
-    List<? extends AbstractDdMusicEntity> getWyRecommendedMusicList();
-
 
 }

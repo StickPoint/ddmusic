@@ -1,5 +1,4 @@
 package com.stickpoint.ddmusic.page.controller;
-
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 

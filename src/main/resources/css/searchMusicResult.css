@@ -1,5 +1,5 @@
 .search-result {
-
+    -fx-background-color: rgb(255,255,255);
 }
 
 .search-result-words {
@@ -67,9 +67,43 @@
     -fx-font-size:18px;
     -fx-alignment:center-left;
 }
-.table-view .scroll-bar:horizontal{
-    -fx-pref-height:0;visibility:collapse;
+
+/*拖动条*/
+.table-view .scroll-bar {
+    -fx-background-color:transparent;
 }
-.table-view .placeholder {
-    -fx-background-color: white;
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:transparent;
+    -fx-border-width: 0px;
+    -fx-border-color: transparent;
 }
+.table-view .scroll-bar:vertical .increment-button,
+.table-view .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+}
+.table-view .scroll-bar:vertical .increment-arrow,
+.table-view .scroll-bar:vertical .decrement-arrow {
+    -fx-background-color: transparent;
+}
+
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color:transparent;
+    -fx-border-width: 0px;
+    -fx-border-color: transparent;
+}
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: transparent;
+}
+.table-view .scroll-bar:horizontal .increment-arrow,
+.table-view .scroll-bar:horizontal .decrement-arrow {
+    -fx-background-color: transparent;
+}
+/*.table-view .scroll-bar:horizontal{*/
+/*    -fx-pref-height:0;visibility:collapse;*/
+/*}*/
+/*.table-view .placeholder {*/
+/*    -fx-background-color: white;*/
+/*}*/
