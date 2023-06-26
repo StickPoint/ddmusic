@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * description： TestMusicSearchListController
@@ -95,9 +96,11 @@ public class SearchMusicResultController {
                 // 监听下载事件
                 controller.download.setOnMouseClicked(event -> {
                     AbstractDdMusicEntity abstractDdMusicEntity = getTableView().getItems().get(getIndex());
-                    // 执行文件下载
+                    // 获取文件下载地址
                     String musicPlayUrl = netEasyMusicService.getMusicPlayUrl(abstractDdMusicEntity.getDdId());
                     log.info(musicPlayUrl);
+                    // 执行文件下载
+
                 });
                 // 监听收藏事件
                 controller.favorite.setOnMouseClicked(event -> {
@@ -121,10 +124,10 @@ public class SearchMusicResultController {
                     String musicLrcContent = netEasyMusicService.getMusicLrcContent(abstractDdMusicEntity.getDdId());
                     // 然后准备播放
                     componentController.prepareMusic(abstractDdMusicEntity, musicPlayUrl, musicLrcContent);
-                    // 播放
+                    // 调用播放
                     FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
                     MusicControlController musicControlController = musicControlLoader.getController();
-                    musicControlController.startOrPausePlay();
+                    CompletableFuture.runAsync(musicControlController::startOrPausePlay);
                 });
             }
 

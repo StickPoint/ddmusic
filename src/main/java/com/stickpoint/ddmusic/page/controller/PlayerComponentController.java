@@ -5,6 +5,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 import com.leewyatt.rxcontrols.controls.RXAudioSpectrum;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
 import com.leewyatt.rxcontrols.controls.RXLrcView;
@@ -18,6 +19,7 @@ import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.utils.EncodingDetectUtil;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import animatefx.animation.FadeIn;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableMap;
 import javafx.event.EventHandler;
@@ -30,6 +32,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -40,6 +43,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @BelongsProject: ddmusic
@@ -50,6 +55,11 @@ import javafx.util.Duration;
  * @Version: 1.0
  */
 public class PlayerComponentController {
+
+    /**
+     * 日志工具
+     */
+    private static final Logger log = LoggerFactory.getLogger(PlayerComponentController.class);
 
 	/**
 	 * 歌曲概况信息与播放控制组件可滑动区域
@@ -215,6 +225,7 @@ public class PlayerComponentController {
         // 如果有歌词
         if (Objects.nonNull(musicLrcContent)) {
             if (musicLrcContent.isEmpty()||musicLrcContent.isBlank()) {
+                // TODO 需要去仿照一下歌词的写法然后将修改后的歌词替换一下的数据
                 musicLrcContent = "暂无歌词";
             }
             try {
@@ -233,8 +244,16 @@ public class PlayerComponentController {
         playerProgressBar.durationProperty().bind(player.getMedia().durationProperty());
         //播放器的进度修改监听器
         player.currentTimeProperty().addListener(durationChangeListener);
+        // 设置播放歌曲名称
+        playerSongName.setText(abstractDdMusicEntity.getDdTitle());
+        playerSinger.setText(abstractDdMusicEntity.getDdArtists());
         // 存入缓存
         changeMusicPlayPreNextAndCurrent(abstractDdMusicEntity);
+        // 刷新头像
+        CompletableFuture.runAsync(() -> {
+            // 显示图像
+            Platform.runLater(() -> playerMusicCover.imageProperty().set(new Image(abstractDdMusicEntity.getAlbumPicture())));
+        });
     }
 
     /**
