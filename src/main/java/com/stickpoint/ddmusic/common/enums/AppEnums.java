@@ -1,4 +1,4 @@
-package com.stickpoint.ddmusic.page.enums;
+package com.stickpoint.ddmusic.common.enums;
 
 /**
  * @Author SunChengXin_0303

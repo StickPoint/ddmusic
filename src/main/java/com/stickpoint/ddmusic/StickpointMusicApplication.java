@@ -1,6 +1,6 @@
 package com.stickpoint.ddmusic;
 import com.stickpoint.ddmusic.common.config.DdmusicSpiMonitor;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
 import com.stickpoint.ddmusic.common.thread.ThreadUtil;

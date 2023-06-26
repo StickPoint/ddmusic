@@ -10,8 +10,11 @@ import com.leewyatt.rxcontrols.controls.RXAvatar;
 import com.leewyatt.rxcontrols.controls.RXLrcView;
 import com.leewyatt.rxcontrols.controls.RXMediaProgressBar;
 import com.leewyatt.rxcontrols.pojo.LrcDoc;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
+import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.exception.DdmusicException;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.utils.EncodingDetectUtil;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import animatefx.animation.FadeIn;
@@ -140,7 +143,8 @@ public class PlayerComponentController {
         initPlayerComponent();
         initProgressBar();
         initSoundPopup();
-        initMusicList();
+        // 初始化上次关闭前最后一首音乐播放，或者是最近播放，或者是本地播放的音乐
+        prepareLastPlayOrRecentlyLocalMusic();
     }
 
     /**
@@ -192,10 +196,55 @@ public class PlayerComponentController {
     }
 
     /**
-     * 初始化音乐播放列表
+     *
+     * 播放音乐的前置方法内部方法
+     * TODO  如果没有歌词需要显示暂无歌词
      */
-    private void initMusicList() {
+    public void prepareMusic(AbstractDdMusicEntity abstractDdMusicEntity, String musicUrl, String musicLrcContent) {
          // 第一步 初始化音乐播放列表
+        if (player != null) {
+            disposeMediaPlayer();
+        }
+        player = new MediaPlayer(new Media(musicUrl));
+        SystemCache.INNER_PLAYER_CACHE.put("player",player);
+        player.setVolume(soundSlider.getValue() / 100);
+        //设置歌词
+        FXMLLoader playerDetailLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAY_DETAIL_PAGE.getRouterId());
+        PlayDetailController playDetailController = playerDetailLoader.getController();
+        RXLrcView lrcView = playDetailController.lrcView;
+        // 如果有歌词
+        if (Objects.nonNull(musicLrcContent)) {
+            if (musicLrcContent.isEmpty()||musicLrcContent.isBlank()) {
+                musicLrcContent = "暂无歌词";
+            }
+            try {
+                byte[] bytes = musicLrcContent.getBytes();
+                //解析歌词
+                lrcView.setLrcDoc(LrcDoc.parseLrcDoc(new String(bytes, EncodingDetectUtil.detect(bytes))));
+                //设置歌词进度
+                lrcView.currentTimeProperty().bind(player.currentTimeProperty());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        //设置频谱可视化
+        player.setAudioSpectrumListener(audioSpectrumListener);
+        //设置进度条的总时长
+        playerProgressBar.durationProperty().bind(player.getMedia().durationProperty());
+        //播放器的进度修改监听器
+        player.currentTimeProperty().addListener(durationChangeListener);
+        // 存入缓存
+        changeMusicPlayPreNextAndCurrent(abstractDdMusicEntity);
+    }
+
+    /**
+     * 初始化音乐播放列表
+     * 当软件启动的时候，先去加载本地历史播放的音乐列表 选择一首音乐进行播放
+     * 如果没有最近播放列表，那么就从本地音乐中找一首音乐进行播放
+     * TODO 如果本地没有音乐 那么直接报错 现在为了测试，如果本地没有音乐 就读取项目里面的音乐，这个是写死的后面要改为报错
+     */
+    private void prepareLastPlayOrRecentlyLocalMusic() {
+        // 第一步 初始化音乐播放列表
         if (player != null) {
             disposeMediaPlayer();
         }
@@ -207,29 +256,49 @@ public class PlayerComponentController {
         ObservableMap<String, Object> playerDetailLoaderNamespace = playerDetailLoader.getNamespace();
         RXLrcView lrcView = (RXLrcView) playerDetailLoaderNamespace.get(InfoEnums.MUSIC_DETAIL_LRC_VIEW.getInfoContent());
         URL resource = PlayerComponentController.class.getResource("/media/jar-of-love.lrc");
-        File lrcFile = new File(resource.getPath());
-        boolean exists = lrcFile.exists();
-        if (exists) {
-            try {
-                byte[] bytes = Files.readAllBytes(lrcFile.toPath());
-                //解析歌词
-                lrcView.setLrcDoc(LrcDoc.parseLrcDoc(new String(bytes, EncodingDetectUtil.detect(bytes))));
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (Objects.nonNull(resource)) {
+            File lrcFile = new File(resource.getPath());
+            boolean exists = lrcFile.exists();
+            if (exists) {
+                try {
+                    byte[] bytes = Files.readAllBytes(lrcFile.toPath());
+                    // 解析歌词
+                    lrcView.setLrcDoc(LrcDoc.parseLrcDoc(new String(bytes, EncodingDetectUtil.detect(bytes))));
+                    // 设置歌词进度
+                    lrcView.currentTimeProperty().bind(player.currentTimeProperty());
+                    // 存储节点
+                    SystemCache.INNER_LRC_CACHE.put("playerLyric",lrcView);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            //设置频谱可视化
+            player.setAudioSpectrumListener(audioSpectrumListener);
+            //设置进度条的总时长
+            playerProgressBar.durationProperty().bind(player.getMedia().durationProperty());
+            SystemCache.INNER_MP_CACHE.put("playerProgress",playerProgressBar);
+            //播放器的进度修改监听器
+            player.currentTimeProperty().addListener(durationChangeListener);
+        }else {
+            throw new DdmusicException(DdMusicExceptionEnums.ERROR_MUSIC_FILE_PATH_NOT_EXIST);
         }
-        //设置歌词进度
-        lrcView.currentTimeProperty().bind(player.currentTimeProperty());
-        //设置频谱可视化
-        player.setAudioSpectrumListener(audioSpectrumListener);
-        //设置进度条的总时长
-        playerProgressBar.durationProperty().bind(player.getMedia().durationProperty());
-        //播放器的进度修改监听器
-        player.currentTimeProperty().addListener(durationChangeListener);
-        //如果播放完当前歌曲, 我们这里暂停播放 (1)播放器暂停 （2）ui显示
-        FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
-        MusicControlController musicControlController = musicControlLoader.getController();
-        player.setOnEndOfMedia(() -> musicControlController.startOrPausePlay(SystemCache.INNER_PLAYER_CACHE.get("player")));
+    }
+
+    /**
+     * 执行了PrepareMusic的时候，需要设置当前播放，下一首播放，上一首播放
+     */
+    private void changeMusicPlayPreNextAndCurrent(AbstractDdMusicEntity absolutelyCurrent) {
+        if (Objects.nonNull(absolutelyCurrent)) {
+            AbstractDdMusicEntity current = SystemCache.INNER_PLAY_MUSIC.get("current");
+            if (Objects.nonNull(current)) {
+                SystemCache.INNER_PLAY_MUSIC.put("pre",current);
+            }
+            // 当前音乐就是传入的将要播放的音乐
+            SystemCache.INNER_PLAY_MUSIC.put("current",absolutelyCurrent);
+            // TODO 这个功能将会在数据落库的时候去做这个数据的处理 下一首需要根据返回的列表来决定，暂时没有数据
+        }else {
+            throw new DdmusicException(DdMusicExceptionEnums.ERROR_MUSIC_OBJECT_NOT_FOUND);
+        }
     }
 
     /**
@@ -313,6 +382,7 @@ public class PlayerComponentController {
      * 初始化一个播放组件：
      * （1）由于在软件刚初始化的时候，所有的FXML文件都被装载到了系统内部，所以可以直接读取
      * （2）通过CSS-ID来选择器来选择组件
+     * TODO 后续需要修改，因为加载完毕FXML之后，会有一个FXMLLoader对象这个对象可以直接获取Controller，根据controller直接获取对象
      */
     private void initPlayerComponent(){
         FXMLLoader homePageLoader = SystemCache.PAGE_MAP.get(PageEnums.HOMEPAGE.getRouterId());

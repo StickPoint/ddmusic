@@ -1,6 +1,6 @@
 package com.stickpoint.ddmusic.page.controller;
 import java.util.Objects;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableMap;
@@ -47,6 +47,10 @@ public class MusicControlController {
 
     /**
 	 * TODO 注意我这里没有考虑使用ToggleButton：
+	 * 只负责两件事
+	 * （1）切换播放按钮样式
+	 * （2）播放或者暂停
+	 * 播放的音乐获取，歌词获取，进度等等都是播放的前置操作，前置操作交由内部组件去执行
 	 * 因为我需要直接获得按钮的实时状态等诸多属性，如果使用ToggleButton，二次封装获取属性会很复杂。
      * 鼠标点击事件：开始播放或者暂停播放音乐
      * 实现思想：首先获得当前的style，因为是region实现的图标
@@ -65,7 +69,6 @@ public class MusicControlController {
 		log.info(currentStyle);
     	// 然后紧接着获得当前系统音乐播放按钮的播放状态
     	String currentMusicPlayerStatus = (String) SystemCache.SYS_INNER_PROPERTIES.get(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent());
-    	log.info("当前系统音乐播放控制组件中，播放按钮的状态是：{}",currentMusicPlayerStatus);
 		Node playDetail = centerView.getChildren().filtered(node -> InfoEnums.ROOT_NODE_PLAY_DETAIL_CSS_ID.getInfoContent().equals(node.getId()))
 				.get(InfoEnums.INDEX_ZERO.getNumberInfo());
 		if (Objects.isNull(playDetail)) {
@@ -85,15 +88,15 @@ public class MusicControlController {
 
 			Objects.requireNonNull(playDetail).toBack();
     	}else if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent())){
-    		// 如果是暂停状态，那么就修改成播放状态
-        	SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(),
-        			InfoEnums.MUSIC_PLAY_STATUS_GOON_VALUE.getInfoContent());
-        	// 获得当前按钮的style样式之后，修改SystemCache的值，然后修改按钮样式
-        	if(currentStyle.contains(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_SVG_PATH.getInfoContent())) {
-        		currentStyle = currentStyle.replace(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_SVG_PATH.getInfoContent(),
-            			InfoEnums.MUSIC_PLAY_STATUS_GOON_SVG_PATH.getInfoContent());
-        		playerPauseOrGoon.setStyle(currentStyle);
-        	}
+			// 那么就修改成播放状态
+			SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(),
+					InfoEnums.MUSIC_PLAY_STATUS_GOON_VALUE.getInfoContent());
+			// 获得当前按钮的style样式之后，修改SystemCache的值，然后修改按钮样式
+			if(currentStyle.contains(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_SVG_PATH.getInfoContent())) {
+				currentStyle = currentStyle.replace(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_SVG_PATH.getInfoContent(),
+						InfoEnums.MUSIC_PLAY_STATUS_GOON_SVG_PATH.getInfoContent());
+				playerPauseOrGoon.setStyle(currentStyle);
+			}
 			SystemCache.INNER_PLAYER_CACHE.get("player").play();
 			Objects.requireNonNull(playDetail).toFront();
 			log.info(centerView.getChildren().toString());

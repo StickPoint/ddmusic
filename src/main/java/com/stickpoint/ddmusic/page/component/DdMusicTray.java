@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.page.component;
-import com.stickpoint.ddmusic.page.enums.AppEnums;
+import com.stickpoint.ddmusic.common.enums.AppEnums;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;

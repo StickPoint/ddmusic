@@ -8,7 +8,6 @@ import com.google.gson.reflect.TypeToken;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntityAbstract;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
-import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
 import com.stickpoint.ddmusic.common.utils.FileUtil;
 import com.stickpoint.ddmusic.common.utils.HttpUtils;
@@ -51,7 +50,7 @@ public class MyTest {
     }
     @Test
     public void testSearchMusic() {
-        IMusicService musicService = new NetEasyMusicServiceImpl();
+        NetEasyMusicServiceImpl musicService = new NetEasyMusicServiceImpl();
         RequestBaseInfoVO requestBaseInfoVO = new RequestBaseInfoVO();
         requestBaseInfoVO.setSearchKey("夜间巡航");
         List<? extends AbstractDdMusicEntity> searchMusicList = musicService.searchMusicList(requestBaseInfoVO);

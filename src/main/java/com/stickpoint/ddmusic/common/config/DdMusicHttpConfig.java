@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.common.config;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

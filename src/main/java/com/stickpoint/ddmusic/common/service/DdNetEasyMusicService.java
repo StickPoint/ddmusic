@@ -43,4 +43,11 @@ public interface DdNetEasyMusicService {
      * @return 返回一个播放地址
      */
     String getMusicPlayUrl(String musicId);
+
+    /**
+     * 获取将要播放的音乐的歌词内容
+     * @param musicId 传入一个音乐id
+     * @return 返回一个音乐歌词内容
+     */
+    String getMusicLrcContent(String musicId);
 }

@@ -1,9 +1,9 @@
 package com.stickpoint.ddmusic.page.controller;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
-import com.stickpoint.ddmusic.common.utils.HttpUtils;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -60,6 +60,11 @@ public class SearchMusicResultController {
 
     private NetEasyMusicServiceImpl netEasyMusicService;
 
+    @FXML
+    public void initialize(){
+        netEasyMusicService = new NetEasyMusicServiceImpl();
+    }
+
     /**
      * 初始化数据
      * @param listData 传入一个list集合数据
@@ -107,7 +112,19 @@ public class SearchMusicResultController {
                 // 监听播放事件
                 controller.play.setOnMouseClicked(event -> {
                     AbstractDdMusicEntity abstractDdMusicEntity = getTableView().getItems().get(getIndex());
-                    log.info(abstractDdMusicEntity.toString());
+                    log.info("当前播放的音乐对象是：{}",abstractDdMusicEntity);
+                    FXMLLoader playerComponentLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAYER_COMPONENT.getRouterId());
+                    PlayerComponentController componentController = playerComponentLoader.getController();
+                    // 先获得播放链接
+                    String musicPlayUrl = netEasyMusicService.getMusicPlayUrl(abstractDdMusicEntity.getDdId());
+                    // 再获得歌词内容
+                    String musicLrcContent = netEasyMusicService.getMusicLrcContent(abstractDdMusicEntity.getDdId());
+                    // 然后准备播放
+                    componentController.prepareMusic(abstractDdMusicEntity, musicPlayUrl, musicLrcContent);
+                    // 播放
+                    FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
+                    MusicControlController musicControlController = musicControlLoader.getController();
+                    musicControlController.startOrPausePlay();
                 });
             }
 

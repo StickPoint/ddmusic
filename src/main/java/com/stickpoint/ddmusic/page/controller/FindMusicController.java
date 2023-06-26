@@ -2,7 +2,7 @@ package com.stickpoint.ddmusic.page.controller;
 import com.leewyatt.rxcontrols.animation.carousel.AnimAround;
 import com.leewyatt.rxcontrols.controls.RXCarousel;
 import com.leewyatt.rxcontrols.pane.RXCarouselPane;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

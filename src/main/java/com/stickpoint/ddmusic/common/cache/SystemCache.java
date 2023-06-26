@@ -1,4 +1,7 @@
-package com.stickpoint.ddmusic.common.constriant;
+package com.stickpoint.ddmusic.common.cache;
+import com.leewyatt.rxcontrols.controls.RXLrcView;
+import com.leewyatt.rxcontrols.controls.RXMediaProgressBar;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.media.MediaPlayer;
@@ -58,6 +61,23 @@ public interface SystemCache {
 
     /**
      * 内置音乐播放器缓存
+     * （1）歌词组件
      */
     Map<String, MediaPlayer> INNER_PLAYER_CACHE = new ConcurrentHashMap<>(1);
+    /**
+     * 内置音乐播放器缓存
+     * （2）歌词组件
+     */
+    Map<String, RXLrcView> INNER_LRC_CACHE = new ConcurrentHashMap<>(1);
+    /**
+     * 内置音乐播放器缓存
+     * （3）进度条组件
+     */
+    Map<String, RXMediaProgressBar> INNER_MP_CACHE = new ConcurrentHashMap<>(1);
+
+    /**
+     * 上一首，当前播放，下一首
+     * 原本打算使用链表来进行存储关系，上一首下一首但是发现链表不具备持久化的特点，会干扰反射，所以直接就用map吧
+     */
+    Map<String, AbstractDdMusicEntity> INNER_PLAY_MUSIC = new ConcurrentHashMap<>(3);
 }

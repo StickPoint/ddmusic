@@ -2,11 +2,9 @@ package com.stickpoint.ddmusic.page.controller;
 
 import com.leewyatt.rxcontrols.controls.RXAudioSpectrum;
 import com.leewyatt.rxcontrols.controls.RXLrcView;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
-import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**

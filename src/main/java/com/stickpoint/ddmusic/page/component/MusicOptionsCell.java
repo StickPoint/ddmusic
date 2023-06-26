@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.page.component;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;

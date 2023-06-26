@@ -43,10 +43,15 @@ public enum DdMusicExceptionEnums {
     ERROR_PARAM_ERROR(20016, "请求参数错误[%s]"),
     ERROR_FILE_UPLOAD(20017, "文件上传失败,无法获取文件上传URL链接"),
     ERROR_FILE_UPLOAD_FILE_NAME_ERROR(20018, "文件上传成功,但文件名获取失败~"),
+    ERROR_FAILED_TO_GET_LYRIC(20019,"获取歌词失败"),
+    ERROR_MUSIC_FILE_PATH_NOT_EXIST(20020,"音乐文件不存在"),
+    ERROR_MUSIC_OBJECT_NOT_FOUND(20021,"待播放的音乐对象数据不正确！"),
+
     // 201xx 用户管理
     ERROR_TOKEN_INVALID(20101, "token异常"),
     ERROR_JWT_TOKEN_CHECK(20102, "JWT格式验证失败"),
     ERROR_LOGIN_PASSWORD_FAIL(20103, "用户名或密码错误"),
+
     // 202xx
     ERROR_ZIP_FILE_FAILED(20203, "文件打包失败"),
     ERROR_OSS_PARAM_ERROR(20207, "请求参数[%s]错误"),
@@ -54,8 +59,10 @@ public enum DdMusicExceptionEnums {
     ERROR_PHONE_FAILED(20209, "手机号格式错误，请输入正确的手机号"),
     ERROR_RESPONSE_EXCEPTION(20505, "HTTP请求失败"),
     ERROR_RESPONSE_ISNULL(20506, "HTTP请求失败返回为空"),
+
     // 关于SQL异常错误
     EXCEPTION_SQL_SELECT(20701,"SQL操作异常"),
+
     // 204xx 特殊
     ERROR_AUTHENTICATION(20401, "没有权限"),
     ERROR_IS_NOT_JSON(20017, "response结果不是json"),

@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
@@ -170,6 +170,28 @@ public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
             return finalUrl;
         }
         throw new DdmusicException(DdMusicExceptionEnums.FAILED);
+    }
+
+    /**
+     * 获取将要播放的音乐的歌词内容
+     *
+     * @param musicId 传入一个音乐id
+     * @return 返回一个音乐歌词内容
+     */
+    @Override
+    public String getMusicLrcContent(String musicId) {
+        String netEasyPrefixUrl = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.NETEASY_PREFIX.getInfoContent());
+        String getLyricUrl = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.NETEASY_GET_LRC.getInfoContent());
+        StringBuilder getLyricBuilder = getBaseUrl().append(netEasyPrefixUrl).append(getLyricUrl);
+        Map<String, Object> paramMap = new ConcurrentHashMap<>(1);
+        paramMap.put("wid",musicId);
+        String respJson = HttpUtils.doGetWithParams(getLyricBuilder.toString(), paramMap);
+        JsonElement jsonElement = JsonParser.parseString(respJson);
+        String finalLyric = jsonElement.getAsJsonObject().get("lrc").getAsJsonObject().get("lyric").getAsString();
+        if (Objects.nonNull(finalLyric)) {
+            return finalLyric;
+        }
+        throw new DdmusicException(DdMusicExceptionEnums.ERROR_FAILED_TO_GET_LYRIC);
     }
 
     private Map<String,Object> appendParam(RequestBaseInfoVO baseInfo) {

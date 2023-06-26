@@ -1,5 +1,5 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,8 @@ import java.util.Properties;
  * @PackageName com.stickpoint.ddmusic.common.utils
  */
 public class SystemPropertiesUtil extends Properties {
-    
-	
+
+
     @Serial
     private static final long serialVersionUID = -8648895737014160099L;
 

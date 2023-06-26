@@ -1,16 +1,13 @@
 package com.stickpoint.ddmusic.page.controller;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
+import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
-import com.stickpoint.ddmusic.common.service.IMusicService;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
 import com.stickpoint.ddmusic.common.thread.DdThreadPollCenter;
-import com.stickpoint.ddmusic.common.thread.ThreadUtil;
 import com.stickpoint.ddmusic.page.component.DdMusicTray;
-import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
-import com.stickpoint.ddmusic.page.enums.AppEnums;
+import com.stickpoint.ddmusic.common.enums.AppEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
@@ -21,7 +18,6 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -43,8 +39,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.function.Consumer;
 
 /**
  *
@@ -136,13 +130,13 @@ public class HomePageController {
     @SuppressWarnings("unused")
 	private MediaPlayer player;
 
-    private IMusicService musicService;
+    private NetEasyMusicServiceImpl netEasyMusicService;
 
     @FXML
     public void initialize(){
         changeMyMusicMenuBackgroundStyle();
         initSystemMenuList();
-        this.musicService = new NetEasyMusicServiceImpl();
+        this.netEasyMusicService = new NetEasyMusicServiceImpl();
         // 初始化
         initInnerComponent();
         // 初始化监听
@@ -317,7 +311,7 @@ public class HomePageController {
             RequestBaseInfoVO requestInfo = new RequestBaseInfoVO();
             requestInfo.setSearchKey(searchKey.getText());
             // 执行搜索
-            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> musicService.searchMusicList(requestInfo);
+            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> netEasyMusicService.searchMusicList(requestInfo);
             // 刷新UI
             DdThreadPollCenter.doDdMusicSearchTask(searchResultList, searchMusicResultController::initTableData);
         }
