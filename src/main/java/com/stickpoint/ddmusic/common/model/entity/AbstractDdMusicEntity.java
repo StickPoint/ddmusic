@@ -36,6 +36,10 @@ public abstract class AbstractDdMusicEntity implements Serializable {
     @TableColumnField("时长")
     private String ddTimes;
     /**
+     * 专辑封面
+     */
+    private String albumPicture;
+    /**
      * 顶点音乐乐库唯一id
      */
     private String ddId;
@@ -118,17 +122,27 @@ public abstract class AbstractDdMusicEntity implements Serializable {
         this.ddNumber = ddNumber;
     }
 
+    public String getAlbumPicture() {
+        return albumPicture;
+    }
+
+    public void setAlbumPicture(String albumPicture) {
+        this.albumPicture = albumPicture;
+    }
+
     @Override
     public String toString() {
-        return "DdMusicEntity{" +
-                "numberId='" + ddNumber + '\'' +
+        return "AbstractDdMusicEntity{" +
+                "ddNumber='" + ddNumber + '\'' +
+                ", ddTitle='" + ddTitle + '\'' +
+                ", ddArtists='" + ddArtists + '\'' +
+                ", ddAlbum='" + ddAlbum + '\'' +
+                ", ddTimes='" + ddTimes + '\'' +
+                ", albumPicture='" + albumPicture + '\'' +
                 ", ddId='" + ddId + '\'' +
                 ", status=" + status +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", ddAlbum='" + ddAlbum + '\'' +
-                ", ddArtists='" + ddArtists + '\'' +
-                ", ddTimes='" + ddTimes + '\'' +
                 '}';
     }
 }

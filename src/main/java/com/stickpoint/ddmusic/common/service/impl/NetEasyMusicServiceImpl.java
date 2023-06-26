@@ -93,8 +93,8 @@ public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
         if (Objects.nonNull(data)) {
             ps = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntityAbstract>>(){}.getType());
             List<NetEasyMusicEntityAbstract> finalPs = ps;
-            ps.forEach(item-> item.setDdNumber(String.valueOf(finalPs.indexOf(item))));
             ps.forEach(item->{
+                item.setDdNumber(String.valueOf(finalPs.indexOf(item)+1));
                 item.setDdTitle(item.getName());
                 Album al = item.getAl();
                 item.setDdAlbum(al.getName());
@@ -108,6 +108,9 @@ public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
                 item.setDdArtists(artistsNameResult);
                 item.setDdTimes(NetEasyUtil.getTimes(item.getDt()));
                 item.setDdId(String.valueOf(item.getId()));
+                if (Objects.nonNull(item.getAl())) {
+                    item.setAlbumPicture(item.getAl().getPicUrl());
+                }
             });
         }
         return ps;
