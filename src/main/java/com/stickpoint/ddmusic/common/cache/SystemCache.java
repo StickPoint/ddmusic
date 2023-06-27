@@ -46,7 +46,7 @@ public interface SystemCache {
     List<Node> CENTER_VIEW_PAGE_LIST = new ArrayList<>();
 
     /**
-     * 里面装载的是全局的中间内容展示区域的StackPane
+     * 里面装载的是全局的中间内容展示区域的StackPane-CenterView
      * 因为在不同的页面的控制器Controller中点击按钮的时候
      * 会触发这个界面的切换效果，需要使用主界面的stackPane来达到这个效果
      * 因此需要将他存在内存中，不进行二次创建，并且避免被系统回收内存

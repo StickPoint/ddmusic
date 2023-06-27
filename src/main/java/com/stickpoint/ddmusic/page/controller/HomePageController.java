@@ -58,6 +58,9 @@ public class HomePageController {
 
     @FXML
     public Pane radioCenter;
+
+    @FXML
+    public AnchorPane ddLeftPane;
     /**
      * 最小化按纽
      */

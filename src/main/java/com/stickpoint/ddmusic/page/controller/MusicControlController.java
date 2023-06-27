@@ -6,11 +6,9 @@ import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
 import javafx.scene.media.MediaPlayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,18 +24,22 @@ import org.slf4j.LoggerFactory;
 public class MusicControlController {
 
     @FXML
-    private HBox musicControl;
+	@SuppressWarnings("unused")
+	private HBox musicControl;
 
     @FXML
+	@SuppressWarnings("unused")
     private AnchorPane playControlPane;
 
     @FXML
+	@SuppressWarnings("unused")
     private Region playerLeft;
 
     @FXML
     private Region playerPauseOrGoon;
 
     @FXML
+	@SuppressWarnings("unused")
     private Region playerRight;
 
 	/**
@@ -61,19 +63,12 @@ public class MusicControlController {
      */
     @FXML
     void startOrPausePlay() {
-		// 从系统缓存节点中取出所有界面共享区域stackPane
-		StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
-    	// 首先获得当前按钮的style样式，基于此然后进行修改
-    	String currentStyle = playerPauseOrGoon.getStyle();
-    	// 当前播放器播放按钮状态
+		// 首先获得当前按钮的style样式，基于此然后进行修改
+		String currentStyle = playerPauseOrGoon.getStyle();
+		// 当前播放器播放按钮状态
 		log.info(currentStyle);
-    	// 然后紧接着获得当前系统音乐播放按钮的播放状态
-    	String currentMusicPlayerStatus = (String) SystemCache.SYS_INNER_PROPERTIES.get(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent());
-		Node playDetail = centerView.getChildren().filtered(node -> InfoEnums.ROOT_NODE_PLAY_DETAIL_CSS_ID.getInfoContent().equals(node.getId()))
-				.get(InfoEnums.INDEX_ZERO.getNumberInfo());
-		if (Objects.isNull(playDetail)) {
-			log.error("点击播放或者是暂停播放的时候，界面出现丢失情况，播放详情界面丢失不见");
-		}
+		// 然后紧接着获得当前系统音乐播放按钮的播放状态
+		String currentMusicPlayerStatus = (String) SystemCache.SYS_INNER_PROPERTIES.get(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent());
     	// 播放状态
     	if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_GOON_VALUE.getInfoContent())) {
     		// 如果是播放状态，那么就修改成暂停状态
@@ -84,9 +79,6 @@ public class MusicControlController {
         			InfoEnums.MUSIC_PLAY_STATUS_PAUSE_SVG_PATH.getInfoContent());
         	playerPauseOrGoon.setStyle(currentStyle);
         	SystemCache.INNER_PLAYER_CACHE.get("player").pause();
-			// 暂停了之后，将播放详情页面放到后台去展示
-
-			Objects.requireNonNull(playDetail).toBack();
     	}else if(currentMusicPlayerStatus.equals(InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent())){
 			// 那么就修改成播放状态
 			SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(),
@@ -98,8 +90,6 @@ public class MusicControlController {
 				playerPauseOrGoon.setStyle(currentStyle);
 			}
 			SystemCache.INNER_PLAYER_CACHE.get("player").play();
-			Objects.requireNonNull(playDetail).toFront();
-			log.info(centerView.getChildren().toString());
     	}
     	// 切换后播放器播放按钮状态
     	playerPauseOrGoon.setStyle(currentStyle);
@@ -111,6 +101,7 @@ public class MusicControlController {
 	 * 外部调用的方法
 	 * @param player 传入一个内置音乐播放器
 	 */
+	@SuppressWarnings("unused")
 	public void startOrPausePlay(MediaPlayer player){
 		if (Objects.isNull(playerPauseOrGoon)){
 			FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());

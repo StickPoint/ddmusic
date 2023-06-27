@@ -37,6 +37,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioSpectrumListener;
 import javafx.scene.media.Media;
@@ -155,6 +156,7 @@ public class PlayerComponentController {
         initSoundPopup();
         // 初始化上次关闭前最后一首音乐播放，或者是最近播放，或者是本地播放的音乐
         prepareLastPlayOrRecentlyLocalMusic();
+        initPlayerDetail();
     }
 
     /**
@@ -203,6 +205,34 @@ public class PlayerComponentController {
             e.printStackTrace();
         }
         soundPopup.getScene().setRoot(soundRoot);
+    }
+
+    /**
+     * 显示播放详情页面
+     * 监听点击歌曲头像封面的行为，如果是点击了头像，
+     * 那么来回切换播放详情页面与普通页面
+     */
+    public void initPlayerDetail(){
+        playerMusicCover.setOnMouseClicked(event -> {
+            // 从系统缓存节点中取出所有界面共享区域stackPane
+            StackPane centerView = (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
+            Node playDetail = centerView.getChildren().filtered(node -> InfoEnums.ROOT_NODE_PLAY_DETAIL_CSS_ID.getInfoContent().equals(node.getId()))
+                    .get(InfoEnums.INDEX_ZERO.getNumberInfo());
+            if (Objects.isNull(playDetail)) {
+                throw new DdmusicException(DdMusicExceptionEnums.ERROR_MUSIC_PLAY_DETAIL_NOT_FOUND);
+            }
+            FXMLLoader homepageLoader = SystemCache.PAGE_MAP.get(PageEnums.HOMEPAGE.getRouterId());
+            HomePageController homePageController = homepageLoader.getController();
+            // 暂停了之后，将播放详情页面放到后台去展示
+            int index = centerView.getChildren().indexOf(playDetail);
+            if (index==0){
+                homePageController.ddLeftPane.setVisible(false);
+                playDetail.toFront();
+            }else {
+                homePageController.ddLeftPane.setVisible(true);
+                playDetail.toBack();
+            }
+        });
     }
 
     /**

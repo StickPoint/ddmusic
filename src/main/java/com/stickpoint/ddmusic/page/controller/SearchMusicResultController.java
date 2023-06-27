@@ -18,7 +18,9 @@ import javafx.scene.layout.VBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -134,12 +136,14 @@ public class SearchMusicResultController {
             @Override
             protected void updateItem(AnchorPane item, boolean empty) {
                 super.updateItem(item, empty);
-                FXMLLoader fxmlLoader = createAnchorPane();
+                WeakReference<MusicOptionsController> weakController = new WeakReference<>(createAnchorPane());
                 if (empty || item == null) {
-                    AnchorPane anchorPane = fxmlLoader.getRoot();
-                    MusicOptionsController controller = fxmlLoader.getController();
-                    setOnListeners(controller);
-                    setGraphic(anchorPane);
+                    MusicOptionsController controller = weakController.get();
+                    if (Objects.nonNull(controller)) {
+                        AnchorPane anchorPane = controller.optionPad;
+                        setOnListeners(controller);
+                        setGraphic(anchorPane);
+                    }
                 } else {
                     setGraphic(null);
                 }
@@ -153,14 +157,16 @@ public class SearchMusicResultController {
      * 构建AnchorPane
      * @return 返回一个构建完成的AnchorPane
      */
-    private FXMLLoader createAnchorPane() {
+    private MusicOptionsController createAnchorPane() {
         try {
             FXMLLoader musicOptionsFxmlLoader = new FXMLLoader(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getPageSource());
             musicOptionsFxmlLoader.load();
-            return musicOptionsFxmlLoader;
+            WeakReference<MusicOptionsController> weakRef = new WeakReference<>(musicOptionsFxmlLoader.getController());
+            return weakRef.get();
         } catch (IOException e) {
             log.error(e.getMessage());
             throw new DdmusicException(DdMusicExceptionEnums.FAILED);
         }
     }
+
 }
