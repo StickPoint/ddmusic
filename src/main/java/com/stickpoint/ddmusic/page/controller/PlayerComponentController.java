@@ -228,9 +228,11 @@ public class PlayerComponentController {
             if (index==0){
                 homePageController.ddLeftPane.setVisible(false);
                 playDetail.toFront();
+                log.info("展示了播放详情~");
             }else {
                 homePageController.ddLeftPane.setVisible(true);
                 playDetail.toBack();
+                log.info("隐藏了播放详情~");
             }
         });
     }

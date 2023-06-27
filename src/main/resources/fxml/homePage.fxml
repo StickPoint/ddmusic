@@ -99,7 +99,7 @@
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="176.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ddLeftPane" prefHeight="500.0" prefWidth="176.0" BorderPane.alignment="CENTER">
          <children>
             <VBox id="anchorPane-vBox-leftMenu" maxHeight="520.0" prefHeight="500.0" prefWidth="200.0">
                <children>
