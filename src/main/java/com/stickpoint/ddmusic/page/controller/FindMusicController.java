@@ -48,8 +48,18 @@ public class FindMusicController {
      * 发现音乐页面根节点
      */
     public AnchorPane findMusicRootNode;
-
-    public HBox ddmusicRecommend;
+    /**
+     * 热门音乐
+     */
+    public HBox hotMusicList;
+    /**
+     * 音浪前线
+     */
+    public HBox musicWaveList;
+    /**
+     * 每日推荐
+     */
+    public HBox dailyRecommendList;
 
     @FXML
     public void initialize() throws URISyntaxException {
@@ -70,7 +80,9 @@ public class FindMusicController {
         sceneryCarousel.setCarouselAnimation(animAround);
         showFindMusic();
         // 初始化推荐歌单的列表样式
-        initDdMusicRecommendListStyle(ddmusicRecommend);
+        initDdMusicRecommendListStyle(hotMusicList);
+        initDdMusicRecommendListStyle(musicWaveList);
+        initDdMusicRecommendListStyle(dailyRecommendList);
     }
 
     /**

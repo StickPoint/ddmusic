@@ -9,6 +9,7 @@ import com.stickpoint.ddmusic.common.thread.DdThreadPollCenter;
 import com.stickpoint.ddmusic.page.component.DdMusicTray;
 import com.stickpoint.ddmusic.common.enums.AppEnums;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
+import com.stickpoint.ddmusic.page.stage.HomePageStage;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
@@ -350,7 +351,7 @@ public class HomePageController {
                 log.error(e.getMessage());
             }
             // 最后将主页面隐藏 Finally, hide the main page
-            Stage mainStage = (Stage) SystemCache.NODE_MAP.get(AppEnums.APPLICATION_MAIN_STAGE.getInfoValue());
+            Stage mainStage = HomePageStage.getInstance();
             // 不退出主程序
             Platform.setImplicitExit(false);
             // 主界面先关闭

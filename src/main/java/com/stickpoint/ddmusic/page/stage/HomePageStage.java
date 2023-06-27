@@ -1,6 +1,6 @@
 package com.stickpoint.ddmusic.page.stage;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
-import com.stickpoint.ddmusic.common.enums.AppEnums;
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +37,15 @@ public class HomePageStage extends Stage {
      */
     private static final Logger log = LoggerFactory.getLogger(HomePageStage.class);
 
+    private static HomePageStage instance = null;
+
+    public static HomePageStage getInstance() {
+        if (instance == null) {
+            instance = SingletonFactory.getWeakInstace(HomePageStage.class);
+        }
+        return instance;
+    }
+
     /**
      * Creates a new instance of decorated {@code Stage}.
      *
@@ -70,7 +79,6 @@ public class HomePageStage extends Stage {
                 this.setIconified(false);
             }
         });
-        SystemCache.NODE_MAP.put(AppEnums.APPLICATION_MAIN_STAGE.getInfoValue(),this);
    }
 
     /**

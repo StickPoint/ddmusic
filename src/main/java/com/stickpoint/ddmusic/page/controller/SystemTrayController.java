@@ -1,6 +1,7 @@
 package com.stickpoint.ddmusic.page.controller;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.AppEnums;
+import com.stickpoint.ddmusic.page.stage.HomePageStage;
 import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -35,10 +36,7 @@ public class SystemTrayController {
      * 从缓存中取出首页节点，执行首页出栈
      */
     private void initOpenOriginalPage() {
-        openOriginalPage.setOnMouseClicked(event -> {
-            Stage mainStage = (Stage) SystemCache.NODE_MAP.get(AppEnums.APPLICATION_MAIN_STAGE.getInfoValue());
-            mainStage.show();
-        });
+        openOriginalPage.setOnMouseClicked(event -> HomePageStage.getInstance().show());
     }
 
 }
