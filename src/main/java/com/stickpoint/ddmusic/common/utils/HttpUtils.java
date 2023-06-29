@@ -457,7 +457,7 @@ public class HttpUtils {
             }
         }
         log.error("待上传的文件不存在~");
-        throw new DdmusicException(DdMusicExceptionEnums.ERROR_FILE_NOT_EXSIT);
+        throw new DdmusicException(DdMusicExceptionEnums.ERROR_FILE_NOT_EXIST);
     }
 
     /**

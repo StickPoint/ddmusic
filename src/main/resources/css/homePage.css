@@ -154,6 +154,7 @@
  */
 #anchorPane-vBox-leftMenu-menu-onlineMusicContainer #menuPane-selection:hover,
 #anchorPane-vBox-leftMenu-menu-myMusicContainer #menuPane-selection:hover,
+#anchorPane-vBox-leftMenu-menu-myMusicContainer #localDownloadPane:hover,
 #anchorPane-vBox-leftMenu-menu-myMusicListContainer #menuPane-selection:hover
 {
     -fx-background-color: rgba(243, 243, 243, 0.99);

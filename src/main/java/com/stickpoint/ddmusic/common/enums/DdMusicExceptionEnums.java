@@ -31,7 +31,7 @@ public enum DdMusicExceptionEnums {
     ERROR_JSON_PARAM(20004, "json参数解析错误"),
     ERROR_OPERATION_FAILED(20005, "操作失败"),
     ERROR_FILE_PARSER(20006, "文件解析错误"),
-    ERROR_FILE_NOT_EXSIT(20007, "文件不存在"),
+    ERROR_FILE_NOT_EXIST(20007, "文件不存在"),
     ERROR_PARAM(20008, "参数错误"),
     ERROR_HTTP(20009, "HTTP通信异常"),
     ERROR_FTP(20010, "FTP异常"),

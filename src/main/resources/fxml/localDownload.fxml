@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="localDownLoadRootPane" fx:id="downloadRootPane" maxHeight="500.0" maxWidth="750.0" minHeight="500.0" minWidth="750.0" prefHeight="500.0" prefWidth="750.0" stylesheets="@../css/localDownload.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.LocalDownloadController">
+   <children>
+      <HBox prefHeight="50.0" prefWidth="750.0">
+         <children>
+            <HBox id="downloadingHBox" fx:id="downloadingHBox" alignment="CENTER" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0">
+               <HBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </HBox.margin>
+               <children>
+                  <Label text="正在下载" textFill="#ec4141" />
+               </children>
+            </HBox>
+            <HBox id="downloadingHBox" alignment="CENTER" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0">
+               <children>
+                  <Label text="下载完成" textFill="#ec4141" />
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" top="10.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox id="downloadingHBox" alignment="CENTER" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0">
+               <children>
+                  <Label text="本地音乐" textFill="#ec4141" />
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" top="10.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+      <TableView id="search-result-table" fx:id="myTable" layoutY="50.0" prefHeight="400.0" prefWidth="750.0">
+         <columns>
+            <TableColumn fx:id="ddNumber" editable="false" minWidth="0.0" prefWidth="63.0" style="-fx-alignment: center;" styleClass="first-column" text="   序号" />
+            <TableColumn fx:id="ddTitle" editable="false" prefWidth="156.0" sortable="false" text="标题" />
+            <TableColumn fx:id="ddArtists" editable="false" minWidth="0.0" prefWidth="162.0" sortable="false" text="歌手" />
+            <TableColumn fx:id="ddAlbum" editable="false" minWidth="0.0" prefWidth="145.0" sortable="false" text="文件大小" />
+            <TableColumn fx:id="ddTimes" editable="false" minWidth="0.0" prefWidth="104.0" sortable="false" text="下载时间" />
+            <TableColumn fx:id="options" editable="false" minWidth="0.0" prefWidth="125.0" sortable="false" text="下载进度" />
+         </columns>
+      </TableView>
+      <HBox alignment="CENTER_RIGHT" layoutY="450.0" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="750.0">
+         <children>
+            <Label prefHeight="19.0" prefWidth="320.0" text="当前文件下载存储位置：C:\desktop\music" textFill="#888888">
+               <HBox.margin>
+                  <Insets right="370.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Region id="fileChoose" maxHeight="20.0" maxWidth="22.0" minHeight="20.0" minWidth="22.0" prefHeight="20.0" prefWidth="22.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Region>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -46,21 +46,36 @@ import java.util.concurrent.Callable;
  * @author fntp
  */
 public class HomePageController {
-
+    /**
+     * 在线音乐-发现音乐
+     */
     @FXML
     public Pane findMusic;
-
+    /**
+     * 在线音乐-热门金曲
+     */
     @FXML
     public Pane hotMusic;
-
+    /**
+     * 在线音乐-共享中心
+     */
     @FXML
     public Pane shareCenter;
-
+    /**
+     * 在线音乐-音浪磁场
+     */
     @FXML
     public Pane radioCenter;
-
+    /**
+     * 左侧整个菜单Pane
+     */
     @FXML
     public AnchorPane ddLeftPane;
+    /**
+     * 中间Stage区域内部含有一个StackPane容器
+     */
+    @FXML
+    public AnchorPane ddCenterPane;
     /**
      * 最小化按纽
      */
@@ -79,22 +94,31 @@ public class HomePageController {
      */
     @FXML
     public TextField searchKey;
-
+    /**
+     * 中央显示容器
+     */
     @FXML
     private StackPane centerView;
-
+    /**
+     * 我的音乐-播放历史
+     */
 	@FXML
     public Pane myMusicPlayHistory;
-
+    /**
+     * 我的音乐-我的收藏
+     */
 	@FXML
     public Pane myMusicFavorite;
-
+    /**
+     * 我的音乐-下载本地
+     */
 	@FXML
-    public Pane myMusicLocalMusic;
-
+    public Pane myMusicDownloadLocal;
+    /**
+     * 我的音乐-VBox父容器
+     */
 	@FXML
     public VBox myMusicContainer;
-
     /**
      * 关闭主窗口按钮
      */
@@ -104,10 +128,14 @@ public class HomePageController {
      * 节点缓存集合
      */
     private static final List<Node> NODE_LIST = new ArrayList<>();
-
+    /**
+     * 我的音乐-用户信息HBox
+     */
 	@FXML
     public HBox userInfoContainer;
-
+    /**
+     * 我的音乐-主界面底部容器 将会外联两个单独的播放页面
+     */
 	@FXML
     public AnchorPane homePagePlayer;
 	/**
@@ -152,6 +180,11 @@ public class HomePageController {
      * 供给系统后续页面切换使用
      */
     private void initSystemMenuList() {
+        // 将加载过得下载页面先存放在centerView中
+        FXMLLoader downloadLocalLoader = SystemCache.PAGE_MAP.get(PageEnums.DOWNLOAD_LOCAL.getRouterId());
+        AnchorPane pane = downloadLocalLoader.getRoot();
+        centerView.getChildren().add(pane);
+        // 存储入缓存中
         SystemCache.CACHE_NODE.put(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent(),centerView);
     }
 
@@ -221,16 +254,37 @@ public class HomePageController {
                     });
                 });
             }
+            addOtherClickEventForMenuPane(node);
             NODE_LIST.clear ();
         }
     }
 
+    /**
+     * 更改Node的Hover时机的样式
+     * @param node node节点，传入一个待修改样式的组件对象
+     */
     private void changeBackgroundOnHoverUsingBinding(Node node) {
         node.styleProperty()
                 .bind(Bindings.when(node.hoverProperty())
                 .then("-fx-background-color: rgba(243, 243, 243, 0.99);-fx-effect: dropshadow(three-pass-box, #D9D9D9, 5.0,0,0, 0);-fx-cursor: hand;")
                         .otherwise("-fx-background-color: transparent"));
     }
+
+    /**
+     * 为特定的MenuPane设置额外的点击事件
+     * @param node 传入一个带修添加事件的组件
+     */
+    private void addOtherClickEventForMenuPane(Node node) {
+        log.info("点击了：{}",node.getId());
+        // 如果点击的是【下载本地】centerView跳转dao下载本地
+        if (AppEnums.MY_MUSIC_LOCAL_DOWNLOAD.getInfoValue().equals(node.getId())) {
+            FXMLLoader downloadLocalLoader = SystemCache.PAGE_MAP.get(PageEnums.DOWNLOAD_LOCAL.getRouterId());
+            AnchorPane pane = downloadLocalLoader.getRoot();
+            pane.toFront();
+        }
+
+    }
+
 
     /**
 	 * 关闭home主页
@@ -296,20 +350,25 @@ public class HomePageController {
         VBox rootNode = searchResultLoader.getRoot();
         // 看看当前最前面的是不是搜索结果
         Node frontNode = centerView.getChildren().get(centerView.getChildren().size() - 1);
+        // 如果是centerView中最前面的view是搜索结果
         if (frontNode.getId().equals(rootNode.getId())){
             // 如果id一致，那么说明当前搜索结果页面是在最上面，只需要刷新Data就可以了
             log.info("当前页面{}未切换，刷新Data数据！",frontNode.getId());
             flushData(searchMusicResultController);
         }else {
-            // 不一致就是表示当前搜索页面不在最上面 先切换页面 再刷新data
-            centerView.getChildren().add(rootNode);
+            // 不一致就是表示当前搜索页面不在最上面 先看看有没有这个节点
+           if (!centerView.getChildren().contains(rootNode)){
+               // 没有的话先加进去
+               centerView.getChildren().add(rootNode);
+           }
+           // 然后设置一下置顶
             rootNode.toFront();
-            // 刷新数据
+            // 最后刷新数据
             flushData(searchMusicResultController);
         }
     }
 
-    private void flushData(SearchMusicResultController searchMusicResultController){
+        private void flushData(SearchMusicResultController searchMusicResultController){
         // 获取当前搜索的字符串
         if (Objects.nonNull(searchKey.getText())) {
             RequestBaseInfoVO requestInfo = new RequestBaseInfoVO();
@@ -327,7 +386,7 @@ public class HomePageController {
     private void initInnerComponent() {
         FXMLLoader sysTrayLoader = SystemCache.PAGE_MAP.get(PageEnums.SYSTEM_TRAY.getRouterId());
         Region region = sysTrayLoader.getRoot();
-        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/min.png"));
+        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo-ddmusic.svg"));
         Platform.runLater(() -> {
             DdMusicTray myTray = new DdMusicTray(image,AppEnums.APPLICATION_NAME.getInfoValue(),region);
             SystemCache.NODE_MAP.put(AppEnums.APPLICATION_TRAY.getInfoValue(), myTray);
@@ -361,4 +420,12 @@ public class HomePageController {
             mainStage.close();
         });
     }
+
+    @FXML
+    private void showDownloadLocalPage() {
+        FXMLLoader downloadLocalLoader = SystemCache.PAGE_MAP.get(PageEnums.DOWNLOAD_LOCAL.getRouterId());
+        AnchorPane pane = downloadLocalLoader.getRoot();
+        pane.toFront();
+    }
+
 }

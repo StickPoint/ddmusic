@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootPane" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/searchMusicResult.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.SearchMusicResultController">
+<VBox fx:id="searchMusicRootPane" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/searchMusicResult.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.SearchMusicResultController">
    <children>
       <AnchorPane id="search-result-header" prefHeight="60.0" prefWidth="750.0">
          <children>

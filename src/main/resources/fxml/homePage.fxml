@@ -99,7 +99,7 @@
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane fx:id="ddLeftPane" prefHeight="500.0" prefWidth="176.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ddLeftPane" prefHeight="500.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <VBox id="anchorPane-vBox-leftMenu" maxHeight="520.0" prefHeight="500.0" prefWidth="200.0">
                <children>
@@ -169,7 +169,7 @@
                               <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
                            </children>
                         </Pane>
-                        <Pane id="menuPane-selection" fx:id="myMusicLocalMusic" prefHeight="40.0" prefWidth="200.0">
+                        <Pane id="localDownloadPane" fx:id="myMusicDownloadLocal" onMouseClicked="#showDownloadLocalPage" prefHeight="40.0" prefWidth="200.0">
                            <children>
                               <Region id="anchorPane-vBox-leftMenu-menu-region-localDownload" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
                               <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="本地下载">
@@ -235,7 +235,7 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="500.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ddCenterPane" prefHeight="500.0" prefWidth="750.0" BorderPane.alignment="CENTER">
          <children>
             <StackPane id="anchorPane-stackPane-center" fx:id="centerView" prefHeight="500.0" prefWidth="750.0" />
          </children></AnchorPane>

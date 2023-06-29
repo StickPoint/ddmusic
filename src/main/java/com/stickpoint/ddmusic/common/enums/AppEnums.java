@@ -114,6 +114,10 @@ public enum AppEnums {
      */
     APPLICATION_TRAY("tray"),
     /**
+     * 下载本地
+     */
+    MY_MUSIC_LOCAL_DOWNLOAD("localDownloadPane"),
+    /**
      * 应用名称
      */
     APPLICATION_NAME("顶点音乐"),

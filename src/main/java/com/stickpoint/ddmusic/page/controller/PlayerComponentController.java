@@ -226,11 +226,11 @@ public class PlayerComponentController {
             // 暂停了之后，将播放详情页面放到后台去展示
             int index = centerView.getChildren().indexOf(playDetail);
             if (index==0){
-                homePageController.ddLeftPane.setVisible(false);
+                homePageController.mainPage.setLeft(null);
                 playDetail.toFront();
                 log.info("展示了播放详情~");
             }else {
-                homePageController.ddLeftPane.setVisible(true);
+                homePageController.mainPage.setLeft(homePageController.ddLeftPane);
                 playDetail.toBack();
                 log.info("隐藏了播放详情~");
             }

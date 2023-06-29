@@ -2,6 +2,7 @@ package com.stickpoint.ddmusic.page.enums;
 
 import com.stickpoint.ddmusic.page.controller.AccumulatePaneController;
 import com.stickpoint.ddmusic.page.controller.FindMusicController;
+import com.stickpoint.ddmusic.page.controller.LocalDownloadController;
 import com.stickpoint.ddmusic.page.controller.MusicControlController;
 import com.stickpoint.ddmusic.page.controller.MusicOptionsController;
 import com.stickpoint.ddmusic.page.controller.PlayDetailController;
@@ -61,6 +62,10 @@ public enum PageEnums {
      */
     MUSIC_SEARCH_RESULT_OPTIONS(MusicOptionsController.class, MusicOptionsController.class.getResource("/fxml/musicOptions.fxml"),"musicOptions"),
     /**
+     * 下载本地页面
+     */
+    DOWNLOAD_LOCAL(LocalDownloadController.class,LocalDownloadController.class.getResource("/fxml/localDownload.fxml"),"localDownload"),
+    /**
      * 音量控制组件面板--控制音量
      */
     SOUND_CONTROL(SoundControlController.class,SoundControlController.class.getResource("/fxml/soundControl.fxml"),"soundControl");
@@ -96,6 +101,7 @@ public enum PageEnums {
 	 * @description:
 	 * @return Class<?>
      */
+    @SuppressWarnings("unused")
     public Class<?> getPageType() {
         return pageType;
     }

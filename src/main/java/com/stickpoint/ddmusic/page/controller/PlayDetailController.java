@@ -3,6 +3,8 @@ package com.stickpoint.ddmusic.page.controller;
 import com.leewyatt.rxcontrols.controls.RXAudioSpectrum;
 import com.leewyatt.rxcontrols.controls.RXLrcView;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.DoubleBinding;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -50,6 +52,40 @@ public class PlayDetailController {
      */
     private void initPlayDetailPage() {
         SystemCache.CENTER_VIEW_PAGE_LIST.add(playDetailRootNode);
+    }
+
+    /**
+     * 初始化的时候绑定一下子组件节点与父组件节点之间的X坐标位置关系
+     * 初始化歌词组件binding
+     */
+    @SuppressWarnings("unused")
+    public  void initPlayLrcLayoutBindings() {
+        DoubleBinding layoutBinding = Bindings.createDoubleBinding(() -> {
+            double parentWidth = playDetailRootNode.getWidth();
+            // 计算子节点的布局X坐标
+            double childX = lrcView.getLayoutX();
+            // 获取子节点的宽度
+            double childWidth = lrcView.getWidth();
+            return childX + (parentWidth - childWidth);
+        }, playDetailRootNode.widthProperty());
+        lrcView.layoutXProperty().bind(layoutBinding);
+    }
+
+    /**
+     * 初始化的时候绑定一下子组件节点与父组件节点之间的X坐标位置关系
+     * 初始化频谱组件binding
+     */
+    @SuppressWarnings("unused")
+    public void initPlaySpectrumLayoutBindings() {
+        DoubleBinding layoutBinding = Bindings.createDoubleBinding(() -> {
+            double parentWidth = playDetailRootNode.getWidth();
+            // 计算子节点的布局X坐标
+            double childX = audioSpectrum.getLayoutX();
+            // 获取子节点的宽度
+            double childWidth = audioSpectrum.getWidth();
+            return childX + (parentWidth - childWidth);
+        }, playDetailRootNode.widthProperty());
+        audioSpectrum.layoutXProperty().bind(layoutBinding);
     }
 
 }

@@ -281,17 +281,4 @@ public enum InfoEnums {
 
     public Integer getNumberInfo(){ return infoNumber; }
 
-    /**
-     * 根据状态码获取信息
-     * @param infoContent 内容
-     * @return 信息
-     */
-    public static String getContentByInfo(String infoContent) {
-        for (InfoEnums infoEnums : InfoEnums.values()) {
-            if (infoEnums.getInfoContent().equals(infoContent)) {
-                return infoEnums.getInfoContent();
-            }
-        }
-        return null;
-    }
 }
