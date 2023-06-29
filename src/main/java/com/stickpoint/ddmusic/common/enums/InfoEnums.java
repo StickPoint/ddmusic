@@ -130,15 +130,24 @@ public enum InfoEnums {
      */
     ROOT_NODE_PLAY_DETAIL_CSS_ID("playDetail"),
     /**
-     *
+     * 播放详情页面根节点fxId
      */
     ROOT_NODE_PLAY_DETAIL_FX_ID("playDetailRootNode"),
     /**
      * 通用下标枚举 0
      */
     INDEX_ZERO(0),
+    /**
+     * 通用数字枚举 5
+     */
     COMMON_NUMBER_5(5),
+    /**
+     * 通用数字枚举 10
+     */
     COMMON_NUMBER_10(10),
+    /**
+     * 通用数字枚举 200
+     */
     COMMON_NUMBER_200(200),
     /**
      * 音乐播放器远程服务状态

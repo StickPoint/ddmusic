@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="findMusic" fx:id="findMusicRootNode" prefHeight="859.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/ddmusic-findMusic.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.FindMusicController">
+<AnchorPane id="findMusicPane" fx:id="findMusicRootNode" prefHeight="859.0" prefWidth="750.0" style="-fx-background-color: white;" stylesheets="@../css/ddmusic-findMusic.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.FindMusicController">
    <children>
       <AnchorPane fx:id="centerPane" layoutY="12.0" prefHeight="210.0" prefWidth="750.0" style="-fx-background-insets: 0; -fx-background-color: transparent;">
          <children>

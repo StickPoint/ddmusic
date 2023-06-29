@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="localDownLoadRootPane" fx:id="downloadRootPane" maxHeight="500.0" maxWidth="750.0" minHeight="500.0" minWidth="750.0" prefHeight="500.0" prefWidth="750.0" stylesheets="@../css/localDownload.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.LocalDownloadController">
+<AnchorPane id="localDownloadPane" fx:id="localDownloadPane" maxHeight="500.0" maxWidth="750.0" minHeight="500.0" minWidth="750.0" prefHeight="500.0" prefWidth="750.0" stylesheets="@../css/localDownload.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.LocalDownloadController">
    <children>
       <HBox prefHeight="50.0" prefWidth="750.0">
          <children>
@@ -21,7 +21,7 @@
                   <Label text="正在下载" textFill="#ec4141" />
                </children>
             </HBox>
-            <HBox id="downloadingHBox" alignment="CENTER" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0">
+            <HBox id="downloadingHBox" fx:id="downloadFinished" alignment="CENTER" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0">
                <children>
                   <Label text="下载完成" textFill="#ec4141" />
                </children>

@@ -20,8 +20,8 @@ import java.net.URISyntaxException;
 import java.util.Objects;
 
 /**
- * @BelongsProject: mydemo
- * @BelongsPackage: com.sinsy.mydemo
+ * @BelongsProject: ddmusic
+ * @BelongsPackage: com.sinsy.ddmusic
  * @Author: fntp
  * @CreateTime: 2022-10-20  21:15
  * @Description:
@@ -78,18 +78,20 @@ public class FindMusicController {
         paneList.add(rxCarouselPane4);
         AnimAround animAround = new AnimAround(true);
         sceneryCarousel.setCarouselAnimation(animAround);
-        showFindMusic();
         // 初始化推荐歌单的列表样式
         initDdMusicRecommendListStyle(hotMusicList);
         initDdMusicRecommendListStyle(musicWaveList);
         initDdMusicRecommendListStyle(dailyRecommendList);
+        // 初始化的时候放在childList里面
+        initFindMusicPageInToChildList();
     }
 
     /**
      * 初始化让发现音乐在最前面
      */
-    private void showFindMusic(){
+    private void initFindMusicPageInToChildList(){
         ScrollPane finaMusicMenu = ScrollPaneComponent.createCommonScrollPaneRoot(findMusicRootNode);
+        // 只有发现音乐会在初始化的时候默认显示 其他的view都是直接添加到centerView
         finaMusicMenu.toFront();
         SystemCache.CENTER_VIEW_PAGE_LIST.add(finaMusicMenu);
     }
