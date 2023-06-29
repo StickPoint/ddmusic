@@ -221,6 +221,10 @@ public enum InfoEnums {
      */
     API_FINAL_REQUEST_BASE_URL("app.finalRequestBaseUrl"),
     /**
+     * ddmusic初始化推荐音乐歌单列表内容
+     */
+    APP_MUSIC_RECOMMEND_LIST_DAILY("app.music.recommendList.daily"),
+    /**
      * 音乐状态 被比较的值 是一个常量枚举
      */
     APP_PROPERTIES_STATUS_OK_INT(200),

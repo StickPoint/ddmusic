@@ -62,5 +62,7 @@ public class DdMusicHttpConfig implements DdmusicSpiMonitor {
         }
         // TODO 当没有远程提供的音乐请求基础地址的时候，需要对用户进行告知，比如服务器维护中，诸如此类
         log.info("远程核心系统配置加载完毕");
+        String jsonResp = (String)SystemCache.APP_PROPERTIES.get(InfoEnums.APP_MUSIC_RECOMMEND_LIST_DAILY.getInfoContent());
+        log.info(jsonResp);
     }
 }
