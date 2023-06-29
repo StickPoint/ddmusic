@@ -1,0 +1,41 @@
+.rx-carousel{
+    -fx-background-color: white;
+    -fx-border-width: 0;
+}
+
+.rx-carousel .root-pane{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.rx-carousel .nav-pane .nav-bar .nav-button {
+    -fx-background-color: rgb(192, 192, 192);
+    -fx-cursor: hand;
+    -fx-pref-width: 5;
+    -fx-min-width: 5;
+    -fx-pref-height: 2;
+    -fx-min-height: 2;
+    -fx-background-radius: 2;
+}
+
+.rx-carousel .nav-pane .nav-bar .nav-button:hover {
+    -fx-background-color: rgb(255, 0, 0);
+}
+
+.rx-carousel .nav-pane .nav-bar .nav-button:selected {
+    /*-fx-background-color: rgb(255, 147, 147);*/
+    -fx-background-color: rgb(255, 0, 0);
+    -fx-pref-height: 5;
+    -fx-min-height: 5;
+}
+
+.rx-carousel .root-pane .carousel-subscene,
+.rx-carousel .root-pane .effect-pane {
+    -fx-border-radius: 20;
+}
+
+/*
+ * 设置滚动滑动容器
+ * 2022-11-13 由于设置了全局通用的scrollPane-common样式
+ * 此样式暂时去掉
+*/

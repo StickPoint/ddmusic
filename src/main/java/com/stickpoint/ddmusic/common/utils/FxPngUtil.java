@@ -1,8 +1,10 @@
 package com.stickpoint.ddmusic.common.utils;
-import com.stickpoint.ddmusic.common.constriant.SystemCache;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelFormat;
 import javafx.scene.image.PixelReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,8 +12,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.zip.CRC32;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
@@ -121,7 +121,7 @@ public class FxPngUtil extends Object {
     /** The compression level. */
     protected int compressionLevel;
 
-    private static final Logger LOGGER = SystemCache.logger;
+    private static final Logger log = LoggerFactory.getLogger(FxPngUtil.class);
 
     /**
      * Class constructor specifying Image to encode, and whether to encode alpha.
@@ -502,7 +502,7 @@ public class FxPngUtil extends Object {
             return true;
         }
         catch (IOException e) {
-            LOGGER.log(Level.WARNING,e.getMessage().concat("png图片处理失败！"));
+            log.info("png图片处理失败！",e);
             return false;
         }
     }

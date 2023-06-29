@@ -1,0 +1,36 @@
+
+[	java:S112j"FDefine and throw a dedicated exception instead of using a generic one.(Ï¡œ´
+a	java:S112İ"FDefine and throw a dedicated exception instead of using a generic one.(øÜ’ñüÿÿÿÿ
+h	java:S112À"FDefine and throw a dedicated exception instead of using a generic one.(ÙÈÚıÿÿÿÿ8«‚•õÈ0
+F
+java:S3740"/Provide the parametrized type for this generic.(«ª½à
+M
+java:S3740‡"/Provide the parametrized type for this generic.(«ª½à8€¯‚õÈ0
+R
+java:S3740“"/Provide the parametrized type for this generic.(äªØ¥øÿÿÿÿ8íŸƒõÈ0
+K
+java:S3740İ"/Provide the parametrized type for this generic.(šúÛñøÿÿÿÿ
+M
+java:S3740Á"/Provide the parametrized type for this generic.(‡Şóö8ç¥õÈ0
+R
+java:S3740Â"/Provide the parametrized type for this generic.(Ö†ıÒùÿÿÿÿ8ãåõÈ0
+K
+java:S3740Ä"/Provide the parametrized type for this generic.(×ÃÀ˜øÿÿÿÿ
+K
+java:S3740Æ"/Provide the parametrized type for this generic.(¥ßÏûÿÿÿÿ
+F
+java:S3740Ğ"/Provide the parametrized type for this generic.(Ãèñã
+F
+java:S3740Ò"/Provide the parametrized type for this generic.(Œ€›ã
+t
+java:S1192ÿ"XDefine a constant instead of duplicating this literal "keyæˆ–valueä¸å¯ä¸ºç©º" 4 times.(Â½§°ùÿÿÿÿ
+N
+java:S2589…"7Remove this expression which always evaluates to "true"(™·Íó
+v
+java:S1149Ã"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(í…Ò‰
+R
+java:S1117n"7Rename "url" which hides the field declared at line 48.(ò¡‘Êúÿÿÿÿ
+V
+java:S6213ò":Rename this variable to not match a restricted identifier.(¦Â‹Åûÿÿÿÿ
+M
+java:S1144c"2Remove this unused private "getConnection" method.(‰á¸ùÿÿÿÿ

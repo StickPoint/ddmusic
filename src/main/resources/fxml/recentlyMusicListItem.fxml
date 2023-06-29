@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="40.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.component.RecentlyMusicListItem">
+   <children>
+      <HBox prefHeight="40.0" prefWidth="320.0">
+         <children>
+            <ImageView fx:id="playing" fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="13.0" top="15.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../img/wave.gif" />
+               </image>
+            </ImageView>
+            <Label fx:id="musicName" prefHeight="19.0" prefWidth="113.0" text="Jar Of Love">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="singer" prefHeight="19.0" prefWidth="81.0" text="曲婉婷">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="15.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Pane fx:id="optionBtnPane" onMouseEntered="#showOptionBtn" onMouseExited="#showMusicTime" prefHeight="40.0" prefWidth="72.0">
+               <children>
+                  <Region fx:id="deleteMusic" layoutX="29.0" layoutY="13.0" prefHeight="15.0" prefWidth="15.0" style="-fx-shape: &quot;M840 288H688v-56c0-40-32-72-72-72h-208C368 160 336 192 336 232V288h-152c-12.8 0-24 11.2-24 24s11.2 24 24 24h656c12.8 0 24-11.2 24-24s-11.2-24-24-24zM384 288v-56c0-12.8 11.2-24 24-24h208c12.8 0 24 11.2 24 24V288H384zM758.4 384c-12.8 0-24 11.2-24 24v363.2c0 24-19.2 44.8-44.8 44.8H332.8c-24 0-44.8-19.2-44.8-44.8V408c0-12.8-11.2-24-24-24s-24 11.2-24 24v363.2c0 51.2 41.6 92.8 92.8 92.8h358.4c51.2 0 92.8-41.6 92.8-92.8V408c-1.6-12.8-12.8-24-25.6-24zM444.8 744v-336c0-12.8-11.2-24-24-24s-24 11.2-24 24v336c0 12.8 11.2 24 24 24s24-11.2 24-24zM627.2 744v-336c0-12.8-11.2-24-24-24s-24 11.2-24 24v336c0 12.8 11.2 24 24 24s24-11.2 24-24z&quot;; -fx-background-color: gray;" />
+                  <Region fx:id="favMusic" layoutX="50.0" layoutY="13.0" prefHeight="16.0" prefWidth="16.0" style="-fx-shape: &quot;M508.771 62.025c-248.377 0-449.727 201.353-449.727 449.73s201.349 449.729 449.727 449.729c248.379 0 449.729-201.351 449.729-449.729S757.151 62.025 508.771 62.025z m0 860.35c-226.781 0-410.622-183.841-410.622-410.62 0-226.78 183.841-410.622 410.622-410.622s410.622 183.841 410.622 410.622c0 226.779-183.841 410.62-410.622 410.62z m269.888-508.647H587.546l-59.128-181.671a19.536 19.536 0 0 0-18.589-13.498h-0.086a19.553 19.553 0 0 0-18.56 13.652l-57.372 181.516H243.767a19.552 19.552 0 0 0-18.636 13.635 19.552 19.552 0 0 0 7.37 21.902l147.71 104.167-54.802 179.799a19.55 19.55 0 0 0 7.121 21.46c6.703 4.949 15.774 5.1 22.61 0.383l155.92-106.512 151.406 106.38a19.52 19.52 0 0 0 11.237 3.553c4.104 0 8.209-1.3 11.668-3.86a19.56 19.56 0 0 0 6.893-21.843l-58.011-174.894 155.594-108.576a19.567 19.567 0 0 0 7.469-21.902 19.566 19.566 0 0 0-18.657-13.691zM599.911 534.163c-7.094 4.965-10.093 13.975-7.372 22.187l43.966 132.56-114.055-80.143a19.48 19.48 0 0 0-22.263-0.135L379.046 691.39l42.697-140.079a19.567 19.567 0 0 0-7.436-21.695l-108.881-76.78h142.716c8.527 0 16.079-5.538 18.646-13.652l43.319-137.046 44.654 137.198a19.536 19.536 0 0 0 18.589 13.5h143.117l-116.556 81.327z&quot;; -fx-background-color: gray;" />
+                  <Region fx:id="shareMusic" layoutX="6.0" layoutY="13.0" prefHeight="15.0" prefWidth="15.0" style="-fx-shape: &quot;M853.333333 533.333333a32 32 0 0 1 64 0v266.666667c0 64.8-52.533333 117.333333-117.333333 117.333333H224c-64.8 0-117.333333-52.533333-117.333333-117.333333V256c0-64.8 52.533333-117.333333 117.333333-117.333333h277.333333a32 32 0 0 1 0 64H224a53.333333 53.333333 0 0 0-53.333333 53.333333v544a53.333333 53.333333 0 0 0 53.333333 53.333333h576a53.333333 53.333333 0 0 0 53.333333-53.333333V533.333333z m-42.058666-277.333333l-89.792-95.402667a32 32 0 0 1 46.613333-43.861333l140.544 149.333333C927.861333 286.485333 913.376 320 885.333333 320H724.704C643.029333 320 576 391.210667 576 480v192a32 32 0 1 1-64 0V480c0-123.296 94.784-224 212.704-224h86.570667z&quot;; -fx-background-color: gray;" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

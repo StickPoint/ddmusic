@@ -9,6 +9,18 @@ package com.stickpoint.ddmusic.common.enums;
  */
 public enum InfoEnums {
     /**
+     * search任务线程池名称
+     */
+    THREAD_POLL_NAME_SEARCH("searchThreadPoll"),
+    /**
+     * download任务线程池名称
+     */
+    THREAD_POLL_NAME_DOWNLOAD("downloadThreadPoll"),
+    /**
+     * other任务线程池名称
+     */
+    THREAD_POLL_NAME_OTHER("otherThreadPoll"),
+    /**
      * 左边菜单栏-菜单-不可按-名字标签：leftTabMenu
      */
     LEFT_TAB_MENU("leftTabMenu"),
@@ -24,6 +36,14 @@ public enum InfoEnums {
      * 配置文件地址头
      */
     FILE_PATH_HEADER("http"),
+    /**
+     * 文件上传地址
+     */
+    FILE_UPLOAD_URL("uploadUrl"),
+    /**
+     * Http请求前缀
+     */
+    HTTP_REQUEST_PROTOCOL("http://"),
     /**
      * app系统配置版本
      */
@@ -53,7 +73,7 @@ public enum InfoEnums {
      */
     MUSIC_CONTROL_FX_ID("musicControl"),
     /**
-     * HomePage主页：centerView 中心展示区域
+     * HomePage主页：centerView 中心展示区域 JavaFX-ID
      */
     HOME_PAGE_CENTER_VIEW_FX_ID("centerView"),
     /**
@@ -100,13 +120,140 @@ public enum InfoEnums {
      * 内置音乐播放器ID
      */
     MUSIC_INNER_PLAYER_ID("ddmusic:inner:component:player"),
-
+    /**
+     * 发现音乐主页
+     * TODO 这里需要注意，如果修改了发现音乐页面的根节点的id，这里就是需要修改的
+     */
+    FIND_MUSIC_SCROLL_PANE_CSS_ID("findMusic"),
+    /**
+     * 根节点 播放详情
+     */
+    ROOT_NODE_PLAY_DETAIL_CSS_ID("playDetail"),
+    /**
+     *
+     */
+    ROOT_NODE_PLAY_DETAIL_FX_ID("playDetailRootNode"),
+    /**
+     * 通用下标枚举 0
+     */
+    INDEX_ZERO(0),
+    COMMON_NUMBER_5(5),
+    COMMON_NUMBER_10(10),
+    COMMON_NUMBER_200(200),
+    /**
+     * 音乐播放器远程服务状态
+     */
+    APP_NETWORK_STATUS_OK(200),
+    /**
+     * 应用软件通用的分隔符号
+     */
+    APP_PROPERTIES_COMMON_SYMBOL_SPLIT(","),
+    /**
+     * 网易云请求前缀
+     */
+    API_NET_EASY_URL_PREFIX("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
+    /**
+     * 网易云歌曲歌词-基础地址
+     */
+    API_NET_EASY_URL_GET_LYRIC("api.sourceList.wpMusicApi.platform.neteasy.getLyric"),
+    /**
+     * 顶点音乐请求的一级baseUrl
+     */
+    API_DDMUSIC_SOURCE_LIST_WP_MUSIC_HOST("api.sourceList.wpMusicApi.host"),
+    /**
+     * 顶点音乐请求的二级baseUrl
+     * api.sourceList.wpMusicApi.prefix
+     */
+    API_DDMUSIC_SOURCE_LIST_WP_MUSIC_PREFIX("api.sourceList.wpMusicApi.prefix"),
+    /**
+     * WP_Music基础服务请求-网易云音乐基础前缀地址
+     * api.sourceList.wpMusicApi.platform.neteasy.prefix
+     */
+    NETEASY_PREFIX("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
+    /**
+     * WP_Music基础服务请求-网易云搜索音乐接口地址
+     * api.sourceList.wpMusicApi.platform.neteasy.getSearch
+     */
+    NETEASY_GET_SEARCH("api.sourceList.wpMusicApi.platform.neteasy.getSearch"),
+    /**
+     * WP_Music基础服务请求-网易云音乐获取播放地址接口
+     * api.sourceList.wpMusicApi.platform.neteasy.song
+     */
+    NETEASY_GET_SONG("api.sourceList.wpMusicApi.platform.neteasy.getSong"),
+    /**
+     * WP_Music基础服务请求-网易云音乐获取播放地址接口
+     * api.sourceList.wpMusicApi.platform.neteasy.getLyric
+     */
+    NETEASY_GET_LRC("api.sourceList.wpMusicApi.platform.neteasy.getLyric"),
+    /**
+     * WP_Music基础服务请求-网易云每日推荐音乐接口地址
+     * api.sourceList.wpMusicApi.platform.neteasy.getRecommend
+     */
+    NETEASY_GET_RECOMMEND("api.sourceList.wpMusicApi.platform.neteasy.getRecommend"),
+    /**
+     * WP_Music基础服务请求端口
+     * api.sourceList.wpMusicApi.por
+     */
+    API_DDMUSIC_BASE_WP_MUSIC_PORT("api.sourceList.wpMusicApi.port"),
+    /**
+     * WP_Music基础服务请求前缀
+     */
+    API_DDMUSIC_BASE_WP_MUSIC_PREFIX("api.sourceList.wpMusicApi.prefix"),
+    /**
+     * myFreeMusic服务状态
+     */
+    API_DDMUSIC_MY_FREE_MUSIC_STATUS("api.sourceList.myFreeMusic.status"),
+    /**
+     * WP_MUSIC服务状态
+     */
+    API_DDMUSIC_WP_MUSIC_STATUS("api.sourceList.wpMusicApi.status"),
+    /**
+     * ddmusic初始化spi机制加载之后默认的base地址，默认以这个为基准
+     */
+    API_FINAL_REQUEST_BASE_URL("app.finalRequestBaseUrl"),
+    /**
+     * 音乐状态 被比较的值 是一个常量枚举
+     */
+    APP_PROPERTIES_STATUS_OK_INT(200),
+    /**
+     * 音乐平台 网易云
+     */
+    APP_PLATFORM_NAME_NET_EASY("netEasy"),
+    /**
+     * 音乐平台 酷我
+     */
+    APP_PLATFORM_NAME_KU_WO("kuwo"),
+    /**
+     * 音乐平台 酷狗
+     */
+    APP_PLATFORM_NAME_KU_GOU("kugou"),
+    /**
+     * 音乐平台 咪咕
+     */
+    APP_PLATFORM_NAME_MI_GU("migu"),
+    /**
+     * 音乐平台 企鹅
+     */
+    APP_PLATFORM_NAME_QQ("qq"),
+    /**
+     * 网易云音乐资源篇平台前缀
+     */
+    API_DDMUSIC_BASE_WP_MUSIC_PLATFORM_NET_EASY("api.sourceList.wpMusicApi.platform.neteasy.prefix"),
+    /**
+     * 应用配置
+     */
+    APP_PROPERTIES_LOCAL_NAME("applicationProperties"),
+    /**
+     * 最近播放列表容器Pane的JavaFX-ID
+     */
     RECENTLY_PLAYLIST_PANE_FX_ID("recentlyPlayListPane");
-	
+
     /**
      * 提示信息
      */
     private final String infoContent;
+
+    private final Integer infoNumber;
 
     /**
      * 构造方法
@@ -114,10 +261,16 @@ public enum InfoEnums {
      */
     InfoEnums(String infoContent) {
         this.infoContent = infoContent;
+        this.infoNumber = null;
     }
-    
+
+    InfoEnums(Integer infoNumber) {
+        this.infoContent = null;
+        this.infoNumber = infoNumber;
+    }
+
 	/**
-	 * 
+	 *
 	 * @title: getInfoContent 方法名getInfoContent
 	 * @description: 返回枚举信息的message
 	 * @return String 返回当前枚举的message信息
@@ -125,4 +278,7 @@ public enum InfoEnums {
     public String getInfoContent() {
         return infoContent;
     }
+
+    public Integer getNumberInfo(){ return infoNumber; }
+
 }

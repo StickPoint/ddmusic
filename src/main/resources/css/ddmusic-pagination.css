@@ -1,0 +1,33 @@
+
+.ddmusic-pagination > .container, .ddmusic-pagination > .container > .pager-box{
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+}
+.ddmusic-pagination > .container .pagination-label{
+    -fx-background-insets: 0;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-background-color:rgb(240, 242, 245);
+    -fx-pref-height: 32px;
+    -fx-min-width: 32px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #303133;
+    -fx-padding: 0 4px;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+}
+.ddmusic-pagination > .container .pagination-label > .ikonli-font-icon{
+    -fx-icon-size: 14px;
+    -fx-icon-color: #303133;
+}
+.ddmusic-pagination > .container .pagination-label:hover{
+    -fx-text-fill:  #D7000F;
+}
+.ddmusic-pagination > .container .pagination-label:hover > .ikonli-font-icon{
+    -fx-icon-color:  #D7000F;
+}
+.ddmusic-pagination > .container .pagination-label:active{
+    -fx-text-fill: rgb(255,255,255);
+    -fx-background-color:  #D7000F;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+
+<AnchorPane fx:id="optionPad" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/musicOptions.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.MusicOptionsController">
+   <children>
+      <HBox prefHeight="40.0" prefWidth="100.0" spacing="8.0">
+         <children>
+            <Region id="download" fx:id="download" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" prefHeight="15.0" prefWidth="15.0">
+               <HBox.margin>
+                  <Insets left="8.0" top="10.0" />
+               </HBox.margin>
+            </Region>
+            <Region id="play" fx:id="play" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" prefHeight="15.0" prefWidth="15.0">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Region>
+            <Region id="favorite" fx:id="favorite" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" prefHeight="15.0" prefWidth="15.0">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Region>
+            <Region id="addToList" fx:id="addToList" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" prefHeight="15.0" prefWidth="15.0">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Region>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

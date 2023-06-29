@@ -1,5 +1,4 @@
 package com.stickpoint.ddmusic.common.utils;
-import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -50,7 +49,7 @@ public class CaptchaCodeUtil {
     /**
      * 生成随机验证码
      */
-    protected static Node createRandomCaptchaImage(){
+    protected static Canvas createRandomCaptchaImage(){
         Canvas canvas = new Canvas(120,40);
         captchaCodeValue = new StringBuilder();
         // 获得2d绘制图形环境

@@ -1,0 +1,270 @@
+13:51:15.561 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+13:51:15.564 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+13:51:15.564 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+13:51:15.564 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+13:51:17.743 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+13:51:17.744 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+13:51:17.746 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+13:51:19.660 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+13:51:19.676 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+13:51:25.466 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:51:25.967 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:51:27.427 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:51:39.338 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:51:39.806 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:51:50.687 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:06.956 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:07.402 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:07.690 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:07.934 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:07.995 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:08.157 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:08.234 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:08.366 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:08.470 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:09.197 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:09.259 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:09.409 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:09.477 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:09.989 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:10.110 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:10.205 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:10.257 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:10.646 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:10.706 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:10.854 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:10.930 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:11.034 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:11.140 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:11.233 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:11.915 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:12.035 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:12.176 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:12.295 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:12.380 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:12.524 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:12.640 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:12.788 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:14.044 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:22.938 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:23.595 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:52:24.909 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：ALWAYS
+13:52:55.746 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+13:52:55.748 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+13:52:55.748 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+13:52:55.748 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+13:52:57.391 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+13:52:57.391 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+13:52:57.392 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+13:52:59.475 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+13:52:59.492 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+13:53:01.120 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:53:06.437 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:53:06.502 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:53:06.684 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:53:07.770 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:53:33.485 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:26.003 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+13:55:26.005 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+13:55:26.005 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+13:55:26.005 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+13:55:27.880 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+13:55:27.881 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+13:55:27.882 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+13:55:29.941 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+13:55:29.950 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+13:55:33.294 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:37.329 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:38.177 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:47.265 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:47.390 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:48.061 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:48.713 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:55:48.805 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:19.452 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:19.460 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:19.645 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:19.697 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:19.913 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:20.005 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:20.597 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:56:34.389 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:57:47.717 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:57:49.069 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:57:53.984 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:57:54.367 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:57:55.388 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:58:20.926 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:59:08.689 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:59:09.003 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:59:10.115 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:59:10.132 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:59:29.491 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+13:59:29.493 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:41.987 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:49.793 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:52.458 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:53.575 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:53.699 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:56.980 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:58.253 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:58.492 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:11:59.355 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - -fx-shape: "M692.224 495.616 692.224 495.616 692.224 495.616c-4.096-4.096-4.096-4.096-4.096-4.096l-258.048-147.456 0 0c-4.096-4.096-8.192-4.096-12.288-4.096-12.288 0-20.48 8.192-20.48 20.48l0 303.104c0 12.288 8.192 20.48 20.48 20.48 4.096 0 8.192 0 12.288-4.096l0 0 258.048-147.456c0 0 0 0 0 0l4.096 0 0 0c4.096-4.096 8.192-8.192 8.192-16.384S696.32 499.712 692.224 495.616zM438.272 630.784 438.272 393.216l208.896 118.784L438.272 630.784zM512 98.304C282.624 98.304 98.304 282.624 98.304 512s184.32 413.696 413.696 413.696c229.376 0 413.696-184.32 413.696-413.696S741.376 98.304 512 98.304zM512 888.832c-208.896 0-376.832-167.936-376.832-376.832 0-208.896 167.936-376.832 376.832-376.832 208.896 0 376.832 167.936 376.832 376.832C888.832 720.896 720.896 888.832 512 888.832z"; -fx-background-color: gray;
+16:11:59.355 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 当前系统音乐播放控制组件中，播放按钮的状态是：music:player:status:pause
+16:11:59.402 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - [ScrollPane[id=findMusic, styleClass=scroll-pane], AnchorPane[id=playDetail]]
+16:11:59.402 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 音乐播放组件的播放按钮点击后的最终样式是：-fx-shape: "M512 1024C228.266667 1024 0 795.733333 0 512S228.266667 0 512 0s512 228.266667 512 512-228.266667 512-512 512z m0-42.666667c260.266667 0 469.333333-209.066667 469.333333-469.333333S772.266667 42.666667 512 42.666667 42.666667 251.733333 42.666667 512s209.066667 469.333333 469.333333 469.333333z m-106.666667-682.666666c12.8 0 21.333333 8.533333 21.333334 21.333333v384c0 12.8-8.533333 21.333333-21.333334 21.333333s-21.333333-8.533333-21.333333-21.333333V320c0-12.8 8.533333-21.333333 21.333333-21.333333z m213.333334 0c12.8 0 21.333333 8.533333 21.333333 21.333333v384c0 12.8-8.533333 21.333333-21.333333 21.333333s-21.333333-8.533333-21.333334-21.333333V320c0-12.8 8.533333-21.333333 21.333334-21.333333z"; -fx-background-color: gray;
+16:12:50.809 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - -fx-shape: "M512 1024C228.266667 1024 0 795.733333 0 512S228.266667 0 512 0s512 228.266667 512 512-228.266667 512-512 512z m0-42.666667c260.266667 0 469.333333-209.066667 469.333333-469.333333S772.266667 42.666667 512 42.666667 42.666667 251.733333 42.666667 512s209.066667 469.333333 469.333333 469.333333z m-106.666667-682.666666c12.8 0 21.333333 8.533333 21.333334 21.333333v384c0 12.8-8.533333 21.333333-21.333334 21.333333s-21.333333-8.533333-21.333333-21.333333V320c0-12.8 8.533333-21.333333 21.333333-21.333333z m213.333334 0c12.8 0 21.333333 8.533333 21.333333 21.333333v384c0 12.8-8.533333 21.333333-21.333333 21.333333s-21.333333-8.533333-21.333334-21.333333V320c0-12.8 8.533333-21.333333 21.333334-21.333333z"; -fx-background-color: gray;
+16:12:50.810 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 当前系统音乐播放控制组件中，播放按钮的状态是：music:player:status:goon
+16:12:50.810 [JavaFX Application Thread] INFO  c.s.d.p.c.MusicControlController - 音乐播放组件的播放按钮点击后的最终样式是：-fx-shape: "M692.224 495.616 692.224 495.616 692.224 495.616c-4.096-4.096-4.096-4.096-4.096-4.096l-258.048-147.456 0 0c-4.096-4.096-8.192-4.096-12.288-4.096-12.288 0-20.48 8.192-20.48 20.48l0 303.104c0 12.288 8.192 20.48 20.48 20.48 4.096 0 8.192 0 12.288-4.096l0 0 258.048-147.456c0 0 0 0 0 0l4.096 0 0 0c4.096-4.096 8.192-8.192 8.192-16.384S696.32 499.712 692.224 495.616zM438.272 630.784 438.272 393.216l208.896 118.784L438.272 630.784zM512 98.304C282.624 98.304 98.304 282.624 98.304 512s184.32 413.696 413.696 413.696c229.376 0 413.696-184.32 413.696-413.696S741.376 98.304 512 98.304zM512 888.832c-208.896 0-376.832-167.936-376.832-376.832 0-208.896 167.936-376.832 376.832-376.832 208.896 0 376.832 167.936 376.832 376.832C888.832 720.896 720.896 888.832 512 888.832z"; -fx-background-color: gray;
+16:13:25.287 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+16:13:25.615 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:12.515 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:15.449 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:16.567 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:16.664 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:21.338 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:21.650 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:23.628 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:33.692 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:37.070 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:37.410 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:37.662 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:15:37.722 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:27:58.450 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+17:27:58.452 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+17:27:58.452 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+17:27:58.452 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+17:28:00.202 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+17:28:00.203 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+17:28:00.203 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+17:28:02.074 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+17:28:02.094 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+17:28:02.747 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:28:03.899 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:28:03.934 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:28:04.183 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:28:10.082 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:28:11.132 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:50:46.573 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+17:50:46.576 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+17:50:46.576 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+17:50:46.576 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+17:50:48.145 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+17:50:48.146 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+17:50:48.147 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+17:50:50.101 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+17:50:50.119 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+17:50:50.734 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:50:51.484 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:51:03.056 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+17:51:03.804 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:15:45.203 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:15:45.205 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:15:45.205 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:15:45.205 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:15:46.970 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+18:15:46.970 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+18:15:46.971 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+18:15:48.767 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+18:15:48.784 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+18:15:54.738 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:15:54.772 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:15:55.014 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:15:55.219 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:16:04.186 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:16:04.312 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:17:00.811 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:17:00.814 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:17:00.814 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:17:00.815 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:17:02.607 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+18:17:02.607 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+18:17:02.608 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+18:17:04.935 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+18:17:04.954 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+18:17:05.626 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:17:06.978 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:17:07.569 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:17:07.796 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:17:17.616 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:17:17.988 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:20:04.904 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:20:04.906 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:20:04.906 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:20:04.906 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:20:06.508 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+18:20:06.508 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+18:20:06.509 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+18:20:08.378 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+18:20:08.396 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+18:20:11.678 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:20:11.711 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:20:26.303 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:20:26.706 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:22:29.726 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:22:29.728 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:22:29.729 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:22:29.729 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:22:31.300 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+18:22:31.301 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+18:22:31.302 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+18:22:32.901 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+18:22:32.918 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+18:22:44.080 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:22:45.401 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:22:53.936 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:22:54.402 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:23:06.562 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:23:06.950 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:23:13.334 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:23:13.336 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:23:13.336 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:23:13.337 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:23:14.879 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+18:23:14.879 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+18:23:14.880 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+18:23:16.165 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+18:23:16.180 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+18:23:19.691 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:23:19.760 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:23:19.975 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:23:20.143 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:24:42.357 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:24:42.360 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:24:42.360 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:24:42.360 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:27:23.287 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:27:23.289 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:27:23.289 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:27:23.289 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:27:24.777 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+18:27:24.778 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+18:27:24.778 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+18:27:26.564 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+18:27:26.579 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+18:27:28.220 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:27:28.256 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:27:46.002 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:27:46.490 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:27:46.499 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - MOUSE_ENTERED
+18:27:47.462 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:27:49.065 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:27:49.567 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:27:49.758 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:01.781 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 首页装载成功！
+18:31:01.782 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放组件页面装载成功！
+18:31:01.783 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 累计统计情况额外组件页面装载成功！
+18:31:01.783 [JavaFX-Launcher] INFO  c.s.d.StickpointMusicApplication - 播放控制组件页面装载成功！
+18:31:03.297 [pool-2-thread-1] INFO  c.s.d.StickpointMusicApplication - 开始加载系统核心配置参数数据
+18:31:03.297 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 正在加载系统核心参数数据
+18:31:03.298 [pool-2-thread-1] INFO  c.s.d.c.utils.SystemPropertiesUtil - 系统核心参数数据加载成功
+18:31:05.430 [JavaFX Application Thread] INFO  c.s.d.c.utils.SystemPropertiesUtil - 场景监听部署完毕~
+18:31:05.453 [JavaFX Application Thread] INFO  c.s.d.StickpointMusicApplication - 界面已由欢迎页面跳转至主页面~
+18:31:07.222 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:07.260 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:12.999 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:14.037 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:14.858 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:24.883 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:40.892 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER
+18:31:41.593 [JavaFX Application Thread] INFO  c.s.d.p.c.ScrollPaneComponent - 当前鼠标移动策略：NEVER

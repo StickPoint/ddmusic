@@ -1,3 +1,9 @@
+.root-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0 0 15px 15px;
+    -fx-border-radius: 0 0 15px 15px;
+}
 .rx-media-progress-bar {
     /*进度条颜色*/
     -rx-track-fill: #eaeaea;

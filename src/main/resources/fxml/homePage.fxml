@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXAvatar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="950.0" styleClass="root-Pane" stylesheets="@../css/homePage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.HomePageController">
+   <top>
+      <AnchorPane id="border-pane-top" prefHeight="40.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <Region id="border-pane-top-hBox-region-logo" maxHeight="25.0" prefHeight="25.0" prefWidth="25.0">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="14.0" top="8.0" />
+                     </HBox.margin>
+                  </Region>
+                  <Label id="border-pane-top-hBox-region-logo-text" text="顶点音乐">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="9.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox id="border-pane-top-hBox-search" layoutX="269.0" layoutY="3.0" maxHeight="34.0" minHeight="24.0" prefHeight="34.0" prefWidth="250.0" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="3.0">
+               <children>
+                  <TextField id="border-pane-top-hBox-search-text-field" fx:id="searchKey" maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="215.0" promptText="请输入待搜索的 音乐 | 歌手 | 专辑" style="">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="3.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <Region id="border-pane-top-hBox-search-region" fx:id="search" maxHeight="18.0" maxWidth="18.0" onMouseClicked="#doSearch" prefHeight="18.0" prefWidth="18.0">
+                     <HBox.margin>
+                        <Insets bottom="3.0" left="1.0" top="9.0" />
+                     </HBox.margin>
+                  </Region>
+               </children>
+            </HBox>
+            <HBox fx:id="userInfoContainer" layoutX="740.0" layoutY="3.0" maxHeight="34.0" maxWidth="34.0" minHeight="34.0" minWidth="34.0" prefHeight="34.0" prefWidth="34.0">
+               <children>
+                  <RXAvatar fx:id="userAvatar" maxHeight="22.0" maxWidth="22.0" minHeight="22.0" minWidth="22.0" onMouseEntered="#showUserInfoCard" onMouseExited="#closeUserInfoCard" prefHeight="22.0" prefWidth="22.0">
+                     <image>
+                        <Image url="@../img/demo1.jpg" />
+                     </image>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </HBox.margin>
+                  </RXAvatar>
+               </children></HBox>
+            <HBox layoutX="770.0" maxHeight="34.0" prefHeight="34.0" prefWidth="172.0" AnchorPane.topAnchor="3.0">
+               <children>
+                  <Region id="border-pane-top-hBox-message-region" maxHeight="17.0" maxWidth="21.0" prefHeight="17.0" prefWidth="21.0">
+                     <HBox.margin>
+                        <Insets bottom="6.0" left="15.0" top="7.0" />
+                     </HBox.margin>
+                  </Region>
+                  <Region id="border-pane-top-hBox-menu-region" maxHeight="17.0" prefHeight="17.0" prefWidth="17.0">
+                     <HBox.margin>
+                        <Insets bottom="6.0" left="18.0" top="7.0" />
+                     </HBox.margin>
+                  </Region>
+                  <Region id="border-pane-top-hBox-split-region" maxHeight="1.0" maxWidth="19.0" prefHeight="1.0" prefWidth="19.0" rotate="90.0">
+                     <HBox.margin>
+                        <Insets bottom="6.0" left="10.0" top="15.0" />
+                     </HBox.margin>
+                  </Region>
+                  <Region id="border-pane-top-hBox-hide-region" fx:id="minSize" maxHeight="19.0" prefHeight="19.0" prefWidth="19.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="6.0" />
+                     </HBox.margin>
+                  </Region>
+                  <Region id="border-pane-top-hBox-close-region" fx:id="homePageClose" maxHeight="17.0" onMouseClicked="#closeHomePage" prefHeight="17.0" prefWidth="17.0">
+                     <HBox.margin>
+                        <Insets bottom="6.0" left="14.0" top="7.0" />
+                     </HBox.margin>
+                  </Region>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane fx:id="ddLeftPane" prefHeight="500.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox id="anchorPane-vBox-leftMenu" maxHeight="520.0" prefHeight="500.0" prefWidth="200.0">
+               <children>
+                  <VBox id="anchorPane-vBox-leftMenu-menu-myMusicContainer" fx:id="myMusicContainer" prefHeight="360.0" prefWidth="200.0">
+                     <children>
+                        <Pane id="leftTabMenu">
+                           <children>
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="20.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="在线音乐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="menuPane-selection" fx:id="findMusic" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region id="anchorPane-vBox-leftMenu-menu-region-findMusic" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="发现音乐">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="38.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="menuPane-selection" fx:id="hotMusic" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region id="anchorPane-vBox-leftMenu-menu-region-hotMusic" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="热门金曲">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="39.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="menuPane-selection" fx:id="shareCenter" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region id="anchorPane-vBox-leftMenu-menu-region-shareCenter" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="共享中心">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="39.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="menuPane-selection" fx:id="radioCenter" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region id="anchorPane-vBox-leftMenu-menu-region-bestFM" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="音浪磁场">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="39.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="leftTabMenu">
+                           <children>
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="20.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="我的音乐">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="localDownloadPane" fx:id="myMusicDownloadLocal" onMouseClicked="#showDownloadLocalPage" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region id="anchorPane-vBox-leftMenu-menu-region-localDownload" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="本地下载">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="39.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="menuPane-selection" fx:id="myMusicFavorite" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region id="anchorPane-vBox-leftMenu-menu-region-myFavorite" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="我的收藏">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="39.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="menuPane-selection" fx:id="myMusicPlayHistory" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region id="anchorPane-vBox-leftMenu-menu-region-playHistory" layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="播放历史">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="39.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox id="anchorPane-vBox-leftMenu-menu-myMusicListContainer" fx:id="myMusicListContainer" prefHeight="160.0" prefWidth="200.0">
+                     <children>
+                        <Pane id="leftTabMenu">
+                           <children>
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="20.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="我的歌单">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                        <Pane id="menuPane-selection" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Region layoutX="30.0" layoutY="10.0" prefHeight="20.0" prefWidth="20.0" style="-fx-shape: &quot;M512 910.242909c-219.554909 0-398.242909-178.734545-398.242909-398.242909 0-219.554909 178.734545-398.242909 398.242909-398.242909 219.554909 0 398.242909 178.734545 398.242909 398.242909 0 219.554909-178.734545 398.242909-398.242909 398.242909m0-853.364364C260.654545 56.878545 56.878545 260.654545 56.878545 512S260.654545 967.121455 512 967.121455 967.121455 763.345455 967.121455 512 763.345455 56.878545 512 56.878545M462.196364 739.607273H391.168c-27.461818 0-49.803636-22.341818-49.803636-49.803637 0-27.415273 22.341818-49.757091 49.803636-49.757091H462.196364c27.415273 0 49.757091 22.341818 49.757091 49.803637 0 27.415273-22.341818 49.757091-49.803637 49.757091m211.502546-439.528728l-116.456728-67.16509a26.205091 26.205091 0 0 0-15.220363-5.306182h-3.165091a26.577455 26.577455 0 0 0-26.251637 23.645091c0 0.698182-0.279273 1.210182-0.325818 1.861818-0.046545 0.465455-0.279273 0.884364-0.279272 1.349818v341.643636a105.332364 105.332364 0 0 0-49.803637-12.939636H391.168a106.728727 106.728727 0 0 0 0 213.317818H462.196364a106.728727 106.728727 0 0 0 106.635636-106.682182c0-2.420364-0.558545-4.701091-0.744727-7.074909h0.744727V305.245091l76.334545 44.125091a28.346182 28.346182 0 0 0 38.81891-10.426182 28.485818 28.485818 0 0 0-10.333091-38.912&quot;; -fx-background-color: gray;" />
+                              <Label id="anchorPane-vBox-leftMenu-menu-text" layoutX="60.0" layoutY="10.0" maxHeight="20.0" maxWidth="100.0" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="发现音乐">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Pane id="menuPane-selection-little" layoutX="1.0" prefHeight="40.0" prefWidth="6.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="ddCenterPane" prefHeight="500.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane id="anchorPane-stackPane-center" fx:id="centerView" prefHeight="500.0" prefWidth="750.0" />
+         </children></AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane id="homePagePlayer" fx:id="homePagePlayer" maxHeight="70.0" prefHeight="70.0" prefWidth="950.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

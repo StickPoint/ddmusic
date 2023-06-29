@@ -1,0 +1,27 @@
+一、开发期间待解决任务排期
+（DDMUSIC-PLAN-0001 【优先解决】）首页菜单列表展示样式调整，检查fxml的元素id对应的样式是否能在css文件中对应上
+（DDMUSIC-PLAN-0002 【后续更新】）首页菜单动态展示加载
+（DDMUSIC-PLAN-0003 【优先解决】）主场景页面全部采用StackPane+ScrollPane，替换现有方案
+    （DDMUSIC-PLAN-0003-1 【紧急】）主场景切换的时候出现StackPane多层级的问题，这个问题无法使用遍历进行解决，需要注意尽快解决
+（DDMUSIC-PLAN-0004 【优先解决】）接入WpMusic-API，接入网易云、酷狗、酷我、咪咕、qq等音乐平台API
+（DDMUSIC-PLAN-0005 【优先解决】）写出来最近播放列表逻辑与界面UI，实现响应的动画UI效果
+（DDMUSIC-PLAN-0006 【优先解决】）
+（DDMUSIC-PLAN-0007 【优先解决】）
+（DDMUSIC-PLAN-0008 【优先解决】）
+（DDMUSIC-PLAN-0009 【优先解决】）
+（DDMUSIC-PLAN-0010 【优先解决】）
+（DDMUSIC-PLAN-0011 【优先解决】）
+（DDMUSIC-PLAN-0012 【优先解决】）
+（DDMUSIC-PLAN-0013 【优先解决】）
+（DDMUSIC-PLAN-0014 【优先解决】）
+（DDMUSIC-PLAN-0015 【优先解决】）
+（DDMUSIC-PLAN-0016 【优先解决】）
+（DDMUSIC-PLAN-0017 【优先解决】）
+（DDMUSIC-PLAN-0018 【优先解决】）
+（DDMUSIC-PLAN-0019 【优先解决】）
+（DDMUSIC-PLAN-0020 【优先解决】）
+（DDMUSIC-PLAN-0021 【优先解决】）
+（DDMUSIC-PLAN-0022 【优先解决】）
+（DDMUSIC-PLAN-0023 【优先解决】）
+（DDMUSIC-PLAN-0024 【优先解决】）
+（DDMUSIC-PLAN-0025 【优先解决】）
