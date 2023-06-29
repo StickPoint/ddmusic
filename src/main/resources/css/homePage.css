@@ -144,23 +144,29 @@
     -fx-background-color: gray;
 }
 
-#anchorPane-stackPane-center {
-    -fx-background-color: white;
-}
-
-
-/**
-鼠标放在菜单上的效果
- */
 #anchorPane-vBox-leftMenu-menu-onlineMusicContainer #menuPane-selection:hover,
 #anchorPane-vBox-leftMenu-menu-myMusicContainer #menuPane-selection:hover,
+#anchorPane-vBox-leftMenu-menu-myMusicContainer #findMusicPane:hover,
+#anchorPane-vBox-leftMenu-menu-myMusicContainer #hotmusicPane:hover,
+#anchorPane-vBox-leftMenu-menu-myMusicContainer #shareCenterPane:hover,
+#anchorPane-vBox-leftMenu-menu-myMusicContainer #musicWavePane:hover,
 #anchorPane-vBox-leftMenu-menu-myMusicContainer #localDownloadPane:hover,
+#anchorPane-vBox-leftMenu-menu-myMusicContainer #myFavoritePane:hover,
+#anchorPane-vBox-leftMenu-menu-myMusicContainer #playHistoryPane:hover,
 #anchorPane-vBox-leftMenu-menu-myMusicListContainer #menuPane-selection:hover
 {
     -fx-background-color: rgba(243, 243, 243, 0.99);
     -fx-effect: dropshadow(three-pass-box, rgba(169, 168, 168, 0.41), 1.0,0,0, 0);
     -fx-cursor: hand;
 }
+
+
+#anchorPane-stackPane-center {
+    -fx-background-color: white;
+}
+/**
+鼠标放在菜单上的效果
+ */
 
 #homePagePlayer {
     -fx-background-color: white;

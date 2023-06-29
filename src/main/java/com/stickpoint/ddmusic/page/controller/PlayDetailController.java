@@ -43,14 +43,14 @@ public class PlayDetailController {
         lrcView.currentTimeProperty().unbind();
         lrcView.setCurrentTime(Duration.ZERO);
         audioSpectrum.setMagnitudes(EMPTY_ARRAY);
-        initPlayDetailPage();
+        initPlayDetailPageInToChildList();
     }
 
     /**
      * 初始化加载的时候将播放详情页面放置入系统的显示区域的StackPane中
      * 需要的时候在进行切换toFront或者是toBackhand
      */
-    private void initPlayDetailPage() {
+    private void initPlayDetailPageInToChildList() {
         SystemCache.CENTER_VIEW_PAGE_LIST.add(playDetailRootNode);
     }
 

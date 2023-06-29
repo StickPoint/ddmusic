@@ -39,6 +39,7 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.concurrent.Callable;
 
 /**
@@ -46,26 +47,6 @@ import java.util.concurrent.Callable;
  * @author fntp
  */
 public class HomePageController {
-    /**
-     * 在线音乐-发现音乐
-     */
-    @FXML
-    public Pane findMusic;
-    /**
-     * 在线音乐-热门金曲
-     */
-    @FXML
-    public Pane hotMusic;
-    /**
-     * 在线音乐-共享中心
-     */
-    @FXML
-    public Pane shareCenter;
-    /**
-     * 在线音乐-音浪磁场
-     */
-    @FXML
-    public Pane radioCenter;
     /**
      * 左侧整个菜单Pane
      */
@@ -99,21 +80,6 @@ public class HomePageController {
      */
     @FXML
     private StackPane centerView;
-    /**
-     * 我的音乐-播放历史
-     */
-	@FXML
-    public Pane myMusicPlayHistory;
-    /**
-     * 我的音乐-我的收藏
-     */
-	@FXML
-    public Pane myMusicFavorite;
-    /**
-     * 我的音乐-下载本地
-     */
-	@FXML
-    public Pane myMusicDownloadLocal;
     /**
      * 我的音乐-VBox父容器
      */
@@ -180,10 +146,6 @@ public class HomePageController {
      * 供给系统后续页面切换使用
      */
     private void initSystemMenuList() {
-        // 将加载过得下载页面先存放在centerView中
-        FXMLLoader downloadLocalLoader = SystemCache.PAGE_MAP.get(PageEnums.DOWNLOAD_LOCAL.getRouterId());
-        AnchorPane pane = downloadLocalLoader.getRoot();
-        centerView.getChildren().add(pane);
         // 存储入缓存中
         SystemCache.CACHE_NODE.put(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent(),centerView);
     }
@@ -235,20 +197,22 @@ public class HomePageController {
                 selectedTextNode.setStyle("-fx-text-fill: black");
             }
             boolean remove = NODE_LIST.remove (node);
-            // 处理除了选中了的menuPane之外的Pane
+            // 处理除了选中了的menuPane之外的Pane 这个Pane包含三个部分（1）小Pane最左侧部分；（2）大Pane整体按钮；（3）菜单文字；
             if (remove) {
                 NODE_LIST.forEach (child->{
+                    log.info(child.getId());
                     Pane menuItemPane = (Pane) child;
                     // 菜单Pane透明
                     menuItemPane.styleProperty().unbind();
+                    // 处理 （2）大Pane整体按钮； 鼠标放上效果
                     changeBackgroundOnHoverUsingBinding(menuItemPane);
                     menuItemPane.getChildren().forEach(itemNode->{
                         if (Objects.nonNull(itemNode.getId())&&itemNode.getId().equals(InfoEnums.LEFT_TAB_MENU_ITEM_LITTLE_PANE.getInfoContent())) {
-                            // 菜单左边Pane透明
+                            // （1）小Pane最左侧部分； 菜单左边Pane透明
                             itemNode.setStyle ("-fx-background-color: transparent");
                         }
                         if(Objects.nonNull(itemNode.getId())&&itemNode.getId().equals(InfoEnums.LEFT_TAB_MENU_ITEM_MENU_TEXT.getInfoContent())) {
-                            // 菜单文字高亮
+                            // （3）菜单文字； 菜单文字高亮
                             itemNode.setStyle("-fx-text-fill: #7f7f7f");
                         }
                     });
@@ -264,25 +228,73 @@ public class HomePageController {
      * @param node node节点，传入一个待修改样式的组件对象
      */
     private void changeBackgroundOnHoverUsingBinding(Node node) {
-        node.styleProperty()
-                .bind(Bindings.when(node.hoverProperty())
-                .then("-fx-background-color: rgba(243, 243, 243, 0.99);-fx-effect: dropshadow(three-pass-box, #D9D9D9, 5.0,0,0, 0);-fx-cursor: hand;")
-                        .otherwise("-fx-background-color: transparent"));
+        // 对于非菜单按钮不显示大按钮样式
+        if (Objects.nonNull(node.getId())){
+            node.styleProperty()
+                    .bind(Bindings.when(node.hoverProperty())
+                            .then("-fx-background-color: rgba(243, 243, 243, 0.99);-fx-effect: dropshadow(three-pass-box, #D9D9D9, 5.0,0,0, 0);-fx-cursor: hand;")
+                            .otherwise("-fx-background-color: transparent"));
+        }
     }
 
     /**
      * 为特定的MenuPane设置额外的点击事件
+     * 防止事件冒泡处理，只能在处理样式的同时去触发额外的点击事件
+     * 这里JDK17中也无法使用 Switch-Enum
+     * --------------------------------
+     * （1）在线音乐-发现音乐-点击事件
+     * （2）在线音乐-热门金曲点击事件
+     * （3）在线音乐-共享中心-点击事件
+     * （4）在线音乐-音浪磁场-点击事件
+     * --------------------------------
+     * （5）我的音乐-本地下载-点击事件
+     * （6）我的音乐-我的收藏-点击事件
+     * （7）我的音乐-播放历史-点击事件
+     * --------------------------------
+     * （8）我的歌单-外部歌单-点击事件
+     * --------------------------------
+     * 这么做有一个很大的好处，就是将页面加载耦合度降到最低
+     * 不需要考虑子页面加载需要在父页面容器加载完成之前加载好
+     * 让子页面与父页面同时加载，然后需要使用子页面的时候再添加显示，
+     * 并且只添加一次，如果存在该节点将不会重复添加而是直接置顶显示子页面
      * @param node 传入一个带修添加事件的组件
      */
     private void addOtherClickEventForMenuPane(Node node) {
+        if (AppEnums.FIND_MUSIC_PANE.getInfoValue().equals(node.getId())) {
+            // 先去centerView中去取 按钮id与页面root节点的cssId保持一致就完事 如果根据按钮id 在centerView中找到了界面的rootNode节点id那么说明是存在这个子页面的
+            Optional<Node> optionalNode = centerView.getChildren().stream().filter(itemNode -> itemNode.getId().equals(node.getId())).findFirst();
+            // 如果页面存在
+            if (optionalNode.isPresent()) {
+                // 直接置顶页面
+                log.info("当前页面：{} 已经存在，已执行置顶操作~",node.getId());
+                optionalNode.get().toFront();
+            }else {
+                log.error("当前页面：{} 显示失败！",node.getId());
+            }
+        }
         log.info("点击了：{}",node.getId());
-        // 如果点击的是【下载本地】centerView跳转dao下载本地
+        // 如果点击的是【我的音乐-本地下载】centerView跳转dao下载本地
         if (AppEnums.MY_MUSIC_LOCAL_DOWNLOAD.getInfoValue().equals(node.getId())) {
-            FXMLLoader downloadLocalLoader = SystemCache.PAGE_MAP.get(PageEnums.DOWNLOAD_LOCAL.getRouterId());
-            AnchorPane pane = downloadLocalLoader.getRoot();
-            pane.toFront();
+            // 先去centerView中去取 按钮id与页面root节点的cssId保持一致就完事 如果根据按钮id 在centerView中找到了界面的rootNode节点id那么说明是存在这个子页面的
+            Optional<Node> optionalNode = centerView.getChildren().stream().filter(itemNode -> itemNode.getId().equals(node.getId())).findFirst();
+            // 如果页面存在
+            if (optionalNode.isPresent()) {
+                // 直接置顶页面
+                log.info("当前页面：{} 已经存在，已执行置顶操作~",node.getId());
+                optionalNode.get().toFront();
+            }else {
+                log.error("当前页面：{} 显示失败！",node.getId());
+            }
         }
 
+        if (AppEnums.MY_FAVORITE_PANE.getInfoValue().equals(node.getId())) {
+            // TODO 执行我的收藏界面置顶显示
+
+        }
+
+        if (AppEnums.PLAY_HISTORY_PANE.getInfoValue().equals(node.getId())) {
+            // TODO 执行播放历史界面置顶显示
+        }
     }
 
 

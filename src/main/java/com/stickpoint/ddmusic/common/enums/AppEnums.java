@@ -114,9 +114,22 @@ public enum AppEnums {
      */
     APPLICATION_TRAY("tray"),
     /**
+     * 发现音乐
+     */
+    FIND_MUSIC_PANE("findMusicPane"),
+    /**
      * 下载本地
      */
     MY_MUSIC_LOCAL_DOWNLOAD("localDownloadPane"),
+    /**
+     * 我的收藏
+     */
+    MY_FAVORITE_PANE("myFavoritePane"),
+    /**
+     * 播放历史
+     */
+    PLAY_HISTORY_PANE("playHistoryPane"),
+
     /**
      * 应用名称
      */

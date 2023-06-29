@@ -220,8 +220,8 @@ public class StickpointMusicApplication extends Application {
         try {
             systemTrayFxmlLoader.load();
             downloadLocalLoader.load();
-            homePageLoader.load();
             playDetailPage.load();
+            homePageLoader.load();
             findMusicLoader.load();
             accumulatePaneLoader.load();
             musicControlLoader.load();
