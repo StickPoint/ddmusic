@@ -23,6 +23,10 @@ public class DdRecommend implements Serializable {
      * 音乐歌单id
      */
     private String id;
+    /**
+     * 音乐平台
+     */
+    private Integer platFormType;
 
     public String getName() {
         return name;
@@ -48,12 +52,21 @@ public class DdRecommend implements Serializable {
         this.id = id;
     }
 
+    public Integer getPlatFormType() {
+        return platFormType;
+    }
+
+    public void setPlatFormType(Integer platFormType) {
+        this.platFormType = platFormType;
+    }
+
     @Override
     public String toString() {
         return "DdRecommend{" +
                 "name='" + name + '\'' +
                 ", picUrl='" + picUrl + '\'' +
                 ", id='" + id + '\'' +
+                ", platFormType=" + platFormType +
                 '}';
     }
 }

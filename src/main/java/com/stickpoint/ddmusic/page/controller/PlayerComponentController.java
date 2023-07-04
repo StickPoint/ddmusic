@@ -282,10 +282,7 @@ public class PlayerComponentController {
         // 存入缓存
         changeMusicPlayPreNextAndCurrent(abstractDdMusicEntity);
         // 刷新头像
-        CompletableFuture.runAsync(() -> {
-            // 显示图像
-            Platform.runLater(() -> playerMusicCover.imageProperty().set(new Image(abstractDdMusicEntity.getAlbumPicture())));
-        });
+        CompletableFuture.runAsync(() -> Platform.runLater(() -> playerMusicCover.imageProperty().set(new Image(abstractDdMusicEntity.getAlbumPicture()))));
     }
 
     /**

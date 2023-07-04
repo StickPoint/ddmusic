@@ -14,7 +14,7 @@
         <junit.version>5.8.2</junit.version>
         <open-jfx-version>17.0.2</open-jfx-version>
         <animatefx-version>1.2.4</animatefx-version>
-        <rxcontroller-version>11.0.2</rxcontroller-version>
+        <rxcontroller-version>11.0.3</rxcontroller-version>
         <kordamp.ikonli.version>12.3.1</kordamp.ikonli.version>
     </properties>
     <repositories>

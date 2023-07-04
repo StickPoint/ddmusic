@@ -12,4 +12,7 @@ public class PlayListDetailController {
 
     @FXML
     public VBox playListRootPane;
+
+
+
 }

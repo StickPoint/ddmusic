@@ -1,13 +1,20 @@
 package com.stickpoint.ddmusic.page.controller;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.leewyatt.rxcontrols.animation.carousel.AnimAround;
 import com.leewyatt.rxcontrols.controls.RXCarousel;
 import com.leewyatt.rxcontrols.pane.RXCarouselPane;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
+import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.model.dd.DdRecommend;
+import com.stickpoint.ddmusic.common.utils.SecurityUtil;
 import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -16,7 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -61,27 +68,19 @@ public class FindMusicController {
      */
     public HBox dailyRecommendList;
 
+    private static final Gson GSON = new Gson();
+
     @FXML
-    public void initialize() throws URISyntaxException {
-        ObservableList<RXCarouselPane> paneList = sceneryCarousel.getPaneList();
-        RXCarouselPane rxCarouselPane1 = new RXCarouselPane(new Pane(new ImageView(Objects.requireNonNull(getClass().getResource("/img/1.png")).toURI().toString())));
-        RXCarouselPane rxCarouselPane2 = new RXCarouselPane(new Pane(new ImageView(Objects.requireNonNull(getClass().getResource("/img/2.png")).toURI().toString())));
-        RXCarouselPane rxCarouselPane3 = new RXCarouselPane(new Pane(new ImageView(Objects.requireNonNull(getClass().getResource("/img/1.png")).toURI().toString())));
-        RXCarouselPane rxCarouselPane4 = new RXCarouselPane(new Pane(new ImageView(Objects.requireNonNull(getClass().getResource("/img/2.png")).toURI().toString())));
-        rxCarouselPane1.setTranslateY(-25);
-        rxCarouselPane2.setTranslateY(-25);
-        rxCarouselPane3.setTranslateY(-25);
-        rxCarouselPane4.setTranslateY(-25);
-        paneList.add(rxCarouselPane1);
-        paneList.add(rxCarouselPane2);
-        paneList.add(rxCarouselPane3);
-        paneList.add(rxCarouselPane4);
-        AnimAround animAround = new AnimAround(true);
-        sceneryCarousel.setCarouselAnimation(animAround);
+    public void initialize() {
+        // 初始化轮播
+        log.info("正在初始化轮播~");
+        initCarousel();
         // 初始化推荐歌单的列表样式
-        initDdMusicRecommendListStyle(hotMusicList);
-        initDdMusicRecommendListStyle(musicWaveList);
-        initDdMusicRecommendListStyle(dailyRecommendList);
+        log.info("正在初始化歌单~");
+        initDdMusicListStyle(hotMusicList);
+        initDdMusicListStyle(musicWaveList);
+        initDdMusicListStyle(dailyRecommendList);
+        log.info("初始化歌单成功~");
         // 初始化的时候放在childList里面
         initFindMusicPageInToChildList();
     }
@@ -121,6 +120,27 @@ public class FindMusicController {
     }
 
     /**
+     * 初始化Carousel轮播图
+     */
+    private void initCarousel() {
+        String carouselJsonStr =  (String) SystemCache.APP_PROPERTIES.get(InfoEnums.APP_MUSIC_BANNER_LIST_DAILY.getInfoContent());
+        List<DdRecommend> bannerList = null;
+        if (Objects.nonNull(carouselJsonStr)) {
+            String originalJsonStr = SecurityUtil.getOriginalStrFromBase64Str(carouselJsonStr);
+            bannerList = GSON.fromJson(originalJsonStr,new TypeToken<List<DdRecommend>>(){}.getType());
+        }
+        ObservableList<RXCarouselPane> paneList = sceneryCarousel.getPaneList();
+        for (DdRecommend banner : bannerList) {
+            ImageView imageView = new ImageView(new Image(banner.getPicUrl()));
+            RXCarouselPane rxCarouselPane = new RXCarouselPane(new Pane(imageView));
+            rxCarouselPane.setTranslateY(-25);
+            paneList.add(rxCarouselPane);
+        }
+        AnimAround animAround = new AnimAround(true);
+        sceneryCarousel.setCarouselAnimation(animAround);
+    }
+
+    /**
      * 初始化顶点音乐的顶点推荐列表的样式
      * 2023-06-15 忽略的代码：
      *             SnapshotParameters parameters = new SnapshotParameters();
@@ -134,22 +154,52 @@ public class FindMusicController {
      *             imageView.setImage(image);
      *             【插眼】
      *             这段代码主要是为了修改推荐列表的显示样式，但是没有达到预期效果，暂时先不改动这里的样式，后续有机会在优化把
-     * @param hBox 一个box列表
+     * 初始化每日推荐音乐歌单列表页面样式
+     * @param hBox 传入一个每日推荐的hBox对象
      */
-    private void initDdMusicRecommendListStyle(HBox hBox) {
+    private void initDdMusicListStyle(HBox hBox) {
         ObservableList<Node> children = hBox.getChildren();
-        children.forEach(item->{
+        String dailyMusicListJsonStr = switch (hBox.getId()) {
+            case "musicWaveList" ->
+                    (String) SystemCache.APP_PROPERTIES.get(InfoEnums.APP_MUSIC_WAVE_LIST_DAILY.getInfoContent());
+            case "hotMusicList" ->
+                    (String) SystemCache.APP_PROPERTIES.get(InfoEnums.APP_MUSIC_HOT_LIST_DAILY.getInfoContent());
+            default ->
+                    (String) SystemCache.APP_PROPERTIES.get(InfoEnums.APP_MUSIC_RECOMMEND_LIST_DAILY.getInfoContent());
+        };
+        List<DdRecommend> recommendList = null;
+        if (Objects.nonNull(dailyMusicListJsonStr)) {
+            String originalJsonStr = SecurityUtil.getOriginalStrFromBase64Str(dailyMusicListJsonStr);
+            recommendList = GSON.fromJson(originalJsonStr,new TypeToken<List<DdRecommend>>(){}.getType());
+        }
+        for (int i = 0; i < children.size(); i++) {
             // 每一个item都是一个VBox，每一个VBox都包含两个孩子节点，一个是图片，一个是歌单名称
-            VBox cacheItem = (VBox) item;
+            VBox cacheItem = (VBox) children.get(i);
             ObservableList<Node> cacheItemChildren = cacheItem.getChildren();
-            // 每一个音乐播放列表封面
+            // 每一个音乐播放列表歌曲封面
             ImageView imageView = (ImageView) cacheItemChildren.get(0);
+            if (Objects.nonNull(recommendList)&&recommendList.size()==5) {
+                imageView.imageProperty().set(new Image(recommendList.get(i).getPicUrl()));
+            }
+            // 设置每一首音乐的歌名
+            Label playListName = (Label) cacheItemChildren.get(1);
+            playListName.setText(recommendList.get(i).getName());
             // 变型封面
             Rectangle clip = new Rectangle(imageView.getFitWidth(), imageView.getFitHeight());
             clip.setArcWidth(20);
             clip.setArcHeight(20);
             imageView.setClip(clip);
-            log.info("初始化推荐歌单成功~");
+        }
+    }
+
+    /**
+     * 对每一个vBox进行监听
+     * @param vBox 传入一个vBox
+     */
+    private void setOnMouseClickedListener(VBox vBox) {
+        // 当点击了vBox之后 跳转到歌单详情页面
+        vBox.setOnMouseClicked(event -> {
+
         });
     }
 }

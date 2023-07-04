@@ -68,6 +68,7 @@ public class StickpointMusicApplication extends Application {
      */
     @Override
     public void start(@SuppressWarnings("exports") Stage primaryStage) throws URISyntaxException {
+        log.info("11");
         Media welcomeVideo = new Media(Objects.requireNonNull(getClass().getResource("/media/ddmusic.mp4")).toURI().toString());
         MediaPlayer player = new MediaPlayer(welcomeVideo);
         MediaView mediaView = new MediaView(player);
@@ -119,15 +120,21 @@ public class StickpointMusicApplication extends Application {
         try {
             // 其他操作
             showApplicationInitsInfo("初始化目录...");
-            log.info("开始加载本地系统核心配置参数数据");
-            SYSTEM_PROPERTIES_UTIL.loadProperties();
-            log.info("开始加载加载远程系统配置");
-            loadRemoteProperties();
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
         }
+    }
+
+    /**
+     * 初始化软件基础本地与远程配置
+     */
+    private static void initApplicationProperties() {
+        log.info("开始加载本地系统核心配置参数数据");
+        SYSTEM_PROPERTIES_UTIL.loadProperties();
+        log.info("开始加载加载远程系统配置");
+        loadRemoteProperties();
     }
 
     /**
@@ -162,7 +169,16 @@ public class StickpointMusicApplication extends Application {
      * method.
      * An application may construct other JavaFX objects in this method.
      * </p>
-     *
+     */
+    @Override
+    public void init() {
+        // 先加载程序配置
+        initApplicationProperties();
+        // 然后加载程序页面
+        initAndLoadPage();
+    }
+
+    /**
      * 整个项目的初始化
      * （1）FXML文件初始化
      * （2）播放器状态设置初始化
@@ -174,8 +190,7 @@ public class StickpointMusicApplication extends Application {
      * 初始化，直接在这里进行 然后后续都使用缓存
      *
      */
-    @Override
-    public void init() {
+    private void initAndLoadPage() {
         // 系统内部配置优先装载 （1）播放器状态初始化
         SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent());
         // 装载FXML文件: （1）首页

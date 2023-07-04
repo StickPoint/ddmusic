@@ -225,6 +225,18 @@ public enum InfoEnums {
      */
     APP_MUSIC_RECOMMEND_LIST_DAILY("app.music.recommendList.daily"),
     /**
+     * ddmusic初始化热门歌单列表内容
+     */
+    APP_MUSIC_HOT_LIST_DAILY("app.music.hotList.daily"),
+    /**
+     * ddmusic初始化音浪前线歌单列表内容
+     */
+    APP_MUSIC_WAVE_LIST_DAILY("app.music.waveList.daily"),
+    /**
+     * ddmusic初始化轮播json
+     */
+    APP_MUSIC_BANNER_LIST_DAILY("app.music.banner.daily"),
+    /**
      * 音乐状态 被比较的值 是一个常量枚举
      */
     APP_PROPERTIES_STATUS_OK_INT(200),
