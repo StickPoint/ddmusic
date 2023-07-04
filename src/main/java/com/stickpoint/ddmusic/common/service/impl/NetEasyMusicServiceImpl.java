@@ -9,6 +9,7 @@ import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.model.neteasy.Album;
 import com.stickpoint.ddmusic.common.model.neteasy.Artist;
@@ -35,6 +36,15 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Version: 1.0
  */
 public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
+
+    private static NetEasyMusicServiceImpl instance = null;
+
+    public static NetEasyMusicServiceImpl getInstance() {
+        if (instance == null) {
+            instance = SingletonFactory.getWeakInstace(NetEasyMusicServiceImpl.class);
+        }
+        return instance;
+    }
 
     /**
      * 网易云音乐服务日志
@@ -216,6 +226,15 @@ public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
         return paramMap;
     }
 
-
+    /**
+     * 根据歌单id获取歌单详情
+     * @param playListId 传入一个歌单id
+     * @return 返回一个歌单详情
+     */
+    @Override
+    public List<? extends AbstractDdMusicEntity> getPlayListInfoByPlayListId(String playListId) {
+        List<NetEasyMusicEntityAbstract> resp = null;
+        return null;
+    }
 
 }

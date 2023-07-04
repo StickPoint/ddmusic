@@ -5,12 +5,19 @@ import com.leewyatt.rxcontrols.animation.carousel.AnimAround;
 import com.leewyatt.rxcontrols.controls.RXCarousel;
 import com.leewyatt.rxcontrols.pane.RXCarouselPane;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
+import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.exception.DdmusicException;
 import com.stickpoint.ddmusic.common.model.dd.DdRecommend;
+import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
+import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
+import com.stickpoint.ddmusic.common.thread.DdThreadPollCenter;
 import com.stickpoint.ddmusic.common.utils.SecurityUtil;
 import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
+import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -19,12 +26,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.Callable;
 
 /**
  * @BelongsProject: ddmusic
@@ -68,10 +77,14 @@ public class FindMusicController {
      */
     public HBox dailyRecommendList;
 
+    private NetEasyMusicServiceImpl netEasyMusicService;
+
     private static final Gson GSON = new Gson();
 
     @FXML
     public void initialize() {
+        // 初始化网易云音乐对象
+        netEasyMusicService = NetEasyMusicServiceImpl.getInstance();
         // 初始化轮播
         log.info("正在初始化轮播~");
         initCarousel();
@@ -180,6 +193,7 @@ public class FindMusicController {
             ImageView imageView = (ImageView) cacheItemChildren.get(0);
             if (Objects.nonNull(recommendList)&&recommendList.size()==5) {
                 imageView.imageProperty().set(new Image(recommendList.get(i).getPicUrl()));
+                setOnMouseClickedListener(cacheItem,recommendList.get(i));
             }
             // 设置每一首音乐的歌名
             Label playListName = (Label) cacheItemChildren.get(1);
@@ -195,11 +209,51 @@ public class FindMusicController {
     /**
      * 对每一个vBox进行监听
      * @param vBox 传入一个vBox
+     * @param ddRecommend 传入一个顶点音乐对象
      */
-    private void setOnMouseClickedListener(VBox vBox) {
-        // 当点击了vBox之后 跳转到歌单详情页面
+    private void setOnMouseClickedListener(VBox vBox, DdRecommend ddRecommend) {
+        // 当点击了vBox之后 跳转到歌单详情页面 设置监听范围
         vBox.setOnMouseClicked(event -> {
-
+            // 根据传入的数据id请求歌单详情
+            FXMLLoader playListDetailLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAY_LIST_DETAIL.getRouterId());
+            PlayListDetailController detailController = playListDetailLoader.getController();
+            VBox rootNode = playListDetailLoader.getRoot();
+            // 看看当前最前面的是不是搜索结果
+            StackPane centerView =  (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
+            Node frontNode = centerView.getChildren().get(centerView.getChildren().size() - 1);
+            // 如果是centerView中最前面的view是搜索结果
+            if (frontNode.getId().equals(rootNode.getId())){
+                // 如果id一致，那么说明当前搜索结果页面是在最上面，只需要刷新Data就可以了
+                log.info("当前页面{}未切换，刷新Data数据！",frontNode.getId());
+                flushData(ddRecommend.getId(), detailController);
+            }else {
+                // 不一致就是表示当前搜索页面不在最上面 先看看有没有这个节点
+                if (!centerView.getChildren().contains(rootNode)){
+                    // 没有的话先加进去
+                    centerView.getChildren().add(rootNode);
+                }
+                // 然后设置一下置顶
+                rootNode.toFront();
+                // 最后刷新数据
+                flushData(ddRecommend.getId(), detailController);
+            }
         });
+    }
+
+    /**
+     * 刷新数据
+     * @param playListId 传入一个播放歌单id
+     * @param playListDetailController 传入一个播放详情controller
+     */
+    private void flushData(String playListId, PlayListDetailController playListDetailController){
+        // 获取当前搜索的字符串
+        if (Objects.nonNull(playListId)) {
+            // 执行搜索
+            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> netEasyMusicService.getPlayListInfoByPlayListId("填入id");
+            // 刷新UI
+            DdThreadPollCenter.doDdMusicSearchTask(searchResultList, playListDetailController::initTableData);
+        }
+        // TODO 弹窗 刷新数据出错： 歌单id为空
+        throw new DdmusicException(DdMusicExceptionEnums.FAILED);
     }
 }

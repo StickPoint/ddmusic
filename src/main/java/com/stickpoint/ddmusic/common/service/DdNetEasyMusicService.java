@@ -50,4 +50,11 @@ public interface DdNetEasyMusicService {
      * @return 返回一个音乐歌词内容
      */
     String getMusicLrcContent(String musicId);
+
+    /**
+     * 根据歌单id获取歌单详情
+     * @param playListId 传入一个歌单id
+     * @return 返回一个歌单详情
+     */
+    List<? extends AbstractDdMusicEntity> getPlayListInfoByPlayListId(String playListId);
 }

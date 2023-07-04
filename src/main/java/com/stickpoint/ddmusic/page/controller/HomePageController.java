@@ -139,7 +139,7 @@ public class HomePageController {
     public void initialize(){
         changeMyMusicMenuBackgroundStyle();
         initSystemMenuList();
-        this.netEasyMusicService = new NetEasyMusicServiceImpl();
+        this.netEasyMusicService = NetEasyMusicServiceImpl.getInstance();
         // 初始化
         initInnerComponent();
         // 初始化监听

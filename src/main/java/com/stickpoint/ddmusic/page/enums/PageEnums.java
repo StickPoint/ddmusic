@@ -6,6 +6,7 @@ import com.stickpoint.ddmusic.page.controller.LocalDownloadController;
 import com.stickpoint.ddmusic.page.controller.MusicControlController;
 import com.stickpoint.ddmusic.page.controller.MusicOptionsController;
 import com.stickpoint.ddmusic.page.controller.PlayDetailController;
+import com.stickpoint.ddmusic.page.controller.PlayListDetailController;
 import com.stickpoint.ddmusic.page.controller.PlayerComponentController;
 import com.stickpoint.ddmusic.page.controller.RecentlyPlayListController;
 import com.stickpoint.ddmusic.page.controller.SearchMusicResultController;
@@ -65,6 +66,10 @@ public enum PageEnums {
      * 下载本地页面
      */
     DOWNLOAD_LOCAL(LocalDownloadController.class,LocalDownloadController.class.getResource("/fxml/localDownload.fxml"),"localDownload"),
+    /**
+     * 歌单详情页面
+     */
+    PLAY_LIST_DETAIL(PlayListDetailController.class,PlayListDetailController.class.getResource("/fxml/playListDetail.fxml"),"playListDetail"),
     /**
      * 音量控制组件面板--控制音量
      */
