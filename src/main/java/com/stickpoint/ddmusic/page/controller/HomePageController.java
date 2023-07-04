@@ -58,6 +58,11 @@ public class HomePageController {
     @FXML
     public AnchorPane ddCenterPane;
     /**
+     * 顶部的Header-AnchorPane
+     */
+    @FXML
+    public AnchorPane headerAnchorPane;
+    /**
      * 最小化按纽
      */
     @FXML

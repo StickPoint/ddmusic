@@ -1,11 +1,9 @@
 #localDownloadPane {
     -fx-background-color: white;
 }
-#downloadingHBox {
-    -fx-background-color: rgba(254, 244, 244, 1);
-    -fx-text-fill: rgb(236,65,65);
-    -fx-background-radius: 25px;
-    -fx-border-radius: 25px;
+
+#downloadinghBox .label:hover {
+    -fx-text-fill: rgb(236, 65, 65);
 }
 
 #fileChoose {
