@@ -4,15 +4,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="playListDetail" fx:id="playListRootPane" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/playListDetail.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.PlayListDetailController">
+<VBox id="playListDetail" prefHeight="750.0" prefWidth="750.0" styleClass="search-result" stylesheets="@../css/playListDetail.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.PlayListDetailController">
    <children>
       <AnchorPane id="search-result-header" layoutY="60.0" prefHeight="150.0" prefWidth="750.0">
          <children>
+            <ImageView fx:id="background" fitHeight="150.0" fitWidth="750.0" pickOnBounds="true" preserveRatio="true" />
             <HBox alignment="CENTER" layoutX="630.0" layoutY="90.0" prefHeight="60.0" prefWidth="120.0">
                <children>
                   <Label styleClass="search-result-words" text="找到230首单曲">

@@ -1,5 +1,6 @@
 package com.stickpoint.ddmusic.page.component;
 
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -31,7 +32,8 @@ public class ScrollPaneComponent {
      * @return 返回一个滑动容器
      */
     public static ScrollPane createCommonScrollPaneRoot(Parent rootNode){
-        ScrollPane scrollPane = new ScrollPane(rootNode);
+        ScrollPane scrollPane = SingletonFactory.getWeakInstace(ScrollPane.class);
+        scrollPane.setContent(rootNode);
         scrollPane.setId(rootNode.getId());
         try {
             // 滑动pane容器设置样式

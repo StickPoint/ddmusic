@@ -2,6 +2,7 @@ package com.stickpoint.ddmusic;
 import com.stickpoint.ddmusic.common.config.DdmusicSpiMonitor;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
 import com.stickpoint.ddmusic.common.thread.ThreadUtil;
 import com.stickpoint.ddmusic.page.stage.HomePageStage;
@@ -72,7 +73,7 @@ public class StickpointMusicApplication extends Application {
         Media welcomeVideo = new Media(Objects.requireNonNull(getClass().getResource("/media/ddmusic.mp4")).toURI().toString());
         MediaPlayer player = new MediaPlayer(welcomeVideo);
         MediaView mediaView = new MediaView(player);
-        loadingMessage = new Label();
+        loadingMessage = SingletonFactory.getWeakInstace(Label.class);
         loadingMessage.setTextFill(Color.WHITE);
         AnchorPane.setRightAnchor(loadingMessage, 10.0);
         AnchorPane.setBottomAnchor(loadingMessage, 10.0);

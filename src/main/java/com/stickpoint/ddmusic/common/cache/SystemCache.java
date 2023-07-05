@@ -80,4 +80,6 @@ public interface SystemCache {
      * 原本打算使用链表来进行存储关系，上一首下一首但是发现链表不具备持久化的特点，会干扰反射，所以直接就用map吧
      */
     Map<String, AbstractDdMusicEntity> INNER_PLAY_MUSIC = new ConcurrentHashMap<>(3);
+
+    List<String> CURRENT_PLAY_LIST_COVER_URL = new ArrayList<>();
 }

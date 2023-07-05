@@ -219,6 +219,9 @@ public class FindMusicController {
             // 看看当前最前面的是不是搜索结果
             StackPane centerView =  (StackPane) SystemCache.CACHE_NODE.get(InfoEnums.HOME_PAGE_CENTER_VIEW_FX_ID.getInfoContent());
             Node frontNode = centerView.getChildren().get(centerView.getChildren().size() - 1);
+            // 暂存一下当前封面
+            SystemCache.CURRENT_PLAY_LIST_COVER_URL.clear();
+            SystemCache.CURRENT_PLAY_LIST_COVER_URL.add(ddRecommend.getPicUrl());
             // 如果是centerView中最前面的view是搜索结果
             if (frontNode.getId().equals(rootNode.getId())){
                 // 如果id一致，那么说明当前搜索结果页面是在最上面，只需要刷新Data就可以了
@@ -250,8 +253,9 @@ public class FindMusicController {
             Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> netEasyMusicService.getPlayListInfoByPlayListId(playListId);
             // 刷新UI
             DdThreadPollCenter.doDdMusicSearchTask(searchResultList, playListDetailController::initTableData);
+        }else {
+            // TODO 弹窗 刷新数据出错： 歌单id为空
+            throw new DdmusicException(DdMusicExceptionEnums.FAILED);
         }
-        // TODO 弹窗 刷新数据出错： 歌单id为空
-        throw new DdmusicException(DdMusicExceptionEnums.FAILED);
     }
 }

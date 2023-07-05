@@ -21,7 +21,6 @@ import java.util.zip.DeflaterOutputStream;
  * The Image is presumed to use the DirectColorModel.
  *
  * <p>Thanks to Jay Denny at KeyPoint Software
- *    http://www.keypoint.com/
  * who let me develop this code on company time.</p>
  *
  * <p>You may contact me with (probably very-much-needed) improvements,
@@ -43,11 +42,9 @@ import java.util.zip.DeflaterOutputStream;
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  * A copy of the GNU LGPL may be found at
- * <code>http://www.gnu.org/copyleft/lesser.html</code></p>
  *
  * @author J. David Eisenberg
  * @version 1.5, 19 Oct 2003
- *
  * CHANGES:
  * --------
  * 30-Jav-2015 : Hacked source to work with JavaFX images instead of AWT images (by Jewelsea for StackOverflow).
@@ -57,9 +54,8 @@ import java.util.zip.DeflaterOutputStream;
  *               PngEncoderB can inherit them (JDE)
  *               Fixed bug with calculation of nRows
  *
- * https://stackoverflow.com/questions/28221139/how-to-save-a-java-fx-chart-without-using-swing-api
+ *
  */
-
 public class FxPngUtil extends Object {
 
     /** Constants for filter (NONE) */
@@ -75,13 +71,13 @@ public class FxPngUtil extends Object {
     public static final int FILTER_LAST = 2;
 
     /** IHDR tag. */
-    protected static final byte IHDR[] = {73, 72, 68, 82};
+    protected static final byte[] IHDR = {73, 72, 68, 82};
 
     /** IDAT tag. */
-    protected static final byte IDAT[] = {73, 68, 65, 84};
+    protected static final byte[] IDAT = {73, 68, 65, 84};
 
     /** IEND tag. */
-    protected static final byte IEND[] = {73, 69, 78, 68};
+    protected static final byte[] IEND = {73, 69, 78, 68};
 
     /** The png bytes. */
     protected byte[] pngBytes;
@@ -175,7 +171,7 @@ public class FxPngUtil extends Object {
         byte[]  pngIdBytes = {-119, 80, 78, 71, 13, 10, 26, 10};
 
         if (image == null) {
-            return null;
+            return new byte[0];
         }
         width = (int) image.getWidth();
         height = (int) image.getHeight();
@@ -416,10 +412,7 @@ public class FxPngUtil extends Object {
         // the resultant compressed lines
         int nCompressed;
         // how big is the compressed area?
-
-        //int depth;
         // color depth ( handle only 8 or 32 )
-
         PixelReader pg = image.getPixelReader();
 
         bytesPerPixel = (encodeAlpha) ? 4 : 3;
