@@ -55,13 +55,6 @@ public class PlayListDetailController {
     @FXML
     public TableColumn<AbstractDdMusicEntity, AnchorPane> options;
 
-    private NetEasyMusicServiceImpl netEasyMusicService;
-
-    @FXML
-    public void initialize(){
-        netEasyMusicService = NetEasyMusicServiceImpl.getInstance();
-    }
-
     /**
      * 初始化数据
      * @param listData 传入一个list集合数据
@@ -93,7 +86,7 @@ public class PlayListDetailController {
                 controller.download.setOnMouseClicked(event -> {
                     AbstractDdMusicEntity abstractDdMusicEntity = getTableView().getItems().get(getIndex());
                     // 获取文件下载地址
-                    String musicPlayUrl = netEasyMusicService.getMusicPlayUrl(abstractDdMusicEntity.getDdId());
+                    String musicPlayUrl = NetEasyMusicServiceImpl.getInstance().getMusicPlayUrl(abstractDdMusicEntity.getDdId());
                     log.info(musicPlayUrl);
                     // 执行文件下载
 
@@ -115,9 +108,9 @@ public class PlayListDetailController {
                     FXMLLoader playerComponentLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAYER_COMPONENT.getRouterId());
                     PlayerComponentController componentController = playerComponentLoader.getController();
                     // 先获得播放链接
-                    String musicPlayUrl = netEasyMusicService.getMusicPlayUrl(abstractDdMusicEntity.getDdId());
+                    String musicPlayUrl = NetEasyMusicServiceImpl.getInstance().getMusicPlayUrl(abstractDdMusicEntity.getDdId());
                     // 再获得歌词内容
-                    String musicLrcContent = netEasyMusicService.getMusicLrcContent(abstractDdMusicEntity.getDdId());
+                    String musicLrcContent = NetEasyMusicServiceImpl.getInstance().getMusicLrcContent(abstractDdMusicEntity.getDdId());
                     // 然后准备播放
                     componentController.prepareMusic(abstractDdMusicEntity, musicPlayUrl, musicLrcContent);
                     // 调用播放

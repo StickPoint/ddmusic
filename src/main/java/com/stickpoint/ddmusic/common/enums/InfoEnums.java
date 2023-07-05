@@ -195,6 +195,11 @@ public enum InfoEnums {
      */
     NETEASY_GET_LRC("api.sourceList.wpMusicApi.platform.neteasy.getLyric"),
     /**
+     * WP_Music基础服务请求-网易云音乐获取歌单信息
+     * api.sourceList.wpMusicApi.platform.neteasy.getPlayList
+     */
+    NETEASY_GET_PLAY_LIST("api.sourceList.wpMusicApi.platform.neteasy.getPlayList"),
+    /**
      * WP_Music基础服务请求-网易云每日推荐音乐接口地址
      * api.sourceList.wpMusicApi.platform.neteasy.getRecommend
      */

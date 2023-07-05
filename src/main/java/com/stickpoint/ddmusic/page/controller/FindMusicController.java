@@ -1,5 +1,4 @@
 package com.stickpoint.ddmusic.page.controller;
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.leewyatt.rxcontrols.animation.carousel.AnimAround;
 import com.leewyatt.rxcontrols.controls.RXCarousel;
@@ -12,6 +11,7 @@ import com.stickpoint.ddmusic.common.model.dd.DdRecommend;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
 import com.stickpoint.ddmusic.common.thread.DdThreadPollCenter;
+import com.stickpoint.ddmusic.common.utils.JsonUtil;
 import com.stickpoint.ddmusic.common.utils.SecurityUtil;
 import com.stickpoint.ddmusic.page.component.ScrollPaneComponent;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
@@ -79,8 +79,6 @@ public class FindMusicController {
 
     private NetEasyMusicServiceImpl netEasyMusicService;
 
-    private static final Gson GSON = new Gson();
-
     @FXML
     public void initialize() {
         // 初始化网易云音乐对象
@@ -140,7 +138,7 @@ public class FindMusicController {
         List<DdRecommend> bannerList = null;
         if (Objects.nonNull(carouselJsonStr)) {
             String originalJsonStr = SecurityUtil.getOriginalStrFromBase64Str(carouselJsonStr);
-            bannerList = GSON.fromJson(originalJsonStr,new TypeToken<List<DdRecommend>>(){}.getType());
+            bannerList = JsonUtil.getGson().fromJson(originalJsonStr,new TypeToken<List<DdRecommend>>(){}.getType());
         }
         ObservableList<RXCarouselPane> paneList = sceneryCarousel.getPaneList();
         for (DdRecommend banner : bannerList) {
@@ -183,7 +181,7 @@ public class FindMusicController {
         List<DdRecommend> recommendList = null;
         if (Objects.nonNull(dailyMusicListJsonStr)) {
             String originalJsonStr = SecurityUtil.getOriginalStrFromBase64Str(dailyMusicListJsonStr);
-            recommendList = GSON.fromJson(originalJsonStr,new TypeToken<List<DdRecommend>>(){}.getType());
+            recommendList = JsonUtil.getGson().fromJson(originalJsonStr,new TypeToken<List<DdRecommend>>(){}.getType());
         }
         for (int i = 0; i < children.size(); i++) {
             // 每一个item都是一个VBox，每一个VBox都包含两个孩子节点，一个是图片，一个是歌单名称
@@ -249,7 +247,7 @@ public class FindMusicController {
         // 获取当前搜索的字符串
         if (Objects.nonNull(playListId)) {
             // 执行搜索
-            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> netEasyMusicService.getPlayListInfoByPlayListId("填入id");
+            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> netEasyMusicService.getPlayListInfoByPlayListId(playListId);
             // 刷新UI
             DdThreadPollCenter.doDdMusicSearchTask(searchResultList, playListDetailController::initTableData);
         }
