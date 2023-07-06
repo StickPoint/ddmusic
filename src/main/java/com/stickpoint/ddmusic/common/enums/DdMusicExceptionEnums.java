@@ -47,6 +47,7 @@ public enum DdMusicExceptionEnums {
     ERROR_MUSIC_FILE_PATH_NOT_EXIST(20020,"音乐文件不存在"),
     ERROR_MUSIC_OBJECT_NOT_FOUND(20021,"待播放的音乐对象数据不正确！"),
     ERROR_MUSIC_PLAY_DETAIL_NOT_FOUND(20022,"点击音乐封面的时播放详情界面丢失不见"),
+    ERROR_BASE_64_STR_IS_NULL(20023,"base64字符串是空的"),
 
     // 201xx 用户管理
     ERROR_TOKEN_INVALID(20101, "token异常"),

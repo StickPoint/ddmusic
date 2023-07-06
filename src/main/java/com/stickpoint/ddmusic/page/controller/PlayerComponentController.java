@@ -183,6 +183,7 @@ public class PlayerComponentController {
      * 详细解释请参考顶点音乐官方文档。
      */
     private void initSoundPopup() {
+        soundPopup = null;
         soundPopup = new ContextMenu(new SeparatorMenuItem());
         Parent soundRoot = null;
         try {
@@ -261,6 +262,7 @@ public class PlayerComponentController {
                 musicLrcContent = "暂无歌词";
             }
             try {
+                lrcView.setLrcDoc(null);
                 byte[] bytes = musicLrcContent.getBytes();
                 //解析歌词
                 lrcView.setLrcDoc(LrcDoc.parseLrcDoc(new String(bytes, EncodingDetectUtil.detect(bytes))));
@@ -282,10 +284,11 @@ public class PlayerComponentController {
         // 存入缓存
         changeMusicPlayPreNextAndCurrent(abstractDdMusicEntity);
         // 刷新头像
-        CompletableFuture.runAsync(() -> {
-            // 显示图像
-            Platform.runLater(() -> playerMusicCover.imageProperty().set(new Image(abstractDdMusicEntity.getAlbumPicture())));
-        });
+        CompletableFuture.runAsync(() -> Platform.runLater(() -> {
+            playerMusicCover.imageProperty().unbind();
+            playerMusicCover.imageProperty().set(null);
+            playerMusicCover.imageProperty().set(new Image(abstractDdMusicEntity.getAlbumPicture()));
+        }));
     }
 
     /**
@@ -312,6 +315,7 @@ public class PlayerComponentController {
             boolean exists = lrcFile.exists();
             if (exists) {
                 try {
+                    lrcView.setLrcDoc(null);
                     byte[] bytes = Files.readAllBytes(lrcFile.toPath());
                     // 解析歌词
                     lrcView.setLrcDoc(LrcDoc.parseLrcDoc(new String(bytes, EncodingDetectUtil.detect(bytes))));

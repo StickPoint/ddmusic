@@ -1,20 +1,24 @@
 package com.stickpoint.ddmusic.page.controller;
+
 import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.service.impl.NetEasyMusicServiceImpl;
 import com.stickpoint.ddmusic.page.enums.PageEnums;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
@@ -24,18 +28,18 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * description： TestMusicSearchListController
- *
- * @ClassName ： TestMusicSearchListController
- * @Date 2022/12/12 17：00
- * @Author puye(0303)
- * @PackageName test
+ * @author puye(0303)
+ * @since 2023/6/29
  */
-public class SearchMusicResultController {
+public class PlayListDetailController {
+
     /**
      * 日志工具
      */
-    private static final Logger log = LoggerFactory.getLogger(SearchMusicResultController.class);
+    private static final Logger log = LoggerFactory.getLogger(PlayListDetailController.class);
+
+    @FXML
+    public TableView<AbstractDdMusicEntity> myTable;
     /**
      * 后续使用的过程中，将会entity的基本数据类型全部换成支持双向绑定的Properties类型
      */
@@ -52,14 +56,17 @@ public class SearchMusicResultController {
     @FXML
     public TableColumn<AbstractDdMusicEntity, AnchorPane> options;
     @FXML
-    public Label searchedMusicName;
+    public ImageView background;
     /**
-     * 根容器
+     * 背景图片
      */
-    public VBox rootPane;
+    public Image image;
 
-    @FXML
-    private TableView<AbstractDdMusicEntity> myTable;
+    public GaussianBlur gaussianBlur;
+
+    public Rectangle2D rectangle2D;
+
+    public FXMLLoader musicOptionsFxmlLoader;
 
     /**
      * 初始化数据
@@ -70,6 +77,7 @@ public class SearchMusicResultController {
         myTable.lookup(".scroll-bar:vertical").setVisible(false);
         myTable.lookup(".scroll-bar:horizontal").setVisible(false);
         myTable.getItems().clear();
+        initBackground();
         ObservableList<AbstractDdMusicEntity> items = myTable.getItems();
         // 专辑
         ddAlbum.setCellValueFactory(new PropertyValueFactory<>("ddAlbum"));
@@ -130,7 +138,7 @@ public class SearchMusicResultController {
             protected void updateItem(AnchorPane item, boolean empty) {
                 super.updateItem(item, empty);
                 WeakReference<MusicOptionsController> weakController = new WeakReference<>(createAnchorPane());
-                if (empty || item == null) {
+                if (!empty || item == null) {
                     MusicOptionsController controller = weakController.get();
                     if (Objects.nonNull(controller)) {
                         AnchorPane anchorPane = controller.optionPad;
@@ -152,13 +160,48 @@ public class SearchMusicResultController {
      */
     private MusicOptionsController createAnchorPane() {
         try {
-            FXMLLoader musicOptionsFxmlLoader = new FXMLLoader(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getPageSource());
+            musicOptionsFxmlLoader = null;
+            musicOptionsFxmlLoader = new FXMLLoader(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getPageSource());
             musicOptionsFxmlLoader.load();
             WeakReference<MusicOptionsController> weakRef = new WeakReference<>(musicOptionsFxmlLoader.getController());
             return weakRef.get();
         } catch (IOException e) {
             log.error(e.getMessage());
             throw new DdmusicException(DdMusicExceptionEnums.FAILED);
+        }
+    }
+
+    /**
+     * 初始化歌单背景图片效果
+     * TODO 这个后续需要更改
+     */
+    private void initBackground() {
+        // 先GC
+        image = null;
+        // 先去设置毛玻璃效果
+        gaussianBlur = null;
+        gaussianBlur = SingletonFactory.getWeakInstace(GaussianBlur.class);
+        image = new Image(SystemCache.CURRENT_PLAY_LIST_COVER_URL.get(0));
+        background.setImage(image);
+        background.setFitWidth(750);
+        background.setFitHeight(150);
+        background.setPreserveRatio(false);
+        background.setEffect(gaussianBlur);
+        // 裁剪图片以适应ImageView的长宽比
+        double imageRatio = image.getWidth() / image.getHeight();
+        double viewRatio = background.getFitWidth() / background.getFitHeight();
+        if (imageRatio > viewRatio) {
+            double newHeight = background.getFitWidth() / imageRatio;
+            double offsetY = (background.getFitHeight() - newHeight) / 2;
+            rectangle2D = null;
+            rectangle2D = new Rectangle2D(0, offsetY, background.getFitWidth(), newHeight);
+            background.setViewport(rectangle2D);
+        } else {
+            double newWidth = background.getFitHeight() * imageRatio;
+            double offsetX = (background.getFitWidth() - newWidth) / 2;
+            rectangle2D = null;
+            rectangle2D = new Rectangle2D(offsetX, 0, newWidth, background.getFitHeight());
+            background.setViewport(rectangle2D);
         }
     }
 

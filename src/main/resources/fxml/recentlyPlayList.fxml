@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="recentlyPlayListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="320.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.RecentlyPlayListController">
+<AnchorPane id="rootPane" fx:id="recentlyPlayListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="320.0" style="-fx-background-color: transparent;" stylesheets="@../css/recentlyPlayList.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.RecentlyPlayListController">
    <children>
       <VBox prefHeight="350.0" prefWidth="320.0" style="-fx-border-color: gray;">
          <children>
-            <AnchorPane maxWidth="320.0" minWidth="320.0" prefHeight="100.0" prefWidth="320.0" style="-fx-background-color: white;">
+            <AnchorPane id="header" maxWidth="320.0" minWidth="320.0" prefHeight="100.0" prefWidth="320.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="11.0" layoutY="11.0" style="-fx-font-weight: bold;" text="最 近 播 放">
+                  <Label layoutX="11.0" layoutY="11.0" text="最 近 播 放">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="18.0" />
                      </font>
                   </Label>
                   <Label fx:id="lastThreeDaysPlayTotal" layoutX="11.0" layoutY="51.0" text="最近三天播放了150首" textFill="#7a7a7aed" />
@@ -33,7 +33,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <ListView fx:id="recentlyPlayList" prefHeight="250.0" prefWidth="320.0" />
+            <ListView id="list" fx:id="recentlyPlayList" maxHeight="249.0" maxWidth="320.0" minHeight="249.0" minWidth="320.0" prefHeight="249.0" prefWidth="320.0" />
          </children>
       </VBox>
    </children>

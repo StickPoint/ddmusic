@@ -3,12 +3,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.DdMusicExceptionEnums;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
 import com.stickpoint.ddmusic.common.exception.DdmusicException;
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
 import com.stickpoint.ddmusic.common.model.neteasy.Album;
 import com.stickpoint.ddmusic.common.model.neteasy.Artist;
@@ -16,11 +16,12 @@ import com.stickpoint.ddmusic.common.model.neteasy.NetEasyMusicEntityAbstract;
 import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import com.stickpoint.ddmusic.common.service.DdNetEasyMusicService;
 import com.stickpoint.ddmusic.common.utils.HttpUtils;
+import com.stickpoint.ddmusic.common.utils.JsonUtil;
 import com.stickpoint.ddmusic.common.utils.NetEasyUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -35,6 +36,15 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Version: 1.0
  */
 public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
+
+    private static NetEasyMusicServiceImpl instance = null;
+
+    public static NetEasyMusicServiceImpl getInstance() {
+        if (instance == null) {
+            instance = SingletonFactory.getWeakInstace(NetEasyMusicServiceImpl.class);
+        }
+        return instance;
+    }
 
     /**
      * 网易云音乐服务日志
@@ -84,36 +94,7 @@ public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
         Map<String, Object> paramMap = appendParam(baseInfo);
         // 获得网易云音乐当前请求的结果，是一个json数据，需要装换为Object对象
         String netEasyMusicSearchResult = HttpUtils.doGetWithParams(finalRequestUrl.toString(),paramMap);
-        // 转为GSON对象进行解析
-        JsonElement jsonElement = JsonParser.parseString(netEasyMusicSearchResult);
-        JsonObject asJsonObject = jsonElement.getAsJsonObject();
-        JsonObject reqJson = asJsonObject.getAsJsonObject("result");
-        JsonArray data = reqJson.getAsJsonArray("songs");
-        List<NetEasyMusicEntityAbstract> ps = Collections.emptyList();
-        if (Objects.nonNull(data)) {
-            ps = new Gson().fromJson(data, new TypeToken<List<NetEasyMusicEntityAbstract>>(){}.getType());
-            List<NetEasyMusicEntityAbstract> finalPs = ps;
-            ps.forEach(item->{
-                item.setDdNumber(String.valueOf(finalPs.indexOf(item)+1));
-                item.setDdTitle(item.getName());
-                Album al = item.getAl();
-                item.setDdAlbum(al.getName());
-                List<Artist> ar = item.getAr();
-                StringBuilder artistName = new StringBuilder();
-                for (Artist artist : ar) {
-                    artistName.append(artist.getName());
-                    artistName.append(",");
-                }
-                String artistsNameResult = artistName.append("#").toString().replace(",#", "");
-                item.setDdArtists(artistsNameResult);
-                item.setDdTimes(NetEasyUtil.getTimes(item.getDt()));
-                item.setDdId(String.valueOf(item.getId()));
-                if (Objects.nonNull(item.getAl())) {
-                    item.setAlbumPicture(item.getAl().getPicUrl());
-                }
-            });
-        }
-        return ps;
+        return getListBySearchResultJsonStr(netEasyMusicSearchResult);
     }
 
     /**
@@ -143,11 +124,10 @@ public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
         StringBuilder requestUrl = getBaseUrl().append(netEasyGetRecommendRequestUrl);
         // 获得网易云音乐当前请求的结果，是一个json数据，需要装换为Object对象
         String netEasyGetRecommendResult = HttpUtils.doAbsoluteGet(requestUrl.toString());
-        Gson gson = new Gson();
         List<NetEasyMusicEntityAbstract> resp = null;
         if (Objects.nonNull(netEasyGetRecommendResult)) {
             log.info(netEasyGetRecommendResult);
-            resp = gson.fromJson(netEasyGetRecommendResult, new TypeToken<List<NetEasyMusicEntityAbstract>>() {
+            resp = JsonUtil.getGson().fromJson(netEasyGetRecommendResult, new TypeToken<List<NetEasyMusicEntityAbstract>>() {
             }.getType());
         }
         return resp;
@@ -216,6 +196,83 @@ public class NetEasyMusicServiceImpl implements DdNetEasyMusicService {
         return paramMap;
     }
 
+    /**
+     * 根据歌单id获取歌单详情
+     * @param playListId 传入一个歌单id
+     * @return 返回一个歌单详情
+     */
+    @Override
+    public List<? extends AbstractDdMusicEntity> getPlayListInfoByPlayListId(String playListId) {
+        String netEasyPrefixUrl = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.NETEASY_PREFIX.getInfoContent());
+        String getPlayListUrl = (String) SystemCache.APP_PROPERTIES.get(InfoEnums.NETEASY_GET_PLAY_LIST.getInfoContent());
+        Map<String,Object> paramMap = new HashMap<>(1);
+        paramMap.put("pid",playListId);
+        String respJson = HttpUtils.doGetWithParams(getBaseUrl().append(netEasyPrefixUrl).append(getPlayListUrl).toString(), paramMap);
+        return getListByPlayListResultJsonStr(respJson);
+    }
 
+    /**
+     * 音乐歌单详情的json处理函数
+     * 处理完json之后调用处理json结果集的公共函数处理字符串最终解析为集合数据
+     * 根据接口响应的JSON信息获取播放列表
+     * @param resultJson 传入一个相应的最后json
+     * @return 返回一个解析后的音乐集合
+     */
+    private List<? extends AbstractDdMusicEntity> getListByPlayListResultJsonStr(String resultJson) {
+        // 转为GSON对象进行解析
+        JsonElement jsonElement = JsonParser.parseString(resultJson);
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+        JsonArray songs = jsonObject.get("songs").getAsJsonArray();
+        return getMusicListFromJsonForCommon(songs);
+    }
+
+    /**
+     * 搜索音乐的json处理函数
+     * 处理完json之后调用处理json结果集的公共函数处理字符串最终解析为集合数据
+     * 根据接口响应的JSON信息获取播放列表
+     * @param resultJson 传入一个相应的最后json
+     * @return 返回一个解析后的音乐集合
+     */
+    private List<? extends AbstractDdMusicEntity> getListBySearchResultJsonStr(String resultJson) {
+        // 转为GSON对象进行解析
+        JsonElement jsonElement = JsonParser.parseString(resultJson);
+        JsonObject asJsonObject = jsonElement.getAsJsonObject();
+        JsonObject reqJson = asJsonObject.getAsJsonObject("result");
+        JsonArray data = reqJson.getAsJsonArray("songs");
+        return getMusicListFromJsonForCommon(data);
+    }
+
+    /**
+     * 搜索音乐与获取歌单详情共用的一个函数
+     * @param jsonArray json数组
+     * @return 从json数组中解析出来音乐集合
+     */
+    private List<? extends AbstractDdMusicEntity> getMusicListFromJsonForCommon(JsonArray jsonArray) {
+        List<NetEasyMusicEntityAbstract> ps = Collections.emptyList();
+        if (Objects.nonNull(jsonArray)) {
+            ps = JsonUtil.getGson().fromJson(jsonArray, new TypeToken<List<NetEasyMusicEntityAbstract>>(){}.getType());
+            List<NetEasyMusicEntityAbstract> finalPs = ps;
+            ps.forEach(item->{
+                item.setDdNumber(String.valueOf(finalPs.indexOf(item)+1));
+                item.setDdTitle(item.getName());
+                Album al = item.getAl();
+                item.setDdAlbum(al.getName());
+                List<Artist> ar = item.getAr();
+                StringBuilder artistName = new StringBuilder();
+                for (Artist artist : ar) {
+                    artistName.append(artist.getName());
+                    artistName.append(",");
+                }
+                String artistsNameResult = artistName.append("#").toString().replace(",#", "");
+                item.setDdArtists(artistsNameResult);
+                item.setDdTimes(NetEasyUtil.getTimes(item.getDt()));
+                item.setDdId(String.valueOf(item.getId()));
+                if (Objects.nonNull(item.getAl())) {
+                    item.setAlbumPicture(item.getAl().getPicUrl());
+                }
+            });
+        }
+        return ps;
+    }
 
 }

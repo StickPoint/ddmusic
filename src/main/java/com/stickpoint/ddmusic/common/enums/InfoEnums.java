@@ -195,6 +195,11 @@ public enum InfoEnums {
      */
     NETEASY_GET_LRC("api.sourceList.wpMusicApi.platform.neteasy.getLyric"),
     /**
+     * WP_Music基础服务请求-网易云音乐获取歌单信息
+     * api.sourceList.wpMusicApi.platform.neteasy.getPlayList
+     */
+    NETEASY_GET_PLAY_LIST("api.sourceList.wpMusicApi.platform.neteasy.getPlayList"),
+    /**
      * WP_Music基础服务请求-网易云每日推荐音乐接口地址
      * api.sourceList.wpMusicApi.platform.neteasy.getRecommend
      */
@@ -220,6 +225,22 @@ public enum InfoEnums {
      * ddmusic初始化spi机制加载之后默认的base地址，默认以这个为基准
      */
     API_FINAL_REQUEST_BASE_URL("app.finalRequestBaseUrl"),
+    /**
+     * ddmusic初始化推荐音乐歌单列表内容
+     */
+    APP_MUSIC_RECOMMEND_LIST_DAILY("app.music.recommendList.daily"),
+    /**
+     * ddmusic初始化热门歌单列表内容
+     */
+    APP_MUSIC_HOT_LIST_DAILY("app.music.hotList.daily"),
+    /**
+     * ddmusic初始化音浪前线歌单列表内容
+     */
+    APP_MUSIC_WAVE_LIST_DAILY("app.music.waveList.daily"),
+    /**
+     * ddmusic初始化轮播json
+     */
+    APP_MUSIC_BANNER_LIST_DAILY("app.music.banner.daily"),
     /**
      * 音乐状态 被比较的值 是一个常量枚举
      */

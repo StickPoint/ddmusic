@@ -21,7 +21,7 @@
          <children>
             <VBox prefHeight="199.0" prefWidth="750.0">
                <children>
-                  <Label text="热门歌单">
+                  <Label text="顶点推荐">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -29,7 +29,7 @@
                         <Insets left="15.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox fx:id="hotMusicList" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
+                  <HBox fx:id="dailyRecommendList" id="dailyRecommendList" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
                      <children>
                         <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
                            <HBox.margin>
@@ -154,7 +154,7 @@
                         <Insets left="15.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox fx:id="musicWaveList" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
+                  <HBox fx:id="musicWaveList" id="musicWaveList" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
                      <children>
                         <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
                            <HBox.margin>
@@ -271,7 +271,7 @@
          <children>
             <VBox prefHeight="199.0" prefWidth="750.0">
                <children>
-                  <Label text="每日推荐">
+                  <Label text="热门歌单">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -279,7 +279,7 @@
                         <Insets left="15.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox fx:id="dailyRecommendList" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
+                  <HBox fx:id="hotMusicList" id="hotMusicList" prefHeight="177.0" prefWidth="750.0" spacing="7.0">
                      <children>
                         <VBox alignment="CENTER" maxHeight="164.0" maxWidth="140.0" minHeight="164.0" minWidth="140.0" prefHeight="164.0" prefWidth="140.0">
                            <HBox.margin>

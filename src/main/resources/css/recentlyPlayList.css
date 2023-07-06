@@ -1,0 +1,17 @@
+#header {
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-border-width: 0px;
+}
+
+#list {
+    -fx-border-width: 0px;
+    -fx-border-color: transparent;
+    -fx-background-color: white;
+}
+
+#rootPane {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0px;
+}

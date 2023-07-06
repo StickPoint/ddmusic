@@ -1,14 +1,29 @@
-#localDownloadPane {
-    -fx-background-color: white;
+.search-result {
+    -fx-background-color: rgb(255,255,255);
 }
 
-#downloadinghBox .label:hover {
-    -fx-text-fill: rgb(236, 65, 65);
+.search-result-words {
+    -fx-text-fill: rgb(159,159,159);
 }
 
-#fileChoose {
-    -fx-background-color: gray;
-    -fx-shape: 'M510.4 243.2c8 27.2 33.6 44.8 60.8 44.8h259.2c0-35.2-28.8-64-64-64H504l6.4 19.2zM484.8 160h281.6c70.4 0 128 57.6 128 128v25.6c30.4 24 51.2 60.8 51.2 102.4v384c0 70.4-57.6 128-128 128H208c-70.4 0-128-57.6-128-128V224c0-70.4 57.6-128 128-128h164.8c46.4 0 89.6 25.6 112 64z m-112 0H208c-35.2 0-64 28.8-64 64v576c0 35.2 28.8 64 64 64h608c35.2 0 64-28.8 64-64V416c0-35.2-28.8-64-64-64H574.4c-56 0-105.6-36.8-121.6-89.6l-19.2-57.6c-8-27.2-32-44.8-60.8-44.8zM272 704h256c17.6 0 32 14.4 32 32s-14.4 32-32 32H272c-17.6 0-32-14.4-32-32s14.4-32 32-32z';
+#search-result-header {
+    /*-fx-background-color: rgb(230,230,230);*/
+    -fx-background-color: rgb(255,255,255);
+}
+
+#optionTopPane {
+    -fx-background-color: transparent;
+    /*-fx-background-radius: 8;*/
+    /*-fx-border-radius: 8;*/
+}
+
+#optionMenuItem {
+    -fx-background-color: transparent;
+}
+
+#optionMenuLittleItem1 {
+    -fx-background-color: red;
+    -fx-pref-width: 65;
 }
 
 .table-view,.table-view .column-header-background,
@@ -20,11 +35,11 @@
 }
 .table-view .table-column .label{
     -fx-alignment:center-left;
-    -fx-text-fill:rgb(136,136,136);
+    -fx-text-fill:rgb(106,85,102);
 }
 .table-cell{
     -fx-border-width: 0;
-    -fx-text-fill:rgb(136,136,136);
+    -fx-text-fill:rgb(106,85,102);
     -fx-font-size: 13px;
     -fx-alignment:center-left;
 }
@@ -48,7 +63,7 @@
     -fx-background-color: transparent;
 }
 .table-view .placeholder .label{
-    -fx-text-fill:rgb(136,136,136);
+    -fx-text-fill:rgb(106,85,102);
     -fx-font-size:18px;
     -fx-alignment:center-left;
 }
@@ -86,3 +101,9 @@
 .table-view .scroll-bar:horizontal .decrement-arrow {
     -fx-background-color: transparent;
 }
+/*.table-view .scroll-bar:horizontal{*/
+/*    -fx-pref-height:0;visibility:collapse;*/
+/*}*/
+/*.table-view .placeholder {*/
+/*    -fx-background-color: white;*/
+/*}*/

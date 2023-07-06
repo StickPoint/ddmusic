@@ -2,6 +2,7 @@ package com.stickpoint.ddmusic;
 import com.stickpoint.ddmusic.common.config.DdmusicSpiMonitor;
 import com.stickpoint.ddmusic.common.cache.SystemCache;
 import com.stickpoint.ddmusic.common.enums.InfoEnums;
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import com.stickpoint.ddmusic.common.utils.SystemPropertiesUtil;
 import com.stickpoint.ddmusic.common.thread.ThreadUtil;
 import com.stickpoint.ddmusic.page.stage.HomePageStage;
@@ -68,10 +69,11 @@ public class StickpointMusicApplication extends Application {
      */
     @Override
     public void start(@SuppressWarnings("exports") Stage primaryStage) throws URISyntaxException {
+        log.info("11");
         Media welcomeVideo = new Media(Objects.requireNonNull(getClass().getResource("/media/ddmusic.mp4")).toURI().toString());
         MediaPlayer player = new MediaPlayer(welcomeVideo);
         MediaView mediaView = new MediaView(player);
-        loadingMessage = new Label();
+        loadingMessage = SingletonFactory.getWeakInstace(Label.class);
         loadingMessage.setTextFill(Color.WHITE);
         AnchorPane.setRightAnchor(loadingMessage, 10.0);
         AnchorPane.setBottomAnchor(loadingMessage, 10.0);
@@ -119,15 +121,21 @@ public class StickpointMusicApplication extends Application {
         try {
             // 其他操作
             showApplicationInitsInfo("初始化目录...");
-            log.info("开始加载本地系统核心配置参数数据");
-            SYSTEM_PROPERTIES_UTIL.loadProperties();
-            log.info("开始加载加载远程系统配置");
-            loadRemoteProperties();
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
         }
+    }
+
+    /**
+     * 初始化软件基础本地与远程配置
+     */
+    private static void initApplicationProperties() {
+        log.info("开始加载本地系统核心配置参数数据");
+        SYSTEM_PROPERTIES_UTIL.loadProperties();
+        log.info("开始加载加载远程系统配置");
+        loadRemoteProperties();
     }
 
     /**
@@ -162,7 +170,16 @@ public class StickpointMusicApplication extends Application {
      * method.
      * An application may construct other JavaFX objects in this method.
      * </p>
-     *
+     */
+    @Override
+    public void init() {
+        // 先加载程序配置
+        initApplicationProperties();
+        // 然后加载程序页面
+        initAndLoadPage();
+    }
+
+    /**
      * 整个项目的初始化
      * （1）FXML文件初始化
      * （2）播放器状态设置初始化
@@ -174,8 +191,7 @@ public class StickpointMusicApplication extends Application {
      * 初始化，直接在这里进行 然后后续都使用缓存
      *
      */
-    @Override
-    public void init() {
+    private void initAndLoadPage() {
         // 系统内部配置优先装载 （1）播放器状态初始化
         SystemCache.SYS_INNER_PROPERTIES.put(InfoEnums.MUSIC_PLAY_STATUS.getInfoContent(), InfoEnums.MUSIC_PLAY_STATUS_PAUSE_VALUE.getInfoContent());
         // 装载FXML文件: （1）首页
@@ -215,6 +231,9 @@ public class StickpointMusicApplication extends Application {
         // （11）下载本地页面
         FXMLLoader downloadLocalLoader = new FXMLLoader(PageEnums.DOWNLOAD_LOCAL.getPageSource());
         SystemCache.PAGE_MAP.put(PageEnums.DOWNLOAD_LOCAL.getRouterId(),downloadLocalLoader);
+        // （12）歌单详情界面
+        FXMLLoader playListDetailLoader = new FXMLLoader(PageEnums.PLAY_LIST_DETAIL.getPageSource());
+        SystemCache.PAGE_MAP.put(PageEnums.PLAY_LIST_DETAIL.getRouterId(),playListDetailLoader);
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
@@ -228,6 +247,7 @@ public class StickpointMusicApplication extends Application {
             recentlyPlayListLoader.load();
             playerComponentLoader.load();
             searchMusicResultLoader.load();
+            playListDetailLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -58,6 +58,11 @@ public class HomePageController {
     @FXML
     public AnchorPane ddCenterPane;
     /**
+     * 顶部的Header-AnchorPane
+     */
+    @FXML
+    public AnchorPane headerAnchorPane;
+    /**
      * 最小化按纽
      */
     @FXML
@@ -134,7 +139,7 @@ public class HomePageController {
     public void initialize(){
         changeMyMusicMenuBackgroundStyle();
         initSystemMenuList();
-        this.netEasyMusicService = new NetEasyMusicServiceImpl();
+        this.netEasyMusicService = NetEasyMusicServiceImpl.getInstance();
         // 初始化
         initInnerComponent();
         // 初始化监听

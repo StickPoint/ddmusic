@@ -11,6 +11,11 @@ open module com.stickpoint.ddmusic {
     requires com.google.gson;
     requires org.kordamp.ikonli.antdesignicons;
     requires org.kordamp.ikonli.javafx;
+    // 网络依赖
+    requires java.net.http;
+    // sql依赖
+    requires org.xerial.sqlitejdbc;
+    requires java.sql;
     // 下面的依赖全是javafx依赖
     requires javafx.graphics;
     requires javafx.controls;
@@ -18,10 +23,9 @@ open module com.stickpoint.ddmusic {
     requires javafx.media;
     requires javafx.base;
     requires javafx.swing;
-    requires java.sql;
-    requires java.net.http;
     // 配置SPI机制下的HttpConfig封装
     provides DdmusicSpiMonitor  with DdMusicHttpConfig;
+    // 导出SPI依赖
     exports com.stickpoint.ddmusic;
     exports com.stickpoint.ddmusic.common.config;
 }

@@ -1,5 +1,6 @@
 package com.stickpoint.ddmusic.page.component;
 import com.stickpoint.ddmusic.common.enums.AppEnums;
+import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -21,8 +22,8 @@ public class DdMusicTray extends TrayIcon {
 
     public DdMusicTray(Image image, String tooltip, Region menu) {
         super(image, tooltip);
-        Stage stage = new Stage();
-        StackPane pane = new StackPane();
+        Stage stage = SingletonFactory.getWeakInstace(Stage.class);
+        StackPane pane = SingletonFactory.getWeakInstace(StackPane.class);
         stage.setScene(new Scene(pane));
         //去掉面板的标题栏
         stage.initStyle(StageStyle.TRANSPARENT);

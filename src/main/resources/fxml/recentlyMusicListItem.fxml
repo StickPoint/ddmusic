@@ -2,26 +2,21 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="40.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.component.RecentlyMusicListItem">
+<AnchorPane prefHeight="40.0" prefWidth="320.0" stylesheets="@../css/recentlyPlayListItem.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.component.RecentlyMusicListItem">
    <children>
       <HBox prefHeight="40.0" prefWidth="320.0">
          <children>
-            <ImageView fx:id="playing" fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+            <Label id="currentIndex" maxWidth="10.0" minHeight="10.0" minWidth="10.0" prefHeight="10.0" prefWidth="10.0">
                <HBox.margin>
                   <Insets bottom="15.0" left="13.0" top="15.0" />
                </HBox.margin>
-               <image>
-                  <Image url="@../img/wave.gif" />
-               </image>
-            </ImageView>
+            </Label>
             <Label fx:id="musicName" prefHeight="19.0" prefWidth="113.0" text="Jar Of Love">
                <font>
                   <Font size="14.0" />
