@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/6/20
  */
 public class MusicOptionsController {

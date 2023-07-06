@@ -28,7 +28,7 @@ import java.util.concurrent.CompletableFuture;
  *
  * @ClassName ： TestMusicSearchListController
  * @Date 2022/12/12 17：00
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName test
  */
 public class SearchMusicResultController {
@@ -71,16 +71,8 @@ public class SearchMusicResultController {
         myTable.lookup(".scroll-bar:horizontal").setVisible(false);
         myTable.getItems().clear();
         ObservableList<AbstractDdMusicEntity> items = myTable.getItems();
-        // 专辑
-        ddAlbum.setCellValueFactory(new PropertyValueFactory<>("ddAlbum"));
-        // 艺术家
-        ddArtists.setCellValueFactory(new PropertyValueFactory<>("ddArtists"));
-        // 顶点编号
-        ddNumber.setCellValueFactory(new PropertyValueFactory<>("ddNumber"));
-        // 音乐时间时长
-        ddTimes.setCellValueFactory(new PropertyValueFactory<>("ddTimes"));
-        // 音乐标题
-        ddTitle.setCellValueFactory(new PropertyValueFactory<>("ddTitle"));
+        deposeTableCell();
+        initTableCell();
         // 操作
         options.setCellFactory(column-> new TableCell<>() {
             /**
@@ -95,7 +87,6 @@ public class SearchMusicResultController {
                     String musicPlayUrl = NetEasyMusicServiceImpl.getInstance().getMusicPlayUrl(abstractDdMusicEntity.getDdId());
                     log.info(musicPlayUrl);
                     // 执行文件下载
-
                 });
                 // 监听收藏事件
                 controller.favorite.setOnMouseClicked(event -> {
@@ -125,7 +116,6 @@ public class SearchMusicResultController {
                     CompletableFuture.runAsync(musicControlController::startOrPausePlay);
                 });
             }
-
             @Override
             protected void updateItem(AnchorPane item, boolean empty) {
                 super.updateItem(item, empty);
@@ -144,6 +134,51 @@ public class SearchMusicResultController {
         });
         options.setPrefWidth(140);
         items.addAll(listData);
+    }
+
+    private void initTableCell() {
+        // 设置单元格工厂
+        setCellFactory(ddAlbum, "ddAlbum");
+        setCellFactory(ddArtists, "ddArtists");
+        setCellFactory(ddNumber, "ddNumber");
+        setCellFactory(ddTimes, "ddTimes");
+        setCellFactory(ddTitle, "ddTitle");
+    }
+
+    /**
+     * 设置单元格工厂
+     * @param column TableColumn 对象
+     * @param propertyName 属性名称
+     */
+    private void setCellFactory(TableColumn<AbstractDdMusicEntity, ?> column, String propertyName) {
+        column.setCellValueFactory(new PropertyValueFactory<>(propertyName));
+    }
+
+    /**
+     * 释放内存
+     */
+    private void deposeTableCell() {
+        setCellValueFactory(ddAlbum);
+        setCellValueFactory(ddArtists);
+        setCellValueFactory(ddNumber);
+        setCellValueFactory(ddTimes);
+        setCellValueFactory(ddTitle);
+        if (Objects.nonNull(options.getCellFactory())) {
+            options.setCellFactory(null);
+            options.setCellValueFactory(null);
+        }
+    }
+
+    /**
+     * 设置CellValueFactory为null
+     *
+     * @param <T>    列的类型
+     * @param column TableColumn 对象
+     */
+    private <T> void setCellValueFactory(TableColumn<AbstractDdMusicEntity, T> column) {
+        if (Objects.nonNull(column.getCellFactory())) {
+            column.setCellValueFactory(null);
+        }
     }
 
     /**

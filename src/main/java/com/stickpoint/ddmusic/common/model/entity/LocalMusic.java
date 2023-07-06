@@ -7,7 +7,7 @@ import java.net.URL;
  *
  * @ClassName : LocalMusic
  * @Date 2022/10/8 12:49
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.entity
  */
 public class LocalMusic {

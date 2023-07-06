@@ -2,7 +2,7 @@ package com.stickpoint.ddmusic.common.model.entity;
 import java.io.File;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/6/15
  */
 @SuppressWarnings("unused")

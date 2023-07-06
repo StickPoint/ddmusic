@@ -8,7 +8,7 @@ import java.sql.SQLException;
  *
  * @ClassName : RowMapper
  * @Date 2022/11/23 9:41
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.mapper
  */
 public interface RowMapper<T> {

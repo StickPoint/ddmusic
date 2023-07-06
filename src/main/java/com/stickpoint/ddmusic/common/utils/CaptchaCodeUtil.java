@@ -13,7 +13,7 @@ import java.util.Random;
  * 验证码工具类
  * @ClassName : CaptchaCodeUtil
  * @Date 2022/10/10 10:44
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.utils
  */
 public class CaptchaCodeUtil {

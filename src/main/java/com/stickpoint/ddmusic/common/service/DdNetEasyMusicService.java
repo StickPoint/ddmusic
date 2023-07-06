@@ -6,7 +6,7 @@ import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
 import java.util.List;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/6/21
  */
 public interface DdNetEasyMusicService {

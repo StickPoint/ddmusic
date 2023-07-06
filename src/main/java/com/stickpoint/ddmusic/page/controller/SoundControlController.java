@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @ClassName : SoundControlController
  * @Date 2022/10/11 17:08
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.page
  */
 public class SoundControlController {

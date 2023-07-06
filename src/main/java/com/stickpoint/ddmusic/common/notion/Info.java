@@ -3,10 +3,10 @@ package com.stickpoint.ddmusic.common.notion;
 import java.lang.annotation.*;
 
 /**
- * @author Write By SunChengXin
+ * @author Write By fntp
  * @title: Info
  * @projectName yyzq-front
- * @Modifier: SunChengXin
+ * @Modifier: fntp
  * @date 2021/9/18-17:38
  */
 @Documented

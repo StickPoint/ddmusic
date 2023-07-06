@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  *
  * @ClassName : SystemTrayController
  * @Date 2022/11/14 18:22
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.devtools.view.control
  */
 public class SystemTrayController {

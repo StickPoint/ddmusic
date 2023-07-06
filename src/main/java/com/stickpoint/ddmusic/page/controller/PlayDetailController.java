@@ -14,7 +14,7 @@ import javafx.util.Duration;
  *
  * @ClassName : PlayDetailController
  * @Date 2022/10/11 17:59
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.page
  */
 public class PlayDetailController {

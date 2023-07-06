@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @ClassName : Album
  * @Date 2022/10/8 12:53
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.entity
  */
 public class Album implements Serializable {

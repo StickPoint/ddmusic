@@ -20,7 +20,7 @@ import javafx.util.Duration;
  *
  * @ClassName : SpBadge
  * @Date 2022/10/14 16:36
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.component
  */
 @DefaultProperty(value = "control")
