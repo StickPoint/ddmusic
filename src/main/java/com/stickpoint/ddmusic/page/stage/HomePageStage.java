@@ -13,6 +13,8 @@ import javafx.stage.StageStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Objects;
+
 /**
  * @author fntp
  */
@@ -60,8 +62,6 @@ public class HomePageStage extends Stage {
         oldScreenY = 0;
         oldStageY = 0;
         oldStageX = 0;
-        //去掉面板的标题栏
-        this.initStyle(StageStyle.TRANSPARENT);
         Scene homePageScene;
         // 在初始化init方法中load过之后，我们可以直接拿node了
         FXMLLoader homepageLoader = SystemCache.PAGE_MAP.get(PageEnums.HOMEPAGE.getRouterId());
@@ -69,10 +69,6 @@ public class HomePageStage extends Stage {
         Parent parentNode = homepageLoader.getRoot();
         homePageScene = new Scene(parentNode, 950, 610);
         this.setScene(homePageScene);
-        // 设置Stage的任务栏Logo
-        this.getIcons().add(new Image("https://sinsy.oss-cn-beijing.aliyuncs.com/img/ddmusic-logo.png"));
-        // 设置居中显示场景
-        this.centerOnScreen();
         // 设置Stage监听
         log.info("场景监听部署完毕~");
         // 显示窗体拖拽轨迹
@@ -105,6 +101,23 @@ public class HomePageStage extends Stage {
            this.setX(event.getScreenX() - oldScreenX + oldStageX);
            this.setY(event.getScreenY() - oldScreenY + oldStageY);
         });
+    }
+
+    /**
+     * 强制GC
+     * @param stage 传入原始的stage强制gc
+     */
+    public void doShow(Stage stage){
+        if (Objects.nonNull(stage)) {
+            this.setTitle(stage.getTitle());
+        }
+        //去掉面板的标题栏
+        this.initStyle(stage.getStyle());
+        // 设置Stage的任务栏Logo
+        this.getIcons().addAll(stage.getIcons());
+        // 设置居中显示场景
+        this.centerOnScreen();
+        this.show();
     }
 
 }

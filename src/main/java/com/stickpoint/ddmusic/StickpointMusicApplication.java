@@ -99,7 +99,7 @@ public class StickpointMusicApplication extends Application {
             Platform.runLater(() -> {
                 try {
                     primaryStage.close();
-                    HomePageStage.getInstance().show();
+                    HomePageStage.getInstance().doShow(primaryStage);
                     // 跳转到主页面之后，需要将主页面存入缓存节点中
                     log.info("界面已由欢迎页面跳转至主页面~");
                 } catch (Exception e) {
