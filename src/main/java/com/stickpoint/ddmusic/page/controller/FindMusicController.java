@@ -77,12 +77,8 @@ public class FindMusicController {
      */
     public HBox dailyRecommendList;
 
-    private NetEasyMusicServiceImpl netEasyMusicService;
-
     @FXML
     public void initialize() {
-        // 初始化网易云音乐对象
-        netEasyMusicService = NetEasyMusicServiceImpl.getInstance();
         // 初始化轮播
         log.info("正在初始化轮播~");
         initCarousel();
@@ -250,7 +246,7 @@ public class FindMusicController {
         // 获取当前搜索的字符串
         if (Objects.nonNull(playListId)) {
             // 执行搜索
-            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> netEasyMusicService.getPlayListInfoByPlayListId(playListId);
+            Callable<List<? extends AbstractDdMusicEntity>> searchResultList = () -> NetEasyMusicServiceImpl.getInstance().getPlayListInfoByPlayListId(playListId);
             // 刷新UI
             DdThreadPollCenter.doDdMusicSearchTask(searchResultList, playListDetailController::initTableData);
         }else {

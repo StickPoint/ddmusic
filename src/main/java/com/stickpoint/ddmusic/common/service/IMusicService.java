@@ -1,7 +1,4 @@
 package com.stickpoint.ddmusic.common.service;
-import com.stickpoint.ddmusic.common.model.entity.AbstractDdMusicEntity;
-import com.stickpoint.ddmusic.common.model.vo.RequestBaseInfoVO;
-import java.util.List;
 
 /**
  * @BelongsProject: ddmusic

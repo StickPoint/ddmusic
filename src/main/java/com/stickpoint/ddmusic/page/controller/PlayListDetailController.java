@@ -57,6 +57,16 @@ public class PlayListDetailController {
     public TableColumn<AbstractDdMusicEntity, AnchorPane> options;
     @FXML
     public ImageView background;
+    /**
+     * 背景图片
+     */
+    public Image image;
+
+    public GaussianBlur gaussianBlur;
+
+    public Rectangle2D rectangle2D;
+
+    public FXMLLoader musicOptionsFxmlLoader;
 
     /**
      * 初始化数据
@@ -150,7 +160,8 @@ public class PlayListDetailController {
      */
     private MusicOptionsController createAnchorPane() {
         try {
-            FXMLLoader musicOptionsFxmlLoader = new FXMLLoader(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getPageSource());
+            musicOptionsFxmlLoader = null;
+            musicOptionsFxmlLoader = new FXMLLoader(PageEnums.MUSIC_SEARCH_RESULT_OPTIONS.getPageSource());
             musicOptionsFxmlLoader.load();
             WeakReference<MusicOptionsController> weakRef = new WeakReference<>(musicOptionsFxmlLoader.getController());
             return weakRef.get();
@@ -165,9 +176,12 @@ public class PlayListDetailController {
      * TODO 这个后续需要更改
      */
     private void initBackground() {
+        // 先GC
+        image = null;
         // 先去设置毛玻璃效果
-        GaussianBlur gaussianBlur = SingletonFactory.getWeakInstace(GaussianBlur.class);
-        Image image = new Image(SystemCache.CURRENT_PLAY_LIST_COVER_URL.get(0));
+        gaussianBlur = null;
+        gaussianBlur = SingletonFactory.getWeakInstace(GaussianBlur.class);
+        image = new Image(SystemCache.CURRENT_PLAY_LIST_COVER_URL.get(0));
         background.setImage(image);
         background.setFitWidth(750);
         background.setFitHeight(150);
@@ -179,11 +193,15 @@ public class PlayListDetailController {
         if (imageRatio > viewRatio) {
             double newHeight = background.getFitWidth() / imageRatio;
             double offsetY = (background.getFitHeight() - newHeight) / 2;
-            background.setViewport(new Rectangle2D(0, offsetY, background.getFitWidth(), newHeight));
+            rectangle2D = null;
+            rectangle2D = new Rectangle2D(0, offsetY, background.getFitWidth(), newHeight);
+            background.setViewport(rectangle2D);
         } else {
             double newWidth = background.getFitHeight() * imageRatio;
             double offsetX = (background.getFitWidth() - newWidth) / 2;
-            background.setViewport(new Rectangle2D(offsetX, 0, newWidth, background.getFitHeight()));
+            rectangle2D = null;
+            rectangle2D = new Rectangle2D(offsetX, 0, newWidth, background.getFitHeight());
+            background.setViewport(rectangle2D);
         }
     }
 
