@@ -7,7 +7,7 @@ import java.io.Serial;
  *
  * @ClassName : SmallApplicationException
  * @Date 2023/1/4 16:16
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName smallApplication.exception
  */
 @SuppressWarnings("unused")

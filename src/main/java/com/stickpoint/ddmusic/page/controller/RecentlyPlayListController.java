@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.Objects;
 
 /**
- * @author puye(0303)
+ * @author fntp
  */
 public class RecentlyPlayListController {
 

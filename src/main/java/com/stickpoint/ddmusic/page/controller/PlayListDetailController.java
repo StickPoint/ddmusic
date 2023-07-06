@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/6/29
  */
 public class PlayListDetailController {
@@ -77,6 +77,8 @@ public class PlayListDetailController {
         myTable.lookup(".scroll-bar:vertical").setVisible(false);
         myTable.lookup(".scroll-bar:horizontal").setVisible(false);
         myTable.getItems().clear();
+        deposeTableCell();
+        initTableCell();
         initBackground();
         ObservableList<AbstractDdMusicEntity> items = myTable.getItems();
         // 专辑
@@ -152,6 +154,54 @@ public class PlayListDetailController {
         });
         options.setPrefWidth(140);
         items.addAll(listData);
+    }
+
+    /**
+     * 初始化TableCell
+     */
+    private void initTableCell() {
+        // 设置单元格工厂
+        setCellFactory(ddAlbum, "ddAlbum");
+        setCellFactory(ddArtists, "ddArtists");
+        setCellFactory(ddNumber, "ddNumber");
+        setCellFactory(ddTimes, "ddTimes");
+        setCellFactory(ddTitle, "ddTitle");
+    }
+
+    /**
+     * 设置单元格工厂
+     * @param column TableColumn 对象
+     * @param propertyName 属性名称
+     */
+    private void setCellFactory(TableColumn<AbstractDdMusicEntity, ?> column, String propertyName) {
+        column.setCellValueFactory(new PropertyValueFactory<>(propertyName));
+    }
+
+    /**
+     * 释放内存
+     */
+    private void deposeTableCell() {
+        setCellValueFactory(ddAlbum);
+        setCellValueFactory(ddArtists);
+        setCellValueFactory(ddNumber);
+        setCellValueFactory(ddTimes);
+        setCellValueFactory(ddTitle);
+        if (Objects.nonNull(options.getCellFactory())) {
+            options.setCellFactory(null);
+            options.setCellValueFactory(null);
+        }
+    }
+
+    /**
+     * 设置CellValueFactory为null
+     *
+     * @param <T>    列的类型
+     * @param column TableColumn 对象
+     */
+    private <T> void setCellValueFactory(TableColumn<AbstractDdMusicEntity, T> column) {
+        if (Objects.nonNull(column.getCellFactory())) {
+            column.setCellValueFactory(null);
+        }
     }
 
     /**

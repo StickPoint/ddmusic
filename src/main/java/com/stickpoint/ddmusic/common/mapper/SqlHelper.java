@@ -17,7 +17,7 @@ import java.util.Objects;
  *
  * @ClassName : SqlHelper
  * @Date 2022/11/23 9:43
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.mapper
  */
 @SuppressWarnings("unused")
@@ -77,7 +77,7 @@ public class SqlHelper {
      * @param dbFilePath db文件路径
      * @return 数据库连接
      */
-    public Connection getConnection(String dbFilePath) throws ClassNotFoundException, SQLException {
+    private Connection getConnection(String dbFilePath) throws ClassNotFoundException, SQLException {
         Connection conn;
         // 1、加载驱动
         Class.forName("org.sqlite.JDBC");
@@ -146,6 +146,23 @@ public class SqlHelper {
             destroyed();
         }
     }
+
+    /**
+     *
+     * @param sqlStr 传入多个sql执行
+     * @throws SQLException 抛出sql异常
+     * @throws ClassNotFoundException 类找不到异常
+     */
+    public void executeBench(String...sqlStr) throws SQLException, ClassNotFoundException {
+        try {
+            for (String sql : sqlStr) {
+                getStatement().execute(sql);
+            }
+        } finally {
+            destroyed();
+        }
+    }
+
     /**
      * 执行数据库更新 sql List
      * @param sqlList sql列表
@@ -159,12 +176,14 @@ public class SqlHelper {
             destroyed();
         }
     }
+
     private Connection getConnection() throws ClassNotFoundException, SQLException {
         if (null == connection) {
             connection = getConnection(dbFilePath);
         }
         return connection;
     }
+
     private Statement getStatement() throws SQLException, ClassNotFoundException {
         if (null == statement) {
             statement = getConnection().createStatement();

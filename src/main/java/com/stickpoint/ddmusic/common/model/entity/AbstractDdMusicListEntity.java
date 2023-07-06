@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/5/30
  */
 public class AbstractDdMusicListEntity implements Serializable {

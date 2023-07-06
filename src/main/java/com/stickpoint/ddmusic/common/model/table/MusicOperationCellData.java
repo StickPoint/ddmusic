@@ -3,7 +3,7 @@ package com.stickpoint.ddmusic.common.model.table;
 import javafx.scene.control.Button;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/5/26
  */
 public class MusicOperationCellData {

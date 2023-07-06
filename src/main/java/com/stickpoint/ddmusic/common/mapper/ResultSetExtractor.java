@@ -8,7 +8,7 @@ import java.sql.SQLException;
  *
  * @ClassName : ResultSetExtractor
  * @Date 2022/11/23 9:42
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.mapper
  */
 public interface ResultSetExtractor<T> {

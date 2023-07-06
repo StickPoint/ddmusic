@@ -1,7 +1,7 @@
 package com.stickpoint.ddmusic.common.model.neteasy;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/5/29
  */
 public class Tracks {

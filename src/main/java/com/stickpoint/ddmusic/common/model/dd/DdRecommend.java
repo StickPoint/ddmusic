@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * @author puye(0303)
+ * @author fntp
  * @since 2023/6/29
  */
 public class DdRecommend implements Serializable {

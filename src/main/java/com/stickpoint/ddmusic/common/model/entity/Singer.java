@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @ClassName : Singer
  * @Date 2022/10/8 12:52
- * @Author puye(0303)
+ * @Author fntp
  * @PackageName com.stickpoint.ddmusic.common.entity
  */
 public class Singer {
