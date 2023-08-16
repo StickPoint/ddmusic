@@ -41,11 +41,18 @@ public class HomePageStage extends Stage {
      */
     private static final Logger log = LoggerFactory.getLogger(HomePageStage.class);
 
-    private static HomePageStage instance = null;
+    /**
+     * 增加内存屏障 确保单例正确
+     */
+    private static volatile HomePageStage instance = null;
 
     public static HomePageStage getInstance() {
         if (instance == null) {
-            instance = SingletonFactory.getWeakInstace(HomePageStage.class);
+            synchronized (HomePageStage.class) {
+                if (instance==instance){
+                    instance = SingletonFactory.getWeakInstace(HomePageStage.class);
+                }
+            }
         }
         return instance;
     }

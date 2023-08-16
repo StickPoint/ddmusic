@@ -44,8 +44,9 @@ public class SqlHelper {
     private final String dbFilePath;
     /**
      * 单例sqlHelper对象
+     * 增加内存屏障 确保单例正确
      */
-    private static SqlHelper sqlHelper;
+    private static volatile SqlHelper sqlHelper;
 
     /**
      * 单例构造SqlHelper对象

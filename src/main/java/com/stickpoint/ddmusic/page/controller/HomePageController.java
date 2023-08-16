@@ -403,7 +403,7 @@ public class HomePageController {
     private void initInnerComponent() {
         FXMLLoader sysTrayLoader = SystemCache.PAGE_MAP.get(PageEnums.SYSTEM_TRAY.getRouterId());
         Region region = sysTrayLoader.getRoot();
-        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo-ddmusic.svg"));
+        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo-ddmusic.png"));
         Platform.runLater(() -> {
             DdMusicTray myTray = new DdMusicTray(image,AppEnums.APPLICATION_NAME.getInfoValue(),region);
             SystemCache.NODE_MAP.put(AppEnums.APPLICATION_TRAY.getInfoValue(), myTray);
