@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.8.2</junit.version>
+<!--        <junit.version>5.8.2</junit.version>-->
         <open-jfx-version>17.0.2</open-jfx-version>
         <animatefx-version>1.2.4</animatefx-version>
         <rxcontroller-version>11.0.3</rxcontroller-version>
@@ -86,12 +86,12 @@
             <artifactId>ikonli-antdesignicons-pack</artifactId>
             <version>${kordamp.ikonli.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.junit.jupiter</groupId>-->
+<!--            <artifactId>junit-jupiter</artifactId>-->
+<!--            <version>RELEASE</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>

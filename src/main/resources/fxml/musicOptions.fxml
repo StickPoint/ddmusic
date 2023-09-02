@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Region?>
 
 
-<AnchorPane fx:id="optionPad" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/musicOptions.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.MusicOptionsController">
+<AnchorPane fx:id="optionPad" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/musicOptions.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.MusicOptionsController">
    <children>
       <HBox prefHeight="40.0" prefWidth="100.0" spacing="8.0">
          <children>

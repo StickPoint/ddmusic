@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="125.0" stylesheets="@../css/systemTray.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.SystemTrayController">
+<AnchorPane id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="125.0" stylesheets="@../css/systemTray.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.SystemTrayController">
    <AnchorPane id="contentPane" prefHeight="160.0" prefWidth="125.0">
       <VBox id="contentBox" layoutX="-1.0" prefHeight="160.0" prefWidth="125.0">
          <HBox id="menu-item" fx:id="openOriginalPage" prefHeight="40.0" prefWidth="125.0">
