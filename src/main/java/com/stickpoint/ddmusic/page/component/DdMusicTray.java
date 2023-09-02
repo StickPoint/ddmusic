@@ -2,9 +2,11 @@ package com.stickpoint.ddmusic.page.component;
 import com.stickpoint.ddmusic.common.enums.AppEnums;
 import com.stickpoint.ddmusic.common.factory.SingletonFactory;
 import javafx.application.Platform;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.awt.Image;
@@ -51,8 +53,12 @@ public class DdMusicTray extends TrayIcon {
                     //在JavaFx的主线程中调用javaFx组件的方法
                     Platform.runLater(() -> {
                         //设置dialog的显示位置
-                        stage.setX(e.getX() - (stage.getWidth() / AppEnums.COMMON_NUMBER_TWO.getNumberInfo()));
-                        stage.setY(e.getY()-stage.getHeight());
+                        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+                        double screenWidth = screenBounds.getWidth();
+                        double screenHeight = screenBounds.getHeight();
+                        // 家人们 这块位置有点不太对劲 TODO 需要大量测试window环境下菜单位置
+                        stage.setX(screenWidth - stage.getWidth());
+                        stage.setY(screenHeight - stage.getHeight());
                         //设置为顶层，否则在windows系统中会被底部任务栏遮挡
                         stage.setAlwaysOnTop(true);
                         //展示/隐藏

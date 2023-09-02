@@ -6,6 +6,9 @@ import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+
+import animatefx.animation.FadeInLeft;
+import animatefx.animation.FadeInRight;
 import com.leewyatt.rxcontrols.controls.RXAudioSpectrum;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
 import com.leewyatt.rxcontrols.controls.RXLrcView;
@@ -222,17 +225,20 @@ public class PlayerComponentController {
             if (Objects.isNull(playDetail)) {
                 throw new DdmusicException(DdMusicExceptionEnums.ERROR_MUSIC_PLAY_DETAIL_NOT_FOUND);
             }
-            FXMLLoader homepageLoader = SystemCache.PAGE_MAP.get(PageEnums.HOMEPAGE.getRouterId());
-            HomePageController homePageController = homepageLoader.getController();
             // 暂停了之后，将播放详情页面放到后台去展示
             int index = centerView.getChildren().indexOf(playDetail);
             if (index==0){
-                homePageController.mainPage.setLeft(null);
+                // 2023-09-02 停止使用这种左侧边栏的方式
+                // homePageController.mainPage.setLeft(null);
+                FadeInRight fadeInRight = new FadeInRight(playDetail);
                 playDetail.toFront();
+                fadeInRight.play();
                 log.info("展示了播放详情~");
             }else {
-                homePageController.mainPage.setLeft(homePageController.ddLeftPane);
+                // homePageController.mainPage.setLeft(homePageController.ddLeftPane);
+                FadeInLeft fadeInLeft = new FadeInLeft(playDetail);
                 playDetail.toBack();
+                fadeInLeft.play();
                 log.info("隐藏了播放详情~");
             }
         });

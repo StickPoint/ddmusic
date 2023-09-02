@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="40.0" prefWidth="320.0" stylesheets="@../css/recentlyPlayListItem.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.component.RecentlyMusicListItem">
+<AnchorPane prefHeight="40.0" prefWidth="320.0" stylesheets="@../css/recentlyPlayListItem.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.component.RecentlyMusicListItem">
    <children>
       <HBox prefHeight="40.0" prefWidth="320.0">
          <children>
