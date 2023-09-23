@@ -4,6 +4,8 @@
  */
 .root-Pane {
     -fx-background-color: white;
+    -fx-background-radius: 15px 15px 0 0;
+    -fx-border-radius: 15px 15px 0 0;
 }
 
 /**
@@ -92,7 +94,9 @@
 左侧菜单栏vBox配色（border边框灰白+底部背景白色）
  */
 #anchorPane-vBox-leftMenu {
-    -fx-border-color: rgba(238, 235, 235, 0.99);
+    /*-fx-border-color:  rgba(238, 235, 235, 0.99);*/
+    -fx-border-color: rgba(255, 255, 255, 0.99);
+    -fx-border-width: 0 1 0 1; /* 上 右 下 左 */
     -fx-background-color: white;
 }
 

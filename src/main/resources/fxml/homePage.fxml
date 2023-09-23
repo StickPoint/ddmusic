@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="950.0" styleClass="root-Pane" stylesheets="@../css/homePage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.HomePageController">
+<BorderPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="950.0" styleClass="root-Pane" stylesheets="@../css/homePage.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stickpoint.ddmusic.page.controller.HomePageController">
    <top>
-      <AnchorPane id="border-pane-top" fx:id="headerAnchorPane" prefHeight="40.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+      <AnchorPane id="border-pane-top" fx:id="headerAnchorPane" maxHeight="40.0" maxWidth="950.0" minHeight="40.0" minWidth="950.0" prefHeight="40.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="40.0" prefWidth="150.0">
+            <HBox maxHeight="40.0" maxWidth="150.0" minHeight="40.0" minWidth="150.0" prefHeight="40.0" prefWidth="150.0">
                <children>
                   <Region id="border-pane-top-hBox-region-logo" maxHeight="25.0" prefHeight="25.0" prefWidth="25.0">
                      <HBox.margin>
@@ -35,7 +35,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox id="border-pane-top-hBox-search" layoutX="269.0" layoutY="3.0" maxHeight="34.0" minHeight="24.0" prefHeight="34.0" prefWidth="250.0" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="3.0">
+            <HBox id="border-pane-top-hBox-search" layoutX="269.0" layoutY="3.0" maxHeight="34.0" maxWidth="250.0" minHeight="34.0" minWidth="250.0" prefHeight="34.0" prefWidth="250.0" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="3.0">
                <children>
                   <TextField id="border-pane-top-hBox-search-text-field" fx:id="searchKey" maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="215.0" promptText="请输入待搜索的 音乐 | 歌手 | 专辑" style="">
                      <HBox.margin>
@@ -66,7 +66,7 @@
                      </HBox.margin>
                   </RXAvatar>
                </children></HBox>
-            <HBox layoutX="770.0" maxHeight="34.0" prefHeight="34.0" prefWidth="172.0" AnchorPane.topAnchor="3.0">
+            <HBox layoutX="770.0" maxHeight="34.0" maxWidth="172.0" minHeight="34.0" minWidth="172.0" prefHeight="34.0" prefWidth="172.0" AnchorPane.topAnchor="3.0">
                <children>
                   <Region id="border-pane-top-hBox-message-region" maxHeight="17.0" maxWidth="21.0" prefHeight="17.0" prefWidth="21.0">
                      <HBox.margin>
@@ -99,9 +99,9 @@
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane fx:id="ddLeftPane" prefHeight="500.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ddLeftPane" maxHeight="500.0" maxWidth="200.0" minHeight="500.0" minWidth="200.0" prefHeight="500.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox id="anchorPane-vBox-leftMenu" maxHeight="520.0" prefHeight="500.0" prefWidth="200.0">
+            <VBox id="anchorPane-vBox-leftMenu" maxHeight="500.0" maxWidth="200.0" minHeight="500.0" minWidth="200.0" prefHeight="500.0" prefWidth="200.0">
                <children>
                   <VBox id="anchorPane-vBox-leftMenu-menu-myMusicContainer" fx:id="myMusicContainer" prefHeight="360.0" prefWidth="200.0">
                      <children>

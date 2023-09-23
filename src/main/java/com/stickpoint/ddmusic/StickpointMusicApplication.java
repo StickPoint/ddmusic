@@ -234,6 +234,9 @@ public class StickpointMusicApplication extends Application {
         // （12）歌单详情界面
         FXMLLoader playListDetailLoader = new FXMLLoader(PageEnums.PLAY_LIST_DETAIL.getPageSource());
         SystemCache.PAGE_MAP.put(PageEnums.PLAY_LIST_DETAIL.getRouterId(),playListDetailLoader);
+        // （13）歌曲附加详情界面
+        FXMLLoader playDetailAdditionLoader = new FXMLLoader(PageEnums.PLAY_DETAIL_ADDITION.getPageSource());
+        SystemCache.PAGE_MAP.put(PageEnums.PLAY_DETAIL_ADDITION.getRouterId(),playDetailAdditionLoader);
         // 装载完毕所有页面之后 将逐步进行页面的初始化操作
         // 需要在中间区域显示的菜单页面需要在初始化的时候进行加载
         try {
@@ -248,6 +251,7 @@ public class StickpointMusicApplication extends Application {
             playerComponentLoader.load();
             searchMusicResultLoader.load();
             playListDetailLoader.load();
+            playDetailAdditionLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }

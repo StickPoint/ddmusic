@@ -9,6 +9,7 @@ import java.util.concurrent.CompletableFuture;
 
 import animatefx.animation.FadeInLeft;
 import animatefx.animation.FadeInRight;
+import animatefx.animation.FadeOut;
 import com.leewyatt.rxcontrols.controls.RXAudioSpectrum;
 import com.leewyatt.rxcontrols.controls.RXAvatar;
 import com.leewyatt.rxcontrols.controls.RXLrcView;
@@ -225,19 +226,27 @@ public class PlayerComponentController {
             if (Objects.isNull(playDetail)) {
                 throw new DdmusicException(DdMusicExceptionEnums.ERROR_MUSIC_PLAY_DETAIL_NOT_FOUND);
             }
+            // 当点击了歌曲头像的时候，中间区域显示歌词等信息，左侧显示附加信息并且增加动画效果
+            FXMLLoader homepageLoader = SystemCache.PAGE_MAP.get(PageEnums.HOMEPAGE.getRouterId());
+            FXMLLoader additionLoader = SystemCache.PAGE_MAP.get(PageEnums.PLAY_DETAIL_ADDITION.getRouterId());
+            HomePageController homePageController = homepageLoader.getController();
             // 暂停了之后，将播放详情页面放到后台去展示
             int index = centerView.getChildren().indexOf(playDetail);
             if (index==0){
                 // 2023-09-02 停止使用这种左侧边栏的方式
-                // homePageController.mainPage.setLeft(null);
+                FadeInLeft fadeInLeft = new FadeInLeft(additionLoader.getRoot());
+                homePageController.mainPage.setLeft(additionLoader.getRoot());
                 FadeInRight fadeInRight = new FadeInRight(playDetail);
                 playDetail.toFront();
+                fadeInLeft.play();
                 fadeInRight.play();
                 log.info("展示了播放详情~");
             }else {
-                // homePageController.mainPage.setLeft(homePageController.ddLeftPane);
-                FadeInLeft fadeInLeft = new FadeInLeft(playDetail);
+                FadeInLeft fadeInLeft = new FadeInLeft(homePageController.ddLeftPane);
+                homePageController.mainPage.setLeft(homePageController.ddLeftPane);
+                FadeOut fadeOut = new FadeOut(playDetail);
                 playDetail.toBack();
+                fadeOut.play();
                 fadeInLeft.play();
                 log.info("隐藏了播放详情~");
             }

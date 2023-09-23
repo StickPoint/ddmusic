@@ -1,0 +1,5 @@
+#rootPane {
+    -fx-border-color: rgba(255, 255, 255, 0.99);
+    -fx-border-width: 1px;
+    -fx-background-color: white;
+}

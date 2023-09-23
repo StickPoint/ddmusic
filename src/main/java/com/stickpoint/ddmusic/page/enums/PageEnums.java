@@ -1,17 +1,6 @@
 package com.stickpoint.ddmusic.page.enums;
 
-import com.stickpoint.ddmusic.page.controller.AccumulatePaneController;
-import com.stickpoint.ddmusic.page.controller.FindMusicController;
-import com.stickpoint.ddmusic.page.controller.LocalDownloadController;
-import com.stickpoint.ddmusic.page.controller.MusicControlController;
-import com.stickpoint.ddmusic.page.controller.MusicOptionsController;
-import com.stickpoint.ddmusic.page.controller.PlayDetailController;
-import com.stickpoint.ddmusic.page.controller.PlayListDetailController;
-import com.stickpoint.ddmusic.page.controller.PlayerComponentController;
-import com.stickpoint.ddmusic.page.controller.RecentlyPlayListController;
-import com.stickpoint.ddmusic.page.controller.SearchMusicResultController;
-import com.stickpoint.ddmusic.page.controller.SoundControlController;
-import com.stickpoint.ddmusic.page.controller.SystemTrayController;
+import com.stickpoint.ddmusic.page.controller.*;
 import com.stickpoint.ddmusic.page.stage.HomePageStage;
 import java.net.URL;
 
@@ -70,6 +59,10 @@ public enum PageEnums {
      * 歌单详情页面
      */
     PLAY_LIST_DETAIL(PlayListDetailController.class,PlayListDetailController.class.getResource("/fxml/playListDetail.fxml"),"playListDetail"),
+    /**
+     * playDetailAddition 歌曲播放详情附加页面左侧弹窗
+     */
+    PLAY_DETAIL_ADDITION(PlayDetailAdditionPageController.class,PlayDetailAdditionPageController.class.getResource("/fxml/playDetailAdditionPage.fxml"),"playDetailAddition"),
     /**
      * 音量控制组件面板--控制音量
      */
