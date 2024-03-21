@@ -69,7 +69,6 @@ public class StickpointMusicApplication extends Application {
      */
     @Override
     public void start(@SuppressWarnings("exports") Stage primaryStage) throws URISyntaxException {
-        log.info("11");
         Media welcomeVideo = new Media(Objects.requireNonNull(getClass().getResource("/media/ddmusic.mp4")).toURI().toString());
         MediaPlayer player = new MediaPlayer(welcomeVideo);
         MediaView mediaView = new MediaView(player);
@@ -123,7 +122,7 @@ public class StickpointMusicApplication extends Application {
             showApplicationInitsInfo("初始化目录...");
             Thread.sleep(3000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+           log.error("application runs with errors has occurred ~", e);
             Thread.currentThread().interrupt();
         }
     }

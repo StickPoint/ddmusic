@@ -58,12 +58,12 @@ public class DdThreadPollCenter implements ThreadFactory {
         long keepAliveTime = 10;
         TimeUnit keepAliveTimeUnit = TimeUnit.MINUTES;
         int queSize = 100_000;
-        // 下载线程池最多三个线程
-        DOWNLOAD_EXECUTOR_SERVICE = new ThreadPoolExecutor(3, 3,
+        // 下载线程池最多3个线程
+        DOWNLOAD_EXECUTOR_SERVICE = new ThreadPoolExecutor(1, 3,
                 keepAliveTime, keepAliveTimeUnit, new ArrayBlockingQueue<>(queSize),
                 Executors.defaultThreadFactory());
-        // 多任务线程池最多4个线程
-        OTHER_TASK_EXECUTOR_SERVICE = new ThreadPoolExecutor(4,4,
+        // 多任务线程池最多2个线程
+        OTHER_TASK_EXECUTOR_SERVICE = new ThreadPoolExecutor(1,2,
                 keepAliveTime, keepAliveTimeUnit, new ArrayBlockingQueue<>(queSize),
                 Executors.defaultThreadFactory());
         // 搜索最多一个线程

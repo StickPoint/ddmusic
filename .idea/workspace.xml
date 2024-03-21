@@ -4,58 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDMusic 0041-优化了部分代码&#10;（1）新增sqlite依赖；&#10;（2）新增登录注册页面，但未优化；">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0dd43c1e573bc4113594a2b6f36f886e0a651cbe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b5939cf6d5b5e6bdc9a4d0372f16253737046bc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/4/542323782e66f48670e2b456de8722a313e25af4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/e/ee27f7b848cf48239f9023b57613c0c36467ab37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDmusic 0044-提交了修改后的代码&#10;（1）新增UI页面">
+      <change afterPath="$PROJECT_DIR$/.idea/leetcode/statistics.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/config/DdmusicSpiMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/config/DdmusicSpiMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/exception/DdmusicException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/exception/DdmusicException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/mapper/ResultSetExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/mapper/ResultSetExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/mapper/RowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/mapper/RowMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/mapper/SqlHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/mapper/SqlHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/dd/DdRecommend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/dd/DdRecommend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/AbstractDdMusicListEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/AbstractDdMusicListEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/DdMusicFileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/DdMusicFileInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/LocalMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/LocalMusic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/SearchResultTableDataEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/SearchResultTableDataEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/Singer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/entity/Singer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/NetEasyPlayListEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/NetEasyPlayListEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Tracks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/neteasy/Tracks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/table/MusicOperationCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/table/MusicOperationCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/table/MusicOperationCellData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/model/table/MusicOperationCellData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/notion/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/notion/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/DdNetEasyMusicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/DdNetEasyMusicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/IImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/IImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/IShareService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/IShareService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/DdmusicShareServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/DdmusicShareServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/KugouMusicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/KugouMusicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/KuwoMusicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/KuwoMusicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/MiguMusicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/MiguMusicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/QqMusicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/service/impl/QqMusicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/CaptchaCodeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/CaptchaCodeUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/DdMusicFxUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/DdMusicFxUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/JsonUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/NetEasyUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/NetEasyUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SecurityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/SecurityUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/component/SpBadge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/component/SpBadge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/LocalDownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/LocalDownloadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/MusicOptionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/MusicOptionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/PlayDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/PlayDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/PlayListDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/PlayListDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/RecentlyPlayListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/RecentlyPlayListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/SearchMusicResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/SearchMusicResultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/SoundControlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/SoundControlController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/SystemTrayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/page/controller/SystemTrayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/ddmusic_user.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/ddmusic_user.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stickpoint/ddmusic/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stickpoint/ddmusic/MyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/StickpointMusicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/StickpointMusicApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/thread/DdThreadPollCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/thread/DdThreadPollCenter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +47,11 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitRewordedCommitMessages">
@@ -104,54 +65,52 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-        <option value="dev" />
-      </list>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\myMavenResource" />
-        <option name="mavenHome" value="D:/software/maven/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="D:\software\maven\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="mavenHome" value="E:/develop/maven/apache-maven-3.9.3" />
+        <option name="userSettingsFile" value="E:\develop\maven\apache-maven-3.9.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
   <component name="ProjectId" id="2FpznulcpXHT3zgcNICRlv456cu" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/myProject/ddmusic/src/main/java/com/stickpoint/ddmusic/common/mapper&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.StickpointMusicApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev-2023",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/codeData/java/javafxProjects/easyClipboard",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -201,6 +160,7 @@
     <configuration name="StickpointMusicApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stickpoint.ddmusic.StickpointMusicApplication" />
       <module name="ddmusic" />
+      <option name="VM_PARAMETERS" value="-Xms300m -Xmx400m -verbose:gc" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.stickpoint.ddmusic.*" />
@@ -243,15 +203,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.MyTest" />
+      <item itemvalue="Application.ServiceTest" />
+      <item itemvalue="Application.StickpointMusicApplication" />
+      <item itemvalue="JUnit.MyTest.getBase64" />
+      <item itemvalue="JUnit.MyTest.testDb" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.StickpointMusicApplication" />
         <item itemvalue="JUnit.MyTest.testDb" />
         <item itemvalue="JUnit.MyTest.getBase64" />
-        <item itemvalue="Application.ServiceTest" />
-        <item itemvalue="Application.MyTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -354,6 +326,32 @@
       <workItem from="1688466596044" duration="5497000" />
       <workItem from="1688523771418" duration="19912000" />
       <workItem from="1688609164238" duration="10235000" />
+      <workItem from="1692508031802" duration="1874000" />
+      <workItem from="1692524132745" duration="5199000" />
+      <workItem from="1692533874296" duration="659000" />
+      <workItem from="1692579346842" duration="630000" />
+      <workItem from="1692601333956" duration="2621000" />
+      <workItem from="1693577784469" duration="2227000" />
+      <workItem from="1693617640037" duration="6000" />
+      <workItem from="1693654134425" duration="3900000" />
+      <workItem from="1693662494609" duration="156000" />
+      <workItem from="1693710685547" duration="7481000" />
+      <workItem from="1693791983665" duration="7000" />
+      <workItem from="1693879333547" duration="457000" />
+      <workItem from="1693879890154" duration="405000" />
+      <workItem from="1693892389808" duration="1015000" />
+      <workItem from="1694095246229" duration="4145000" />
+      <workItem from="1694673533040" duration="159000" />
+      <workItem from="1695110396249" duration="1214000" />
+      <workItem from="1695464343519" duration="2241000" />
+      <workItem from="1695521164211" duration="598000" />
+      <workItem from="1695821560765" duration="823000" />
+      <workItem from="1696062778624" duration="605000" />
+      <workItem from="1696480180947" duration="9442000" />
+      <workItem from="1696509485339" duration="881000" />
+      <workItem from="1696555767126" duration="154000" />
+      <workItem from="1696560538928" duration="2174000" />
+      <workItem from="1710946161737" duration="2063000" />
     </task>
     <task id="LOCAL-00001" summary="DDMusic 0002 新版本更新&#10;（1）新增页面优化&#10;（2）新增播放详情页面&#10;（3）新增歌词解析&#10;（4）新增歌词显示&#10;（5）新增歌曲进度条&#10;（6）新增全局加载方式">
       <created>1665571877427</created>
@@ -537,22 +535,29 @@
       <option name="project" value="LOCAL" />
       <updated>1688612874965</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="DDMusic 0043-优化了部分代码&#10;（1）增加了界面过渡动画">
+      <option name="closed" value="true" />
+      <created>1693662356965</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1693662356965</updated>
+    </task>
+    <task id="LOCAL-00028" summary="DDmusic 0044-提交了修改后的代码&#10;（1）新增UI页面">
+      <option name="closed" value="true" />
+      <created>1695465203430</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1695465203430</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -568,10 +573,17 @@
         </entry>
       </map>
     </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DDMusic 0002 新版本更新&#10;（1）新增工具类&#10;（2）新规划项目结构" />
-    <MESSAGE value="DDMusic 0003 新版本更新&#10;（1）修复鼠标移入bug&#10;（2）新增音量调节服务&#10;（3）新增最近播放列表" />
     <MESSAGE value="DDMusic 0004 新版本更新&#10;（1）菜单按钮点击不生效bug&#10;（2）新增最近播放列表服务" />
     <MESSAGE value="DDMusic 0005 版本UI更新&#10;（1）更新顶点音乐UI&#10;（2）修复了音乐播放不自动暂停的问题&#10;（3）修复了音乐暂停UI界面刷新的问题" />
     <MESSAGE value="DDMusic 0006 UI及项目更新&#10;（1）更新了项目结构&#10;（2）更新了项目CSS美化体系&#10;（3）更新了首页菜单栏&#10;（4）更新轮播图&#10;（5）更新首页推荐菜单按钮" />
@@ -595,7 +607,9 @@
     <MESSAGE value="DDMusic 0039-新增歌单详情更新&#10;（1）更新歌单详情显示" />
     <MESSAGE value="DDMusic 0040-新增歌单详情更新&#10;（1）更新歌单详情显示" />
     <MESSAGE value="DDMusic 0041-优化了部分代码&#10;（1）新增sqlite依赖；&#10;（2）新增登录注册页面，但未优化；" />
-    <option name="LAST_COMMIT_MESSAGE" value="DDMusic 0041-优化了部分代码&#10;（1）新增sqlite依赖；&#10;（2）新增登录注册页面，但未优化；" />
+    <MESSAGE value="DDMusic 0043-优化了部分代码&#10;（1）增加了界面过渡动画" />
+    <MESSAGE value="DDmusic 0044-提交了修改后的代码&#10;（1）新增UI页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="DDmusic 0044-提交了修改后的代码&#10;（1）新增UI页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
