@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDmusic 0044-提交了修改后的代码&#10;（1）新增UI页面">
-      <change afterPath="$PROJECT_DIR$/.idea/leetcode/statistics.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/setting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6c2a5614-165b-43b1-bb7e-8169e5aab5fc" name="Changes" comment="DDmusic 0045-提交了修改后的代码&#10;（1）粗略调整">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/StickpointMusicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/StickpointMusicApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/thread/DdThreadPollCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/thread/DdThreadPollCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stickpoint/ddmusic/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stickpoint/ddmusic/MyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,10 +72,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2FpznulcpXHT3zgcNICRlv456cu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -91,6 +87,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.StickpointMusicApplication.executor": "Run",
+    "JUnit.MyTest.testCheckFile.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -130,20 +127,7 @@
       <recent name="com.stickpoint.ddmusic.common.entity.vo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StickpointMusicApplication">
-    <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stickpoint.ddmuisc.MyTest" />
-      <module name="ddmusic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.stickpoint.ddmuisc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.MyTest.testCheckFile">
     <configuration name="ServiceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stickpoint.ddmuisc.ServiceTest" />
       <module name="ddmusic" />
@@ -187,6 +171,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyTest.testCheckFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ddmusic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stickpoint.ddmusic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stickpoint.ddmusic" />
+      <option name="MAIN_CLASS_NAME" value="com.stickpoint.ddmusic.MyTest" />
+      <option name="METHOD_NAME" value="testCheckFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyTest.testDb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ddmusic" />
       <extension name="coverage">
@@ -204,14 +204,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MyTest" />
       <item itemvalue="Application.ServiceTest" />
       <item itemvalue="Application.StickpointMusicApplication" />
+      <item itemvalue="JUnit.MyTest.testCheckFile" />
       <item itemvalue="JUnit.MyTest.getBase64" />
       <item itemvalue="JUnit.MyTest.testDb" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyTest.testCheckFile" />
         <item itemvalue="Application.StickpointMusicApplication" />
         <item itemvalue="JUnit.MyTest.testDb" />
         <item itemvalue="JUnit.MyTest.getBase64" />
@@ -352,6 +353,8 @@
       <workItem from="1696555767126" duration="154000" />
       <workItem from="1696560538928" duration="2174000" />
       <workItem from="1710946161737" duration="2063000" />
+      <workItem from="1711029623371" duration="667000" />
+      <workItem from="1711030303176" duration="376000" />
     </task>
     <task id="LOCAL-00001" summary="DDMusic 0002 新版本更新&#10;（1）新增页面优化&#10;（2）新增播放详情页面&#10;（3）新增歌词解析&#10;（4）新增歌词显示&#10;（5）新增歌曲进度条&#10;（6）新增全局加载方式">
       <created>1665571877427</created>
@@ -551,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695465203430</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="DDmusic 0045-提交了修改后的代码&#10;（1）粗略调整">
+      <option name="closed" value="true" />
+      <created>1711029797681</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1711029797681</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,7 +595,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DDMusic 0004 新版本更新&#10;（1）菜单按钮点击不生效bug&#10;（2）新增最近播放列表服务" />
     <MESSAGE value="DDMusic 0005 版本UI更新&#10;（1）更新顶点音乐UI&#10;（2）修复了音乐播放不自动暂停的问题&#10;（3）修复了音乐暂停UI界面刷新的问题" />
     <MESSAGE value="DDMusic 0006 UI及项目更新&#10;（1）更新了项目结构&#10;（2）更新了项目CSS美化体系&#10;（3）更新了首页菜单栏&#10;（4）更新轮播图&#10;（5）更新首页推荐菜单按钮" />
     <MESSAGE value="DDMusic 0007 项目更新&#10;（1）更新了项目CSS美化体系" />
@@ -609,7 +619,8 @@
     <MESSAGE value="DDMusic 0041-优化了部分代码&#10;（1）新增sqlite依赖；&#10;（2）新增登录注册页面，但未优化；" />
     <MESSAGE value="DDMusic 0043-优化了部分代码&#10;（1）增加了界面过渡动画" />
     <MESSAGE value="DDmusic 0044-提交了修改后的代码&#10;（1）新增UI页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="DDmusic 0044-提交了修改后的代码&#10;（1）新增UI页面" />
+    <MESSAGE value="DDmusic 0045-提交了修改后的代码&#10;（1）粗略调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="DDmusic 0045-提交了修改后的代码&#10;（1）粗略调整" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -622,6 +633,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/mapper/SqlHelper.java</url>
           <line>197</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stickpoint/ddmusic/common/utils/HttpUtils.java</url>
+          <line>633</line>
+          <properties class="com.stickpoint.ddmusic.common.utils.HttpUtils" method="checkFileIfExist">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

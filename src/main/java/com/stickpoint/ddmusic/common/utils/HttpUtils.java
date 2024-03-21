@@ -484,8 +484,8 @@ public class HttpUtils {
         try {
             requestBuilder = HttpRequest.newBuilder(new URI(url))
                     .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36")
-                    .header("Referer", "https://img.mediy.cn/")
-                    .header("Origin", "https://img.mediy.cn")
+                    .header("Referer", "https://up.mediy.cn")
+                    .header("Origin", "https://up.mediy.cn")
                     .header("Cache-Control", "no-cache")
                     .header("Pragma", "no-cache")
                     .header("Sec-Ch-Ua", "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"")
@@ -632,7 +632,7 @@ public class HttpUtils {
      * @throws URISyntaxException URI异常
      */
     private static String checkFileIfExist(DdMusicFileInfo fileInfo) throws IOException, InterruptedException, URISyntaxException {
-        String url = "https://img.mediy.cn/?action=upbigfile";
+        String url = "https://up.mediy.cn/?action=upbigfile";
         File file = new File(fileInfo.getFilePath());
         long filesize;
         long fileLastModified;
