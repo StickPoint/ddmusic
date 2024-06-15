@@ -284,7 +284,8 @@ public class PlayerComponentController {
                 //设置歌词进度
                 lrcView.currentTimeProperty().bind(player.currentTimeProperty());
             } catch (IOException e) {
-                e.printStackTrace();
+                //TODO toast提示
+               log.error("歌词设置出错");
             }
         }
         //设置频谱可视化
@@ -299,11 +300,12 @@ public class PlayerComponentController {
         // 存入缓存
         changeMusicPlayPreNextAndCurrent(abstractDdMusicEntity);
         // 刷新头像
-        CompletableFuture.runAsync(() -> Platform.runLater(() -> {
+        Platform.runLater(() -> {
             playerMusicCover.imageProperty().unbind();
             playerMusicCover.imageProperty().set(null);
-            playerMusicCover.imageProperty().set(new Image(abstractDdMusicEntity.getAlbumPicture()));
-        }));
+            Image currentImage = new Image(abstractDdMusicEntity.getAlbumPicture(), 50, 0, true, true, true);
+            playerMusicCover.imageProperty().set(currentImage);
+        });
     }
 
     /**

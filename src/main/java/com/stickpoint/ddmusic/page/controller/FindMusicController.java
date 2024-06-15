@@ -31,6 +31,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.net.MalformedURLException;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
@@ -138,7 +141,9 @@ public class FindMusicController {
         }
         ObservableList<RXCarouselPane> paneList = sceneryCarousel.getPaneList();
         for (DdRecommend banner : bannerList) {
-            ImageView imageView = new ImageView(new Image(banner.getPicUrl()));
+            log.warn("当前处理：{}", banner.getPicUrl());
+            Image image = new Image(banner.getPicUrl(), 750, 210, true, true, true);
+            ImageView imageView = new ImageView(image);
             RXCarouselPane rxCarouselPane = new RXCarouselPane(new Pane(imageView));
             rxCarouselPane.setTranslateY(-25);
             paneList.add(rxCarouselPane);
@@ -186,7 +191,8 @@ public class FindMusicController {
             // 每一个音乐播放列表歌曲封面
             ImageView imageView = (ImageView) cacheItemChildren.get(0);
             if (Objects.nonNull(recommendList)&&recommendList.size()==5) {
-                imageView.imageProperty().set(new Image(recommendList.get(i).getPicUrl()));
+                Image currentImage = new Image(recommendList.get(i).getPicUrl(), 400, 0, true, true, true);
+                imageView.imageProperty().set(currentImage);
                 setOnMouseClickedListener(cacheItem,recommendList.get(i));
             }
             // 设置每一首音乐的歌名

@@ -113,7 +113,8 @@ public class SearchMusicResultController {
                     // 调用播放
                     FXMLLoader musicControlLoader = SystemCache.PAGE_MAP.get(PageEnums.MUSIC_CONTROL.getRouterId());
                     MusicControlController musicControlController = musicControlLoader.getController();
-                    CompletableFuture.runAsync(musicControlController::startOrPausePlay);
+//                    CompletableFuture.runAsync(musicControlController::startOrPausePlay);
+                    CompletableFuture.runAsync(() -> musicControlController.startOrPausePlay(SystemCache.INNER_PLAYER_CACHE.get("player")));
                 });
             }
             @Override
