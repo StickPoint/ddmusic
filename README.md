@@ -7,7 +7,7 @@ this is build for ddmusic-pc application ，we'd developed this app with Java
 
 This project is based on the latest version of JDK17
 
-The service relies on the music backend. Previously, I wrote a cross domain request proxy based on NextJS to request various music websites in China. Therefore, I need to write a music backend service here. This is very simple for me, and I can write it anytime. If you have no doubts about the backend part, I can start writing backend services when I find a job later. I will draw the backend service architecture according to the software development process, discuss it with everyone, and then start writing
+The service relies on the music backend. Previously, I used a cross domain request proxy based on NextJS to request various music websites in China. Therefore, I need to write a music backend service here. This is very simple for me, and I can write it anytime. If you have no doubts about the backend part, I can start writing backend services when I find a job later. I will draw the backend service architecture according to the software development process, discuss it with everyone, and then start writing
 
 This project is currently based on JDK17, and the UI part combines FXML and CSS.
 
@@ -19,6 +19,8 @@ When this project was launched, it relied on a configuration file located in Chi
 https://gitee.com/fntp_admin/ddmusic-properties/raw/master/application-dev.yaml
 ![image](https://github.com/user-attachments/assets/30e62e7c-29ed-4e9f-9e8c-dde10e3aacc8)
 
+
+Api：Project from another brother in the group api-project：https://github.com/GitHub-ZC/Wp_music?tab=readme-ov-file
 
 I have excerpted a simple YAML parsing code from Baidu. As it only serves a temporary purpose, there is no need to pay attention to it.
 
