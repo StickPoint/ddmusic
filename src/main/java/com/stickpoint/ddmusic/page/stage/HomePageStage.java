@@ -124,6 +124,7 @@ public class HomePageStage extends Stage {
         this.getIcons().addAll(stage.getIcons());
         // 设置居中显示场景
         this.centerOnScreen();
+        this.sizeToScene();
         this.show();
     }
 

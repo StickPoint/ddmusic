@@ -100,6 +100,10 @@ public class StickpointMusicApplication extends Application {
                 try {
                     primaryStage.close();
                     HomePageStage.getInstance().doShow(primaryStage);
+                    Platform.runLater(()  -> {
+                        primaryStage.getScene().getRoot().applyCss();
+                        primaryStage.getScene().getRoot().layout();
+                    });
                     // 跳转到主页面之后，需要将主页面存入缓存节点中
                     log.info("界面已由欢迎页面跳转至主页面~");
                 } catch (Exception e) {

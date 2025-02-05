@@ -4,13 +4,16 @@
  */
 .root-Pane {
     -fx-background-color: white;
+    -fx-background-radius: 15px !important;
+    -fx-border-radius: 15px !important;
 }
+
 
 /**
 导航栏总体样式
  */
 #border-pane-top {
-    -fx-background-color: #D7000F;
+    -fx-background-color: black;
     -fx-background-radius: 15px 15px 0 0;
     -fx-border-radius: 15px 15px 0 0;
 }
@@ -169,9 +172,15 @@
  */
 
 #homePagePlayer {
-    -fx-background-color: white;
-    -fx-border-color: white;
+    -fx-background-color: black;
+    -fx-border-color: black;
     -fx-background-radius: 0 0 15px 15px;
     -fx-border-radius: 0 0 15px 15px;
 }
+
+/* 强制所有子容器透明 */
+/*#border-pane-top > *,*/
+/*#border-pane-top HBox {*/
+/*    -fx-background-color: rgba(253, 253, 253, 0);*/
+/*}*/
 
